@@ -1,0 +1,310 @@
+@use "../global/mixin" as *;
+
+.contact {
+    padding-block: 4rem;
+    background: var(--color-white);
+
+    @include mq("mdPlus") {
+        padding-block: 12rem;
+    }
+}
+
+.contact__inner {
+}
+
+.contact__heading {
+    &::before {
+        content: "";
+        background: url("../img/icon-mail.svg") no-repeat center center / contain;
+    }
+}
+
+.contact__text {
+    margin-top: 3.2rem;
+    text-align: center;
+}
+
+.contact__form {
+}
+
+.contact__fields {
+    margin-top: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+
+    @include mq("mdPlus") {
+        margin-top: 4rem;
+    }
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+
+    @include mq("mdPlus") {
+        flex-direction: row;
+        align-items: center;
+        gap: 2.4rem;
+    }
+}
+
+.form-field__head {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    @include mq("mdPlus") {
+        width: 24rem;
+        flex-shrink: 0;
+    }
+}
+
+.form-field__label {
+    font-size: 1.4rem;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.form-field__tag {
+    display: inline-block;
+    color: var(--color-white);
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 0.4rem 0.8rem;
+    background: var(--color-accent--primary);
+    border-radius: 0.4rem;
+}
+
+.form-field__item {
+    flex-grow: 1;
+}
+
+.form-text,
+.form-textarea {
+    font: inherit;
+    color: inherit;
+    vertical-align: top;
+    width: 100%;
+    height: 100%;
+    border: 0.1rem solid transparent;
+    border-radius: 0.8rem;
+    background: var(--color-gray--light);
+    padding: 1.6rem;
+    color: var(--color-gray--dark);
+    font-size: 1.4rem;
+    line-height: inherit;
+
+    &::placeholder {
+        color: var(--color-gray--dark);
+    }
+
+    &:focus-visible {
+        outline: none; // グローバルなoutlineを無効化
+        border: 0.1rem solid var(--color-main);
+        background: var(--color-sub--tertiary);
+    }
+
+    &:user-invalid {
+        border-color: var(--color-accent--primary);
+    }
+}
+
+// ラジオボタン
+.form-field__row {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+
+    @include mq("mdPlus") {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.form-field__radios {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.form-radio {
+    cursor: pointer;
+}
+
+.form-radio__input {
+    width: 0.1rem;
+    height: 0.1rem;
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
+
+    &:checked + .form-radio__text::after {
+        opacity: 1;
+    }
+
+    &:focus-visible + .form-radio__text::before {
+        outline: 0.2rem solid var(--color-main);
+        outline-offset: 0.1rem;
+    }
+}
+
+.form-radio__text {
+    font: inherit;
+    padding-left: 2.8rem;
+    position: relative;
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 50%;
+    }
+
+    // ラジオボタンの外枠
+    &::before {
+        width: 24px;
+        height: 24px;
+        border: 1px solid transparent;
+        left: 0;
+        background: var(--color-gray--light);
+        transition: border-color 0.3s ease;
+    }
+
+    // ラジオボタンの中身
+    &::after {
+        width: 10px;
+        height: 10px;
+        background: var(--color-main);
+        left: 7px;
+        opacity: 0;
+    }
+}
+
+// セレクトボタン
+.form-select {
+    color: var(--color-blown);
+    font-size: 1.6rem;
+    position: relative;
+    width: 100%;
+    padding: 1.6rem;
+    font-size: 14px;
+    appearance: none;
+    cursor: pointer;
+    background-image: url(../img/icon-arrow-bottom.svg), linear-gradient(to left, var(--color-main) 52px, var(--color-gray--light) 52px);
+    background-repeat: no-repeat;
+    background-position: right 14px center, center;
+    background-size: 24px auto, cover;
+    border: 0.1rem solid transparent;
+    border-radius: 0.8rem;
+
+    &:focus-visible {
+        outline: none; // グローバルなoutlineを無効化
+        border: 0.1rem solid var(--color-main);
+    }
+
+    &:user-invalid {
+        // エラー時に背景のグラデーションの色も変更する
+        background-image: url(../img/icon-arrow-bottom.svg), linear-gradient(to left, var(--color-accent--primary) 52px, var(--color-gray--light) 52px);
+        border-color: var(--color-accent--primary);
+    }
+}
+
+// テキストエリア
+.form-textarea {
+    height: 16rem;
+    resize: none;
+}
+
+// プライバシーポリシー
+.contact__privacy {
+    text-align: center;
+    margin-top: 2.4rem;
+
+    @include mq("mdPlus") {
+        margin-top: 4rem;
+    }
+}
+
+.form-checkbox {
+}
+
+.form-checkbox__input {
+    width: 0.1rem;
+    height: 0.1rem;
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
+
+    &:checked + .form-checkbox__text::after {
+        opacity: 1;
+    }
+
+    &:focus-visible + .form-checkbox__text::before {
+        outline: 0.2rem solid var(--color-main);
+        outline-offset: 0.1rem;
+    }
+}
+
+.form-checkbox__text {
+    position: relative;
+    padding-left: 3rem;
+    font: inherit;
+
+    a {
+        text-decoration: underline;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: var(--color-main);
+        }
+    }
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &::before {
+        width: 2.4rem;
+        height: 2.4rem;
+        border-radius: 0.4rem;
+        background: var(--color-gray--light);
+    }
+
+    &::after {
+        width: 14px;
+        height: 9px;
+        left: 5px;
+        background: url(../img/icon-check.svg) no-repeat center center/contain;
+        opacity: 0;
+    }
+}
+
+.contact__button {
+    margin-top: 2.4rem;
+    text-align: center;
+}
+
+.form-field__error {
+    display: none; // 通常は非表示
+    margin-top: 0.8rem;
+    font-size: 1.2rem;
+    color: var(--color-accent--primary);
+}
+
+// :invalid状態の入力欄の「次」の要素である .form-field__error を表示する
+.form-text:user-invalid + .form-field__error,
+.form-textarea:user-invalid + .form-field__error {
+    display: block;
+}
+
+.form-field__item {
+    position: relative; // エラーメッセージの配置のために追加
+}

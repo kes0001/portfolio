@@ -1,0 +1,314 @@
+@use "../global/mixin" as *;
+
+.hero {
+    position: relative;
+    padding-top: 1.7rem;
+
+    @include mq("md") {
+        padding-top: 3.4rem;
+    }
+}
+
+.hero__image {
+    // <picture>タグ自体はブロック要素としてレイアウトを制御
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 15.6rem);
+    overflow: hidden;
+    border-radius: 0 0 2.4rem 2.4rem;
+
+    // 中のimg要素に直接角丸を適用する方が、意図が明確で堅牢です
+    img {
+        width: 100%; // 親要素いっぱいに表示
+        height: auto;
+        object-fit: cover;
+        object-position: center center;
+        border-radius: 0 0 2rem 2rem;
+
+        @include mq("md") {
+            border-radius: 0 0 4rem 4rem;
+        }
+    }
+}
+
+.hero__inner {
+    position: relative;
+    max-width: 33.5rem;
+    margin-inline: auto;
+
+    @include mq("md") {
+        max-width: 84.8rem;
+        margin-inline: auto;
+    }
+}
+
+.hero__description {
+    text-align: center;
+    text-shadow: 0 0 3rem #fff;
+    font-family: var(--font-family-jp-accent);
+    font-size: 1.4rem;
+    line-height: 125%;
+    text-transform: capitalize;
+
+    @include mq("md") {
+        font-size: 24px;
+        font-weight: 500;
+    }
+}
+
+.hero__lead {
+    margin-top: 2rem;
+
+    @include mq("md") {
+        text-align: center;
+        margin-top: 2.4rem;
+    }
+}
+
+.hero__lead-image {
+}
+
+.hero__decorations {
+    position: relative;
+    margin-top: 1rem;
+    height: 52.2rem;
+
+    @include mq("md") {
+        height: 55.8rem;
+        margin-top: 0;
+    }
+}
+
+.hero__phone {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+
+    @include mq("md") {
+        bottom: 1.5rem;
+    }
+}
+
+.phone {
+    width: 20rem;
+    max-width: 100%;
+
+    @include mq("md") {
+        width: 25rem;
+    }
+}
+
+.phone__image {
+    position: relative;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.phone__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 4rem);
+    overflow: hidden;
+    text-align: center;
+    background: #fff;
+    border-radius: 12.8px;
+
+    @include mq("md") {
+        width: calc(100% - 5rem);
+        border-radius: 1.6rem;
+    }
+}
+
+.phone__heading {
+    color: #fff;
+    padding: 0.64rem 0.96rem;
+    background: linear-gradient(265deg, #ac3790 -3.52%, #d65a5c 44.94%, #f4c06d 92.38%);
+    font-size: 1.28rem;
+    font-weight: 700;
+    line-height: 160%; /* 20.48px */
+
+    @include mq("md") {
+        padding: 0.8rem 1.2rem;
+        font-size: 1.6rem;
+    }
+}
+
+.phone__body {
+    padding: 1.28rem 0 1.4rem;
+    background: #fff;
+    border-radius: 0 0 1.28rem 1.28rem;
+
+    @include mq("md") {
+        padding-top: 14px;
+        padding-bottom: 20px;
+    }
+}
+
+.phone__sub-heading {
+    display: inline-block;
+    color: var(--color-blown);
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding-bottom: 0.32rem;
+    line-height: 160%;
+    position: relative;
+
+    @include mq("md") {
+        font-size: 1.4rem;
+        padding-bottom: 0.4rem;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        bottom: 0;
+        width: 100%;
+        height: 0.24rem;
+        background: var(--color-accent--primary);
+    }
+}
+
+.phone__date {
+    font-family: "Noto Sans JP";
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 160%;
+
+    @include mq("md") {
+        font-feature-settings: "pref" on;
+        font-size: 1.6rem;
+    }
+}
+
+.phone__action {
+    margin-top: 1.28rem;
+
+    @include mq("md") {
+        margin-top: 1.6rem;
+    }
+}
+
+.phone__button {
+    padding: calc(0.6rem - 0.4rem) calc(2.4rem - 0.2rem) calc(0.8rem - 0.4rem) calc(2.4rem - 0.2rem);
+    font-size: 1.4rem;
+    line-height: 160%; /* 22.4px */
+
+    @include mq("md") {
+        padding-top: 4px;
+        padding-right: 22px;
+        padding-bottom: 6px;
+        padding-left: 22px;
+        font-size: 16px;
+        border-width: 2px;
+    }
+}
+
+.hero__note {
+    position: absolute;
+    top: 7px;
+    left: 0;
+    width: 142px;
+
+    @include mq("md") {
+        top: 0;
+        right: calc(50% + 143px);
+        left: auto;
+        width: 244px;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.hero__badge {
+    position: absolute;
+    top: 0;
+    right: 2.5rem;
+    width: 110px;
+
+    @include mq("md") {
+        top: 17px;
+        left: calc(50% + 11.7rem);
+        width: 180px;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+
+.hero__food {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    z-index: 3;
+    width: 90px;
+    max-width: 100%;
+
+    @include mq("md") {
+        bottom: -0.3rem;
+        width: 21.2rem;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.hero__cats {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 10.7rem;
+    height: 12.7rem;
+
+    @include mq("md") {
+        bottom: -4.4rem;
+        width: 23.3rem;
+        height: 29.4rem;
+    }
+}
+
+.hero__cat--black {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 6.2rem;
+    z-index: 15;
+
+    @include mq("md") {
+        left: 0;
+        width: 17rem;
+    }
+}
+
+.hero__cat--brown {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 9.8rem;
+    z-index: 20;
+
+    @include mq("md") {
+        right: 0;
+        bottom: 0;
+        width: 100%;
+    }
+}

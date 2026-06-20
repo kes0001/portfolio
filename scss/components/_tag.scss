@@ -1,0 +1,16 @@
+@use "../foundation" as *;
+
+// ============================================================
+// c-tag — 使用技術・カテゴリ表示用タグ
+// ============================================================
+.c-tag {
+  display: inline-block;
+  padding: rem(2) rem(10);
+  font-family: var(--font-family-en);
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-sub);
+  background-color: var(--color-bg-light);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+}

@@ -1,0 +1,144 @@
+@use "../../global/mixin" as *;
+
+// ======================================================
+// MARK: Utility Classes
+// ======================================================
+
+// --- Spacing Utilities ---
+.u-mt-1 {
+    margin-top: 1rem;
+}
+.u-mt-2 {
+    margin-top: 2rem;
+}
+.u-mt-3 {
+    margin-top: 3rem;
+}
+.u-mb-1 {
+    margin-bottom: 1rem;
+}
+.u-mb-2 {
+    margin-bottom: 2rem;
+}
+.u-mb-3 {
+    margin-bottom: 3rem;
+}
+
+// --- Text Utilities ---
+.u-text-center {
+    text-align: center;
+}
+
+.u-text-left {
+    text-align: left;
+}
+
+.u-text-right {
+    text-align: right;
+}
+
+.u-text-capitalize {
+    text-transform: capitalize;
+}
+
+.u-fw-bold {
+    font-weight: 700;
+}
+
+// --- Display Utilities ---
+.u-flex {
+    display: flex;
+}
+.u-flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.u-grid {
+    display: grid;
+}
+.u-hidden {
+    display: none;
+}
+
+// --- Position Utilities ---
+.u-relative {
+    position: relative;
+}
+.u-absolute {
+    position: absolute;
+}
+.u-fixed {
+    position: fixed;
+}
+
+// --- Responsive Utilities ---
+.u-sm-text-center {
+    text-align: center;
+}
+
+@include mq("md") {
+    .u-md-text-center {
+        text-align: center;
+    }
+    .u-md-flex {
+        display: flex;
+    }
+    .u-md-hidden {
+        display: none;
+    }
+}
+
+// --- Break Utilities for <br> ---
+.u-br {
+    display: block;
+}
+// --- Responsive Visibility Utilities ---
+/*
+  <br class="u-hidden-above-md" />
+  のように使用し、特定のブレークポイントで改行の表示・非表示を切り替えます。
+*/
+
+/* sm未満だけ非表示 */
+.u-hidden-sm {
+    display: none;
+}
+@media (min-width: 768px) {
+    .u-hidden-sm {
+        display: block;
+    }
+}
+
+/* md(768px)以上で非表示（スマホでのみ表示） */
+.u-hidden-above-md {
+    @include mq("md") {
+        display: none;
+    }
+}
+
+/* md以上だけ非表示 */
+@media (min-width: 768px) {
+    .u-hidden-md {
+        display: none;
+    }
+}
+
+/* md(768px)未満で非表示（PCでのみ表示） */
+.u-hidden-below-md {
+    display: none;
+    @include mq("md") {
+        display: initial; /* brタグのデフォルトの表示状態に戻す */
+    }
+}
+
+.u-sr-only {
+    position: absolute;
+    width: 0.1rem;
+    height: 0.1rem;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+}

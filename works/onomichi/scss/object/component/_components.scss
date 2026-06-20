@@ -1,0 +1,222 @@
+@use "../../global/mixin" as *;
+
+// --- Heading ---
+.c-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    text-align: center;
+    line-height: 1.25;
+    position: relative;
+    z-index: var(--z-base);
+
+    &::before {
+        content: "";
+        display: inline-block;
+        width: 3.733rem;
+        height: 3.733rem;
+        background-color: var(--color-main);
+
+        @include mq("mdPlus") {
+            width: 4.8rem;
+            height: 4.8rem;
+        }
+    }
+}
+
+.c-heading__en {
+    font-family: var(--font-family-en-cursive);
+    font-weight: 400;
+    text-transform: capitalize;
+
+    @include mq("mdPlus") {
+        font-size: 2rem;
+        line-height: 1.25;
+    }
+}
+
+.c-heading__jp {
+    display: inline-block;
+    padding-bottom: 1.2rem;
+    font-family: var(--font-family-jp-accent);
+    font-size: 2rem;
+    font-weight: 500;
+    border-bottom: 6px solid var(--color-accent--secondary);
+
+    @include mq("mdPlus") {
+        font-size: 3.2rem;
+        line-height: 1.25;
+    }
+}
+
+// --- Text-link ----
+.c-link-text {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-skip-ink: none;
+    transition: color 0.6s ease;
+
+    &:hover {
+        color: var(--color-main);
+    }
+}
+
+// --- Button ---
+.c-button {
+    display: inline-block;
+    color: var(--color-blown);
+    font-family: var(--font-family-jp-base);
+    font-size: 1.6rem;
+    font-weight: 700;
+    padding: 0.4rem 2.2rem 0.6rem 2.2rem;
+    border: 0.2rem solid var(--color-blown);
+    border-radius: 4rem;
+    background: #fff;
+    box-shadow: 0 0.4rem 0 0 var(--color-blown);
+    cursor: pointer;
+    transition: background-color 0.6s ease;
+
+    &:hover,
+    &:focus-visible {
+        background-color: var(--color-accent--secondary);
+        outline: none; // グローバルなoutlineを無効化
+    }
+
+    @include mq("mdPlus") {
+        padding: 0.8rem 3.7rem 1rem 3.7rem;
+        font-size: 2rem;
+        border-width: 0.3rem;
+    }
+}
+
+.c-button--small {
+    display: inline-block;
+    color: var(--color-blown);
+    font-family: var(--font-family-jp-base);
+    font-size: 1.6rem;
+    font-weight: 700;
+    padding: 0.4rem 2.2rem 0.6rem 2.2rem;
+    border: 0.2rem solid var(--color-blown);
+    border-radius: 4rem;
+    background: #fff;
+    box-shadow: 0 0.4rem 0 0 var(--color-blown);
+    cursor: pointer;
+    transition: background-color 0.6s ease;
+
+    &:hover,
+    &:focus-visible {
+        background-color: var(--color-accent--secondary);
+        outline: none; // グローバルなoutlineを無効化
+    }
+}
+
+// --- Drawer Menu ---
+.drawer-content {
+    width: 100%;
+    height: calc(100% - var(--header-height));
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    background: var(--color-white);
+    z-index: var(--z-drawer);
+    padding-block: 8.2rem;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+
+    &.is-open {
+        transform: translateY(0);
+    }
+}
+
+.drawer-content__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+}
+
+.drawer-content__link {
+    color: var(--color-blown);
+    font-size: 1.4rem;
+    line-height: 1.6;
+}
+
+// --- Drawer Icon ---
+.drawer-icon {
+    width: 3.2rem;
+    height: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: var(--z-drawer);
+
+    @include mq("md") {
+        display: none;
+    }
+
+    .drawer-icon__bar {
+        display: flex;
+        align-items: center;
+        height: 0.3rem;
+        width: 100%;
+        border-radius: 0.6rem;
+        position: relative;
+        transition: all 0.3s ease;
+
+        &:first-of-type {
+            justify-content: space-between;
+
+            .bar-left,
+            .bar-right {
+                display: block;
+                height: 100%;
+                border-radius: 0.6rem;
+                background-color: var(--color-blown);
+                transition: all 0.3s ease;
+            }
+
+            .bar-left {
+                width: 80%;
+            }
+
+            .bar-right {
+                width: 10%;
+            }
+        }
+
+        &:nth-of-type(2),
+        &:nth-of-type(3) {
+            background-color: var(--color-blown);
+        }
+    }
+
+    &.is-open {
+        .drawer-icon__bar {
+            &:first-of-type {
+                // アイコンの中央に移動し、45度回転
+                transform: translateY(1rem) rotate(45deg);
+                .bar-left {
+                    width: 100%;
+                }
+
+                .bar-right {
+                    display: none;
+                }
+            }
+
+            &:nth-of-type(2) {
+                opacity: 0;
+            }
+
+            &:nth-of-type(3) {
+                // アイコンの中央に移動し、-45度回転
+                transform: translateY(-1.05rem) rotate(-45deg);
+            }
+        }
+    }
+}

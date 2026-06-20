@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>デザインカンプからサイト制作（ライブコーディング） | KANZAKI Portfolio</title>
+    <meta name="description" content="オンラインスクールの課題として、ライブコーディング形式でWebサイト制作の実務プロセスを学習した制作プロセスを紹介します。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/main.js" defer></script>
+  </head>
+  <body>
+    <header class="l-header">
+      <div class="l-container l-header__inner">
+        <a class="l-header__logo" href="../index.html">KANZAKI</a>
+        <button class="l-header__burger" aria-label="メニューを開く" aria-expanded="false" aria-controls="l-header-nav">
+          <span class="l-header__burger-bar"></span>
+          <span class="l-header__burger-bar"></span>
+          <span class="l-header__burger-bar"></span>
+        </button>
+        <nav id="l-header-nav" class="l-header__nav" aria-label="メインナビゲーション">
+          <ul class="l-header__nav-list">
+            <li><a class="l-header__nav-link" href="../index.html#profile">Profile</a></li>
+            <li><a class="l-header__nav-link" href="../index.html#skills">Skills</a></li>
+            <li><a class="l-header__nav-link" href="../index.html#works">Works</a></li>
+            <li><a class="l-header__nav-link" href="../index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <article class="p-work">
+        <div class="l-container">
+          <a class="p-work__back" href="../index.html#works">Worksに戻る</a>
+          <p class="p-work__eyebrow">Works — Coding</p>
+          <h1 class="p-work__title">デザインカンプからサイト制作（ライブコーディング）</h1>
+          <p class="p-work__lead">オンラインスクールの課題。ライブコーディング形式で、Webサイト制作の実務プロセスを学習しました。</p>
+
+          <div class="p-work__meta">
+            <div class="p-work__meta-item">
+              <span class="p-work__meta-label">Role</span>
+              <span class="p-work__meta-value">コーディング</span>
+            </div>
+            <div class="p-work__meta-item">
+              <span class="p-work__meta-label">Tools</span>
+              <span class="p-work__meta-value">HTML / SCSS / JavaScript</span>
+            </div>
+          </div>
+
+          <div class="p-work__actions">
+            <a class="c-button c-button--accent" href="./sobolon/index.html" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>サイトを見る</a>
+          </div>
+
+          <img class="p-work__thumbnail" src="../images/work-sobolon.webp" alt="ライブコーディングで制作したサイトのスクリーンショット" width="800" height="533" loading="eager" fetchpriority="high" />
+
+          <div class="p-work__body">
+            <section class="p-work__section">
+              <h2 class="p-work__section-title"><span class="p-work__section-title-en">Purpose</span>制作の目的</h2>
+              <p class="p-work__text">スクールが提供したデザインカンプをもとに、ライブコーディングを見ながら制作。ユーザーが必要な情報に素早くたどり着ける情報設計と、クリーンなビジュアル表現を意識しました。Webサイト制作の実務的なプロセスを体験的に学ぶことを目的としています。</p>
+            </section>
+
+            <section class="p-work__section">
+              <h2 class="p-work__section-title"><span class="p-work__section-title-en">Coding</span>コーディングについて</h2>
+              <p class="p-work__text">保守性と再利用性を重視し、Sassによるモジュール設計とBEM設計手法を採用。特にコンポーネント単位での開発を意識し、変更や拡張が容易な構造を実現しました。JavaScriptではスムーズスクロール・スクロールアニメーション・タブ切り替えなど、ユーザビリティを向上させる機能を実装しています。</p>
+              <p class="p-work__text">レスポンシブデザインで各デバイスに最適な表示と操作性を確保するとともに、Webパフォーマンスの最適化やクロスブラウザ対応にも注力しました。</p>
+            </section>
+          </div>
+
+          <nav class="p-work__footer-nav">
+            <a class="p-work__back" href="../index.html#works">Worksに戻る</a>
+          </nav>
+        </div>
+      </article>
+    </main>
+
+    <footer class="l-footer">
+      <div class="l-container">
+        <p class="l-footer__copyright">&copy; <span class="js-year">2026</span> KANZAKI</p>
+      </div>
+    </footer>
+  </body>
+</html>

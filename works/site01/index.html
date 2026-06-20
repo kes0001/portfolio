@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <title>笹塚スマイル歯科クリニック</title>
+  <meta name="description"
+    content="笹塚スマイル歯科クリニックは、渋谷区笹塚駅から徒歩3分の歯科医院です。土曜日診療、夜21時まで診療可能。痛くない治療、個室診療、バリアフリー設計など、患者様に寄り添う歯科医療を提供。虫歯治療、小児歯科、予防歯科、歯周病治療など、幅広い診療に対応しています。">
+  <!-- favicon -->
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+  <!-- css -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- js -->
+  <script src="./js/script.js" defer></script>
+</head>
+
+<body>
+  <div class="reserve-fixed">
+    <a href="form.html" class="reserve-fixed__button">
+      <span class="reserve-fixed__text">WEB予約</span>
+      <span class="reserve-fixed__text">こちら</span>
+    </a>
+  </div>
+
+  <div class="tell-fixed">
+    <a href="tel:0312345678" class="tell-fixed__button">
+      <span class="reserve-fixed__text">TEL予約</span>
+      <span class="reserve-fixed__text">こちら</span>
+    </a>
+  </div>
+
+  <header class="header">
+    <div class="header__inner inner">
+      <h1 class="header__logo">
+        <a href="index.html">
+          <img src="./img/logo.png" alt="笹塚スマイル歯科クリニックのロゴ" width="50" height="50">
+          <span>笹塚スマイル歯科クリニック</span>
+        </a>
+      </h1>
+
+      <nav class="header__nav">
+        <ul class="header__nav-list">
+          <li class="header__nav-item"><a href="index.html">ホーム</a></li>
+          <li class="header__nav-item"><a href="#x">医院紹介</a></li>
+          <li class="header__nav-item"><a href="guide.html">初めての方</a></li>
+          <li class="header__nav-item"><a href="#x">診療内容</a></li>
+          <li class="header__nav-item"><a href="#x">料金について</a></li>
+          <li class="header__nav-item"><a href="#x">よくある質問</a></li>
+          <li class="header__nav-item"><a href="#x">アクセス</a></li>
+        </ul>
+      </nav>
+
+      <!-- ハンバーガーメニュー -->
+      <button id="js-drawer-icon" class="header__open drawer-icon">
+        <span class="drawer-icon__bar"></span>
+        <span class="drawer-icon__bar"></span>
+        <span class="drawer-icon__bar"></span>
+      </button>
+
+      <!-- ドロワーメニュー -->
+      <div id="js-drawer-content" class="drawer-content">
+        <nav class="drawer-content__menu">
+          <ul class="drawer-content__list">
+            <li class="drawer-content__item">
+              <a href="index.html" class="drawer-content__link">ホーム</a>
+            </li>
+            <li class="drawer-content__item">
+              <a href="guide.html" class="drawer-content__link">初めての方</a>
+            </li>
+            <li class="drawer-content__item">
+              <a href="#x" class="drawer-content__link">診療内容</a>
+            </li>
+            <li class="drawer-content__item">
+              <a href="#x" class="drawer-content__link">料金について</a>
+            </li>
+            <li class="drawer-content__item">
+              <a href="#x" class="drawer-content__link">よくある質問</a>
+            </li>
+            <li class="drawer-content__item">
+              <a href="#x" class="drawer-content__link">アクセス</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="first-view">
+      <div class="first-view__inner inner"></div>
+    </div>
+
+    <section class="first-view__content">
+      <div class="first-view__textarea">
+        <h2 class="first-view__title">
+          <span class="first-view__title1">土曜日診療で通いやすい</span>
+          <span class="first-view__title2">駅から徒歩3分の歯医者</span>
+          <span class="first-view__title3">お待たせしない、痛くない歯医者</span>
+        </h2>
+        <p class="first-view__lead">予防から治療まで。あなたに寄り添う笹塚の歯科クリニック。</p>
+      </div>
+      <div class="first-view__table">
+        <table class="time__table" aria-label="診療時間表">
+          <thead>
+            <tr>
+              <th>診療時間</th>
+              <th>月</th>
+              <th>火</th>
+              <th>水</th>
+              <th>木</th>
+              <th>金</th>
+              <th>土</th>
+              <th>日</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <th>9:30~13:30</th>
+              <td>●</td>
+              <td>●</td>
+              <td>●</td>
+              <td>ー</td>
+              <td>●</td>
+              <td>●</td>
+              <td>ー</td>
+            </tr>
+            <tr>
+              <th>15:00~21:00</th>
+              <td>●</td>
+              <td>●</td>
+              <td>●</td>
+              <td>ー</td>
+              <td>●</td>
+              <td>●</td>
+              <td>ー</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="first-view__button-wrap">
+        <a href="form.html" class="button reserve-button"><span>ご予約はこちらから</span></a>
+        <a href="tel:0312345678" class="button tell-button"><span>03-1234-5678</span></a>
+      </div>
+    </section>
+
+    <section class="point section">
+      <div class="point__inner inner">
+        <h2 class="point__title section-title">
+          <span class="section-title__ja">当院の３つのおすすめ</span>
+          <span class="section-title__en">point</span>
+        </h2>
+        <ul class="point__list">
+          <li class="point__item">
+            <div class="point__head">
+              <p class="point__head-text">point</p>
+              <p class="point__head-number">01</p>
+            </div>
+            <div class="point__body">
+              <img class="point__body-icon" src="./img/teeth-icon.svg" alt="歯が白いアイコン" width="80" height="80">
+              <h3 class="point__body-title">痛くない歯科医療の追求</h3>
+              <p class="point__body-text">歯の治療において、小さな違和感は大きなストレスにつながります。 私たちは常に快適な歯科医療技術の研究を行っております。</p>
+            </div>
+          </li>
+
+          <li class="point__item">
+            <div class="point__head">
+              <p class="point__head-text">point</p>
+              <p class="point__head-number">02</p>
+            </div>
+            <div class="point__body">
+              <img class="point__body-icon" src="./img/train-icon.svg" alt="電車アイコン" width="80" height="80">
+              <h3 class="point__body-title">駅から徒歩3分</h3>
+              <p class="point__body-text">「通いやすさ」も医院選びの重要なポイントと考え、2019年のリニューアルを期に更に駅の近くへ場所を移しました。</p>
+            </div>
+          </li>
+
+          <li class="point__item">
+            <div class="point__head">
+              <p class="point__head-text">point</p>
+              <p class="point__head-number">03</p>
+            </div>
+            <div class="point__body">
+              <img class="point__body-icon" src="./img/clock-icon.svg" alt="時計アイコン" width="80" height="80">
+              <h3 class="point__body-title">夜21:00まで診療</h3>
+              <p class="point__body-text">朝から夜までお仕事をされている方のために、診療時間を見直しました。</p>
+              <span class="point__text-annotation">※駆け込みでも対応可能ですが、事前にご連絡いただけるとスムーズです。</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="news section">
+      <div class="news__inner inner">
+        <div class="news__card">
+          <h2 class="news__title">
+            <span class="news__title-ja">お知らせ</span>
+            <span class="news__title-en">news</span>
+          </h2>
+          <div class="news__list">
+            <article class="news__item">
+              <a class="news__item-link" href="#x">
+                <div class="news__item-meta">
+                  <time datetime="2025-05-02" class="news__item-date">2025.05.02</time>
+                  <p class="news__item-label news__item-label--news">お知らせ</p>
+                </div>
+                <h3 class="news__item-title">5月診療のお知らせ</h3>
+              </a>
+            </article>
+
+            <article class="news__item">
+              <a class="news__item-link" href="#x">
+                <div class="news__item-meta">
+                  <time datetime="2025-04-10" class="news__item-date">2025.04.10</time>
+                  <p class="news__item-label news__item-label--important">重要</p>
+                </div>
+                <h3 class="news__item-title">GWの休診日について</h3>
+              </a>
+            </article>
+
+            <article class="news__item">
+              <a class="news__item-link" href="#x">
+                <div class="news__item-meta">
+                  <time datetime="2025-03-22" class="news__item-date">2025.03.22</time>
+                  <p class="news__item-label news__item-label--column">コラム</p>
+                </div>
+                <h3 class="news__item-title">「歯の黄ばみが気になる方へ。当院では、歯を削らずに白くするホワイトニングを行っています。笑顔に自信をプラスしませんか？」</h3>
+              </a>
+            </article>
+
+            <article class="news__item">
+              <a class="news__item-link" href="#x">
+                <div class="news__item-meta">
+                  <time datetime="2025-03-22" class="news__item-date">2025.01.22</time>
+                  <p class="news__item-label news__item-label--news">お知らせ</p>
+                </div>
+                <h3 class="news__item-title">マイナンバーカードの健康保険証利用が可能になりました</h3>
+              </a>
+            </article>
+            <a href="#x" class="news__more-link">もっとみる</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about section">
+      <div class="about__inner inner">
+        <h2 class="about__title section-title">
+          <span class="section-title__ja">医院紹介</span>
+          <span class="section-title__en">about</span>
+        </h2>
+        <div class="about__content">
+          <div class="about__image">
+            <img src="./img/about-img.jpg" alt="医院紹介" width="1920" height="1280">
+          </div>
+          <div class="about__textarea">
+            <p class="about__text">
+              笹塚スマイル歯科クリニックは、継続して通いたくなる歯科医院を目指しています。当院の理念は、「質の高い治療を提供し、多くの患者さんに長期間に渡って通っていただける医院」です。患者さん一人ひとりに対して丁寧な診療と温かい対応を大切にしております。
+            </p>
+            <p class="about__text">
+              当院では、患者さんのお口の健康だけでなく、総合的な健康に焦点を当てた治療や予防歯科に力を入れています。最新の治療技術と設備を導入し、安心して通院できる環境を整え、担当衛生士制度を採用しています。</p>
+            <p class="about__text">患者さんとのコミュニケーションを重視し、長期的な信頼関係を築いていきたいと考えています。</p>
+            <p class="about__text">地域のニーズに応える歯科医院として、笑顔と健康に貢献できるようスタッフ一同努力致します。どうぞお気軽にご来院ください。</p>
+            <a href="#x" class="button about-button">当院について詳しく</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu section">
+      <div class="menu__inner inner">
+        <h2 class="menu__title section-title">
+          <span class="section-title__ja">診療内容</span>
+          <span class="section-title__en">menu</span>
+        </h2>
+        <ul class="menu__list">
+          <li class="menu__item menu-item">
+            <a href="#x" class="menu-item__link">
+              <img class="menu-item__image" src="img/menu-icon1.svg" alt="虫歯治療のアイコン" width="100" height="100">
+              <h3 class="menu-item__title">虫歯治療</h3>
+              <p class="menu-item__text">限りなく配慮した<br>痛みの少ない歯科治療</p>
+            </a>
+          </li>
+
+          <li class="menu__item menu-item">
+            <a href="#x" class="menu-item__link">
+              <img class="menu-item__image" src="img/menu-icon2.svg" alt="小児治療のアイコン" width="100" height="100">
+              <h3 class="menu-item__title">小児治療</h3>
+              <p class="menu-item__text">虫歯ゼロの永久歯を<br>目指して</p>
+            </a>
+          </li>
+
+          <li class="menu__item menu-item">
+            <a href="#x" class="menu-item__link">
+              <img class="menu-item__image" src="img/menu-icon3.svg" alt="予防歯科のアイコン" width="100" height="100">
+              <h3 class="menu-item__title">予防歯科</h3>
+              <p class="menu-item__text">再発しにくい<br>精密な虫歯治療を</p>
+            </a>
+          </li>
+
+          <li class="menu__item menu-item">
+            <a href="#x" class="menu-item__link">
+              <img class="menu-item__image" src="img/menu-icon4.svg" alt="歯周病治療のアイコン" width="100" height="100">
+              <h3 class="menu-item__title">歯周病治療</h3>
+              <p class="menu-item__text">歯を失う一番の原因<br>定期的な検診を</p>
+            </a>
+          </li>
+
+          <li class="menu__item menu-item">
+            <a href="#x" class="menu-item__link">
+              <img class="menu-item__image" src="img/menu-icon5.svg" alt="根管治療のアイコン" width="100" height="100">
+              <h3 class="menu-item__title">根管治療</h3>
+              <p class="menu-item__text">歯の寿命を左右する<br>精密な根の治療</p>
+            </a>
+          </li>
+
+          <li class="menu__item menu-item">
+            <a href="#x" class="menu-item__link">
+              <img class="menu-item__image" src="img/menu-icon6.svg" alt="審美歯科のアイコン" width="100" height="100">
+              <h3 class="menu-item__title">審美歯科</h3>
+              <p class="menu-item__text">歯が白いと自分に<br>自信が持てる</p>
+            </a>
+          </li>
+
+          <li class="menu__item menu-item">
+            <a href="#x" class="menu-item__link">
+              <img class="menu-item__image" src="img/menu-icon7.svg" alt="インプラントのアイコン" width="100" height="100">
+              <h3 class="menu-item__title">インプラント</h3>
+              <p class="menu-item__text">自分の歯のように噛める<br>第2の永久歯</p>
+            </a>
+          </li>
+
+          <li class="menu__item menu-item">
+            <a href="#x" class="menu-item__link">
+              <img class="menu-item__image" src="img/menu-icon8.svg" alt="口腔外科のアイコン" width="100" height="100">
+              <h3 class="menu-item__title">口腔外科</h3>
+              <p class="menu-item__text">お口周りの外科処置<br>より快適な毎日を</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="feature section">
+      <div class="feature__inner inner">
+        <h2 class="feature__title section-title">
+          <span class="section-title__ja">当クリニック6つの特徴</span>
+          <span class="section-title__en">feature</span>
+        </h2>
+        <ul class="feature__list">
+          <li class="feature__item">
+            <div class="feature__content">
+              <div class="feature__content-head">
+                <span class="feature__number">01</span>
+                <h3 class="feature__title">限りなく配慮した<br>痛みの少ない歯科治療</h3>
+              </div>
+              <div class="feature__content-body">
+                <p class="feature__description">表面麻酔、電動麻酔器、麻酔カートリッジウォーマーの使用と痛みの少ない注射テクニックにより麻酔時の痛みを抑えることができます。</p>
+              </div>
+            </div>
+
+            <p class="feature__visual">
+              <img src="./img/feature-1.jpg" alt="虫歯治療で歯科治療を行う歯科医と患者の写真" width="400" height="400">
+            </p>
+          </li>
+
+          <li class="feature__item">
+            <div class="feature__content">
+              <div class="feature__content-head">
+                <span class="feature__number">02</span>
+                <h3 class="feature__title">プライバシーを守る<br>個室診療</h3>
+              </div>
+              <div class="feature__content-body">
+                <p class="feature__description">小さなお子さまと一緒の方や視線・声を気にされる方でも落ち着いて治療に集中できます。</p>
+              </div>
+            </div>
+
+            <p class="feature__visual">
+              <img src="./img/feature-2.jpg" alt="プライバシーを守る個室診療室の写真" width="400" height="400">
+            </p>
+          </li>
+
+          <li class="feature__item">
+            <div class="feature__content">
+              <div class="feature__content-head">
+                <span class="feature__number">03</span>
+                <h3 class="feature__title">どの世代でも通いやすい<br>バリアフリー設計</h3>
+              </div>
+              <div class="feature__content-body">
+                <p class="feature__text">ご高齢の方・体の不自由な方で車いすの方・ベビーカーでお越しの方でも入室していただけます。</p>
+              </div>
+            </div>
+
+            <p class="feature__visual">
+              <img src="./img/feature-3.jpg" alt="バリアフリー設計の医院内の写真" width="400" height="400">
+            </p>
+          </li>
+
+          <li class="feature__item">
+            <div class="feature__content">
+              <div class="feature__content-head">
+                <span class="feature__number">04</span>
+                <h3 class="feature__title">わかりやすい説明</h3>
+              </div>
+              <div class="feature__content-body">
+                <p class="feature__text">言葉ではわかりにくかった治療の内容や検査方法を可視化することで患者さまの理解が深まり、治療への不安を軽減できます。</p>
+              </div>
+            </div>
+
+            <p class="feature__visual">
+              <img src="./img/feature-4.jpg" alt="歯科治療の画像での説明をイメージした画像" width="400" height="400">
+            </p>
+          </li>
+
+          <li class="feature__item">
+            <div class="feature__content">
+              <div class="feature__content-head">
+                <span class="feature__number">05</span>
+                <h3 class="feature__title">3次元的な診査・診断で<br>正確な治療</h3>
+              </div>
+              <div class="feature__content-body">
+                <p class="feature__text">最新のCTにより自動でX線量のコントロールができます。また画像の向上により正確な診断ができるだけでなく、照射線量を減らすことが可能です。</p>
+              </div>
+            </div>
+
+            <p class="feature__visual">
+              <img src="./img/feature-5.jpg" alt="レントゲンの歯科医療設備の写真" width="400" height="400">
+            </p>
+          </li>
+
+          <li class="feature__item">
+            <div class="feature__content">
+              <div class="feature__content-head">
+                <span class="feature__number">06</span>
+                <h3 class="feature__title">歯周病専門医・口腔外科<br>専門医のいる歯医者</h3>
+              </div>
+              <div class="feature__content-body">
+                <p class="feature__text">各分野のスペシャリストと連携することにより、患者さまに最適で最良の治療法を提供することができます。</p>
+              </div>
+            </div>
+
+            <p class="feature__visual">
+              <img src="./img/feature-6.jpg" alt="歯科治療のスッタフが集まった写真" width="400" height="400">
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="access section">
+      <div class="access__inner inner">
+        <h2 class="access__title section-title">
+          <span class="section-title__ja">アクセス</span>
+          <span class="section-title__en">access</span>
+        </h2>
+        <div class="access__content">
+          <div class="access__map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.2162036655322!2d139.70423887578835!3d35.69629687258241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cdeb91dcf3f%3A0xb6ac98faf88cd44!2z44Ki44K444Oj44K544OI44Ki44Kr44OH44Of44O8!5e0!3m2!1sja!2sjp!4v1747488365513!5m2!1sja!2sjp"
+              width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade" title="google map"></iframe>
+          </div>
+
+          <div class="access__info">
+            <div class="access__table-content">
+              <table class="time__table" aria-label="診療時間表">
+                <thead>
+                  <tr>
+                    <th>診療時間</th>
+                    <th>月</th>
+                    <th>火</th>
+                    <th>水</th>
+                    <th>木</th>
+                    <th>金</th>
+                    <th>土</th>
+                    <th>日</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <th>9:30~13:30</th>
+                    <td>●</td>
+                    <td>●</td>
+                    <td>●</td>
+                    <td>ー</td>
+                    <td>●</td>
+                    <td>●</td>
+                    <td>ー</td>
+                  </tr>
+                  <tr>
+                    <th>15:00~21:00</th>
+                    <td>●</td>
+                    <td>●</td>
+                    <td>●</td>
+                    <td>ー</td>
+                    <td>●</td>
+                    <td>●</td>
+                    <td>ー</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="access__text">
+                休診日：木曜・日曜・祝日
+                <span>※祝日がある週のみ木曜日診療</span>
+              </p>
+              <address class="access__contact-info">
+                <p class="access__postal-code">〒151-0073</p>
+                <p class="access__location">東京都渋谷区笹塚2丁目11-5 メディカル笹塚ビル3F</p>
+                <p class="access__tel">TEL 03-1234-5678</p>
+                <p class="access__transportation">電車：京王線・京王新線「笹塚駅」徒歩3分</p>
+              </address>
+            </div>
+            <div class="access__button-box">
+              <a href="#x" class="access__detail-button button">アクセス詳細</a>
+              <!-- <a href="" class="access__map-button button">googleマップで開く</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner inner">
+      <div class="footer__info footer-info">
+        <p class="footer-info__logo">
+          <a href="index.html" aria-label="笹塚スマイル歯科クリニックのトップページへ">
+            <img src="./img/logo.png" alt="笹塚スマイル歯科クリニックのロゴ" width="60" height="60">
+            <span>笹塚スマイル歯科クリニック</span>
+          </a>
+        </p>
+        <p class="footer-info__catch">
+          笑顔あふれる、優しい歯科治療<br>
+          京王線 笹塚駅 徒歩3分<br>
+          診療時間 9:30 〜 13:30 / 15:00 〜 21:00
+        </p>
+
+        <div class="footer-info__button">
+          <a href="form.html" class="button reserve-button"><span>ご予約はこちらから</span></a>
+          <a href="tel:0312345678" class="tel-link">03-1234-5678</a>
+        </div>
+        <div class="footer-info__sns-links">
+          <a href="https://twitter.com/" class="footer-info__sns">
+            <img src="img/x-logo.svg" alt="xのロゴマーク" width="30" height="30">
+          </a>
+          <a href="https://www.instagram.com/" class="footer-info__sns">
+            <img src="img/Instagram-logo.svg" alt="Instagramのロゴマーク" width="30" height="30">
+          </a>
+          <a href="https://www.youtube.com/" class="footer-info__sns">
+            <img src="img/youtube-logo.svg" alt="youtubeのロゴマーク" width="30" height="30">
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__menu">
+        <nav class="footer__nav">
+          <div class="footer__nav-block">
+            <h3 class="footer__nav-home">
+              <a href="index.html">ホーム</a>
+            </h3>
+          </div>
+
+          <div class="footer__nav-block">
+            <h3 class="footer__nav-title">当院について</h3>
+            <ul class="footer__nav-list">
+              <li class="footer__nav-item"><a href="#x">医院紹介</a></li>
+              <li class="footer__nav-item"><a href="#x">院長紹介</a></li>
+              <li class="footer__nav-item"><a href="#x">スタッフ紹介</a></li>
+              <li class="footer__nav-item"><a href="#x">院内設備</a></li>
+              <li class="footer__nav-item"><a href="#x">お知らせ</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__nav-block">
+            <h3 class="footer__nav-title">診療内容</h3>
+            <ul class="footer__nav-list">
+              <li class="footer__nav-item"><a href="#x">一般歯科</a></li>
+              <li class="footer__nav-item"><a href="#x">小児歯科</a></li>
+              <li class="footer__nav-item"><a href="#x">予防歯科</a></li>
+              <li class="footer__nav-item"><a href="#x">歯周病</a></li>
+              <li class="footer__nav-item"><a href="#x">審美歯科</a></li>
+              <li class="footer__nav-item"><a href="#x">ホワイトニング</a></li>
+              <li class="footer__nav-item"><a href="#x">インプラント</a></li>
+              <li class="footer__nav-item"><a href="#x">口腔外科</a></li>
+              <li class="footer__nav-item"><a href="#x">セラミック治療</a></li>
+              <li class="footer__nav-item"><a href="#x">マウスピース製作</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__nav-block">
+            <h3 class="footer__nav-title">ご利用ガイド</h3>
+            <ul class="footer__nav-list">
+              <li class="footer__nav-item"><a href="guide.html">はじめての方へ</a></li>
+              <li class="footer__nav-item"><a href="#x">アクセス</a></li>
+              <li class="footer__nav-item"><a href="#x">予約方法</a></li>
+              <li class="footer__nav-item"><a href="#x">料金について</a></li>
+              <li class="footer__nav-item"><a href="#x">よくあるご質問 (FAQ)</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__nav-block">
+            <h3 class="footer__nav-title">その他</h3>
+            <ul class="footer__nav-list">
+              <li class="footer__nav-item"><a href="#x">採用情報</a></li>
+              <li class="footer__nav-item"><a href="#x">サイトマップ</a></li>
+              <li class="footer__nav-item"><a href="#x">プライバシーポリシー</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <hr>
+    <p class="footer__copyright">
+      <small>&copy; 2025 笹塚スマイル歯科クリニック｜渋谷区笹塚の歯医者さん.All rights reserved.</small>
+    </p>
+  </footer>
+</body>
+</html>

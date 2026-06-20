@@ -1,0 +1,2765 @@
+@use "sass:map";
+@use "./base/reset";
+@use "./global/mixin" as *;
+@use "./global/variables" as *;
+@use "./base/base";
+
+// 共通クラス
+// インナー幅
+.inner {
+    padding-inline: 1.6rem;
+    margin-inline: auto;
+
+    @include mq("md") {
+        max-width: calc(var(--width-1200) + 3.2rem * 2);
+        padding-inline: 3.2rem;
+    }
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+main {
+    flex: 1;
+}
+
+// セクションタイトル
+.heading {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+
+    @include mq("md") {
+        gap: 1.6rem;
+    }
+}
+
+.heading__ja {
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.112rem;
+    font-family: var(--font-family-ja);
+    text-decoration: capitalize;
+
+    @include mq("md") {
+        font-size: 3.2rem;
+        letter-spacing: 0.128rem;
+    }
+}
+
+.heading__ja--company {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.38rem;
+    font-family: var(--font-family-ja);
+    text-decoration: capitalize;
+
+    @include mq("md") {
+        font-size: 1.8rem;
+    }
+}
+
+.heading__en {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 3.8px;
+    font-family: var(--font-family-en);
+    text-transform: capitalize;
+
+    @include mq("md") {
+        font-size: 1.8rem;
+        letter-spacing: 0.5rem;
+    }
+}
+
+.heading__en--company {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.112rem;
+    font-family: var(--font-family-en);
+    text-transform: capitalize;
+
+    @include mq("md") {
+        font-size: 3.2rem;
+        letter-spacing: 0.128rem;
+    }
+}
+
+// セクションクラス
+.section {
+    padding-block: 6.4rem;
+
+    @include mq("md") {
+        padding-block: 9.4rem;
+    }
+}
+
+// ボタンクラス
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 26rem;
+    padding: 1.4rem 3.2rem;
+    border-radius: 9999px;
+    background: var(--color-main);
+    color: #fff;
+    font-weight: 700;
+    max-width: 20rem;
+    gap: 0.8rem;
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.2);
+    border: 0.2rem solid transparent;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: #fff;
+        color: var(--color-main);
+        border-color: var(--color-main);
+    }
+}
+
+// スクリーンリーダー用（視覚的に非表示にする）
+.sr-only {
+    position: absolute;
+    width: 0.1rem;
+    height: 0.1rem;
+    padding: 0;
+    margin: -0.1rem;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+// フェードインアニメーション
+.fade-in {
+    opacity: 0;
+    transform: translateY(3rem);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.is-in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+// ヘッダー
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height-sp);
+    background: var(--color-bg-base);
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.05);
+    z-index: 9999;
+
+    @include mq("md") {
+        height: var(--header-height-pc);
+    }
+}
+
+.header__inner {
+    height: inherit;
+    padding-inline: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include mq("md") {
+        padding-inline: 3.2rem;
+    }
+}
+
+.header__logo {
+    a {
+        color: #000;
+        font-size: 2.8rem;
+        font-weight: 700;
+    }
+}
+
+.header__nav-container {
+    display: none;
+
+    @include mq("md") {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .header__nav-lower,
+    .header__nav-upper {
+        display: none; /* PC用ナビを非表示 */
+    }
+}
+
+.nav-upper__list {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2rem;
+}
+
+.nav-upper__item {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.nav-lower__list {
+    display: flex;
+    align-items: center;
+    gap: 2.4rem;
+}
+
+.nav-lower__item {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.search {
+    font-size: 1.4rem;
+    border-radius: 2.5rem;
+
+    &::placeholder {
+        // プレイスホルダーの文字サイズを小さくします
+        font-size: 1.2rem;
+        text-align: center;
+    }
+}
+
+// ハンバーガーアイコン
+.drawer-icon {
+    width: 3.6rem;
+    height: 2.1rem;
+    position: relative;
+    z-index: 200;
+    border: none;
+    background-color: transparent;
+
+    @include mq("lg") {
+        display: none;
+    }
+
+    &.active {
+        .drawer-icon__bar {
+            &:nth-child(1),
+            &:nth-child(3) {
+                top: 1rem;
+            }
+
+            &:nth-child(1) {
+                transform: rotate(45deg);
+            }
+
+            &:nth-child(2) {
+                display: none;
+            }
+
+            &:nth-child(3) {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}
+
+.drawer-icon__bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3.6rem;
+    height: 0.3rem;
+    border-radius: 6rem;
+    background: var(--color-base);
+    transition: transform 0.3s linear, top 0.3s linear;
+
+    &:nth-child(1) {
+        top: 0;
+    }
+
+    &:nth-child(2) {
+        top: 0.9rem;
+    }
+
+    &:nth-child(3) {
+        top: 1.8rem;
+    }
+}
+
+// ドロワーコンテンツ
+.drawer-content {
+    margin-top: var(--header-height-sp);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: var(--color-bg-base);
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.3s linear;
+
+    @include mq("lg") {
+        display: none;
+    }
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+}
+
+.drawer-content__menu {
+}
+
+.drawer-content__search {
+    padding: 1.6rem;
+}
+
+.drawer-content__search-input {
+    width: 100%;
+    padding: 1.6rem;
+    border-radius: 5rem;
+}
+
+.drawer-content__search-form {
+}
+
+.sr-only {
+}
+
+.drawer-content__list {
+}
+
+.drawer-content__item {
+    border-top: 1px solid var(--color-bg-gray);
+
+    &:last-child {
+        border-bottom: 1px solid var(--color-bg-gray);
+    }
+}
+
+.drawer-content__link {
+    display: block;
+    padding-inline: 1.6rem;
+    padding-block: 2rem;
+    text-align: left;
+    font-weight: 700;
+    letter-spacing: 0.048rem;
+}
+
+.drawer-content__button {
+    margin-top: 1.4rem;
+}
+
+// fv
+// 波型アニメーション
+.fv {
+    margin-top: var(--header-height-sp);
+    position: relative;
+    text-align: center;
+    // background: linear-gradient(60deg, rgba(84, 58, 183, 1) 0%, rgba(0, 172, 193, 1) 100%);
+    color: white;
+
+    @include mq("md") {
+        margin-top: var(--header-height-pc);
+    }
+}
+
+.fv__inner {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.fv__slide-image {
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.fv__swiper {
+    .fv__pagenation {
+        /* 波（z-indexなし）より手前に表示 */
+        z-index: 10;
+        /* 波に隠れないように位置を上に調整 */
+        bottom: 4rem;
+
+        @include mq("md") {
+            bottom: 8rem;
+        }
+    }
+}
+
+.fv__slide {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.fv__slide-image {
+    position: relative;
+    source {
+    }
+
+    img {
+    }
+}
+
+.fv__slide-caption {
+    margin-top: 0;
+    position: absolute;
+    bottom: 20%;
+    left: 0;
+    padding: 2rem;
+    border-radius: 0 8px 8px 0;
+    background: #fff;
+
+    @include mq("md") {
+        bottom: 25%;
+        padding: 1rem;
+    }
+}
+
+.fv__slide-title {
+    color: #333;
+    opacity: 1;
+}
+
+.fv__slide-title {
+    font-size: clamp(1.6rem, 1.074rem + 2.14vw, 3rem);
+    line-height: 1.8;
+    text-align: left;
+
+    @include mq("md") {
+        font-weight: 700;
+    }
+}
+
+.fv__prev,
+.fv__next {
+    display: none;
+}
+
+.fv__waves-container {
+    position: absolute; // 追加
+    left: 0;
+    right: 0;
+    bottom: 0; // 下部に配置
+    width: 100%;
+    z-index: 2; // 画像の上に重ねる
+}
+
+.fv__waves {
+    width: 100%;
+    height: 15vh;
+    margin-bottom: -0.7rem; /*Fix for safari gap*/
+    min-height: 5rem;
+    max-height: 10rem;
+}
+
+/* Animation */
+
+.fv__parallax > use {
+    animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+.fv__parallax > use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+}
+.fv__parallax > use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+}
+.fv__parallax > use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+}
+.fv__parallax > use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+}
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-9rem, 0, 0);
+    }
+    100% {
+        transform: translate3d(8.5rem, 0, 0);
+    }
+}
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+    .fv__waves {
+        height: 4rem;
+        min-height: 4rem;
+    }
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    z-index: 1000;
+    pointer-events: auto;
+}
+
+// info
+.info {
+    padding-top: 8rem;
+    padding-bottom: 6.4rem;
+}
+
+.info__inner {
+    @include mq("md") {
+        max-width: calc(var(--width-960) + 1.6rem * 2);
+        padding-inline: 1.6rem;
+        margin-inline: auto;
+    }
+}
+
+.info__box {
+    padding: 3.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    background: var(--color-bg-gray);
+    border-radius: 8px;
+
+    @include mq("md") {
+        flex-direction: row;
+        padding: 3.2rem 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: top;
+        border-radius: 20px;
+    }
+}
+
+.info__box-title {
+    @include mq("md") {
+        font-size: 2.4rem;
+    }
+}
+
+.info__box-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.info__box-item {
+    line-height: 1.7;
+    white-space: nowrap; // 文字を折り返さない
+    overflow: hidden; // はみ出た部分を隠す
+    text-overflow: ellipsis; // はみ出た部分を「…」で表示
+
+    a {
+        font-size: 1.4rem;
+    }
+}
+
+.info__more-link {
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+// info-banner
+.info-banner {
+    padding-block: 2.6rem;
+    overflow-x: hidden;
+}
+
+.info-banner__inner {
+}
+
+.info-banner__swiper {
+    // [解説] デフォルトでは `overflow: hidden` になっているため、左右のスライドが見えません。
+    // `overflow: visible` に変更することで、スライダーのコンテナからはみ出した
+    // 前後のスライドが見えるようになります。
+    overflow: visible;
+}
+
+.swiper-wrapper {
+}
+
+.info-banner__swiper-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* この .swiper-slide の指定は、Enjoyスライダーの動作を妨げるため完全に削除します */
+
+/* info-banner全体を画面幅いっぱいに */
+.info-banner {
+    background: #fff;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    position: relative;
+    z-index: 1;
+}
+
+/* 内側の余白を消す */
+.info-banner__inner {
+    width: 100vw;
+    max-width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+/* swiper自体も幅いっぱい */
+.info-banner__swiper {
+    width: 100vw;
+    max-width: 100vw;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+// デフォルト（スマホ・タブレット）は幅いっぱい
+.info-banner__slide {
+    width: 100vw !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-banner__slide img {
+    width: 100vw;
+    max-width: 1280px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+// PC時だけ縮小して中央寄せ
+@media (min-width: 1024px) {
+    .info-banner__slide {
+        width: 60vw !important; // 画面幅の60%に
+        max-width: 700px; // 最大幅を700pxに
+        margin: 0 auto;
+    }
+    .info-banner__slide img {
+        width: 100%;
+        max-width: 700px;
+    }
+}
+
+/* バナー下に余白 */
+.info-banner {
+    margin-bottom: 48px;
+}
+
+.info-banner__slide {
+}
+
+.swiper-pagination {
+}
+
+.info-banner__pagenation {
+}
+
+.swiper-button-prev {
+}
+
+.info-banner__prev {
+}
+
+.swiper-button-next {
+}
+
+.info-banner__next {
+}
+
+// ピックアップ商品セクション
+.pick-up-products {
+}
+
+.pick-up-products__inner {
+}
+
+.pick-up-products__title {
+}
+
+.pick-up-products__list {
+    margin-top: 2.4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.4rem;
+    width: 100%;
+
+    @include mq("md") {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mq("lg") {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.pick-up-products-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: #fff;
+}
+
+.pick-up-products-card__img {
+    width: 100%;
+    background: var(--color-bg-gray);
+}
+.pick-up-products-card__body {
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.pick-up-products-card__title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+.pick-up-products-card__title-sub {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.pick-up-products-card__date {
+    font-weight: 600;
+}
+
+// 商品一覧
+.products__lists {
+    margin-block: 2.4rem;
+    display: grid;
+    // grid-template-columns: repeat(auto-fill, minmax(280px, 2fr));
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.4rem;
+
+    @include mq("md") {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.products__list {
+    &:nth-child(1) {
+        .products__item-head {
+            background: #ffeb3b;
+        }
+    }
+
+    &:nth-child(2) {
+        .products__item-head {
+            background: #2196f3;
+        }
+    }
+
+    &:nth-child(3) {
+        .products__item-head {
+            background: #00bcd4;
+        }
+    }
+
+    &:nth-child(4) {
+        .products__item-head {
+            background: #d32f2f;
+        }
+    }
+
+    &:nth-child(5) {
+        .products__item-head {
+            background: #4caf50;
+        }
+    }
+
+    &:nth-child(6) {
+        .products__item-head {
+            background: #9c27b0;
+        }
+    }
+
+    &:nth-child(7) {
+        .products__item-head {
+            background: #e1f5fe;
+        }
+    }
+
+    &:nth-child(8) {
+        .products__item-head {
+            background: #b0bec5;
+        }
+    }
+}
+
+.products__item {
+    width: 100%;
+    height: 220px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.products__item-head {
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.products__item-logo {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+.products__item-body {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background: #fff;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.products__item-image {
+    position: absolute;
+    width: 20rem;
+    height: auto;
+    top: 2rem;
+    right: -1rem;
+    display: block;
+}
+
+.products__button-container {
+}
+
+.products__button {
+    margin-inline: auto;
+}
+
+// gallery
+.gallery {
+    // [解説] 他のスライダーセクションと同様に、ページ全体の横スクロールを防ぐために `overflow: hidden` を指定します。
+    overflow: hidden;
+}
+
+.gallery__inner {
+    @include mq("md") {
+        padding-block: 30px;
+        max-width: calc(800px + 30px * 2);
+    }
+}
+
+.gallery__title {
+}
+
+.gallery-card {
+    border: 2px solid #000;
+    box-shadow: 0px 9px 30px 0px rgba(0, 0, 0, 0.2);
+}
+
+.gallery__slider {
+    margin-block-start: 30px;
+
+    @include mq("md") {
+        margin-block-start: 60px;
+    }
+}
+
+.gallery__swiper {
+    // [解説] 他のスライダーと同様に、左右のスライドが見えるように `overflow: visible` を指定します。
+    overflow: visible;
+    padding-block-end: 26px;
+    padding-inline: 5px;
+
+    @include mq("md") {
+        padding-inline: 70px;
+    }
+}
+
+.gallery__pagination {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    bottom: 0 !important;
+
+    .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+        margin-block: 0 !important;
+        background: #bcbcbc;
+        opacity: 1;
+
+        &.swiper-pagination-bullet-active {
+            background: var(--color-main);
+        }
+    }
+}
+
+.gallery__prev,
+.gallery__next {
+    width: 40px;
+    height: 40px;
+    margin-block-start: -40px;
+
+    @include mq("md") {
+        width: 50px;
+        height: 50px;
+    }
+
+    &::after {
+        display: none;
+    }
+}
+
+.gallery__prev {
+    left: 0;
+    background: url(../img/prev-icon.png) no-repeat center center / contain;
+}
+
+.gallery__next {
+    right: 0;
+    background: url(../img/next-icon.png) no-repeat center center / contain;
+}
+
+.gallery-card {
+    border-radius: 2rem;
+    // border: 3px solid #111;
+    background: #fff;
+    box-shadow: 0px 9px 30px 0px #f4f4f4;
+    padding-block-start: 1.5rem;
+    padding-block-end: 1.2rem;
+    padding-inline: 1.5rem;
+
+    @include mq("md") {
+        border-radius: 3rem;
+        padding-block-start: 2rem;
+        padding-block-end: 1.8rem;
+        padding-inline: 2rem;
+    }
+}
+
+.gallery-card__image {
+    text-align: center;
+
+    img {
+        border-radius: 1rem 1rem 0 0;
+
+        @include mq("md") {
+            border-radius: 2rem 2rem 0 0;
+        }
+    }
+}
+
+.gallery-card__text {
+    margin-block-start: 11px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.7;
+
+    @include mq("md") {
+        margin-block-start: 18px;
+        font-size: 16px;
+    }
+}
+
+// enjoy
+.enjoy {
+    background: var(--color-bg-gray);
+}
+
+.enjoy__slide {
+    // Swiperの`slidesPerView: "auto"`と組み合わせて、スライドの幅を360pxに設定
+    width: 36rem;
+
+    &:hover {
+        opacity: 1;
+        transition: opacity 0.3s ease;
+    }
+}
+
+.enjoy__slide-link {
+    display: block; // aタグをブロック要素にする
+    height: 100%; // 親要素（スライド）の高さいっぱいに広げる
+    color: inherit; // 文字色を親から継承
+}
+
+.enjoy-card {
+    // .gallery-card のスタイルを上書きして、サイズとレイアウトを調整
+    height: 30rem; // カードの高さを300pxに固定
+    display: flex;
+    flex-direction: column;
+    padding: 0; // .gallery-card の padding をリセット
+    border: none; // .gallery-card の border をリセット
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1); // 影を調整
+    // overflow: hidden; // 角丸を適用するため
+    border-radius: 0.8rem; // 角丸を調整
+}
+
+.enjoy-card__image {
+    height: 18rem; // 画像の高さを180pxに設定
+    flex-shrink: 0; // コンテナが縮まないようにする
+    text-align: inherit; // .gallery-card__image からのリセット
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; // アスペクト比を保ちつつコンテナを埋める
+        border-radius: 0; // .gallery-card__image img からの角丸をリセット
+    }
+}
+
+.enjoy-card__body {
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; // 残りの領域をすべて使用する
+}
+
+.enjoy-card__date {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-main);
+}
+
+.enjoy-card__text {
+    // .gallery-card__text のスタイルを上書き
+    margin-block-start: 0.8rem;
+    text-align: left;
+    line-height: 1.5;
+}
+
+.enjoy__button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 2.4rem;
+    margin-top: 2.4rem;
+
+    @include mq("md") {
+        flex-direction: row;
+    }
+}
+
+.enjoy__button {
+    width: 100%;
+}
+
+// recipe
+.recipe {
+    background: var(--color-bg-gray);
+}
+
+.recipe__slide {
+    &:hover {
+        opacity: 1;
+        transition: opacity 0.3s ease;
+    }
+}
+
+.recipe-card__image {
+    img {
+        border-radius: 1rem;
+    }
+}
+
+.recipe-card__body {
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.recipe-card__title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-align: left;
+    text-transform: capitalize;
+
+    @include mq("md") {
+        font-size: 1.6rem;
+    }
+}
+
+.recipe-card__text {
+    margin-block-start: 0;
+    font-size: 1.4rem;
+    text-align: left;
+
+    @include mq("md") {
+        font-size: 1.6rem;
+    }
+}
+
+.recipe__button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 2.4rem;
+    margin-top: 2.4rem;
+
+    @include mq("md") {
+        flex-direction: row;
+    }
+}
+
+.recipe__button {
+    width: 100%;
+}
+
+// information
+.information {
+}
+
+.information__inner {
+}
+
+.information__title {
+    @include mq("md") {
+        text-align: left;
+        padding-bottom: 1.2rem;
+        border-bottom: 0.1rem solid var(--color-main);
+    }
+}
+
+.information__cards {
+    margin-top: 2.4rem;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2.6rem;
+}
+
+.information-card {
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.2);
+    border-radius: 0.8rem;
+    overflow: hidden;
+
+    @include mq("md") {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+.information-card__head {
+    @include mq("md") {
+        width: 30rem;
+        flex-shrink: 0;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+
+.information-card__body {
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+
+    @include mq("md") {
+        flex-grow: 1;
+    }
+}
+
+.information-card__meta {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+.information-card__data {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.information-card__label {
+    padding: 0.3rem 1.6rem;
+    background: var(--color-main);
+    border-radius: 2.5rem;
+    font-weight: 600;
+    color: #fff;
+
+    &.accent {
+        background: var(--color-accent);
+    }
+}
+
+.information-card__text {
+    text-align: justify;
+}
+
+.information__button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 2.4rem;
+    margin-top: 2.4rem;
+}
+
+// news
+.news {
+}
+
+.news__inner {
+}
+
+.inner {
+}
+
+.news__title {
+    @include mq("md") {
+        font-size: 3.2rem;
+        text-align: left;
+        padding-bottom: 1.2rem;
+        border-bottom: 0.1rem solid var(--color-main);
+    }
+}
+
+.news__cards {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.6rem;
+}
+
+.news-card {
+    display: block;
+    padding-block: 1.6rem;
+    border-bottom: 0.1rem solid #5a5a5a;
+}
+
+.news-card__body {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.6rem;
+}
+
+.news-card__meta {
+}
+
+.news-card__data {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.news-card__label {
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 0.4rem 1.6rem;
+    border-radius: 2.5rem;
+    border: 1px solid #000;
+}
+
+.news-card__text {
+    font-size: 1.4rem;
+    font-weight: 400;
+
+    @include mq("md") {
+        font-size: 1.6rem;
+    }
+}
+
+.news__button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 2.4rem;
+    margin-top: 2.4rem;
+}
+
+// ===============================================
+// footer
+// ===============================================
+.footer {
+    background: var(--color-main);
+    color: #fff;
+    padding-block-start: 4.8rem;
+    padding-block-end: 1.6rem;
+
+    @include mq("md") {
+        padding-block-start: 6.4rem;
+        padding-block-end: 2.4rem;
+    }
+}
+
+.footer__inner {
+    padding: 0;
+
+    @include mq("md") {
+        padding-inline: 3.2rem;
+    }
+}
+
+.footer-nav__title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.footer__upper {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+    padding-bottom: 3.2rem;
+
+    @include mq("md") {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 4.8rem;
+        padding-bottom: 4.8rem;
+    }
+}
+
+.footer__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.4rem;
+
+    @include mq("md") {
+        align-items: flex-start;
+    }
+}
+
+.footer__logo {
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.footer__nav {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    text-align: center;
+
+    @include mq("md") {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.4rem;
+        text-align: left;
+    }
+    @include mq("lg") {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 3.2rem;
+    }
+}
+
+.footer__nav-block {
+    padding: 0;
+}
+
+.footer-nav__title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: #fff;
+    border: none;
+    padding-left: 0;
+    letter-spacing: 0.02em;
+}
+
+.footer-nav__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-nav__item {
+    a {
+        font-size: 1.2rem;
+        color: #fff;
+        opacity: 0.7;
+        text-decoration: none;
+        transition: opacity 0.2s;
+    }
+
+    &:hover {
+        opacity: 1;
+        text-decoration: underline;
+    }
+}
+
+.footer__sns {
+    margin: 1.6rem 0 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.6rem;
+
+    @include mq("md") {
+        justify-content: start;
+    }
+}
+
+.sns-list__item {
+    a {
+        display: block;
+        color: #fff;
+        transition: opacity 0.3s ease;
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+        .fab {
+            font-size: 2.4rem;
+        }
+    }
+}
+
+.footer__lower {
+    padding-top: 1.2rem;
+    text-align: center;
+}
+
+.footer__divider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-block: 1.6rem;
+    margin-inline: auto;
+
+    @include mq("md") {
+        margin-block: 2.4rem;
+    }
+}
+
+.footer__copyright {
+    font-size: 1.1rem;
+    color: #fff;
+    opacity: 0.5;
+    margin-bottom: 0.4rem;
+}
+
+.footer__copyright-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    font-size: 1.1rem;
+    opacity: 0.5;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer__to-top {
+    position: fixed;
+    right: 1.6rem;
+    bottom: 1.6rem;
+    width: 4.8rem;
+    height: 4.8rem;
+    border-radius: 50%;
+    background: var(--color-main);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(2rem);
+    z-index: 9999;
+
+    &.is-visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+// ===============================================
+// products
+// ===============================================
+.products-info {
+    margin-top: var(--header-height-sp);
+    padding-block: 3.2rem;
+    background: var(--color-bg-gray);
+
+    @include mq("md") {
+        margin-top: var(--header-height-pc);
+    }
+}
+
+.products-info__inner {
+}
+
+.products-info__title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.6rem;
+    font-size: 3.2rem;
+    font-weight: 700;
+}
+
+.products-info__sub-title {
+    font-size: 2.4rem;
+    font-weight: 400;
+    line-height: 4.1rem;
+}
+
+.products-info__text {
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+// products-search
+.products-search {
+    padding-block: 3.2rem;
+    background: var(--color-bg-blue);
+}
+
+.products-search {
+}
+
+.products-search__title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.6rem;
+    font-size: 2.4rem;
+}
+
+.products-search__inner {
+}
+
+.products-search__items {
+    margin-top: 0.8rem;
+
+    @include mq("md") {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 5rem;
+    }
+}
+
+.products-search__container {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.8rem;
+
+    @include mq("md") {
+        margin-top: 0;
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1; /* 残りのスペースを使用 */
+    }
+}
+
+.products-search__form {
+    display: flex;
+    align-items: center;
+    flex-basis: 100%;
+    background: #fff;
+    border-radius: 999px;
+    overflow: hidden; /* 子要素を丸く切り取る */
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+    position: relative;
+
+    @include mq("md") {
+        width: 100%;
+    }
+}
+
+.products-search__button {
+    position: absolute;
+    left: 1.6rem;
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 1.6rem;
+    cursor: pointer;
+    z-index: 1;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+
+    &:hover {
+        color: #333;
+    }
+}
+
+.products-search__submit {
+    background: var(--color-sub-blue);
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    cursor: pointer;
+    user-select: none;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+        opacity: 0.6;
+    }
+}
+
+.products-search__input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 1rem 1.6rem 1rem 4.8rem; /* 左側のパディングを増やしてアイコンのスペースを確保 */
+    font-size: 1.4rem;
+    outline: none;
+
+    &:focus {
+        background: #fff;
+    }
+}
+
+.products-search__list {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.6rem;
+    gap: 1.6rem;
+
+    @include mq("md") {
+        margin-top: 0;
+    }
+}
+
+.products-search__list--secondary {
+    margin-top: 2.4rem;
+    display: flex;
+    flex-direction: column;
+
+    .products-search__item {
+        padding: 1.6rem 6.4rem;
+    }
+
+    .products-search__info {
+        font-weight: 600;
+    }
+
+    @include mq("md") {
+        flex-direction: row;
+    }
+}
+
+.products-search__item {
+    width: 100%;
+    background: #fff;
+    border-radius: 2.5rem;
+    padding: 0.8rem 2.4rem;
+    border-radius: 2.5rem;
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+}
+
+.products-search__info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #000;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.products-search__component-icon {
+    color: var(--color-sub-blue);
+}
+
+.products-search__product-icon {
+    color: var(--color-accent);
+}
+
+// 商品一覧セクション
+.products-tab__buttons {
+    margin-top: 1.6rem;
+    display: flex;
+    gap: 0.8rem;
+}
+
+.products-tab__button {
+    padding: 2.4rem 1.6rem;
+    border: none;
+    border-radius: 8px 8px 0px 0px;
+    background-color: #eee;
+    cursor: pointer;
+    font-family: inherit;
+    min-width: 12rem;
+    text-align: center;
+
+    &.is-active {
+        background: var(--color-bg-blue);
+        color: #333;
+    }
+    &.alcohol-tab.is-active {
+        background: var(--color-accent-light);
+        color: #333;
+    }
+}
+
+.is-active {
+}
+
+.products-tab__contents {
+    // margin-top: 16px;
+}
+
+.products-tab__content {
+    display: none;
+
+    &.is-active {
+        display: block;
+    }
+}
+
+// プロダクトリスト
+.products-tab {
+    padding-block: 3.2rem;
+}
+
+.products-tab__content {
+    &.is-active {
+        .soft-drink__lists {
+            background: var(--color-bg-blue);
+            border-radius: 0 16px 16px 16px;
+            padding: 2rem;
+            transition: background 0.3s;
+        }
+
+        .alcohol__lists {
+            background: var(--color-accent-light);
+            border-radius: 0 16px 16px 16px;
+            padding: 2rem;
+            transition: background 0.3s;
+        }
+    }
+}
+
+.products-tab__title {
+}
+
+.products-tab__buttons {
+}
+
+.products-tab__button {
+}
+
+.is-active {
+}
+
+.products-tab__contents {
+}
+
+.products-tab__content {
+}
+
+.product-card__list--full-width {
+    grid-column: 1 / -1;
+}
+
+.soft-drink {
+}
+
+.soft-drink__lists,
+.alcohol__lists {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.4rem;
+
+    @include mq("md") {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.soft-drink {
+}
+
+.product-card__list {
+}
+
+.product-card__link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.product-card__figure {
+    background: var(--color-bg-gray);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-card__image-area {
+    width: 100%;
+    aspect-ratio: 1 / 1; // 正方形枠
+    text-align: center;
+    background: #fff;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+
+    .soft-drink__lists & {
+        // scale: 1.2;
+    }
+}
+
+.product-card__caption {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 2rem;
+    background: #fff;
+}
+
+.alcohol {
+}
+
+// .products-tab__content.is-active ul {
+//     background: var(--color-accent-light);
+//     border-radius: 16px;
+//     padding: 2rem;
+//     transition: background 0.3s;
+// }
+
+.category-search {
+    padding-block: 3.2rem;
+}
+
+.category-search__title {
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+.category-search__boxes {
+    margin-top: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+}
+
+.category-search__accordion {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.category-search__summary {
+    padding: 1.6rem;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none; // Safariの矢印を消す
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &::after {
+        content: "+";
+        font-size: 2.6rem;
+        transition: transform 0.3s ease;
+    }
+}
+
+.category-search__accordion[open] > .category-search__summary::after {
+    transform: rotate(45deg);
+}
+
+.category-search__content {
+    padding: 1.6rem;
+    border-top: 1px solid #ddd;
+}
+
+.category-search__list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.category-search__link {
+    display: block;
+    padding: 1.6rem 0;
+}
+
+.category-search__accordion--nested {
+    border: none;
+    border-radius: 0;
+
+    & > .category-search__summary--nested {
+        padding: 1.6rem 0;
+        font-weight: normal;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        &::after {
+            font-size: 2.2rem;
+        }
+    }
+
+    & > .category-search__content--nested {
+        padding: 0 0 0.8rem 1.6rem;
+        border-top: none;
+
+        a {
+            padding: 0.8rem 0;
+            opacity: 0.8;
+        }
+    }
+}
+
+@supports (interpolate-size: allow-keywords) {
+    :root {
+        interpolate-size: allow-keywords;
+        /* height:0（数値型） → auto（文字型） のアニメーションを可能にするための指定 */
+    }
+
+    details[open]::details-content {
+        height: auto;
+    }
+}
+
+/* height:0→autoへのアニメーションが対応していない場合は、固定値にアニメーションさせる */
+@supports not (interpolate-size: allow-keywords) {
+    details[open]::details-content {
+        height: auto;
+        overflow-y: scroll;
+    }
+}
+
+details[open] .answer {
+    animation: fadein 0.5s ease;
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.category-search__accordion {
+    cursor: pointer;
+
+    /* --------アコーディオンの中身のスタイル-------- */
+    &::details-content {
+        transition: height 0.3s, opacity 0.3s, content-visibility 0.3s allow-discrete;
+        height: 0;
+        opacity: 0;
+        overflow: clip;
+        background-color: var(--color-bg-white);
+    }
+
+    /* --------アコーディオンの中身のスタイル（開いている時）-------- */
+    &[open]::details-content {
+        opacity: 1;
+        height: auto;
+    }
+
+    /* 開閉時のアニメーション */
+    &[open] .faq-box__head::before {
+        opacity: 0;
+    }
+
+    &[open] .faq-box__head::after {
+        transform: translateY(-50%) rotate(0deg);
+    }
+}
+.info-banner__swiper .swiper-slide {
+    width: 300px; /* 必要に応じて調整 */
+}
+
+.info-banner {
+    overflow-x: hidden;
+}
+
+// companyページ
+.fv--company {
+    padding-top: 3.2rem;
+    margin-bottom: -0.1rem;
+    background: var(--color-main);
+
+    @include mq("md") {
+        padding-top: 6.4rem;
+    }
+}
+
+.fv__inner--company {
+}
+
+.fv__textbox {
+    color: #fff;
+    text-align: left;
+}
+
+.fv__caption1,
+.fv__caption2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    font-family: var(--font-family-en);
+}
+
+.fv__title1 {
+    margin-block-start: 0.8rem;
+}
+
+.fv__title1,
+.fv__title2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    @include mq("md") {
+        font-size: 3.6rem;
+    }
+}
+
+.fv__bg-shape {
+    display: block;
+}
+
+// philosophy
+.philosophy {
+    padding-block: 8rem;
+}
+
+.philosophy__inner {
+}
+
+.philosophy__text {
+    margin-top: 2.4rem;
+    text-align: center;
+
+    @include mq("md") {
+        font-size: 2.4rem;
+        font-weight: 600;
+        line-height: 170%;
+        letter-spacing: 0.48rem;
+    }
+}
+
+.philosophy__text-en {
+    font-family: var(--font-family-en);
+    text-decoration: capitalize;
+}
+
+.philosophy__cards {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: clamp(1.3rem, 4.5rem, 8.7rem);
+
+    @include mq("md") {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mq("lg") {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.philosophy__card {
+    padding-block-end: 2.4rem;
+    padding-inline: 1.6rem;
+    border-radius: 2rem;
+    background: #fff;
+    box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.08), 0 -0.2rem 0.2rem 0 rgba(0, 0, 0, 0.08);
+}
+
+.philosophy__card-shape {
+}
+
+.path {
+    animation: fill-animation 8s infinite;
+    border-radius: 33% 67% 52% 48% / 52% 32% 68% 48%;
+}
+
+.philosophy-card__caption {
+    align-self: stretch;
+    text-align: center;
+}
+
+.philosophy-card__title {
+    text-align: center;
+    font-size: 3.2rem;
+    font-weight: 700;
+}
+
+.philosophy-card__subtitle {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.philosophy-card__text-en {
+    margin-top: 1.6rem;
+    font-family: var(--font-family-en);
+    font-size: 1.4rem;
+    font-weight: 300;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+.philosophy-card__text-ja {
+    font-size: 1.6rem;
+    margin-top: 0.8rem;
+    text-align: justify;
+    font-weight: 400;
+}
+
+.philosophy__button {
+    margin-inline: auto;
+    margin-top: 3.2rem;
+}
+
+// history
+.history {
+    padding-block: 8rem;
+    background: var(--color-bg-base);
+}
+
+.history__inner {
+}
+
+.history__text {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 170%;
+    letter-spacing: 0.3rem;
+}
+
+.history__nav {
+    margin-top: clamp(2.5rem, 1.562rem + 3.82vw, 5rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+
+    @include mq("md") {
+        flex-direction: row;
+    }
+}
+
+.history__nav-item {
+    width: 100%;
+    padding: 2.4rem 1.6rem;
+    background: #c4c4c4;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: var(--color-main);
+        cursor: pointer;
+    }
+
+    a {
+        display: block;
+        padding: 1rem;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 0.32rem;
+    }
+}
+
+.history__term {
+}
+
+.history__content {
+    max-width: 29rem;
+    margin-inline: auto;
+    position: relative;
+
+    &::before {
+        position: absolute;
+        content: "";
+        top: -2.5rem;
+        left: 1rem;
+        width: 6px;
+        background: var(--color-main);
+        height: 100%;
+    }
+}
+
+.history__list {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+
+.history__image {
+    width: 24rem;
+    height: auto;
+}
+
+.history__item {
+    padding-left: 5.2rem;
+}
+
+.history__time {
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: 0.48rem;
+    position: relative;
+    display: inline-block;
+
+    &::before {
+        position: absolute;
+        content: "";
+        top: 50%;
+        left: -4.9rem;
+        transform: translateY(-50%);
+        width: 2rem;
+        height: 2rem;
+        background-color: var(--color-main);
+        border-radius: 50%;
+        z-index: 30;
+    }
+}
+
+.history__product {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.48rem;
+}
+
+.history__description {
+}
+
+.timeline {
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 0;
+
+    &::before {
+        left: 20px;
+        transform: none;
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 4px;
+        background-color: #007acc;
+        transform: translateX(-50%);
+        z-index: 0;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: -1.6rem;
+        left: 0.7rem;
+        border-left: 16px solid transparent;
+        border-right: 16px solid transparent;
+        border-top: 18px solid #007acc;
+        z-index: 1;
+
+        @include mq("md") {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+}
+
+.timeline__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    margin: 2rem 0;
+
+    &:nth-child(odd) {
+        flex-direction: row-reverse;
+    }
+}
+
+.timeline__content {
+    width: 100%;
+    text-align: left;
+    background: #fff;
+    margin-left: 6rem;
+    border-radius: 0.8rem;
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+    padding: 3rem;
+    z-index: 1;
+    position: relative;
+
+    @include mq("md") {
+        width: 45%;
+
+        &.right {
+            margin-left: 0;
+        }
+
+        &.left {
+            margin-left: 0;
+        }
+    }
+}
+
+.timeline__img {
+    width: fit-content;
+}
+
+.timeline__date {
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: 0.48rem;
+}
+
+.timeline__title {
+    font-weight: 600;
+    letter-spacing: 0.16rem;
+}
+
+.timeline__text {
+}
+
+.timeline__dot {
+    background-color: #007acc;
+    border-radius: 50%;
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    left: 1.2rem;
+    z-index: 2;
+
+    @include mq("md") {
+        top: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 20px;
+        transform: none;
+    }
+}
+
+// タイムラインアイテムの位置調整（ヘッダーの高さ分）
+.timeline__item {
+    scroll-margin-top: 100px; // ヘッダーの高さに応じて調整
+}
+
+// company-date
+.company-date {
+    padding-block: 4.8rem;
+    background: var(--color-bg-gray);
+
+    @include mq("md") {
+        padding-block: 8rem;
+    }
+}
+
+.company-date__inner {
+    @include mq("md") {
+        max-width: calc(var(--width-960) + 2.4rem * 2);
+        margin-inline: auto;
+    }
+}
+
+.company-date__table-box {
+    margin-top: 4rem;
+    width: 100%;
+    padding: 3.2rem 1.6rem;
+    margin-inline: auto;
+    border-radius: 2rem;
+    background: #fff;
+    box-shadow: 0.4rem 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.25);
+
+    @include mq("md") {
+        padding: 3.2rem;
+        max-width: var(--width-960);
+    }
+}
+
+.company-date__table {
+    width: 100%;
+
+    @include mq("md") {
+        border-collapse: collapse;
+        background: #fff;
+        table-layout: fixed;
+        box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.05);
+        border-radius: 1rem;
+        overflow: hidden;
+    }
+
+    tr {
+        display: block;
+        background: #fff;
+        border-radius: 0.8rem;
+        box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.05);
+
+        @include mq("md") {
+            display: table-row;
+            margin: 0;
+            padding: 0;
+            box-shadow: none;
+            border-radius: 0;
+        }
+    }
+
+    th,
+    td {
+        display: block;
+        width: 100%;
+        padding: 2.4rem 1.6rem;
+        text-align: center;
+        font-weight: 400;
+
+        @include mq("md") {
+            display: table-cell;
+            width: auto;
+            padding: 2rem;
+            border-bottom: 0.1rem solid #ddd;
+        }
+    }
+
+    th {
+        font-weight: 700;
+        background-color: #f0f0f0;
+
+        @include mq("md") {
+            width: 17.6rem;
+        }
+    }
+
+    td {
+        font-size: 1.6rem;
+        color: #222;
+
+        @include mq("md") {
+            text-align: left;
+        }
+    }
+
+    tr:last-child {
+        th,
+        td {
+            border-bottom: none;
+        }
+    }
+}
+
+// sustainability
+.sustainability {
+    padding-block: 4.8rem;
+
+    @include mq("md") {
+        padding-block: 8rem;
+    }
+}
+
+.sustainability__text {
+    margin-top: 2.4rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 170%;
+    letter-spacing: 0.15rem;
+
+    @include mq("md") {
+        font-size: 2.4rem;
+        font-weight: 600;
+        line-height: 170%;
+        letter-spacing: 0.48rem;
+    }
+}
+
+.sustainability__cards {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 3.2rem;
+    margin-top: 3.2rem;
+
+    @include mq("md") {
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 4rem;
+    }
+}
+
+.sustainability__card {
+}
+
+.sustainability-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0.8rem;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.sustainability-card__head {
+}
+
+.sustainability-card__img {
+    img {
+        width: 100%;
+    }
+}
+
+.sustainability-card__body {
+    padding: 2.4rem 3.2rem 3.2rem 3.2rem;
+    background: var(--color-bg-gray);
+}
+
+.sustainability-card__title {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.sustainability-card__text {
+    margin-top: 1.6rem;
+    font-size: 1.2rem;
+}
+
+// future
+.future {
+    padding-block: 4.8rem;
+    padding-inline: 1.6rem;
+    background: var(--color-bg-gray);
+    overflow-x: hidden; // はみ出た部分を隠す
+
+    @include mq("md") {
+        padding-inline: 0;
+    }
+}
+.future__inner {
+    max-width: var(--width-960);
+    margin-inline: auto;
+    position: relative; // 位置の基準点を設定
+
+    @include mq("md") {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.future-text__inner {
+    position: relative; // 位置の基準点を設定
+    z-index: 2; // 画像より前面に配置
+
+    @include mq("md") {
+        max-width: 54rem;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0; // 横幅が狭くなっても縮まないように
+    }
+}
+
+.future__title {
+    @include mq("md") {
+        text-align: left;
+    }
+}
+
+.future__text {
+    margin-top: 2.4rem;
+    text-align: center;
+
+    @include mq("md") {
+        text-align: left;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 170%;
+        letter-spacing: 0.48rem;
+    }
+}
+
+.future__inner {
+    max-width: var(--width-960);
+    margin-inline: auto;
+    position: relative;
+
+    @include mq("md") {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+}
+
+.future-text__inner {
+    position: relative;
+    z-index: 2;
+
+    @include mq("md") {
+        width: 50%; // テキストエリアの幅を50%に固定
+        flex-shrink: 0;
+    }
+}
+
+.future__image {
+    margin-top: 1.6rem;
+    overflow: hidden;
+    position: relative;
+
+    @include mq("md") {
+        margin-top: 0;
+        width: 100%;
+        margin-right: -25%;
+    }
+
+    img {
+        width: 100%;
+        border-radius: 1.2rem;
+        border-radius: 2rem; // 一旦大きめに
+
+        @include mq("md") {
+            height: 40rem;
+            object-fit: cover;
+
+            object-position: 0 center; // 試しに0%にしてみる
+        }
+    }
+}
+
+// join
+.join {
+    padding-block: 4.8rem;
+    padding-inline: 1.6rem;
+    background: var(--color-bg-gray);
+    overflow-x: hidden; // はみ出た部分を隠す
+
+    @include mq("md") {
+        padding-inline: 0;
+    }
+}
+
+.join__inner {
+    max-width: var(--width-960);
+    margin-inline: auto;
+    position: relative; // 位置の基準点を設定
+
+    @include mq("md") {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+        gap: 40px;
+    }
+}
+
+.join-text__inner {
+    position: relative;
+    z-index: 2;
+
+    @include mq("md") {
+        width: 50%; // テキストエリアの幅を50%に固定
+        flex-shrink: 0;
+    }
+}
+
+.join__title {
+    @include mq("md") {
+        text-align: left;
+    }
+}
+.join__lead {
+    text-align: center;
+    margin-top: 1.6rem;
+    font-size: 2.4rem;
+    font-weight: 600;
+    line-height: 170%;
+    letter-spacing: 0.48rem;
+
+    @include mq("md") {
+        text-align: left;
+    }
+}
+
+.join__text {
+    margin-top: 0.8rem;
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.join__image {
+    margin-top: 1.6rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.2rem;
+
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 1.2rem;
+    }
+
+    @include mq("md") {
+        width: 120%; // 横幅をPCで拡張
+        margin-left: -20%; // PCで左にはみ出す
+        margin-top: 0;
+
+        img {
+            height: 40rem;
+            object-position: center center;
+        }
+    }
+}

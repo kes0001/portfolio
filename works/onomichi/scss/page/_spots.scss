@@ -1,0 +1,287 @@
+@use "../global/mixin" as *;
+
+.spots {
+    position: relative;
+    padding-top: 4.7rem;
+    padding-bottom: 4.7rem;
+    margin-top: -4.7rem;
+
+    @include mq("md") {
+        padding-top: 12rem;
+        padding-bottom: 12rem;
+        margin-top: -12rem;
+    }
+
+    &::before,
+    &::after {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 4.7rem;
+        content: "";
+        background-color: transparent;
+        background-repeat: repeat-x;
+        background-position: left -0.3rem center;
+        background-size: contain;
+        border: none; // 疑似要素の境界線も削除
+        outline: none; // 疑似要素の枠線も削除
+
+        @include mq("md") {
+            height: 12rem;
+        }
+    }
+
+    &::before {
+        top: 0.1rem;
+        background-image: url(../img/wave-top-sp.svg);
+
+        @include mq("md") {
+            background-image: url(../img/wave-top-pc.svg);
+        }
+
+        @include mq("lg") {
+            background-image: url(../img/wave-top-pc.svg);
+        }
+    }
+
+    &::after {
+        bottom: 0.1rem;
+        background-image: url(../img/wave-bottom-sp.svg);
+
+        @include mq("md") {
+            background-image: url(../img/wave-bottom-pc.svg);
+        }
+
+        @include mq("lg") {
+            background-image: url(../img/wave-bottom-pc.svg);
+        }
+    }
+}
+
+.spots__outer {
+    background-color: var(--color-sub--primary);
+    padding-bottom: 1.486rem;
+}
+
+.spots__swiper {
+    margin-top: 2.4rem;
+
+    @include mq("mdPlus") {
+        margin-top: 0;
+    }
+}
+
+.spots__top {
+    @include mq("mdPlus") {
+        display: flex;
+        column-gap: 32px;
+        // padding-left: max(30px, 50% - 512px);
+        padding-left: clamp(30px, 50% - 512px, 250px);
+    }
+}
+
+.spots__heading {
+}
+
+.spots__title {
+    color: var(--color-white);
+    text-align: center;
+    font-family: var(--font-family-jp-accent);
+    font-size: 2.8rem;
+    font-weight: 500;
+    line-height: 1.25;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+
+    @include mq("mdPlus") {
+        font-size: 4rem;
+        writing-mode: vertical-rl; /* 縦書き（右から左へ） */
+    }
+
+    &::before {
+        content: "";
+        width: 2.8rem;
+        height: 2.8rem;
+        background: url(../img/icon-star.svg) no-repeat center center / contain;
+    }
+}
+
+.spots__swiper {
+}
+
+.spots__wrapper {
+    display: flex;
+    align-items: stretch !important;
+}
+
+.spots__slide {
+    width: clamp(240px, 64vw, 344px);
+    margin-inline: auto;
+    overflow: hidden;
+    border-radius: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    height: auto; // スライダー全体で揃える
+
+    @include mq("mdPlus") {
+        border-radius: 2.4rem;
+    }
+}
+
+.spots-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%; // 親の高さに追従
+}
+
+.spots-card__image {
+    height: clamp(180px, 48vw, 240px);
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; // はみ出し調整
+    }
+}
+
+.spots-card__body {
+    padding: 1.6rem 2.4rem 2.6rem;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.6rem;
+    flex: 1;
+
+    @include mq("mdPlus") {
+        padding: 2.4rem 3.2rem 4rem;
+        gap: 2.4rem;
+    }
+}
+
+.spots-card__title {
+    font-size: 1.6rem;
+    font-weight: 700;
+
+    @include mq("mdPlus") {
+        font-size: 2rem;
+    }
+}
+
+.spots-card__text {
+    font-size: 1.2rem;
+    font-weight: 400;
+
+    @include mq("mdPlus") {
+        font-size: 1.6rem;
+    }
+}
+
+.spots__inner {
+    @include mq("mdPlus") {
+        position: relative;
+        max-width: calc(1024px + 3rem * 2);
+        padding-inline: 3rem;
+        margin-inline: auto;
+    }
+
+    @include mq("lg") {
+        // margin-top: 6.4rem;
+    }
+}
+
+// アローボタンの設定
+.spots__button-arrows {
+    display: none;
+
+    @include mq("mdPlus") {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 90px;
+    }
+}
+
+.spots__button--prev,
+.spots__button--next {
+    margin-top: 0;
+    position: relative;
+    display: none;
+
+    @include mq("mdPlus") {
+        display: block;
+        width: 8rem;
+        height: 8rem;
+        background: var(--color-accent--secondary);
+        border-radius: 50%;
+    }
+}
+
+.spots__button--prev {
+    top: -3.5rem;
+    left: 4rem;
+
+    &::after {
+        position: absolute;
+        content: "";
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 5.7rem;
+        height: 5.7rem;
+        background: url(../img/icon-arrow-right.svg) no-repeat center center / contain;
+        transform: translate(-50%, -50%) rotate(180deg); // 左矢印にするため180度回転
+    }
+}
+
+.spots__button--next {
+    top: -3.5rem;
+    right: 4rem;
+
+    &::after {
+        position: absolute;
+        content: "";
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 5.7rem;
+        height: 5.7rem;
+        background: url(../img/icon-arrow-right.svg) no-repeat center center / contain;
+    }
+}
+
+.spots__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include mq("lg") {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.spots__decoration-english {
+    img {
+        width: clamp(25.5rem, 17.584rem + 33.77vw, 49.5rem);
+    }
+    @include mq("md") {
+        img {
+            // width: 36rem;
+        }
+    }
+}
+
+.spots__text {
+    margin-top: 1.6rem;
+    color: var(--color-white);
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.spots__button {
+    margin-top: 2.4rem;
+    text-align: center;
+}

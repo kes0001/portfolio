@@ -1,0 +1,18 @@
+html {
+    font-size: 62.5%;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--color-base);
+    background-color: var(--color-bg-base);
+    font-family: var(--font-family-ja);
+    background: var(--background-base);
+    text-decoration: capitalize;
+}

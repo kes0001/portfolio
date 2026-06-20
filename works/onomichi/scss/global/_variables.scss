@@ -1,0 +1,31 @@
+:root {
+  // --- color ---
+  --color-main: #9ed0e0;
+  --color-sub--primary: #67b0c7;
+  --color-sub--secondary: #cce1e4;
+  --color-sub--tertiary: #e9f6f8;
+  --color-accent--primary: #ce2073;
+  --color-accent--secondary: #ffee56;
+  --color-blown: #4a3636;
+  --color-gray--dark: #ccc;
+  --color-gray--light: #f5f5f5;
+  --color-white: #fff;
+
+  // --- Fonts ---
+  --font-family-jp-base: "Noto Sans JP", sans-serif;
+  --font-family-jp-accent: "Kiwi Maru", sans-serif;
+  --font-family-en-base: "Josefin Sans", sans-serif;
+  --font-family-en-cursive: "Courgette", cursive;
+
+  // --- Layout ---
+  --header-height: 6.4rem;
+
+  // --- z-index ---
+  --z-deco: 0; /* セクション装飾（背景・イラストなど） */
+  --z-base: 10; /* 通常コンテンツ（見出し・本文・画像） */
+  --z-header: 100; /* 固定ヘッダー */
+  --z-drawer: 200; /* ドロワーメニュー本体 */
+  --z-overlay: 300; /* オーバーレイ（モーダル背景など） */
+  --z-modal: 400; /* モーダル本体 */
+  --z-popover: 500; /* ツールチップ／ポップアップ */
+}

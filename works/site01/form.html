@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <title>笹塚スマイル歯科クリニック | ご予約・お問い合わせ</title>
+  <meta name="description" content="笹塚スマイル歯科クリニックのご予約・お問い合わせフォームです。初診の方も、再診の方も、お気軽にご利用ください。診療時間や治療内容についてのご質問も承っております。">
+  <!-- favicon -->
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+  <!-- css -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- js -->
+  <script src="./js/script.js" defer></script>
+</head>
+
+<body class="reserve-form">
+  <header class="header">
+    <div class="header__inner inner">
+      <h1 class="header__logo">
+        <a href="index.html">
+          <img src="./img/logo.png" alt="笹塚スマイル歯科クリニックのロゴ" width="50" height="50">
+          <span>笹塚スマイル歯科クリニック</span>
+        </a>
+      </h1>
+
+      <nav class="header__nav">
+        <ul class="header__nav-list">
+          <li class="header__nav-item"><a href="index.html">ホーム</a></li>
+          <li class="header__nav-item"><a href="#x">医院紹介</a></li>
+          <li class="header__nav-item"><a href="guide.html">初めての方</a></li>
+          <li class="header__nav-item"><a href="#x">診療内容</a></li>
+          <li class="header__nav-item"><a href="#x">料金について</a></li>
+          <li class="header__nav-item"><a href="#x">よくある質問</a></li>
+          <li class="header__nav-item"><a href="#x">アクセス</a></li>
+        </ul>
+      </nav>
+
+      <!-- ハンバーガーメニュー -->
+      <button id="js-drawer-icon" class="header__open drawer-icon">
+        <span class="drawer-icon__bar"></span>
+        <span class="drawer-icon__bar"></span>
+        <span class="drawer-icon__bar"></span>
+      </button>
+
+      <!-- ドロワーメニュー -->
+      <div id="js-drawer-content" class="drawer-content">
+        <nav class="drawer-content__menu">
+          <ul class="drawer-content__list">
+            <li class="drawer-content__item">
+              <a href="index.html" class="drawer-content__link">ホーム</a>
+            </li>
+            <li class="drawer-content__item">
+              <a href="guide.html" class="drawer-content__link">初めての方</a>
+            </li>
+            <li class="drawer-content__item">
+              <a href="#x" class="drawer-content__link">診療内容</a>
+            </li>
+            <li class="drawer-content__item">
+              <a href="#x" class="drawer-content__link">料金について</a>
+            </li>
+            <li class="drawer-content__item">
+              <a href="#x" class="drawer-content__link">よくある質問</a>
+            </li>
+            <li class="drawer-content__item">
+              <a href="#x" class="drawer-content__link">アクセス</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="form__first-view">
+      <div class="first-view__inner inner">
+        <h2 class="first-view__title section-title">
+          <span class="section-title__ja">WEB予約フォーム</span>
+          <span class="section-title__en">reservation</span>
+        </h2>
+      </div>
+    </section>
+
+    <section class="form-info">
+      <div class="form-info__inner inner">
+        <h3 class="form-info__title">お電話でのご予約/ご相談</h3>
+        <p class="form-info__tel"><a href="tel:0312345678">03-1234-5678</a></p>
+        <p class="form-info__hours">(診療時間 AM9:30〜PM21:00)</p>
+      </div>
+    </section>
+
+    <section class="guideline">
+      <div class="guideline__inner inner">
+        <h3 class="guideline__title">ご予約にあたっての注意事項</h3>
+        <ul class="guideline__list">
+          <li class="guideline__item">ご希望の日時は、予約状況によりご希望に添えない場合がございます。あらかじめご了承ください。</li>
+          <li class="guideline__item">当日のご予約や急なご来院をご希望の方は、お電話にてご連絡いただきますと、より確実にご案内させていただくことができます。</li>
+          <li class="guideline__item">メールアドレスやお電話番号の入力ミスにご注意ください。ご連絡が取れない場合、予約の確定ができかねる場合がございます。</li>
+          <li class="guideline__item">フォーム送信後、当院からの折り返しのご連絡をもって予約完了となります。</li>
+          <li class="guideline__item">24時間以内に当院からの連絡がない場合は、お手数ですがお電話にてご確認をお願いいたします。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="faq section">
+      <div class="faq__inner inner">
+        <h3 class="faq__title section-title">
+          <span class="section-title__ja">よくある質問</span>
+          <span class="section-title__en">q&a</span>
+        </h3>
+        <div class="faq__boxes">
+          <details class="faq__box faq-box" open>
+            <summary class="faq-box__head">
+              <span class="faq-box__question-icon">Q</span>
+              <span class="faq-box__question-text">当日の予約はできますか？</span>
+            </summary>
+            <div class="faq-box__body">
+              <span class="faq-box__answer-icon">A</span>
+              <p class="faq-box__answer-text">
+                ご予約状況により可能な場合もございます。お急ぎの方はお電話でお問い合わせください。
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__box faq-box" open>
+            <summary class="faq-box__head">
+              <span class="faq-box__question-icon">Q</span>
+              <span class="faq-box__question-text">予約の変更やキャンセルはどうすればいいですか？</span>
+            </summary>
+            <div class="faq-box__body">
+              <span class="faq-box__answer-icon">A</span>
+              <p class="faq-box__answer-text">
+                前日までにお電話にてご連絡をお願いいたします。当日キャンセルはできるだけお控えください。
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__box faq-box" open>
+            <summary class="faq-box__head">
+              <span class="faq-box__question-icon">Q</span>
+              <span class="faq-box__question-text">初めての受診でも予約は必要ですか？</span>
+            </summary>
+            <div class="faq-box__body">
+              <span class="faq-box__answer-icon">A</span>
+              <p class="faq-box__answer-text">
+                はい、スムーズなご案内のためご予約をおすすめしております。お電話またはWEB予約をご利用ください。
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="form">
+      <div class="form__inner inner">
+        <form id="reservation-form" method="post" action="#">
+          <h3 class="form__title section-title">
+            <span class="section-title__ja">ご予約フォーム</span>
+            <span class="section-title__en">Reservation Form</span>
+          </h3>
+          <div class="form__steps">
+            <ol class="form-step">
+              <li class="form-step__item form-step__item--active">
+                <span class="form-step__number">STEP1</span>
+                <span class="form-step__text">必要事項の入力</span>
+              </li>
+              <li class="form-step__item">
+                <span class="form-step__number">STEP2</span>
+                <span class="form-step__text">入力内容の確認</span>
+              </li>
+              <li class="form-step__item">
+                <span class="form-step__number">STEP3</span>
+                <span class="form-step__text">送信完了</span>
+              </li>
+            </ol>
+          </div>
+          <div class="form-items">
+            <fieldset class="form-item">
+              <legend class="form-label">
+                初診/再診/定期検診
+                <span class="form-label__indicator form-label__indicator--required">必須</span>
+              </legend>
+              <div class="form-field__input">
+                <div class="form-field__radios">
+                  <label class="form-radio">
+                    <input class="form-radio__input" type="radio" name="visit-type" id="First-visit" checked required>
+                    <span class="form-radio__text">初診</span>
+                  </label>
+
+                  <label class="form-radio">
+                    <input class="form-radio__input" type="radio" name="visit-type" id="Follow-up-visit">
+                    <span class="form-radio__text">再診</span>
+                  </label>
+
+                  <label class="form-radio">
+                    <input class="form-radio__input" type="radio" name="visit-type" id="Regular-check-up">
+                    <span class="form-radio__text">定期検診</span>
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+            <!-- ./form-item -->
+
+            <div class="form-item">
+              <div class="form-field__head">
+                <label for="name" class="form-label">お名前</label>
+                <span class="form-label__indicator form-label__indicator--required">必須</span>
+              </div>
+              <div class="form-field__input">
+                <input type="text" id="name" name="name" class="form-text" placeholder="山田 太郎" required>
+              </div>
+            </div>
+            <!-- ./form-item -->
+
+            <div class="form-item">
+              <div class="form-field__head">
+                <label for="furigana" class="form-label">フリガナ</label>
+                <span class="form-label__indicator form-label__indicator--required">必須</span>
+              </div>
+              <div class="form-field__input">
+                <input type="text" id="furigana" name="furigana" class="form-text" placeholder="ヤマダ タロウ" required>
+              </div>
+            </div>
+            <!-- ./form-item -->
+
+            <div class="form-item">
+              <div class="form-field__head">
+                <label for="tel" class="form-label">電話番号</label>
+                <span class="form-label__indicator form-label__indicator--required">必須</span>
+              </div>
+              <div class="form-field__input">
+                <input type="tel" id="tel" name="tel" class="form-text" placeholder="090-1234-5678" required>
+              </div>
+            </div>
+            <!-- ./form-item -->
+
+            <div class="form-item">
+              <div class="form-field__head">
+                <label for="email" class="form-label">メールアドレス</label>
+                <span class="form-label__indicator form-label__indicator--required">必須</span>
+              </div>
+              <div class="form-field__input">
+                <input type="email" id="email" name="email" class="form-text" placeholder="@example.com" required>
+              </div>
+            </div>
+            <!-- ./form-item -->
+
+            <fieldset class="form-item" id="treatment-group">
+              <legend class="form-label">
+                診療希望内容
+                <span class="form-label__indicator form-label__indicator--required">必須</span>
+              </legend>
+              <div class="form-field__input">
+                <div class="form-field__radios">
+                  <label class="form-radio">
+                    <input class="form-radio__input" type="radio" name="treatment" id="treatment-cavity" checked
+                      required>
+                    <span class="form-radio__text">虫歯</span>
+                  </label>
+
+                  <label class="form-radio">
+                    <input class="form-radio__input" type="radio" name="treatment" id="preventive-dentistry" checked
+                      required>
+                    <span class="form-radio__text">予防歯科</span>
+                  </label>
+
+                  <label class="form-radio">
+                    <input class="form-radio__input" type="radio" name="treatment" id="treatment-cleaning">
+                    <span class="form-radio__text">クリーニング</span>
+                  </label>
+
+                  <label class="form-radio">
+                    <input class="form-radio__input" type="radio" name="treatment" id="treatment-whitening">
+                    <span class="form-radio__text">ホワイトニング</span>
+                  </label>
+
+                  <label class="form-radio">
+                    <input class="form-radio__input" type="radio" name="treatment" id="treatment-orthodontics">
+                    <span class="form-radio__text">一般矯正</span>
+                  </label>
+
+                  <label class="form-radio">
+                    <input class="form-radio__input" type="radio" name="treatment" id="treatment-child-orthodontics">
+                    <span class="form-radio__text">小児矯正</span>
+                  </label>
+
+                  <label class="form-radio">
+                    <input class="form-radio__input" type="radio" name="treatment" id="clear-aligner">
+                    <span class="form-radio__text">マウスピース矯正</span>
+                  </label>
+
+                  <label class="form-radio">
+                    <input class="form-radio__input" type="radio" name="treatment" id="treatment-crown">
+                    <span class="form-radio__text">つめ物・かぶせ物</span>
+                  </label>
+
+                  <label class="form-radio">
+                    <input class="form-radio__input" type="radio" name="treatment" id="treatment-hypersensitivity">
+                    <span class="form-radio__text">知覚過敏</span>
+                  </label>
+
+                  <label class="form-radio">
+                    <input class="form-radio__input" type="radio" name="treatment" id="treatment-occlusion">
+                    <span class="form-radio__text">噛み合わせ</span>
+                  </label>
+
+                  <label class="form-radio">
+                    <input class="form-radio__input" type="radio" name="treatment" id="treatment-tmj">
+                    <span class="form-radio__text">顎関節症</span>
+                  </label>
+
+                  <label class="form-radio">
+                    <input class="form-radio__input" type="radio" name="treatment" id="treatment-implant">
+                    <span class="form-radio__text">インプラント</span>
+                  </label>
+
+                  <label class="form-radio">
+                    <input class="form-radio__input" type="radio" name="treatment" id="treatment-checkup">
+                    <span class="form-radio__text">歯科検診</span>
+                  </label>
+
+                  <label class="form-radio">
+                    <input class="form-radio__input" type="radio" name="treatment" id="treatment-periodontal">
+                    <span class="form-radio__text">歯周病</span>
+                  </label>
+
+                  <label class="form-radio">
+                    <input class="form-radio__input" type="radio" name="treatment" id="treatment-halitosis">
+                    <span class="form-radio__text">口臭</span>
+                  </label>
+
+                  <label class="form-radio">
+                    <input class="form-radio__input" type="radio" name="treatment" id="treatment-pediatric">
+                    <span class="form-radio__text">小児歯科</span>
+                  </label>
+
+                  <label class="form-radio">
+                    <input class="form-radio__input" type="radio" name="treatment" id="treatment-wisdom">
+                    <span class="form-radio__text">親知らず</span>
+                  </label>
+
+                  <label class="form-radio">
+                    <input class="form-radio__input" type="radio" name="treatment" id="treatment-oral-surgery">
+                    <span class="form-radio__text">歯科口腔外科</span>
+                  </label>
+
+                  <label class="form-radio">
+                    <input class="form-radio__input" type="radio" name="treatment" id="treatment-denture">
+                    <span class="form-radio__text">入れ歯・義歯</span>
+                  </label>
+
+                  <label class="form-radio">
+                    <input class="form-radio__input" type="radio" name="treatment" id="treatment-other">
+                    <span class="form-radio__text">その他</span>
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+            <!-- ./form-item -->
+
+            <div class="form-item">
+              <div class="form-field__head">
+                <label for="birthdate" class="form-label">生年月日</label>
+                <span class="form-label__indicator">任意</span>
+              </div>
+              <div class="form-field__input">
+                <input class="form-text" type="date" name="birthdate" id="birthdate">
+              </div>
+            </div>
+            <!-- ./form-item -->
+
+            <fieldset class="form-item">
+              <div class="form-field__head">
+                <label for="gender" class="form-label">性別</label>
+                <span class="form-label__indicator">任意</span>
+              </div>
+              <div class="form-field__input">
+                <select name="gender" id="gender" class="form-select">
+                  <option value="">選択してください</option>
+                  <option value="male">男性</option>
+                  <option value="female">女性</option>
+                  <option value="other">その他</option>
+                </select>
+              </div>
+            </fieldset>
+            <!-- ./form-item -->
+
+            <fieldset class="form-item">
+              <legend class="form-label">
+                第1希望日
+                <span class="form-label__indicator form-label__indicator--required">必須</span>
+              </legend>
+              <div class="preferred__box">
+                <div class="form-field__input">
+                  <label for="preferred-date-1" class="form-label form-label__day">希望日時</label>
+                  <input type="date" id="preferred-date-1" name="preferred-date-1" class="form-text" required>
+                </div>
+                <div class="form-field__input">
+                  <label for="preferred-time-1" class="form-label form-label__time">希望時間</label>
+                  <input type="time" id="preferred-time-1" name="preferred-time-1" class="form-text" required>
+                </div>
+              </div>
+            </fieldset>
+            <!-- ./form-item -->
+
+            <fieldset class="form-item">
+              <legend class="form-label">
+                第2希望日
+                <span class="form-label__indicator">任意</span>
+              </legend>
+              <div class="preferred__box">
+                <div class="form-field__input">
+                  <label for="preferred-date-2" class="form-label form-label__day">希望日時</label>
+                  <input type="date" id="preferred-date-2" name="preferred-date-2" class="form-text">
+                </div>
+                <div class="form-field__input">
+                  <label for="preferred-time-2" class="form-label form-label__time">希望時間</label>
+                  <input type="time" id="preferred-time-2" name="preferred-time-2" class="form-text">
+                </div>
+              </div>
+            </fieldset>
+            <!-- ./form-item -->
+
+            <fieldset class="form-item">
+              <legend class="form-label">
+                第3希望日
+                <span class="form-label__indicator">任意</span>
+              </legend>
+              <div class="preferred__box">
+                <div class="form-field__input">
+                  <label for="preferred-date-3" class="form-label form-label__day">希望日時</label>
+                  <input type="date" id="preferred-date-3" name="preferred-date-3" class="form-text">
+                </div>
+                <div class="form-field__input">
+                  <label for="preferred-time-3" class="form-label form-label__time">希望時間</label>
+                  <input type="time" id="preferred-time-3" name="preferred-time-3" class="form-text">
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="form-item">
+              <div class="form-field__head">
+                <label for="your-message" class="form-label">お問い合わせ内容</label>
+                <span class="form-label__indicator">任意</span>
+              </div>
+              <div class="form-field__input">
+                <textarea name="your-message" id="your-message" class="form-textarea"></textarea>
+              </div>
+            </div>
+            <!-- ./form-item -->
+          </div>
+          <!-- ./form-items -->
+          <div class="form__footer">
+            <div class="form__privacy">
+              <label class="form-checkbox" for="your-privacy">
+                <input type="checkbox" name="your-privacy" id="your-privacy" class="form-checkbox__input" required>
+                <span class="form-checkbox__text"><a href="#x" target="_blank">プライバシーポリシー</a>に同意する</span>
+              </label>
+            </div>
+            <div class="contact__submit">
+              <button type="submit" class="button">送信</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="access section">
+      <div class="access__inner inner">
+        <h2 class="access__title section-title">
+          <span class="section-title__ja">アクセス</span>
+          <span class="section-title__en">access</span>
+        </h2>
+        <div class="access__content">
+          <div class="access__map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.2162036655322!2d139.70423887578835!3d35.69629687258241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cdeb91dcf3f%3A0xb6ac98faf88cd44!2z44Ki44K444Oj44K544OI44Ki44Kr44OH44Of44O8!5e0!3m2!1sja!2sjp!4v1747488365513!5m2!1sja!2sjp"
+              width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade" title="google map"></iframe>
+          </div>
+
+          <div class="access__info">
+            <div class="access__table-content">
+              <table class="time__table" aria-label="診療時間表">
+                <thead>
+                  <tr>
+                    <th>診療時間</th>
+                    <th>月</th>
+                    <th>火</th>
+                    <th>水</th>
+                    <th>木</th>
+                    <th>金</th>
+                    <th>土</th>
+                    <th>日</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <th>9:30~13:30</th>
+                    <td>●</td>
+                    <td>●</td>
+                    <td>●</td>
+                    <td>ー</td>
+                    <td>●</td>
+                    <td>●</td>
+                    <td>ー</td>
+                  </tr>
+                  <tr>
+                    <th>15:00~21:00</th>
+                    <td>●</td>
+                    <td>●</td>
+                    <td>●</td>
+                    <td>ー</td>
+                    <td>●</td>
+                    <td>●</td>
+                    <td>ー</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="access__text">休診日：木曜・日曜・祝日
+                <span>※祝日がある週のみ木曜日診療</span>
+              </p>
+              <address class="access__contact-info">
+                <p class="access__postal-code">〒151-0073</p>
+                <p class="access__location">東京都渋谷区笹塚2丁目11-5 メディカル笹塚ビル3F</p>
+                <p class="access__tel">TEL 03-1234-5678</p>
+                <p class="access__transportation">電車：京王線・京王新線「笹塚駅」徒歩3分</p>
+              </address>
+            </div>
+            <div class="access__button-box">
+              <a href="#x" class="access__detail-button button">アクセス詳細</a>
+              <!-- <a href="" class="access__map-button button">googleマップで開く</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner inner">
+      <div class="footer__info footer-info">
+        <p class="footer-info__logo">
+          <a href="index.html" aria-label="笹塚スマイル歯科クリニックのトップページへ">
+            <img src="./img/logo.png" alt="笹塚スマイル歯科クリニックのロゴ" width="50" height="50">
+            <span>笹塚スマイル歯科クリニック</span>
+          </a>
+        </p>
+        <p class="footer-info__catch">
+          笑顔あふれる、優しい歯科治療<br>
+          京王線 笹塚駅 徒歩3分<br>
+          診療時間 9:30 〜 13:30 / 15:00 〜 21:00
+        </p>
+
+        <div class="footer-info__button">
+          <a href="form.html" class="button reserve-button"><span>ご予約はこちらから</span></a>
+          <a href="tel:0312345678" class="tel-link">03-1234-5678</a>
+        </div>
+        <div class="footer-info__sns-links">
+          <a href="https://twitter.com/" class="footer-info__sns">
+            <img src="img/x-logo.svg" alt="xのロゴマーク" width="30" height="30">
+          </a>
+          <a href="https://www.instagram.com/" class="footer-info__sns">
+            <img src="img/Instagram-logo.svg" alt="Instagramのロゴマーク" width="30" height="30">
+          </a>
+          <a href="https://www.youtube.com/" class="footer-info__sns">
+            <img src="img/youtube-logo.svg" alt="youtubeのロゴマーク" width="30" height="30">
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__menu">
+        <nav class="footer__nav">
+          <div class="footer__nav-block">
+            <h3 class="footer__nav-home">
+              <a href="index.html">ホーム</a>
+            </h3>
+          </div>
+
+          <div class="footer__nav-block">
+            <h3 class="footer__nav-title">当院について</h3>
+            <ul class="footer__nav-list">
+              <li class="footer__nav-item"><a href="#x">医院紹介</a></li>
+              <li class="footer__nav-item"><a href="#x">院長紹介</a></li>
+              <li class="footer__nav-item"><a href="#x">スタッフ紹介</a></li>
+              <li class="footer__nav-item"><a href="#x">院内設備</a></li>
+              <li class="footer__nav-item"><a href="#x">お知らせ</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__nav-block">
+            <h3 class="footer__nav-title">診療内容</h3>
+            <ul class="footer__nav-list">
+              <li class="footer__nav-item"><a href="#x">一般歯科</a></li>
+              <li class="footer__nav-item"><a href="#x">小児歯科</a></li>
+              <li class="footer__nav-item"><a href="#x">予防歯科</a></li>
+              <li class="footer__nav-item"><a href="#x">歯周病</a></li>
+              <li class="footer__nav-item"><a href="#x">審美歯科</a></li>
+              <li class="footer__nav-item"><a href="#x">ホワイトニング</a></li>
+              <li class="footer__nav-item"><a href="#x">インプラント</a></li>
+              <li class="footer__nav-item"><a href="#x">口腔外科</a></li>
+              <li class="footer__nav-item"><a href="#x">セラミック治療</a></li>
+              <li class="footer__nav-item"><a href="#x">マウスピース製作</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__nav-block">
+            <h3 class="footer__nav-title">ご利用ガイド</h3>
+            <ul class="footer__nav-list">
+              <li class="footer__nav-item"><a href="guide.html">はじめての方へ</a></li>
+              <li class="footer__nav-item"><a href="#x">アクセス</a></li>
+              <li class="footer__nav-item"><a href="#x">予約方法</a></li>
+              <li class="footer__nav-item"><a href="#x">料金について</a></li>
+              <li class="footer__nav-item"><a href="#x">よくあるご質問 (FAQ)</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__nav-block">
+            <h3 class="footer__nav-title">その他</h3>
+            <ul class="footer__nav-list">
+              <li class="footer__nav-item"><a href="#x">採用情報</a></li>
+              <li class="footer__nav-item"><a href="#x">サイトマップ</a></li>
+              <li class="footer__nav-item"><a href="#x">プライバシーポリシー</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <hr>
+    <p class="footer__copyright">
+      <small>&copy; 2025 笹塚スマイル歯科クリニック｜渋谷区笹塚の歯医者さん.All rights reserved.</small>
+    </p>
+  </footer>
+</body>
+
+</html>

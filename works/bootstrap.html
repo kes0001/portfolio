@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrapを使用したサイト制作 | KANZAKI Portfolio</title>
+    <meta name="description" content="Bootstrapの習熟を目的に、標準機能のみでレスポンシブサイトを構築した制作プロセスを紹介します。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/main.js" defer></script>
+  </head>
+  <body>
+    <header class="l-header">
+      <div class="l-container l-header__inner">
+        <a class="l-header__logo" href="../index.html">KANZAKI</a>
+        <button class="l-header__burger" aria-label="メニューを開く" aria-expanded="false" aria-controls="l-header-nav">
+          <span class="l-header__burger-bar"></span>
+          <span class="l-header__burger-bar"></span>
+          <span class="l-header__burger-bar"></span>
+        </button>
+        <nav id="l-header-nav" class="l-header__nav" aria-label="メインナビゲーション">
+          <ul class="l-header__nav-list">
+            <li><a class="l-header__nav-link" href="../index.html#profile">Profile</a></li>
+            <li><a class="l-header__nav-link" href="../index.html#skills">Skills</a></li>
+            <li><a class="l-header__nav-link" href="../index.html#works">Works</a></li>
+            <li><a class="l-header__nav-link" href="../index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <article class="p-work">
+        <div class="l-container">
+          <a class="p-work__back" href="../index.html#works">Worksに戻る</a>
+          <p class="p-work__eyebrow">Works — Coding</p>
+          <h1 class="p-work__title">Bootstrapを使用したサイト制作</h1>
+          <p class="p-work__lead">Bootstrapの習熟を目的に、標準機能のみでレスポンシブサイトを構築しました。</p>
+
+          <div class="p-work__meta">
+            <div class="p-work__meta-item">
+              <span class="p-work__meta-label">Role</span>
+              <span class="p-work__meta-value">コーディング</span>
+            </div>
+            <div class="p-work__meta-item">
+              <span class="p-work__meta-label">Tools</span>
+              <span class="p-work__meta-value">HTML / Bootstrap</span>
+            </div>
+          </div>
+
+          <div class="p-work__actions">
+            <a class="c-button c-button--accent" href="./bstrap/index.html" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>サイトを見る</a>
+          </div>
+
+          <img class="p-work__thumbnail" src="../images/work-bootstrap.webp" alt="Bootstrapを使用したサイト制作のスクリーンショット" width="800" height="533" loading="eager" fetchpriority="high" />
+
+          <div class="p-work__body">
+            <section class="p-work__section">
+              <h2 class="p-work__section-title"><span class="p-work__section-title-en">Purpose</span>制作の目的</h2>
+              <p class="p-work__text">オンラインスクール「デイトラ」のカリキュラムに沿って、Bootstrapの使い方に習熟することを目的に制作。フレームワークを用いた効率的なレイアウト設計やコンポーネントの活用を通じて、実務でも役立つ基本的なスキルを身につけることを目指しました。</p>
+            </section>
+
+            <section class="p-work__section">
+              <h2 class="p-work__section-title"><span class="p-work__section-title-en">Coding</span>コーディングについて</h2>
+              <p class="p-work__text">Bootstrapのグリッドシステムやユーティリティクラスを用いて、レスポンシブ対応のサイトを構築。ナビゲーション・カードレイアウト・ボタン・フォームなど、よく使われるUIパーツをフレームワークベースで実装し、HTMLとBootstrapのみで完結する構成としています。</p>
+              <p class="p-work__text">カスタムCSSやJavaScriptを加えず、あくまでBootstrapの標準機能でどこまで対応できるかを試す練習として取り組みました。</p>
+            </section>
+          </div>
+
+          <nav class="p-work__footer-nav">
+            <a class="p-work__back" href="../index.html#works">Worksに戻る</a>
+          </nav>
+        </div>
+      </article>
+    </main>
+
+    <footer class="l-footer">
+      <div class="l-container">
+        <p class="l-footer__copyright">&copy; <span class="js-year">2026</span> KANZAKI</p>
+      </div>
+    </footer>
+  </body>
+</html>

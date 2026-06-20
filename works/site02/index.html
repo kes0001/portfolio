@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="「SPARK LINKS」公式サイト。「今日のわたしに、ちょうどいい。」をコンセプトに、天然水やジュース、炭酸飲料など、自然の恵みを活かした商品をお届けします。新商品情報やお得なキャンペーン、アレンジレシピもご紹介。" />
+        <meta name="robots" content="noindex nofollow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SPARK LINKS | 今日のわたしに、ちょうどいい。</title>
+
+        <!-- google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+
+        <!-- font awesome -->
+        <script src="https://kit.fontawesome.com/6bcafeb2ae.js" crossorigin="anonymous" defer></script>
+
+        <!-- swiper -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+        <!-- css -->
+        <link rel="stylesheet" href="./css/style.css" />
+    </head>
+    <body>
+        <header class="header">
+            <div class="header__inner inner">
+                <h1 class="header__logo"><a href="index.html">SPARK LINKS</a></h1>
+
+                <div class="header__nav-container">
+                    <nav class="header__nav-upper nav-upper" aria-label="上部ナビゲーション">
+                        <ul class="nav-upper__list">
+                            <li class="nav-upper__item"><a href="#x">お客様相談室</a></li>
+                            <li class="nav-upper__item"><a href="#x">GLOBAL</a></li>
+                            <li class="nav-upper__item"><a href="#x">リンクスホールディングス</a></li>
+                            <li class="nav-upper__item">
+                                <form action="#" method="get" role="search" class="nav-upper__search-form">
+                                    <label for="search" class="sr-only">キーワードで検索</label>
+                                    <input class="search" type="search" name="q" placeholder="キーワードで検索" id="search" />
+                                </form>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <nav class="header__nav-lower" aria-label="下部ナビゲーション">
+                        <ul class="nav-lower__list">
+                            <li class="nav-lower__item"><a href="product.html">商品情報</a></li>
+                            <li class="nav-lower__item"><a href="company.html">企業情報</a></li>
+                            <li class="nav-lower__item"><a href="#x">知る・楽しむ・つながる</a></li>
+                            <li class="nav-lower__item"><a href="#x">サステナビリティ</a></li>
+                            <li class="nav-lower__item"><a href="#x">お知らせ</a></li>
+                            <li class="nav-lower__item"><a href="#x">お問い合わせ</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- ハンバーガーメニュー -->
+                <button id="js-drawer-icon" type="button" class="drawer-icon" aria-label="メニューを開く">
+                    <span class="drawer-icon__bar"></span>
+                    <span class="drawer-icon__bar"></span>
+                    <span class="drawer-icon__bar"></span>
+                </button>
+
+                <!-- ドロワーメニュー -->
+                <div id="js-drawer-content" class="drawer-content inner">
+                    <nav class="drawer-content__menu">
+                        <div class="drawer-content__search">
+                            <form action="#x" method="get" role="search" class="drawer-content__search-form">
+                                <label for="q" class="sr-only">キーワードで検索</label>
+                                <input class="drawer-content__search-input" type="search" name="q" placeholder="キーワードで検索" id="q" />
+                            </form>
+                        </div>
+                        <ul class="drawer-content__list">
+                            <li class="drawer-content__item">
+                                <a href="./product.html" class="drawer-content__link">商品情報</a>
+                            </li>
+                            <li class="drawer-content__item">
+                                <a href="company.html" class="drawer-content__link">企業情報</a>
+                            </li>
+                            <li class="drawer-content__item">
+                                <a href="#x" class="drawer-content__link">知る・楽しむ・つながる</a>
+                            </li>
+                            <li class="drawer-content__item">
+                                <a href="#x" class="drawer-content__link">サステナビリティ</a>
+                            </li>
+                            <li class="drawer-content__item">
+                                <a href="#x" class="drawer-content__link">お知らせ</a>
+                            </li>
+                            <li class="drawer-content__item">
+                                <a href="#x" class="drawer-content__link">お問い合わせ</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="fv">
+                <div class="fv__inner">
+                    <!-- Slider main container -->
+                    <section class="swiper fv__swiper" aria-label="ファーストビュー">
+                        <div class="swiper-wrapper fv__swiper-wrapper">
+                            <figure class="swiper-slide fv__slide">
+                                <picture class="fv__slide-image">
+                                    <source media="(min-width: 768px)" srcset="./img/fv-pc2.jpg" />
+                                    <img src="./img/sp/fv-sp2.jpg" width="700" height="1100" alt="ファーストビュー画像1" />
+                                </picture>
+                                <figcaption class="fv__slide-caption">
+                                    <h2 class="fv__slide-title">今日のわたしに、ちょうどいい。<br />自然のチカラで、気持ちにひと息。</h2>
+                                </figcaption>
+                            </figure>
+
+                            <figure class="swiper-slide fv__slide">
+                                <picture class="fv__slide-image">
+                                    <source media="(min-width: 768px)" srcset="./img/fv-pc3.png" />
+                                    <img src="./img/sp/fv-sp3.png" width="700" height="1100" alt="ファーストビュー画像2" />
+                                </picture>
+                                <figcaption class="fv__slide-caption">
+                                    <h2 class="fv__slide-title">こころも、カラダも、澄んでいく。</h2>
+                                </figcaption>
+                            </figure>
+
+                            <figure class="swiper-slide fv__slide">
+                                <picture class="fv__slide-image">
+                                    <source media="(min-width: 768px)" srcset="./img/fv-pc4.png" />
+                                    <img src="./img/sp/fv-sp4.png" width="700" height="1100" alt="ファーストビュー画像3" />
+                                </picture>
+                                <figcaption class="fv__slide-caption">
+                                    <h2 class="fv__slide-title">自然のめぐみを、まっすぐに。<br />笑顔にしみこむ一杯。</h2>
+                                </figcaption>
+                            </figure>
+
+                            <figure class="swiper-slide fv__slide">
+                                <picture class="fv__slide-image">
+                                    <source media="(min-width: 768px)" srcset="./img/fv-pc5.png" />
+                                    <img src="./img/sp/fv-sp5.png" width="700" height="1100" alt="ファーストビュー画像4" />
+                                </picture>
+                                <figcaption class="fv__slide-caption">
+                                    <h2 class="fv__slide-title">わたしをととのえる、<br />やさしいひとしずく。</h2>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="swiper-pagination fv__pagenation"></div>
+                        <div class="swiper-button-prev fv__prev"></div>
+                        <div class="swiper-button-next fv__next"></div>
+                    </section>
+
+                    <div class="fv__waves-container">
+                        <!--Waves Container-->
+                        <div>
+                            <svg class="fv__waves" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                                <defs>
+                                    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                                </defs>
+                                <g class="fv__parallax">
+                                    <use href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+                                    <use href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                                    <use href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                                    <use href="#gentle-wave" x="48" y="7" fill="#fff" />
+                                </g>
+                            </svg>
+                        </div>
+                        <!--Waves end-->
+                    </div>
+                </div>
+            </div>
+            <!--Header ends-->
+
+            <section class="info">
+                <div class="info__inner inner">
+                    <div class="info__box">
+                        <h2 class="info__box-title">重要なお知らせ</h2>
+                        <ul class="info__box-list">
+                            <li class="info__box-item">
+                                <a href="#x">【重要】スパーク・リンクスの公式SNSを装った偽アカウントにご注意ください</a>
+                            </li>
+                            <li class="info__box-item">
+                                <a href="#x">【お知らせ】「信州天然水ピュア」一部商品における出荷遅延について </a>
+                            </li>
+                            <li class="info__box-item">
+                                <a href="#x">【重要】当社社員を名乗る不審なメールについてのご注意 </a>
+                            </li>
+                            <li class="info__box-item">
+                                <a href="#x">【お知らせ】スパーク・リンクス夏季限定ギフトの受付開始 </a>
+                            </li>
+                            <li class="info__box-item">
+                                <a href="#x">【重要】詐欺サイト・なりすましECサイトに関するご注意 </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-banner">
+                <div class="info-banner__inner">
+                    <h2 class="sr-only">キャンペーン情報</h2>
+                    <!-- Slider main container -->
+                    <div class="swiper info-banner__swiper" role="region" aria-label="キャンペーンバナー">
+                        <!-- Additional required wrapper -->
+                        <ul class="swiper-wrapper info-banner__swiper-wrapper">
+                            <!-- Slides -->
+                            <li class="swiper-slide info-banner__slide">
+                                <a href="#"><img src="./img/banner-up01.png" alt="キャンペーンバナー1" width="1280" height="360" /></a>
+                            </li>
+
+                            <li class="swiper-slide info-banner__slide">
+                                <a href="#"><img src="./img/banner-up02.png" alt="キャンペーンバナー2" width="1280" height="360" /></a>
+                            </li>
+
+                            <li class="swiper-slide info-banner__slide">
+                                <a href="#"><img src="./img/banner-up03.png" alt="キャンペーンバナー3" width="1280" height="360" /></a>
+                            </li>
+                            <li class="swiper-slide info-banner__slide">
+                                <a href="#"><img src="./img/banner-up01.png" alt="キャンペーンバナー1" width="1280" height="360" /></a>
+                            </li>
+                            <li class="swiper-slide info-banner__slide">
+                                <a href="#"><img src="./img/banner-up02.png" alt="キャンペーンバナー2" width="1280" height="360" /></a>
+                            </li>
+                        </ul>
+                        <!-- If we need pagination -->
+                        <div class="swiper-pagination info-banner__pagenation"></div>
+
+                        <!-- If we need navigation buttons -->
+                        <!-- <div class="swiper-button-prev info-banner__prev"></div> -->
+                        <!-- <div class="swiper-button-next info-banner__next"></div> -->
+                    </div>
+                </div>
+            </section>
+
+            <section class="pick-up-products section">
+                <div class="pick-up-products__inner inner">
+                    <h2 class="pick-up-products__title heading js-in-view fade-in">
+                        <span class="heading__ja">注目の商品</span>
+                        <!-- /.heading__en -->
+                        <span class="heading__en">pick up</span>
+                        <!-- /.heading__ja -->
+                    </h2>
+                    <ul class="pick-up-products__list">
+                        <li>
+                            <article class="pick-up-products-card">
+                                <div class="pick-up-products-card__img">
+                                    <img src="./img/lemon-shuwa.png" alt="" width="600" height="600" />
+                                </div>
+                                <div class="pick-up-products-card__body">
+                                    <h3 class="pick-up-products-card__title">レモンシュワッ！<span class="pick-up-products-card__title-sub">〈微炭酸〉</span></h3>
+                                    <time class="pick-up-products-card__date" datetime="2025-06-10">発売日：6/10</time>
+                                    <p class="pick-up-products-card__text">この夏だけの、爽やかレモン炭酸！<br />キリッとした酸味で気分リフレッシュ。</p>
+                                </div>
+                            </article>
+                        </li>
+
+                        <li>
+                            <article class="pick-up-products-card">
+                                <div class="pick-up-products-card__img">
+                                    <img src="./img/active.png" alt="ピックアップ商品アクティブチャージの画像" width="600" height="600" />
+                                </div>
+                                <div class="pick-up-products-card__body">
+                                    <h3 class="pick-up-products-card__title">アクティブチャージ</h3>
+                                    <time class="pick-up-products-card__date" datetime="2025-06-03">発売日：6/3</time>
+                                    <p class="pick-up-products-card__text">電解質とクエン酸を配合した、汗ばむ季節にぴったりの1本。</p>
+                                </div>
+                            </article>
+                        </li>
+
+                        <li>
+                            <article class="pick-up-products-card">
+                                <div class="pick-up-products-card__img">
+                                    <img src="./img/sizuku-orange.png" alt="ピックアップ商品ぶどうのめぐみ100の画像" width="600" height="600" />
+                                </div>
+                                <div class="pick-up-products-card__body">
+                                    <h3 class="pick-up-products-card__title">sizuku みかんそのまま</h3>
+                                    <time class="pick-up-products-card__date" datetime="2025-05-27">発売日：5/27</time>
+                                    <p class="pick-up-products-card__text">みずみずしいみかんの甘みと爽やかさ。まるで果実をそのまま味わうような贅沢なジュース。</p>
+                                </div>
+                            </article>
+                        </li>
+
+                        <li>
+                            <article class="pick-up-products-card">
+                                <div class="pick-up-products-card__img">
+                                    <img src="./img/spark-water.png" alt="ピックアップ商品信州天然水ピュア〈限定ボトル〉の画像" width="600" height="600" />
+                                </div>
+                                <div class="pick-up-products-card__body">
+                                    <h3 class="pick-up-products-card__title">信州天然水ピュア<span class="pick-up-products-card__title-sub">〈限定ボトル〉</span></h3>
+                                    <time class="pick-up-products-card__date" datetime="2025-06-01">発売日：6/1</time>
+                                    <p class="pick-up-products-card__text">北アルプスの恵みを、ボトルごとに。夏限定のデザインで登場！</p>
+                                </div>
+                            </article>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="products section">
+                <div class="products__inner inner">
+                    <h2 class="products__title heading js-in-view fade-in">
+                        <span class="heading__ja">商品一覧</span>
+                        <!-- /.heading__en -->
+                        <span class="heading__en">product lineup</span>
+                        <!-- /.heading__ja -->
+                    </h2>
+                    <ul class="products__lists">
+                        <li class="products__list">
+                            <a href="#x" class="products__item">
+                                <div class="products__item-head"></div>
+                                <div class="products__item-body">
+                                    <img class="products__item-image" src="./img/lemon-spark.png" alt="商品画像" width="600" height="600" />
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="products__list">
+                            <a href="#x" class="products__item">
+                                <div class="products__item-head"></div>
+                                <div class="products__item-body">
+                                    <img class="products__item-image" src="./img/active.png" alt="商品画像" width="600" height="600" />
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="products__list">
+                            <a href="#x" class="products__item">
+                                <div class="products__item-head"></div>
+                                <div class="products__item-body">
+                                    <img class="products__item-image" src="./img/aqua-water.png" alt="商品画像" width="600" height="600" />
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="products__list">
+                            <a href="#x" class="products__item">
+                                <div class="products__item-head"></div>
+                                <div class="products__item-body">
+                                    <img class="products__item-image" src="./img/spark-coke.png" alt="商品画像" width="600" height="600" />
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="products__list">
+                            <a href="#x" class="products__item">
+                                <div class="products__item-head"></div>
+                                <div class="products__item-body">
+                                    <img class="products__item-image" src="./img/green-tea.png" alt="商品画像" width="600" height="600" />
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="products__list">
+                            <a href="#x" class="products__item">
+                                <div class="products__item-head"></div>
+                                <div class="products__item-body">
+                                    <img class="products__item-image" src="./img/sizuku-grape.png" alt="商品画像" width="600" height="600" />
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="products__list">
+                            <a href="#x" class="products__item">
+                                <div class="products__item-head"></div>
+                                <div class="products__item-body">
+                                    <img class="products__item-image" src="./img/calcia.png" alt="商品画像" width="600" height="600" />
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="products__list">
+                            <a href="#x" class="products__item">
+                                <div class="products__item-head"></div>
+                                <div class="products__item-body">
+                                    <img class="products__item-image" src="./img/spark-water.png" alt="商品画像" width="600" height="600" />
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="products__button-container">
+                        <a href="#x" class="products__button button">商品一覧</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="gallery enjoy section">
+                <div class="gallery__inner enjoy__inner inner">
+                    <h2 class="enjoy__title heading js-in-view fade-in">
+                        <span class="heading__ja">知る・楽しむ・つながる</span>
+                        <!-- /.heading__en -->
+                        <span class="heading__en">discover, enjoy & connect</span>
+                        <!-- /.heading__ja -->
+                    </h2>
+                    <!-- /.gallery__title -->
+                    <div class="gallery__slider enjoy__slider">
+                        <!-- Slider main container -->
+                        <div id="js-enjoy-swiper" class="swiper gallery__swiper enjoy__swiper">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                                <!-- Slides -->
+                                <a href="#x" class="swiper-slide gallery__slide enjoy__slide">
+                                    <article class="gallery-card enjoy-card">
+                                        <div class="gallery-card__image enjoy-card__image"><img src="./img/banner01.png" alt="" width="720" height="360" /></div>
+                                        <div class="gallery-card__body enjoy-card__body">
+                                            <p class="gallery-card__date enjoy-card__date">
+                                                <time datetime="2025-08-01">2025年8月1日～8月31日</time>～
+                                                <time datetime="2025-08-31">8月31日</time>
+                                            </p>
+                                            <h3 class="gallery-card__text enjoy-card__text">抽選でオリジナルグッズ当たる</h3>
+                                        </div>
+                                    </article>
+                                </a>
+
+                                <a href="#x" class="swiper-slide gallery__slide enjoy__slide">
+                                    <article class="gallery-card enjoy-card">
+                                        <div class="gallery-card__image enjoy-card__image"><img src="./img/banner05.png" alt="" width="720" height="360" /></div>
+                                        <div class="gallery-card__body enjoy-card__body">
+                                            <p class="gallery-card__date enjoy-card__date">
+                                                <time datetime="2025-08-01">8月1日から</time>
+                                            </p>
+                                            <h3 class="gallery-card__text enjoy-card__text">挑戦者に捧ぐ、覚醒のエナジー。この夏、新登場。BLACK SKULLで限界を超えろ。</h3>
+                                        </div>
+                                    </article>
+                                </a>
+
+                                <a href="#x" class="swiper-slide gallery__slide enjoy__slide">
+                                    <article class="gallery-card enjoy-card">
+                                        <div class="gallery-card__image enjoy-card__image"><img src="./img/banner02.png" alt="" width="720" height="360" /></div>
+                                        <div class="gallery-card__body enjoy-card__body">
+                                            <h3 class="gallery-card__text enjoy-card__text">成長期の子どもから大人まで、家族の健康をサポート。</h3>
+                                        </div>
+                                    </article>
+                                </a>
+
+                                <a href="#x" class="swiper-slide gallery__slide enjoy__slide">
+                                    <article class="gallery-card enjoy-card">
+                                        <div class="gallery-card__image enjoy-card__image"><img src="./img/banner03.png" alt="" width="720" height="360" /></div>
+                                        <div class="gallery-card__body enjoy-card__body">
+                                            <p class="gallery-card__date enjoy-card__date">
+                                                <time datetime="2025-07-01">2025年7月1日</time>～
+                                                <time datetime="2025-09-30">9月30日 夏限定販売</time>
+                                            </p>
+                                            <h3 class="gallery-card__text enjoy-card__text">キリッとした酸味で気分リフレッシュ。夏季限定のレモン炭酸。</h3>
+                                        </div>
+                                    </article>
+                                </a>
+
+                                <a href="#x" class="swiper-slide gallery__slide enjoy__slide">
+                                    <article class="gallery-card enjoy-card">
+                                        <div class="gallery-card__image enjoy-card__image"><img src="./img/banner01.png" alt="" width="720" height="360" /></div>
+                                        <div class="gallery-card__body enjoy-card__body">
+                                            <p class="gallery-card__date enjoy-card__date">
+                                                <time datetime="2025-08-01">2025年8月1日～8月31日</time>～
+                                                <time datetime="2025-08-31">8月31日</time>
+                                            </p>
+                                            <h3 class="gallery-card__text enjoy-card__text">抽選でオリジナルグッズ当たる</h3>
+                                        </div>
+                                    </article>
+                                </a>
+
+                                <a href="#x" class="swiper-slide gallery__slide enjoy__slide">
+                                    <article class="gallery-card enjoy-card">
+                                        <div class="gallery-card__image enjoy-card__image"><img src="./img/banner04.png" alt="" width="720" height="360" /></div>
+                                        <div class="gallery-card__body enjoy-card__body">
+                                            <p class="gallery-card__date enjoy-card__date">
+                                                <time datetime="2025-07-22">2025年7月22日</time>～
+                                                <time datetime="2025-09-15">9月15日</time>
+                                            </p>
+                                            <h3 class="gallery-card__text enjoy-card__text">初回限定！アンケート回答でLINEポイント全員プレゼント。</h3>
+                                        </div>
+                                    </article>
+                                </a>
+
+                                <a href="#x" class="swiper-slide gallery__slide enjoy__slide">
+                                    <article class="gallery-card enjoy-card">
+                                        <div class="gallery-card__image enjoy-card__image"><img src="./img/banner05.png" alt="" width="720" height="360" /></div>
+                                        <div class="gallery-card__body enjoy-card__body">
+                                            <p class="gallery-card__date enjoy-card__date">
+                                                <time datetime="2025-08-01">8月1日から</time>
+                                            </p>
+                                            <h3 class="gallery-card__text enjoy-card__text">挑戦者に捧ぐ、覚醒のエナジー。この夏、新登場。BLACK SKULLで限界を超えろ。</h3>
+                                        </div>
+                                    </article>
+                                </a>
+
+                                <a href="#x" class="swiper-slide gallery__slide enjoy__slide">
+                                    <article class="gallery-card enjoy-card">
+                                        <div class="gallery-card__image enjoy-card__image"><img src="./img/banner02.png" alt="" width="720" height="360" /></div>
+                                        <div class="gallery-card__body enjoy-card__body">
+                                            <h3 class="gallery-card__text enjoy-card__text">成長期の子どもから大人まで、家族の健康をサポート。</h3>
+                                        </div>
+                                    </article>
+                                </a>
+                            </div>
+                            <!-- If we need pagination -->
+                            <div id="js-enjoy-pagination" class="swiper-pagination gallery__pagination"></div>
+
+                            <!-- If we need navigation buttons -->
+                            <div id="js-enjoy-prev" class="swiper-button-prev gallery__prev"></div>
+                            <div id="js-enjoy-next" class="swiper-button-next gallery__next"></div>
+                        </div>
+                    </div>
+                    <!-- /.gallery__slider -->
+                </div>
+                <!-- /.gallery__inner -->
+                <div class="enjoy__button-container">
+                    <a href="#x" class="enjoy__button button">キャンペーン情報</a>
+                    <a href="#x" class="enjoy__button button">一覧で見る</a>
+                </div>
+            </section>
+
+            <section class="gallery recipe section">
+                <div class="gallery__inner inner">
+                    <h2 class="recipe__title heading js-in-view fade-in">
+                        <span class="heading__ja">レシピ・飲み方・楽しみ方</span>
+                        <!-- /.heading__en -->
+                        <span class="heading__en">Recipe & How to Enjoy</span>
+                        <!-- /.heading__ja -->
+                    </h2>
+                    <!-- /.gallery__title -->
+                    <div class="gallery__slider recipe__slider">
+                        <!-- Slider main container -->
+                        <div id="js-recipe-swiper" class="swiper gallery__swiper recipe__swiper">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                                <!-- Slides -->
+                                <a href="#x" class="swiper-slide gallery__slide recipe__slide">
+                                    <article class="gallery-card recipe-card">
+                                        <div class="gallery-card__image recipe-card__image"><img src="./img/lemon-spark-recipe.png" alt="" width="720" height="360" /></div>
+                                        <div class="gallery-card__body recipe-card__body">
+                                            <h2 class="gallery-card__title recipe-card__title">lemon sparkで、はじける夏を乗り切れ！</h2>
+                                            <p class="gallery-card__text recipe-card__text">lemon sparkにミントとハチミツをプラス。おうちで簡単、爽快レモネード体験。</p>
+                                        </div>
+                                    </article>
+                                </a>
+
+                                <a href="#x" class="swiper-slide gallery__slide recipe__slide">
+                                    <article class="gallery-card recipe-card">
+                                        <div class="gallery-card__image recipe-card__image"><img src="./img/grape-recipe.png" alt="" width="720" height="360" /></div>
+                                        <div class="gallery-card__body recipe-card__body">
+                                            <h2 class="gallery-card__title recipe-card__title">朝の一杯はgrapefruit sparkでシャキッと爽やか。</h2>
+                                            <p class="gallery-card__text recipe-card__text">grapefruit sparkにカットフルーツを添えて。果実感あふれる贅沢モーニング。</p>
+                                        </div>
+                                    </article>
+                                </a>
+
+                                <a href="#x" class="swiper-slide gallery__slide recipe__slide">
+                                    <article class="gallery-card recipe-card">
+                                        <div class="gallery-card__image recipe-card__image"><img src="./img/tea-recipe.png" alt="" width="720" height="360" /></div>
+                                        <div class="gallery-card__body recipe-card__body">
+                                            <h2 class="gallery-card__title recipe-card__title">鮮茶と楽しむ、和スイーツのひととき。</h2>
+                                            <p class="gallery-card__text recipe-card__text">鮮茶は、どら焼きや抹茶羊羹と相性抜群。ほっと落ち着く和の時間を。</p>
+                                        </div>
+                                    </article>
+                                </a>
+
+                                <a href="#x" class="swiper-slide gallery__slide recipe__slide">
+                                    <article class="gallery-card recipe-card">
+                                        <div class="gallery-card__image recipe-card__image"><img src="./img/spark-ale-recipe.png" alt="" width="720" height="360" /></div>
+                                        <div class="gallery-card__body recipe-card__body">
+                                            <h2 class="gallery-card__title recipe-card__title">spark aleで作る、特別な一杯。</h2>
+                                            <p class="gallery-card__text recipe-card__text">spark aleにオレンジピールを添えて。おうちバータイムを格上げするカクテルアレンジ。</p>
+                                        </div>
+                                    </article>
+                                </a>
+
+                                <a href="#x" class="swiper-slide gallery__slide recipe__slide">
+                                    <article class="gallery-card recipe-card">
+                                        <div class="gallery-card__image recipe-card__image"><img src="./img/active-recipe.png" alt="" width="720" height="360" /></div>
+                                        <div class="gallery-card__body recipe-card__body">
+                                            <h2 class="gallery-card__title recipe-card__title">active chargeで、動いたカラダにひんやりチャージ！</h2>
+                                            <p class="gallery-card__text recipe-card__text">active chargeを凍らせてシャーベットに。スポーツ後のリカバリースナックにぴったり。</p>
+                                        </div>
+                                    </article>
+                                </a>
+                            </div>
+                            <!-- If we need pagination -->
+                            <div id="js-recipe-pagination" class="swiper-pagination gallery__pagination"></div>
+
+                            <!-- If we need navigation buttons -->
+                            <div id="js-recipe-prev" class="swiper-button-prev gallery__prev"></div>
+                            <div id="js-recipe-next" class="swiper-button-next gallery__next"></div>
+                        </div>
+                    </div>
+                    <!-- /.gallery__slider -->
+                </div>
+                <!-- /.gallery__inner -->
+                <div class="recipe__button-container">
+                    <a href="#x" class="recipe__button button">一覧で見る</a>
+                </div>
+            </section>
+
+            <section class="information section">
+                <div class="information__inner inner">
+                    <h2 class="information__title heading js-in-view fade-in">
+                        <span class="heading__ja">お知らせ</span>
+                        <span class="heading__en">information</span>
+                    </h2>
+                    <div class="information__cards">
+                        <a href="#x" class="information-card">
+                            <div class="information-card__head">
+                                <img src="./img/news-img.png" alt="" width="600" height="300" />
+                            </div>
+                            <div class="information-card__body">
+                                <div class="information-card__meta">
+                                    <data class="information-card__data" value="2025-06-24">2025年6月24日</data>
+                                    <span class="information-card__label accent">キャンペーン情報</span>
+                                </div>
+                                <p class="information-card__text">【今だけ！】夏の爽快キャンペーン開催中。対象商品を購入して、オリジナルグッズやデジタルポイントが当たるチャンス。詳しくは特設ページへ。</p>
+                            </div>
+                        </a>
+                        <a href="#x" class="information-card">
+                            <div class="information-card__head">
+                                <img src="./img/banner03.png" alt="" width="600" height="300" />
+                            </div>
+                            <div class="information-card__body">
+                                <div class="information-card__meta">
+                                    <data class="information-card__data" value="2025-06-24">2025年6月20日</data>
+                                    <span class="information-card__label">商品情報</span>
+                                </div>
+                                <p class="information-card__text">【新発売】「レモンシュワッ！」爽快なレモンフレーバー登場！暑い季節にぴったりの、すっきりとした味わい。全国のスーパー・コンビニで好評発売中。</p>
+                            </div>
+                        </a>
+                        <a href="#x" class="information-card">
+                            <div class="information-card__head">
+                                <img src="./img/news-factory.png" alt="" width="600" height="300" />
+                            </div>
+                            <div class="information-card__body">
+                                <div class="information-card__meta">
+                                    <data class="information-card__data" value="2025-06-24">2025年6月10日</data>
+                                    <span class="information-card__label">キャンペーン情報</span>
+                                </div>
+                                <p class="information-card__text">【工場見学 再開のお知らせ】バーチャル見学も同時開催中人気の「バーチャル工場見学」がよりリアルに。現地見学も人数制限付きで再開しました。</p>
+                            </div>
+                        </a>
+                        <a href="#x" class="information-card">
+                            <div class="information-card__head">
+                                <img src="./img/news-track.png" alt="" width="600" height="300" />
+                            </div>
+                            <div class="information-card__body">
+                                <div class="information-card__meta">
+                                    <data class="information-card__data" value="2025-06-24">2025年5月30日</data>
+                                    <span class="information-card__label">お知らせ</span>
+                                </div>
+                                <p class="information-card__text">【定期便サービス】人気商品まとめ買いでお得にスタートご家庭用やギフトにも便利な定期便・まとめ買いサービスを開始しました。</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="information__button-container">
+                        <a href="#x" class="information__button button">お知らせ一覧</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="news section">
+                <div class="news__inner inner">
+                    <h2 class="news__title heading js-in-view fade-in">
+                        <span class="heading__ja">ニュースリリース</span>
+                        <span class="heading__en">News Release</span>
+                    </h2>
+                    <div class="news__cards">
+                        <a href="#x" class="news-card">
+                            <div class="news-card__body">
+                                <div class="news-card__meta">
+                                    <data class="news-card__data" value="2025-06-24">2025年6月24日</data>
+                                    <span class="news-card__label accent">サステナビリティ</span>
+                                </div>
+                                <p class="news-card__text">【環境目標の進捗状況を公開】CO2排出量を前年比15%削減「スパーク・リンクス」は環境経営の一環として、2024年度のCO2削減実績を公表。サプライチェーン全体での取り組みを強化。</p>
+                            </div>
+                        </a>
+                        <a href="#x" class="news-card">
+                            <div class="news-card__body">
+                                <div class="news-card__meta">
+                                    <data class="news-card__data" value="2025-06-12">2025年6月12日</data>
+                                    <span class="news-card__label accent">企業情報</span>
+                                </div>
+                                <p class="news-card__text">【人事異動のお知らせ】新経営体制スタート持続的な成長とグローバル展開強化を目的に、7月1日付で一部役員の人事異動を実施。</p>
+                            </div>
+                        </a>
+                        <a href="#x" class="news-card">
+                            <div class="news-card__body">
+                                <div class="news-card__meta">
+                                    <data class="news-card__data" value="2025-05-27">2025年5月27日</data>
+                                    <span class="news-card__label accent">研究開発</span>
+                                </div>
+                                <p class="news-card__text">【新技術発表】「ナチュラルフレーバー抽出技術」の開発に成功独自技術により、より自然で豊かな味わいを実現。今後の商品ラインに順次展開予定。</p>
+                            </div>
+                        </a>
+                        <a href="#x" class="news-card">
+                            <div class="news-card__body">
+                                <div class="news-card__meta">
+                                    <data class="news-card__data" value="2025-05-15">2025年5月15日</data>
+                                    <span class="news-card__label accent">財務情報</span>
+                                </div>
+                                <p class="news-card__text">【2025年 第1四半期決算】売上・利益ともに前年同期比増コア事業の炭酸飲料が好調を維持し、成長領域の自然派飲料も大きく伸長。</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="news__button-container">
+                        <a href="#x" class="news__button button">ニュースリリース一覧</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="footer__inner inner">
+                <nav class="footer__nav">
+                    <div class="footer__nav-block">
+                        <h2 class="footer-nav__title">商品情報</h2>
+                        <ul class="footer-nav__list footer-nav__list--sub">
+                            <li class="footer-nav__item"><a href="#x">炭酸飲料</a></li>
+                            <li class="footer-nav__item"><a href="#x">お茶</a></li>
+                            <li class="footer-nav__item"><a href="#x">果汁飲料</a></li>
+                            <li class="footer-nav__item"><a href="#x">機能性飲料</a></li>
+                            <li class="footer-nav__item"><a href="#x">ミネラルウォーター</a></li>
+                            <li class="footer-nav__item"><a href="#x">乳性飲料</a></li>
+                            <li class="footer-nav__item"><a href="#x">キッズ・ファミリー</a></li>
+                            <li class="footer-nav__item"><a href="#x">限定・ギフト商品</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__nav-block">
+                        <h2 class="footer-nav__title">企業情報</h2>
+                        <ul class="footer-nav__list footer-nav__list--sub">
+                            <li class="footer-nav__item"><a href="#x">会社概要</a></li>
+                            <li class="footer-nav__item"><a href="#x">事業内容</a></li>
+                            <li class="footer-nav__item"><a href="#x">事業所・アクセス</a></li>
+                            <li class="footer-nav__item"><a href="#x">沿革</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__nav-block">
+                        <h2 class="footer-nav__title">採用・IR</h2>
+                        <ul class="footer-nav__list footer-nav__list--sub">
+                            <li class="footer-nav__item"><a href="#x">採用情報</a></li>
+                            <li class="footer-nav__item"><a href="#x">社員インタビュー</a></li>
+                            <li class="footer-nav__item"><a href="#x">ir情報</a></li>
+                            <li class="footer-nav__item"><a href="#x">経営方針</a></li>
+                            <li class="footer-nav__item"><a href="#x">株主・株式情報</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__nav-block">
+                        <h2 class="footer-nav__title">サポート・その他</h2>
+                        <ul class="footer-nav__list footer-nav__list--sub">
+                            <li class="footer-nav__item"><a href="#x">FAQ（よくあるご質問）</a></li>
+                            <li class="footer-nav__item"><a href="#x">ご利用ガイド</a></li>
+                            <li class="footer-nav__item"><a href="#x">配送・返品について</a></li>
+                            <li class="footer-nav__item"><a href="#x">プライバシーポリシー</a></li>
+                            <li class="footer-nav__item"><a href="#x">特定商取引法に基づく表示</a></li>
+                            <li class="footer-nav__item"><a href="#x">サイトマップ</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__nav-block">
+                        <h2 class="footer-nav__title">法人向け</h2>
+                        <ul class="footer-nav__list footer-nav__list--sub">
+                            <li class="footer-nav__item"><a href="#x">法人・業務用のお問い合わせ</a></li>
+                            <li class="footer-nav__item"><a href="#x">パートナー募集</a></li>
+                            <li class="footer-nav__item"><a href="#x">メディア・取材対応</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__nav-block">
+                        <h2 class="footer-nav__title">sns・外部リンク</h2>
+                        <ul class="footer-nav__list footer-nav__list--sub">
+                            <li class="footer-nav__item"><a href="#x">line</a></li>
+                            <li class="footer-nav__item"><a href="#x">instagram</a></li>
+                            <li class="footer-nav__item"><a href="#x">x（旧twitter）</a></li>
+                            <li class="footer-nav__item"><a href="#x">YouTube</a></li>
+                            <li class="footer-nav__item"><a href="#x">公式オンラインショップ</a></li>
+                            <li class="footer-nav__item sns-list__item">
+                                <ul class="footer__sns sns-list">
+                                    <li class="sns-list__item">
+                                        <a href="#x" target="_blank" rel="noopener noreferrer" aria-label="Instagramでフォロー">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                    <li class="sns-list__item">
+                                        <a href="#x" target="_blank" rel="noopener noreferrer" aria-label="YouTubeでフォロー">
+                                            <i class="fab fa-youtube"></i>
+                                        </a>
+                                    </li>
+                                    <li class="sns-list__item">
+                                        <a href="#x" target="_blank" rel="noopener noreferrer" aria-label="Xでフォロー">
+                                            <i class="fab fa-x-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li class="sns-list__item">
+                                        <a href="#x" target="_blank" rel="noopener noreferrer" aria-label="LINEでフォロー">
+                                            <i class="fab fa-line"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="footer__lower">
+                <div class="footer__info"></div>
+                <hr class="footer__divider" />
+                <small class="footer__copyright">
+                    <a class="footer__item" href="#x">&copy;2025 Spark Links Inc. All Rights Reserved.</a>
+                </small>
+                <ul class="footer__copyright-list">
+                    <li class="footer__copyright-item"><a href="">spark links</a></li>
+                    <li class="footer__copyright-item"><a href="">プライバシーポリシー</a></li>
+                    <li class="footer__copyright-item"><a href="">ご利用規約</a></li>
+                    <li class="footer__copyright-item"><a href="">特定商取引法に基づく表示</a></li>
+                    <li class="footer__copyright-item"><a href="">サイトマップ</a></li>
+                </ul>
+            </div>
+            <a href="#" id="js-to-top" class="footer__to-top">
+                <span class="sr-only">ページトップへ戻る</span>
+                <svg viewBox="0 0 320 512" width="16" height="16"><path fill="currentColor" d="M177 159.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 255.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 329.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.4 24.6-9.4 33.9 0z" /></svg>
+            </a>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+        <script src="./js/script.js" defer></script>
+    </body>
+</html>

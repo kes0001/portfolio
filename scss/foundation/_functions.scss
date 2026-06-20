@@ -1,0 +1,11 @@
+@use "sass:math";
+
+// ============================================================
+// rem() — px を rem に変換する関数
+// 使い方: font-size: rem(16); → 1rem
+// ============================================================
+$base-font-size: 16;
+
+@function rem($px, $base: $base-font-size) {
+  @return math.div($px, $base) * 1rem;
+}

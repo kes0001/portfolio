@@ -1,0 +1,249 @@
+@use "../global/mixin" as *;
+
+.footer {
+    padding-top: 40px;
+
+    @include mq("mdPlus") {
+        padding-top: 120px;
+    }
+}
+
+.footer__inner {
+    text-align: center;
+}
+
+.footer__sns {
+    text-align: center;
+}
+
+.footer__sns-title {
+    font-size: 2rem;
+    line-height: 1.25;
+
+    @include mq("mdPlus") {
+        font-size: 2.4rem;
+    }
+}
+.footer__sns-list {
+    margin-top: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+}
+
+.footer__sns-item {
+}
+
+.footer__sns-link {
+}
+
+.fa-brands {
+    font-size: 2.4rem;
+    color: #000;
+    transition: color 0.3s;
+
+    @include mq("mdPlus") {
+        font-size: 3.3rem;
+    }
+}
+
+.fa-youtube {
+    &:hover {
+        color: #ff0000;
+    }
+}
+.fa-instagram {
+    &:hover {
+        color: #e1306c;
+    }
+}
+.fa-x-twitter {
+    &:hover {
+        color: #000;
+    }
+}
+
+.footer__decoration--english {
+    display: inline-block;
+    margin-top: 4rem;
+
+    img {
+        width: clamp(32.8rem, 18.717rem + 60.09vw, 75.5rem);
+        height: auto;
+    }
+}
+
+.footer__address {
+}
+
+.address-content {
+    border-radius: 1.6rem;
+    overflow: hidden;
+    background: var(--color-white);
+    width: 100%;
+
+    @include mq("mdPlus") {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+}
+
+.address-content__map {
+    iframe {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 335 / 271;
+        vertical-align: top;
+    }
+
+    @include mq("mdPlus") {
+        width: 50%;
+    }
+}
+
+.address-content__body {
+    padding: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include mq("mdPlus") {
+        width: 50%;
+    }
+}
+
+.address-content__logo {
+    img {
+        width: clamp(15.3rem, 14.311rem + 4.22vw, 18.3rem);
+        height: auto;
+
+        @include mq("md") {
+            width: 183px;
+        }
+    }
+}
+
+.address-content__information-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 2.4rem;
+    width: fit-content;
+}
+
+.address-content__information {
+    text-align: left;
+    display: flex;
+    justify-content: start;
+    gap: 16px;
+}
+
+.address-content__information-title {
+    padding-left: 1.6rem;
+    font-size: clamp(1.2rem, 1.068rem + 0.56vw, 1.6rem);
+    font-weight: 700;
+    width: clamp(6.4rem, 5.872rem + 2.25vw, 8rem);
+    flex-shrink: 0; //幅が伸びないようにする
+    position: relative;
+
+    &::before {
+        position: absolute;
+        content: "";
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 50%;
+        background: var(--color-sub--primary);
+    }
+}
+
+.address-content__information-text {
+    font-size: clamp(1.2rem, 1.068rem + 0.56vw, 1.6rem);
+    font-weight: 400;
+    flex-grow: 1;
+}
+
+.footer__page-top {
+    margin-top: 2.4rem;
+
+    @include mq("mdPlus") {
+        position: fixed;
+        right: 4rem;
+        bottom: 4rem;
+        z-index: var(--z-popover);
+    }
+}
+
+.page-top__button {
+    width: 7.5rem;
+    cursor: pointer;
+
+    @include mq("md") {
+        width: 10rem;
+        height: auto;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+
+        &.is-active {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        vertical-align: middle;
+    }
+}
+
+.footer__copyright {
+    padding-top: 4.57rem;
+    margin-top: 2.4rem;
+    text-align: center;
+    position: relative;
+
+    @include mq("mdPlus") {
+        margin-top: 12rem;
+        padding-top: 12rem;
+    }
+
+    &::before {
+        position: absolute;
+        content: "";
+        top: 0.1rem;
+        left: 0;
+        width: 100%;
+        height: 4.57rem;
+        background-image: url(../img/wave-top-sp.svg);
+        background-color: transparent;
+        background-repeat: repeat-x;
+        background-position: left -0.3rem center;
+        background-size: contain;
+        border: none; // 疑似要素の境界線も削除
+        outline: none; // 疑似要素の枠線も削除
+        overflow: hidden;
+
+        @include mq("mdPlus") {
+            height: 12rem;
+            background-image: url(../img/wave-top-pc.svg);
+        }
+    }
+}
+
+.copyright {
+    display: block;
+    padding-bottom: 2.5rem;
+    font-size: 1rem;
+    color: #fff;
+    background: var(--color-sub--primary);
+
+    @include mq("mdPlus") {
+        font-size: 1.4rem;
+        padding-bottom: 3.2rem;
+    }
+}

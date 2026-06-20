@@ -1,0 +1,184 @@
+@use "./functions" as *;
+@use "./mixins" as *;
+
+// ============================================================
+// カスタムプロパティ（デザイントークン）
+// ※ 仮トークン。Figmaデザイン確定後に差し替える
+// ============================================================
+:root {
+
+  // ----------------------------------------------------------
+  // カラー
+  // ----------------------------------------------------------
+  --color-main:       #1a1a1a;  /* メインカラー（見出し・本文） */
+  --color-sub:        #545454;  /* サブテキスト */
+  --color-accent:     #2456f0;  /* アクセントカラー（リンク・CTA）ビビッドブルー */
+  --color-white:      #fff;
+  --color-border:     #e4e4e0;  /* 区切り線 */
+  --color-bg-base:    #fafaf8;  /* 背景色（基本） */
+  --color-bg-light:   #f0f0ec;  /* 背景色（セクション切り替え用） */
+  --color-text-base:  #1a1a1a;  /* 本文テキスト */
+  --color-text-sub:   #545454;  /* サブテキスト */
+  --color-fv-bg:      #f3f0ea;  /* FV地色（生成り） */
+  --color-ink:        #1a2a4a;  /* FV見出し（墨紺） */
+  --color-wave-1:     #4c82ff;  /* FV波グラデーション始点（ビビッドブルー） */
+  --color-wave-2:     #1a4fe8;  /* FV波グラデーション終点 */
+
+  /* 方眼紙グリッド（FVのあしらい用） */
+  --grid-cell:        #{rem(24)};
+  --grid-line:        rgb(27 42 78 / 5%);  /* 墨紺の極薄 */
+
+  // ----------------------------------------------------------
+  // シャドウ
+  // ----------------------------------------------------------
+  --shadow-card: 0 #{rem(2)} #{rem(12)} rgb(0 0 0 / 8%);
+
+  // ----------------------------------------------------------
+  // 角丸
+  // ----------------------------------------------------------
+  --radius-sm:   #{rem(6)};
+  --radius-md:   #{rem(8)};
+  --radius-lg:   #{rem(14)};
+  --radius-full: 100vh;
+
+  // ----------------------------------------------------------
+  // フォント
+  // ----------------------------------------------------------
+  // 本文（和欧混植）: 欧文(Roboto)を先頭に置き、英数字=Roboto／日本語=Noto Sans JP に振り分ける
+  --font-family-jp: "Roboto", "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  // 欧文専用（ラベル・英字見出し）
+  --font-family-en: "Roboto", sans-serif;
+  // 和文見出し専用（純和文の大見出し）: Noto Sans JP を明示的に先頭に
+  --font-family-heading: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+
+  // ----------------------------------------------------------
+  // フォントサイズ（fluid typography）
+  // ----------------------------------------------------------
+  --text-xs:   clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);   /* 12–14px */
+  --text-sm:   clamp(0.875rem, 0.8rem + 0.375vw, 1rem);     /* 14–16px */
+  --text-base: clamp(0.9375rem, 0.9rem + 0.2vw, 1rem);      /* 15–16px */
+  --text-lg:   clamp(1rem, 0.95rem + 0.28vw, 1.125rem);     /* 16–18px */
+  --text-xl:   clamp(1.25rem, 1.1rem + 0.75vw, 1.75rem);    /* 20–28px */
+  --text-2xl:  clamp(1.4375rem, 1.18rem + 1.3vw, 2.3125rem); /* 23–37px */
+  --text-3xl:  clamp(1.875rem, 1.45rem + 2.2vw, 3.25rem);   /* 30–52px */
+  --text-display: clamp(1.875rem, 0.7rem + 4.9vw, 3.75rem); /* 30–60px ヒーロー大見出し（上品に控えめ） */
+
+  // ----------------------------------------------------------
+  // フォントウェイト
+  // ----------------------------------------------------------
+  --font-weight-regular: 400;
+  --font-weight-medium:  500;
+  --font-weight-bold:    700;
+
+  // ----------------------------------------------------------
+  // スペーシング（4px ベース・8px 基調）
+  // 標準は 8 の倍数。4 / 12 は微調整ステップとして許容。
+  // 使い分け：密 4–24（内部）／中 32–48（要素間）／疎 64+（セクション間）
+  // 縦の流れは margin-top、レイアウト間隔は gap。margin-bottom は使わない。
+  // ----------------------------------------------------------
+  --space-4:   #{rem(4)};   /* 微調整 */
+  --space-8:   #{rem(8)};
+  --space-12:  #{rem(12)};  /* 微調整 */
+  --space-16:  #{rem(16)};
+  --space-24:  #{rem(24)};
+  --space-32:  #{rem(32)};
+  --space-40:  #{rem(40)};
+  --space-48:  #{rem(48)};
+  --space-56:  #{rem(56)};
+  --space-64:  #{rem(64)};
+  --space-80:  #{rem(80)};
+  --space-96:  #{rem(96)};
+  --space-112: #{rem(112)};
+  --space-128: #{rem(128)};
+  --space-160: #{rem(160)};
+  // セクション縦リズム（可変）
+  --space-section: clamp(#{rem(64)}, 8vw, #{rem(120)});
+
+  // ----------------------------------------------------------
+  // モーション
+  // ----------------------------------------------------------
+  --ease-standard:   cubic-bezier(0.2, 0, 0, 1);
+  --ease-decelerate: cubic-bezier(0, 0, 0, 1);
+  --opacity-hover:   0.7;
+}
+
+// ============================================================
+// レイアウト共通
+// ============================================================
+.l-container {
+  max-width: rem(1080);
+  margin-inline: auto;
+  padding-inline: rem(20);
+
+  @include mq("md") {
+    padding-inline: rem(40);
+  }
+}
+
+// ============================================================
+// ベーススタイル（kiso.cssで設定済みのものは記述しない）
+// ============================================================
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable; // スクロールバー出現時の横方向CLSを防ぐ
+
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: var(--font-family-jp);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-base);
+  background-color: var(--color-bg-base);
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+}
+
+// 生成り紙のグレイン質感（全面・極薄）。インタラクションは透過。
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: rem(180);
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+}
+
+// セクション見出しの自動採番の起点
+main {
+  counter-reset: section;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// スクリーンリーダー向け非表示テキスト
+.u-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

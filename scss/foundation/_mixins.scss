@@ -1,0 +1,20 @@
+@use "sass:map";
+
+// ============================================================
+// ブレークポイント定義（モバイルファースト）
+// ============================================================
+$breakpoints: (
+  sm:  "screen and (min-width: 576px)",
+  md:  "screen and (min-width: 768px)",   // SP→PC の基準
+  lg:  "screen and (min-width: 960px)",
+  xl:  "screen and (min-width: 1280px)",
+  xxl: "screen and (min-width: 1600px)",
+);
+
+// 使い方:
+// @include mq("md") { ... }
+@mixin mq($breakpoint: md) {
+  @media #{map.get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}

@@ -1,0 +1,209 @@
+@use "../global/mixin" as *;
+
+.faq {
+    padding-top: 4rem;
+
+    @include mq("md") {
+        padding-top: 12rem;
+    }
+}
+
+.faq__heading {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    &::before {
+        content: "";
+        display: block;
+        width: 3rem;
+        height: 3rem;
+        background: url("../img/icon-fukidashi.svg") no-repeat center center / contain;
+        margin: 0 auto 1rem;
+
+        @include mq("md") {
+            width: 4.8rem;
+            height: 4.8rem;
+        }
+    }
+}
+
+.faq__list {
+    margin-top: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    @include mq("mdPlus") {
+        margin-top: 4rem;
+        gap: 2.4rem;
+    }
+}
+
+.faq__item {
+    border-radius: 1.2rem;
+    border: 0.2rem solid var(--color-blown);
+}
+
+.faq__item {
+    background: var(--color-white);
+}
+
+.faq__question {
+    border-radius: 1.2rem;
+    overflow: hidden; // はみ出た部分を隠す
+}
+
+:root {
+    interpolate-size: allow-keywords; /* サイズキーワードによるアニメーションを許可 */
+}
+
+details {
+    &::details-content {
+        @media (prefers-reduced-motion: no-preference) {
+            overflow: visible; // clipからvisibleに変更
+            transition-duration: 400ms;
+            transition-property: content-visibility, block-size;
+            transition-behavior: allow-discrete;
+        }
+    }
+
+    &:not(:open)::details-content {
+        block-size: 0;
+    }
+}
+
+.faq__question-box {
+    padding: 1.2rem 1.6rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+    cursor: pointer;
+
+    @include mq("mdPlus") {
+        padding: 2.4rem;
+        gap: 1.6rem;
+    }
+
+    &::before {
+        content: "Q";
+        font-family: var(--font-family-en-base);
+        font-size: 2.4rem;
+        font-weight: 400;
+        color: var(--color-sub--primary);
+
+        @include mq("mdPlus") {
+            font-size: 3.2rem;
+            line-height: 1.25;
+        }
+    }
+}
+
+.faq__question-text {
+    font-size: 1.4rem;
+    text-align: left;
+    flex-grow: 1;
+
+    @include mq("mdPlus") {
+        font-size: 2rem;
+    }
+}
+
+.faq__icon {
+    position: relative;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 50%;
+    background: var(--color-sub--primary);
+    flex-shrink: 0;
+
+    @include mq("mdPlus") {
+        width: 4.8rem;
+        height: 4.8rem;
+    }
+
+    // プラスアイコン（タテ線）
+    &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0.2rem;
+        height: 1rem;
+        border-radius: 5rem;
+        background: #fff;
+        transform: translate(-50%, -50%);
+        transition: transform 0.3s ease, opacity 0.3s ease;
+
+        @include mq("mdPlus") {
+            width: 0.3rem;
+            height: 1.9rem;
+        }
+    }
+
+    // プラスアイコン（ヨコ線）
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 1rem;
+        height: 0.2rem;
+        border-radius: 5rem;
+        background: #fff;
+        transform: translate(-50%, -50%);
+        transition: transform 0.3s ease opacity 0.3s ease; //
+
+        @include mq("mdPlus") {
+            width: 1.9rem;
+            height: 0.3rem;
+        }
+    }
+}
+
+.faq__question[open] {
+    .faq__icon::before {
+        transform: translate(-50%, -50%) rotate(90deg);
+        opacity: 0;
+    }
+}
+
+.faq__answer-box {
+    padding: 1.6rem;
+    background: var(--color-gray--light);
+    border-radius: 0 0 1.2rem 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+
+    @include mq("mdPlus") {
+        padding: 2.4rem;
+        gap: 1.6rem;
+    }
+
+    &::before {
+        content: "A";
+        font-family: var(--font-family-en-base);
+        font-size: 2.4rem;
+        font-weight: 400;
+        color: var(--color-sub--primary);
+
+        @include mq("mdPlus") {
+            font-size: 3.2rem;
+            line-height: 1.25;
+        }
+    }
+}
+
+.faq__answer-text {
+    font-size: 1.4rem;
+    text-align: left;
+    flex-grow: 1;
+
+    @include mq("mdPlus") {
+        font-size: 1.6rem;
+    }
+}

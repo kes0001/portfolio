@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KANZAKI Portfolio | Webデザイン・コーディング</title>
+    <meta name="description" content="神﨑勝弘のポートフォリオサイト。見やすく、伝わるデザインとコーディングを。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/main.js" defer></script>
+  </head>
+  <body>
+    <header class="l-header">
+      <div class="l-container l-header__inner">
+        <a class="l-header__logo" href="#">KANZAKI</a>
+        <button class="l-header__burger" aria-label="メニューを開く" aria-expanded="false" aria-controls="l-header-nav">
+          <span class="l-header__burger-bar"></span>
+          <span class="l-header__burger-bar"></span>
+          <span class="l-header__burger-bar"></span>
+        </button>
+        <nav id="l-header-nav" class="l-header__nav" aria-label="メインナビゲーション">
+          <ul class="l-header__nav-list">
+            <li><a class="l-header__nav-link" href="#profile">Profile</a></li>
+            <li><a class="l-header__nav-link" href="#skills">Skills</a></li>
+            <li><a class="l-header__nav-link" href="#works">Works</a></li>
+            <li><a class="l-header__nav-link" href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- ============================================================
+      ヒーロー
+    ============================================================ -->
+      <section class="p-top-hero js-hero" aria-label="イントロダクション">
+        <!-- 波の帯の中に現れる背景グラデーション -->
+        <div class="p-top-hero__bg js-hero-bg" aria-hidden="true"></div>
+        <!-- ストロークワイプ：波形ストロークのマスクで背景を描き出す -->
+        <div class="p-top-hero__cover" aria-hidden="true">
+          <svg class="p-top-hero__cover-svg" viewBox="0 0 1920 1100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <mask id="hero-wave-mask">
+                <rect x="0" y="0" width="100%" height="100%" fill="white"></rect>
+                <path class="js-hero-wave" d="M512 -30 C504 156 777 642 1249 310 C1237 384 1178 793 1647 815 C1979 830 2126 421 2126 421" fill="none" stroke="black" stroke-linecap="round" stroke-linejoin="round"></path>
+              </mask>
+            </defs>
+            <rect class="p-top-hero__cover-rect" x="0" y="0" width="100%" height="100%" mask="url(#hero-wave-mask)"></rect>
+          </svg>
+        </div>
+        <div class="l-container p-top-hero__content">
+          <p class="p-top-hero__label">Kanzaki Masahiro — Web Design &amp; Coding</p>
+          <h1 class="p-top-hero__title">
+            <span class="p-top-hero__title-line">見やすく、伝わる</span>
+            <span class="p-top-hero__title-line">デザインを。</span>
+          </h1>
+          <p class="p-top-hero__lead">デザインからコーディングまで一貫して担当。情報を整理し、見る人にきちんと「伝わる」Webサイトをつくります。</p>
+          <div class="p-top-hero__actions">
+            <a class="c-button c-button--accent" href="#works"><i class="fa-regular fa-images" aria-hidden="true"></i>作品を見る</a>
+            <a class="c-button c-button--ghost" href="#contact"><i class="fa-regular fa-envelope" aria-hidden="true"></i>お問い合わせ</a>
+          </div>
+        </div>
+        <p class="p-top-hero__vertical" aria-hidden="true">
+          <span class="p-top-hero__vertical-col">正確なコーディングと</span>
+          <span class="p-top-hero__vertical-col">共に。</span>
+        </p>
+        <div class="p-top-hero__scroll" aria-hidden="true">
+          <span class="p-top-hero__scroll-label">Scroll</span>
+        </div>
+      </section>
+
+      <!-- ============================================================
+      プロフィール
+    ============================================================ -->
+      <section class="p-top-section p-top-section--alt js-reveal" id="profile">
+        <div class="l-container">
+          <h2 class="c-section-title">
+            <span class="c-section-title__en">Profile</span>
+            <span class="c-section-title__jp">プロフィール</span>
+          </h2>
+          <div class="p-top-section__body p-top-profile__inner">
+            <img class="p-top-profile__photo" src="./images/prof.png" alt="神﨑勝弘のプロフィール写真" width="1086" height="1448" loading="lazy" />
+            <div>
+              <p class="p-top-profile__text">神﨑勝弘（かんざき まさひろ）。コーディングからキャリアを始め、現在はFigmaでのデザイン制作とフロントエンド実装の両方を担当しています。「見る人に伝わるデザイン」と「意図を正確に再現するコーディング」の両立を軸に、実務を想定した制作を重ねてきました。</p>
+              <p class="p-top-profile__text">特にこだわっているのは、ユーザー目線での導線設計と、ブランドらしさを活かすレイアウト設計。スマートフォンでも快適に閲覧できるレスポンシブ対応や、ライブラリを用いた動的な演出にも取り組んでいます。</p>
+              <p class="p-top-profile__text">デザインと実装のあいだで情報が迷子にならないものづくりを心がけ、企業やサービスの魅力をしっかり伝えるWebサイト制作に携わっていきたいと考えています。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+      スキル
+    ============================================================ -->
+      <section class="p-top-section js-reveal" id="skills">
+        <div class="l-container">
+          <h2 class="c-section-title">
+            <span class="c-section-title__en">Skills</span>
+            <span class="c-section-title__jp">スキル</span>
+          </h2>
+          <div class="p-top-section__body">
+            <ul class="p-top-skills__list">
+              <li class="p-top-skills__item">
+                <i class="fa-brands fa-html5 p-top-skills__icon" aria-hidden="true"></i>
+                <h3 class="p-top-skills__name">HTML / CSS（SCSS）</h3>
+                <p class="p-top-skills__level">実務レベル</p>
+                <p class="p-top-skills__note">デザインカンプからのレスポンシブコーディング。BEM設計・コーディングルールの整備まで対応できます。</p>
+              </li>
+              <li class="p-top-skills__item">
+                <i class="fa-brands fa-figma p-top-skills__icon" aria-hidden="true"></i>
+                <h3 class="p-top-skills__name">Figma / Adobe XD</h3>
+                <p class="p-top-skills__level">実務レベル</p>
+                <p class="p-top-skills__note">LP・コーポレートサイトのデザイン制作。auto-layoutとコンポーネントを使った再利用性の高いデータ作成。</p>
+              </li>
+              <li class="p-top-skills__item">
+                <i class="fa-brands fa-js p-top-skills__icon" aria-hidden="true"></i>
+                <h3 class="p-top-skills__name">JavaScript</h3>
+                <p class="p-top-skills__level">実装対応可</p>
+                <p class="p-top-skills__note">スライダー・アコーディオン・スクロール演出など、サイト制作で必要になる実装に対応できます。</p>
+              </li>
+              <li class="p-top-skills__item">
+                <i class="fa-brands fa-wordpress p-top-skills__icon" aria-hidden="true"></i>
+                <h3 class="p-top-skills__name">WordPress / PHP</h3>
+                <p class="p-top-skills__level">カスタマイズ対応</p>
+                <p class="p-top-skills__note">既存テーマのカスタマイズ。学習を継続中です。</p>
+              </li>
+              <li class="p-top-skills__item">
+                <i class="fa-solid fa-palette p-top-skills__icon" aria-hidden="true"></i>
+                <h3 class="p-top-skills__name">Photoshop / Illustrator</h3>
+                <p class="p-top-skills__level">実務レベル</p>
+                <p class="p-top-skills__note">バナー・ロゴ制作、Web用画像の書き出し・最適化。</p>
+              </li>
+              <li class="p-top-skills__item">
+                <i class="fa-solid fa-robot p-top-skills__icon" aria-hidden="true"></i>
+                <h3 class="p-top-skills__name">AI活用（Claude Code）</h3>
+                <p class="p-top-skills__level">検証・導入中</p>
+                <p class="p-top-skills__note">Figma連携によるデザイン→コードのワークフロー構築に取り組んでいます。</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+      作品一覧
+    ============================================================ -->
+      <section class="p-top-section p-top-section--alt js-reveal" id="works">
+        <div class="l-container">
+          <h2 class="c-section-title">
+            <span class="c-section-title__en">Works</span>
+            <span class="c-section-title__jp">作品</span>
+          </h2>
+          <p class="p-top-works__lead">テンプレートを使わず、デザインから実装まで一貫して制作した作品です。気になる作品は、カードから詳細ページで制作プロセスをご覧いただけます。</p>
+          <div class="p-top-section__body">
+            <ul class="p-top-works__grid">
+              <li>
+                <a class="c-card" href="./works/hogushi.html">
+                  <div class="c-card__media">
+                    <span class="c-card__badge">実案件</span>
+                    <img class="c-card__thumbnail" src="./images/work-hogushi.jpg" alt="ほぐしの森 ファーストビューデザイン" width="1920" height="1279" loading="lazy" />
+                  </div>
+                  <div class="c-card__body">
+                    <span class="c-card__category">Design</span>
+                    <h3 class="c-card__title">ほぐしの森（リラクゼーションサロンLP）</h3>
+                  </div>
+                  <div class="c-card__overlay">
+                    <dl class="c-card__overlay-meta">
+                      <div class="c-card__overlay-row">
+                        <dt class="c-card__overlay-label">担当範囲</dt>
+                        <dd class="c-card__overlay-value">デザイン（Figma）</dd>
+                      </div>
+                      <div class="c-card__overlay-row">
+                        <dt class="c-card__overlay-label">工夫</dt>
+                        <dd class="c-card__overlay-value">auto-layoutベースの、実装しやすいデザインデータ設計</dd>
+                      </div>
+                    </dl>
+                    <span class="c-card__overlay-action">詳細を見る</span>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a class="c-card" href="./works/spark-links.html">
+                  <div class="c-card__media">
+                    <img class="c-card__thumbnail" src="./images/work-sparklinks.webp" alt="Spark Links Webサイトのサムネイル" width="800" height="533" loading="lazy" />
+                  </div>
+                  <div class="c-card__body">
+                    <span class="c-card__category">Web Design</span>
+                    <h3 class="c-card__title">Spark Links（架空の飲料メーカーサイト）</h3>
+                  </div>
+                  <div class="c-card__overlay">
+                    <dl class="c-card__overlay-meta">
+                      <div class="c-card__overlay-row">
+                        <dt class="c-card__overlay-label">担当範囲</dt>
+                        <dd class="c-card__overlay-value">デザイン・コーディング・ディレクション</dd>
+                      </div>
+                      <div class="c-card__overlay-row">
+                        <dt class="c-card__overlay-label">工夫</dt>
+                        <dd class="c-card__overlay-value">健康志向層などターゲットペルソナを設計し、訴求に落とし込んだ情報設計</dd>
+                      </div>
+                    </dl>
+                    <span class="c-card__overlay-action">詳細を見る</span>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a class="c-card" href="./works/sasazuka.html">
+                  <div class="c-card__media">
+                    <img class="c-card__thumbnail" src="./images/work-sasazuka.jpg" alt="笹塚スマイルクリニック Webサイトのサムネイル" width="800" height="533" loading="lazy" />
+                  </div>
+                  <div class="c-card__body">
+                    <span class="c-card__category">Web Design</span>
+                    <h3 class="c-card__title">笹塚スマイルクリニック（架空の歯科医院サイト）</h3>
+                  </div>
+                  <div class="c-card__overlay">
+                    <dl class="c-card__overlay-meta">
+                      <div class="c-card__overlay-row">
+                        <dt class="c-card__overlay-label">担当範囲</dt>
+                        <dd class="c-card__overlay-value">デザイン・コーディング</dd>
+                      </div>
+                      <div class="c-card__overlay-row">
+                        <dt class="c-card__overlay-label">工夫</dt>
+                        <dd class="c-card__overlay-value">駅近・夜間診療の強みを直感的に伝える情報整理と、迷わせない予約導線の設計</dd>
+                      </div>
+                    </dl>
+                    <span class="c-card__overlay-action">詳細を見る</span>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a class="c-card" href="./works/onomichi.html">
+                  <div class="c-card__media">
+                    <img class="c-card__thumbnail" src="./images/work-onomichi.webp" alt="デザインカンプからのサイト制作（ピクセルパーフェクト再現）のサムネイル" width="800" height="533" loading="lazy" />
+                  </div>
+                  <div class="c-card__body">
+                    <span class="c-card__category">Coding</span>
+                    <h3 class="c-card__title">デザインカンプからサイト制作（ピクセルパーフェクト再現）</h3>
+                  </div>
+                  <div class="c-card__overlay">
+                    <dl class="c-card__overlay-meta">
+                      <div class="c-card__overlay-row">
+                        <dt class="c-card__overlay-label">担当範囲</dt>
+                        <dd class="c-card__overlay-value">コーディング</dd>
+                      </div>
+                      <div class="c-card__overlay-row">
+                        <dt class="c-card__overlay-label">工夫</dt>
+                        <dd class="c-card__overlay-value">SCSSのコンポーネント分割とBEM設計。Swiperの無限ループやフォームバリデーションにも挑戦</dd>
+                      </div>
+                    </dl>
+                    <span class="c-card__overlay-action">詳細を見る</span>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a class="c-card" href="./works/banner-fruit.html">
+                  <div class="c-card__media">
+                    <img class="c-card__thumbnail" src="./images/work-banner.jpg" alt="フルーツサブスク フルハビの告知バナー" width="800" height="533" loading="lazy" />
+                  </div>
+                  <div class="c-card__body">
+                    <span class="c-card__category">Design</span>
+                    <h3 class="c-card__title">架空のサブスクサービス バナー制作</h3>
+                  </div>
+                  <div class="c-card__overlay">
+                    <dl class="c-card__overlay-meta">
+                      <div class="c-card__overlay-row">
+                        <dt class="c-card__overlay-label">担当範囲</dt>
+                        <dd class="c-card__overlay-value">デザイン</dd>
+                      </div>
+                      <div class="c-card__overlay-row">
+                        <dt class="c-card__overlay-label">工夫</dt>
+                        <dd class="c-card__overlay-value">ターゲット別に訴求を変えた複数案。補色のインパクトと文字組での視線誘導</dd>
+                      </div>
+                    </dl>
+                    <span class="c-card__overlay-action">詳細を見る</span>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a class="c-card" href="./works/logo-kenchiku.html">
+                  <div class="c-card__media">
+                    <img class="c-card__thumbnail" src="./images/work-logo.webp" alt="架空の建設会社のロゴマーク" width="800" height="533" loading="lazy" />
+                  </div>
+                  <div class="c-card__body">
+                    <span class="c-card__category">Design</span>
+                    <h3 class="c-card__title">架空の建設会社 ロゴ制作</h3>
+                  </div>
+                  <div class="c-card__overlay">
+                    <dl class="c-card__overlay-meta">
+                      <div class="c-card__overlay-row">
+                        <dt class="c-card__overlay-label">担当範囲</dt>
+                        <dd class="c-card__overlay-value">デザイン</dd>
+                      </div>
+                      <div class="c-card__overlay-row">
+                        <dt class="c-card__overlay-label">工夫</dt>
+                        <dd class="c-card__overlay-value">コンセプトの異なる3案でブランドの方向性を提案</dd>
+                      </div>
+                    </dl>
+                    <span class="c-card__overlay-action">詳細を見る</span>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a class="c-card" href="./works/oha.html">
+                  <div class="c-card__media">
+                    <img class="c-card__thumbnail" src="./images/work-oha.jpg" alt="デザインカンプからのサイト制作（スクール課題）のサムネイル" width="800" height="533" loading="lazy" />
+                  </div>
+                  <div class="c-card__body">
+                    <span class="c-card__category">Coding</span>
+                    <h3 class="c-card__title">デザインカンプからサイト制作（スクール課題）</h3>
+                  </div>
+                  <div class="c-card__overlay">
+                    <dl class="c-card__overlay-meta">
+                      <div class="c-card__overlay-row">
+                        <dt class="c-card__overlay-label">担当範囲</dt>
+                        <dd class="c-card__overlay-value">コーディング</dd>
+                      </div>
+                      <div class="c-card__overlay-row">
+                        <dt class="c-card__overlay-label">工夫</dt>
+                        <dd class="c-card__overlay-value">SCSS＋BEM設計。ドロワー・アコーディオン・モーダル・Swiper等の実装</dd>
+                      </div>
+                    </dl>
+                    <span class="c-card__overlay-action">詳細を見る</span>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a class="c-card" href="./works/sobolon.html">
+                  <div class="c-card__media">
+                    <img class="c-card__thumbnail" src="./images/work-sobolon.webp" alt="デザインカンプからのサイト制作（ライブコーディング）のサムネイル" width="800" height="533" loading="lazy" />
+                  </div>
+                  <div class="c-card__body">
+                    <span class="c-card__category">Coding</span>
+                    <h3 class="c-card__title">デザインカンプからサイト制作（ライブコーディング）</h3>
+                  </div>
+                  <div class="c-card__overlay">
+                    <dl class="c-card__overlay-meta">
+                      <div class="c-card__overlay-row">
+                        <dt class="c-card__overlay-label">担当範囲</dt>
+                        <dd class="c-card__overlay-value">コーディング</dd>
+                      </div>
+                      <div class="c-card__overlay-row">
+                        <dt class="c-card__overlay-label">工夫</dt>
+                        <dd class="c-card__overlay-value">Sassのモジュール設計とコンポーネント単位の開発で保守性を重視</dd>
+                      </div>
+                    </dl>
+                    <span class="c-card__overlay-action">詳細を見る</span>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a class="c-card" href="./works/e-tiga.html">
+                  <div class="c-card__media">
+                    <img class="c-card__thumbnail" src="./images/work-etiga.webp" alt="自主制作課題のサイト制作のサムネイル" width="800" height="533" loading="lazy" />
+                  </div>
+                  <div class="c-card__body">
+                    <span class="c-card__category">Coding</span>
+                    <h3 class="c-card__title">自主制作課題 デザインカンプからサイト制作</h3>
+                  </div>
+                  <div class="c-card__overlay">
+                    <dl class="c-card__overlay-meta">
+                      <div class="c-card__overlay-row">
+                        <dt class="c-card__overlay-label">担当範囲</dt>
+                        <dd class="c-card__overlay-value">コーディング</dd>
+                      </div>
+                      <div class="c-card__overlay-row">
+                        <dt class="c-card__overlay-label">工夫</dt>
+                        <dd class="c-card__overlay-value">ピクセルパーフェクトの再現とJSアニメーションの実装</dd>
+                      </div>
+                    </dl>
+                    <span class="c-card__overlay-action">詳細を見る</span>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a class="c-card" href="./works/bootstrap.html">
+                  <div class="c-card__media">
+                    <img class="c-card__thumbnail" src="./images/work-bootstrap.webp" alt="Bootstrapを使用したサイト制作のサムネイル" width="800" height="533" loading="lazy" />
+                  </div>
+                  <div class="c-card__body">
+                    <span class="c-card__category">Coding</span>
+                    <h3 class="c-card__title">Bootstrapを使用したサイト制作</h3>
+                  </div>
+                  <div class="c-card__overlay">
+                    <dl class="c-card__overlay-meta">
+                      <div class="c-card__overlay-row">
+                        <dt class="c-card__overlay-label">担当範囲</dt>
+                        <dd class="c-card__overlay-value">コーディング</dd>
+                      </div>
+                      <div class="c-card__overlay-row">
+                        <dt class="c-card__overlay-label">工夫</dt>
+                        <dd class="c-card__overlay-value">カスタムCSS・JSを使わず、グリッドとユーティリティクラスのみで構築</dd>
+                      </div>
+                    </dl>
+                    <span class="c-card__overlay-action">詳細を見る</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+      このサイトについて（意図を明示するセクション）
+    ============================================================ -->
+      <section class="p-top-section js-reveal" aria-labelledby="about-site-title">
+        <div class="l-container">
+          <h2 class="c-section-title" id="about-site-title">
+            <span class="c-section-title__en">About This Site</span>
+            <span class="c-section-title__jp">このサイトについて</span>
+          </h2>
+          <div class="p-top-section__body">
+            <p class="p-top-note__text">本サイトはテンプレートを使わず、自身で整備したコーディングルール（BEM設計・デザイントークン・SCSSのコンポーネント分割）に基づいて、設計から実装まで一貫して制作しています。</p>
+            <p class="p-top-note__text">デザインはFigmaで制作し、実装ワークフローの一部にAI（Claude Code）を活用。「どう作るか」という設計判断そのものも含めて、制作プロセスを作品の一部としてご覧いただけます。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+      コンタクト
+    ============================================================ -->
+      <section class="p-top-section p-top-section--alt p-top-contact js-reveal" id="contact">
+        <div class="l-container">
+          <h2 class="c-section-title">
+            <span class="c-section-title__en">Contact</span>
+            <span class="c-section-title__jp">お問い合わせ</span>
+          </h2>
+          <div class="p-top-section__body">
+            <p class="p-top-contact__text">お仕事のご相談・ご質問など、お気軽にご連絡ください。</p>
+            <div class="p-top-contact__actions">
+              <a class="c-button c-button--accent" href="mailto:kanmasa30@icloud.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i>メールを送る</a>
+            </div>
+            <p class="p-top-contact__mail"><a href="mailto:kanmasa30@icloud.com">kanmasa30@icloud.com</a></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="l-footer">
+      <div class="l-container">
+        <p class="l-footer__copyright">&copy; <span class="js-year">2026</span> KANZAKI</p>
+      </div>
+    </footer>
+  </body>
+</html>

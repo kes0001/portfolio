@@ -1,0 +1,50 @@
+@use "../global/mixin" as *;
+
+// 全体の共通設定
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  /* 1rem = 10px として計算しやすくするための設定です。 */
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family-jp-base);
+  font-size: 1.6rem;
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--color-blown);
+  background-color: var(--color-sub--tertiary);
+  padding-top: var(--header-height); // ヘッダーの高さ分、コンテンツ開始位置を下げる
+}
+
+// ページ内リンクのスクロール位置を調整
+section[id] {
+  scroll-margin-top: var(--header-height);
+}
+
+button {
+  border: none;
+}
+
+// --- Inner ---
+.inner {
+  max-width: calc(640px + 2rem * 2);
+  padding-inline: 2rem;
+  margin-inline: auto;
+
+  @include mq("mdPlus") {
+    max-width: calc(1024px + 3rem * 2);
+    padding: 0 3rem;
+  }
+}
+
+// サイト全体のフォーカススタイル
+:focus-visible {
+  outline: 0.2rem solid var(--color-main);
+  outline-offset: 0.2rem;
+}

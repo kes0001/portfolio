@@ -1,0 +1,36 @@
+// --- 1. Foundation ---
+// ブラウザのデフォルトスタイルをリセット
+@use "./base/reset";
+// サイトの基本的なスタイル（body, aタグなど）
+@use "./base/base";
+
+// --- 2. Global ---
+// 変数（色、フォントなど）
+@use "./global/variables";
+// Mixin（メディアクエリなど）
+@use "./global/mixin";
+
+// --- 3. Component ---
+// 再利用可能な小さなパーツ（ボタン、アイコンなど）
+@use "./object/component/components";
+// @use "./object/component/form";
+
+// --- 4. Utility ---
+// ユーティティクラス
+@use "./object/utility/utilities";
+
+// --- 5. Layout ---
+// サイトの骨格となるパーツ（ヘッダー、フッターなど）
+@use "./layout/header";
+
+// --- 6. Page ---
+// ページ固有のスタイル
+@use "./page/hero";
+@use "./page/about";
+@use "./page/how-to-entry";
+@use "./page/prizes";
+@use "./page/spots";
+@use "./page/faq";
+@use "./page/entry-requirements";
+@use "./page/contact";
+@use "./page/footer";

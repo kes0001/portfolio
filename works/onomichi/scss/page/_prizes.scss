@@ -1,0 +1,496 @@
+@use "../global/mixin" as *;
+
+.prizes {
+    margin-top: 3.2em;
+    position: relative;
+}
+
+.prizes__inner {
+    max-width: 600px;
+    margin-inline: auto;
+
+    @include mq("mdPlus") {
+        max-width: calc(1024px + 3rem * 2);
+        padding-inline: 3rem;
+    }
+}
+
+.prizes__heading {
+    &::before {
+        content: "";
+        background: url("../img/icon-camera.svg") no-repeat center center / contain;
+    }
+}
+
+.prizes__contents {
+    position: relative;
+    padding: 2rem 2rem 3.2rem 2rem;
+    border-radius: 2.4rem;
+
+    @include mq("mdPlus") {
+        padding: 3rem 3rem 4.9rem 3rem;
+    }
+
+    @include mq("lg") {
+        padding-inline: 5.6rem;
+    }
+
+    &::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 23.8rem;
+        height: 8.3rem;
+        background: url(../img/prizes-ctop-sp.svg) no-repeat center center / cover;
+
+        @include mq("mdPlus") {
+            width: 37.9rem;
+            height: 15.1rem;
+            background: url(../img/prizes-ctop-pc.svg) no-repeat center center / cover;
+        }
+    }
+
+    &::after {
+        position: absolute;
+        content: "";
+        background-color: #fff;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: calc(100% - 8.3rem);
+        border-radius: 2.4rem;
+
+        @include mq("mdPlus") {
+            height: calc(100% - 14.8rem);
+        }
+    }
+}
+
+.prizes__decoration--left {
+    display: none;
+
+    @include mq("mdPlus") {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+
+        /* 画像の縮小基準になる幅 */
+        width: 30%; // 全体幅の30%に収める
+        max-width: 31.5rem; // 上限
+        min-height: 14.8rem;
+
+        img {
+            width: 100%; // 親幅に合わせて常に縮む
+            height: auto; // アスペクト比を維持
+            display: block; // インライン要素の隙間防止
+        }
+    }
+}
+
+.prizes__decoration--right {
+    display: none;
+
+    @include mq("mdPlus") {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        /* 画像の縮小基準になる幅 */
+        width: 30%; // 全体幅の30%に収める
+        max-width: 300px; // 上限
+        min-height: 14.8rem;
+
+        img {
+            width: 100%; // 親幅に合わせて常に縮む
+            height: auto; // アスペクト比を維持
+            display: block; // インライン要素の隙間防止
+        }
+    }
+}
+
+.prizes__text {
+    margin-top: 1.6rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+
+    @include mq("mdPlus") {
+        margin-top: 4rem;
+        font-size: 1.6rem;
+    }
+}
+
+.prizes__cards {
+    margin-top: 4.8rem;
+    // スマホサイズではFlexboxで2列表示
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3.9rem 1.5rem;
+
+    @include mq("mdPlus") {
+        margin-top: 8.2rem;
+        // 900px以上でGridレイアウトに切り替え
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 4.8rem 2.4rem;
+    }
+}
+
+.prizes__card {
+    position: relative;
+    z-index: 1;
+    // スマホサイズでの幅を指定
+    width: calc(50% - 7.5px);
+
+    @include mq("mdPlus") {
+        width: auto; // Gridレイアウトでは幅を自動にリセット
+        &:nth-child(1),
+        &:nth-child(2) {
+            grid-column: span 3;
+        }
+
+        &:nth-child(n + 3) {
+            grid-column: span 2;
+        }
+    }
+}
+
+.prizes-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 0.8rem;
+    border: 0.2rem solid transparent;
+    position: relative; // ボタンを配置する基準点にする
+    // ホバー時のレイアウトシフトを防ぐため、初期状態では透明なボーダーを追加
+    // border: 0.2rem solid transparent;
+    // ボーダー色のトランジションを追加
+    transition: border-color 0.3s ease-in-out;
+    cursor: pointer;
+    position: relative; /* .prizes-card__number の配置基準 */
+
+    @include mq("mdPlus") {
+        border: 0.4rem solid transparent;
+        border-radius: 2.2rem;
+    }
+
+    // カードのホバー＆フォーカスエフェクト
+    &:hover,
+    &:focus-visible {
+        border-color: var(--color-main);
+        outline: none; // グローバルなフォーカススタイルを無効化
+
+        // .prizes-card__button {
+        //     background-color: var(--color-main);
+        // }
+
+        &::after {
+            background-color: var(--color-main);
+        }
+    }
+
+    // アイコンを疑似要素で再現
+    &::after {
+        content: "";
+        position: absolute;
+        right: -0.1rem;
+        bottom: -0.1rem;
+        width: 3.6rem;
+        height: 3.6rem;
+        background-color: var(--color-sub--primary);
+        background-image: url("../img/icon-modal.svg");
+        background-repeat: no-repeat;
+        background-position: right 0.6rem bottom 0.6rem;
+        background-size: 1.2rem 1.2rem;
+        clip-path: polygon(100% 0, 100% 100%, 0 100%);
+        border-radius: 0 0 0.6rem 0;
+        transition: background-color 0.3s ease;
+        pointer-events: none; // 疑似要素がクリックイベントを妨げないようにする
+
+        @include mq("mdPlus") {
+            border-radius: 0 0 2rem 0;
+            width: 8rem;
+            height: 8rem;
+            background-position: right 1.25rem bottom 1.4rem;
+            background-size: 2.56rem 2.56rem;
+        }
+
+        @include mq("lg") {
+            width: 10rem;
+            height: 10rem;
+            background-size: 3.2rem 3.2rem;
+        }
+    }
+}
+
+.prizes-card__head {
+}
+
+.prizes-card__number {
+    position: absolute;
+    top: -2.4rem;
+    left: 50%;
+    width: 4.8rem;
+    transform: translateX(-50%);
+    z-index: 2; /* 画像より手前に表示させる */
+
+    @include mq("mdPlus") {
+        top: -3rem;
+        width: 6rem;
+    }
+
+    @include mq("lg") {
+        top: -4rem;
+        width: 8rem;
+    }
+}
+
+.prizes-card__number--large {
+    @include mq("mdPlus") {
+        top: -4rem;
+        width: 8rem;
+    }
+
+    @include mq("lg") {
+        top: -5rem;
+        width: 10rem;
+    }
+}
+
+.prizes-card__image {
+    display: block; /* overflowを適用するためブロック要素にする */
+    // 親要素(.prizes-card)のborder-radius(0.8rem)から、
+    // 親要素のborder-width(2px)を引いた値を指定します (8px - 2px = 6px = 0.6rem)
+    border-radius: 0.6rem 0.6rem 0 0;
+    overflow: hidden;
+
+    @include mq("mdPlus") {
+        // 親要素(.prizes-card)のborder-radius(2.2rem)から、
+        // 親要素のborder-width(4px)を引いた値を指定します (22px - 4px = 18px = 1.8rem)
+        border-radius: 1.8rem 1.8rem 0 0;
+    }
+
+    img {
+        width: 100%;
+        aspect-ratio: 160 / 140;
+        object-fit: cover;
+        display: block; /* 画像下の余白対策 */
+        // 画像拡大の滑らかなトランジション
+        transition: transform 0.3s ease-in-out;
+    }
+}
+
+// ホバー時に画像を拡大
+.prizes-card:hover .prizes-card__image img {
+    transform: scale(1.2);
+}
+
+.prizes-card__body {
+    // カードの高さが揃った時にタイトルが中央に来るように
+    flex-grow: 1;
+    background: var(--color-gray--light);
+    border-radius: 0.8rem;
+    display: flex;
+    justify-content: center;
+
+    @include mq("mdPlus") {
+        border-radius: 0 0 2rem 2rem;
+    }
+}
+
+.prizes-card__title {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    min-height: 5.6rem; /* 2行分確保 */
+    display: flex;
+    align-items: center; /* ← 縦方向中央 */
+    justify-content: center; /* ← 横方向中央 */
+
+    @include mq("mdPlus") {
+        font-size: 1.6rem;
+        min-height: 12rem;
+
+        .prizes-card__number--large {
+            font-size: 2rem;
+        }
+    }
+}
+
+/* --- 以前のコード（コメントアウトして保存） --- */
+/*
+.prizes__button {
+    margin-top: 2rem;
+    text-align: center;
+    position: relative;
+}
+*/
+
+/*
+// アイコンはカード(.prizes-card)の右下に配置
+.prizes-card__button {
+    position: absolute;
+    // 角の白いフチを解消するため、1pxだけ外側に食い込ませる
+    right: -0.1rem;
+    bottom: -0.1rem;
+    width: 3.6rem;
+    height: 3.6rem;
+    background: var(--color-sub--primary);
+    border: none;
+    cursor: pointer;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    // 親要素(.prizes-card)のborder-radius(0.8rem)から、
+    // 親要素のborder-width(2px)を引いた値を指定して、角丸の見た目を合わせます。
+    // 0.8rem - 2px = 8px - 2px = 6px = 0.6rem
+    border-radius: 0 0 0.6rem 0;
+    transition: background-color 0.3s ease;
+
+    @include mq("mdPlus") {
+        // 親要素(.prizes-card)のborder-radius(2.4rem)から、
+        // 親要素のborder-width(4px)を引いた値を指定します (24px - 4px = 20px = 2rem)
+        border-radius: 0 0 2rem 0;
+        width: 8rem;
+        height: 8rem;
+    }
+
+    @include mq("lg") {
+        width: 10rem;
+        height: 10rem;
+    }
+}
+
+.prizes-card__button::after {
+    content: "";
+    position: absolute;
+    right: 0.6rem;
+    bottom: 0.6rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    background-image: url("../img/icon-modal.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    fill: #fff;
+
+    @include mq("mdPlus") {
+        right: 1.25rem;
+        bottom: 1.4rem;
+        width: 2.56rem;
+        height: 2.56rem;
+    }
+
+    @include mq("lg") {
+        right: 1.25rem;
+        bottom: 1.4rem;
+        width: 3.2rem;
+        height: 3.2rem;
+    }
+}
+*/
+
+.prizes__button {
+    margin-top: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.prizes__button {
+    position: relative;
+    margin-top: 2rem;
+    text-align: center;
+    z-index: 1;
+
+    @include mq("mdPlus") {
+        margin-top: 4rem;
+    }
+}
+
+.prizes__bg-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -4.3rem;
+
+    @include mq("md") {
+        margin-top: 0;
+    }
+
+    img {
+        display: block;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+/* --- Prizes Modal --- */
+.p-prizes-modal {
+    // 上下左右中央の指定
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    width: clamp(33.6rem, 90vw, 48rem);
+    max-height: 90vh;
+    border-radius: 2.4rem;
+    background: var(--color-white);
+    overflow-y: auto;
+    z-index: 9999; /* 他の要素より確実に手前に来るように高い値を設定 */
+
+    @include mq("mdPlus") {
+        height: 65rem;
+    }
+
+    &::backdrop {
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(4px);
+    }
+}
+
+.p-prizes-modal__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+.p-prizes-modal__image {
+    img {
+        width: 100%;
+        border-radius: 2.4rem 2.4rem 0 0;
+    }
+}
+
+.p-prizes-modal__body {
+    padding: 3rem 2rem 3rem;
+    text-align: center;
+
+    @include mq("mdPlus") {
+        padding: 3rem 4rem 3rem;
+    }
+}
+
+.p-prizes-modal__title {
+    color: var(--color-blown);
+    font-size: clamp(1.6rem, 1.257rem + 1.46vw, 2rem);
+    font-weight: 700;
+}
+
+.p-prizes-modal__text {
+    margin-top: 1.2rem;
+    color: #000;
+    font-size: clamp(1.2rem, 0.85rem + 0.93vw, 1.6rem);
+}
+
+.p-prizes-modal__button {
+    margin-top: 2.4rem;
+}

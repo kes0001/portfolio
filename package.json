@@ -1,0 +1,12 @@
+{
+  "name": "kanzaki-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "sass": "sass --watch scss/style.scss css/style.css",
+    "sass:build": "sass scss/style.scss css/style.css --style=compressed --no-source-map"
+  },
+  "devDependencies": {
+    "sass": "^1.80.0"
+  }
+}

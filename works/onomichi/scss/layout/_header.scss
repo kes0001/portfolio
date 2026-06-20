@@ -1,0 +1,77 @@
+@use "../global/mixin" as *;
+
+.header {
+    // ヘッダーを画面上部に固定
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    background: var(--color-white); // 背景色を指定して下のコンテンツが透けないようにする
+    z-index: var(--z-overlay); // ドロワーメニューより手前に表示
+}
+
+.header__inner {
+    padding-inline: 2rem; // 横のpaddingのみに
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include mq("md") {
+        max-width: calc(var(--inner-width) + 2.4rem * 2);
+        padding-inline: 2.4rem;
+        margin-inline: auto;
+    }
+}
+
+.header__logo {
+    a {
+        img {
+            max-width: 100%;
+            display: block;
+        }
+    }
+}
+
+.header__nav {
+    display: none;
+
+    @include mq("md") {
+        display: block;
+    }
+}
+
+.header__nav-list {
+    @include mq("md") {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 1.2rem;
+    }
+}
+
+.header__nav-item {
+}
+
+.header__nav-link {
+    color: var(--color-blown);
+    font-size: 1.2rem;
+    line-height: 160%;
+    transition: all 0.3s ease;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.header__button {
+    padding: 0.4rem 2.2rem 0.6rem 2.2rem;
+    font-size: 1.4rem;
+}
+
+.header__open {
+    @include mq("md") {
+        display: none;
+    }
+}

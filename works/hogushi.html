@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ほぐしの森（リラクゼーションサロンLP） | KANZAKI Portfolio</title>
+    <meta name="description" content="リラクゼーションサロン「ほぐしの森」のランディングページデザインを担当した実案件。安心感の伝わるデザインと、コーダーが実装しやすいデータ設計の工夫を紹介します。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/main.js" defer></script>
+  </head>
+  <body>
+    <header class="l-header">
+      <div class="l-container l-header__inner">
+        <a class="l-header__logo" href="../index.html">KANZAKI</a>
+        <button class="l-header__burger" aria-label="メニューを開く" aria-expanded="false" aria-controls="l-header-nav">
+          <span class="l-header__burger-bar"></span>
+          <span class="l-header__burger-bar"></span>
+          <span class="l-header__burger-bar"></span>
+        </button>
+        <nav id="l-header-nav" class="l-header__nav" aria-label="メインナビゲーション">
+          <ul class="l-header__nav-list">
+            <li><a class="l-header__nav-link" href="../index.html#profile">Profile</a></li>
+            <li><a class="l-header__nav-link" href="../index.html#skills">Skills</a></li>
+            <li><a class="l-header__nav-link" href="../index.html#works">Works</a></li>
+            <li><a class="l-header__nav-link" href="../index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <article class="p-work">
+        <div class="l-container">
+          <a class="p-work__back" href="../index.html#works">Worksに戻る</a>
+          <p class="p-work__eyebrow">Works — LP Design（実案件）</p>
+          <h1 class="p-work__title">ほぐしの森（リラクゼーションサロンLP）</h1>
+          <p class="p-work__lead">リラクゼーションサロン「ほぐしの森」のランディングページデザインを担当した実案件。デザイン（Figma）を担当し、コーダーへの実装受け渡しまで行いました。</p>
+
+          <div class="p-work__meta">
+            <div class="p-work__meta-item">
+              <span class="p-work__meta-label">Role</span>
+              <span class="p-work__meta-value">デザイン（Figma）</span>
+            </div>
+            <div class="p-work__meta-item">
+              <span class="p-work__meta-label">Tools</span>
+              <span class="p-work__meta-value">Figma / Photoshop</span>
+            </div>
+          </div>
+
+          <!-- TODO: 公開LPのURL・Figmaの共有URLが用意できたら p-work__actions を追加 -->
+
+          <img class="p-work__thumbnail" src="../images/work-hogushi.jpg" alt="ほぐしの森 ランディングページのファーストビューデザイン" width="1920" height="1279" loading="eager" fetchpriority="high" />
+
+          <div class="p-work__body">
+            <section class="p-work__section">
+              <h2 class="p-work__section-title"><span class="p-work__section-title-en">Purpose</span>制作の目的</h2>
+              <p class="p-work__text">リラクゼーションサロンの集客を担うランディングページとして、初めて訪れる人に「ここなら通ってみたい」と感じてもらうことを目的に制作しました。サロンならではの落ち着きと安心感を第一に、施術の魅力と来店のしやすさが自然に伝わるデザインを目指しています。</p>
+              <p class="p-work__text">本案件での担当はデザイン（Figma）。実装は別のコーダーが行うため、デザインの意図を正確に再現してもらえるよう、見た目だけでなく「実装しやすいデータ」までを成果物として意識しました。</p>
+            </section>
+
+            <section class="p-work__section">
+              <h2 class="p-work__section-title"><span class="p-work__section-title-en">Design</span>デザインの工夫</h2>
+              <p class="p-work__text">ファーストビューでサロンの世界観と「何をしてくれる場所か」が一目で伝わるよう、ビジュアルとキャッチコピーのバランスを調整。やわらかな配色と余白を活かした落ち着いたトーンで、リラックスできる印象に仕上げました。</p>
+              <p class="p-work__text">施術メニュー・料金・アクセス・予約導線といった「来店前に知りたい情報」を優先度に沿って整理し、迷わず予約までたどり着ける構成に。スマートフォンでの閲覧を主軸に、タップしやすいボタンサイズや可読性にも配慮しています。</p>
+            </section>
+
+            <section class="p-work__section">
+              <h2 class="p-work__section-title"><span class="p-work__section-title-en">Handoff</span>実装受け渡しの工夫</h2>
+              <p class="p-work__text">この案件で最も意識したのは、コーダーが迷わず実装できるデザインデータの設計です。Figmaのauto-layoutをベースに要素を組み、余白やサイズの数値に一貫性を持たせることで、レスポンシブ時の挙動や間隔が予測しやすい構造にしました。</p>
+              <p class="p-work__text">繰り返し使うパーツはコンポーネント化し、命名規則を整理。デザインと実装のあいだで情報が欠落したり解釈がぶれたりしないよう、受け渡しを前提とした作り込みを行うことで、実装後の表示崩れや手戻りを抑えることを狙いました。</p>
+            </section>
+          </div>
+
+          <nav class="p-work__footer-nav">
+            <a class="p-work__back" href="../index.html#works">Worksに戻る</a>
+          </nav>
+        </div>
+      </article>
+    </main>
+
+    <footer class="l-footer">
+      <div class="l-container">
+        <p class="l-footer__copyright">&copy; <span class="js-year">2026</span> KANZAKI</p>
+      </div>
+    </footer>
+  </body>
+</html>

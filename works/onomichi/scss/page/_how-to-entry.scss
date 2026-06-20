@@ -1,0 +1,291 @@
+@use "../global/mixin" as *;
+
+.how-to-entry {
+    margin-top: 6.5rem;
+    overflow-x: clip; /* or hidden */
+    overflow-y: visible;
+
+    @include mq("lg") {
+        margin-top: 12rem;
+    }
+}
+
+.how-to-entry__heading {
+    &::before {
+        content: "";
+        background: url("../img/icon-camera.svg") no-repeat center center / contain;
+    }
+}
+
+.how-to-entry__inner {
+    position: relative;
+}
+
+.how-to-entry__decoration {
+    position: absolute;
+}
+
+.how-to-entry__decoration--map {
+    top: 0;
+    right: calc(50% + 3.9rem);
+    width: 14.9rem;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    @include mq("mdPlus") {
+        top: -6rem;
+        width: 38rem;
+        right: calc(50% + 20rem);
+    }
+
+    @include mq("lg") {
+        width: 46rem;
+        right: calc(50% + 26rem);
+    }
+}
+
+.how-to-entry__decoration--cat1 {
+    top: 0;
+    left: calc(50% + 5.8rem);
+    width: 10.5rem;
+
+    @include mq("mdPlus") {
+        left: calc(50% + 17.1rem);
+        width: 23.8rem;
+    }
+
+    @include mq("lg") {
+        left: calc(50% + 28.7rem);
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.how-to-entry__decoration--cat2 {
+    top: 0.5rem;
+    left: calc(50% + 12.4rem);
+    width: 9.4rem;
+
+    @include mq("mdPlus") {
+        left: calc(50% + 32rem);
+        width: 21.4rem;
+    }
+
+    @include mq("lg") {
+        left: calc(50% + 43.7rem);
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.how-to-entry__decoration--footprint1 {
+    top: 7.4rem;
+    left: calc(50% + 11.2rem);
+    width: 5.5rem;
+
+    @include mq("mdPlus") {
+        top: 14.8rem;
+        left: auto;
+        right: 10px;
+        width: 10rem;
+    }
+
+    @include mq("lg") {
+        top: 14.8rem;
+        left: calc(50% + 62rem);
+        width: 10rem;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.how-to-entry__decoration--footprint2 {
+    top: 55rem;
+    left: 2rem;
+    width: 5.5rem;
+    transform: rotate(180deg);
+
+    @include mq("md") {
+        left: 20rem;
+    }
+
+    @include mq("mdPlus") {
+        left: 0;
+        width: 10rem;
+    }
+
+    @include mq("lg") {
+        left: -8rem;
+        width: 10rem;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.how-to-entry__decoration--footprint3 {
+    bottom: 38.1rem;
+    right: 2rem;
+    width: 5.5rem;
+    transform: rotate(180deg);
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.how-to-entry__steps {
+    margin-top: 3.2rem;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    align-items: stretch;
+    text-align: center;
+    gap: 5rem;
+
+    @include mq("mdPlus") {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.7em;
+    }
+
+    @include mq("lg") {
+        gap: 2em;
+    }
+}
+
+.how-to-entry__step {
+    width: 100%; // sp では横幅いっぱい
+    max-width: none;
+
+    @include mq("lg") {
+        width: 32rem; // PC のときだけ 320px に固定
+        max-width: 32rem;
+    }
+}
+
+.step-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+    position: relative;
+
+    @include mq("mdPlus") {
+        &:nth-child(2) {
+            margin-top: 6.8rem;
+        }
+    }
+
+    &::after {
+        position: absolute;
+        content: "";
+        top: calc(100% + 1.6rem);
+        left: 50%;
+        transform: translateX(-50%);
+        height: 3.4rem;
+        width: 0.7rem;
+        background-color: transparent;
+        background: url(../img/step-line-sp.svg) no-repeat center center / contain;
+    }
+}
+
+@include mq("mdPlus") {
+    .step-box:nth-child(1)::after {
+        position: absolute;
+        top: 20.4rem;
+        right: -4.8rem;
+        left: auto;
+        transform: none;
+        width: 11.4rem;
+        height: 2.4rem;
+        background-color: transparent;
+        background: url(../img/step-line-pc.svg) no-repeat center center / contain;
+        z-index: 100;
+    }
+
+    .step-box:nth-child(2)::after {
+        position: absolute;
+        top: 13.6rem;
+        right: -5.7rem;
+        left: auto;
+        transform: none;
+        width: 11.4rem;
+        height: 2.4rem;
+        background-color: transparent;
+        background: url(../img/step-line-pc.svg) no-repeat center center / contain;
+        z-index: 100;
+    }
+}
+
+.step-box:last-child::after {
+    display: none;
+}
+
+.step-box__image {
+    width: clamp(19.6rem, 168.296rem + 118.21vw, 28rem);
+    height: auto;
+}
+
+.step-box__heading {
+    font-feature-settings: "pref" on;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.step-box__text {
+    font-size: clamp(1.2rem, 1.134rem + 0.28vw, 1.4rem);
+    font-weight: 400;
+
+    @include mq("lg") {
+        font-size: 1.4rem;
+    }
+}
+
+.step-box__button {
+}
+
+.follow__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1.2rem;
+    background: #fff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    border: 1px solid transparent;
+    transition: border-color 0.3s;
+
+    &:hover {
+        border-color: var(--color-main);
+    }
+
+    &::before {
+        content: "";
+        width: 2rem;
+        height: 2rem;
+        background: url("../img/icon-instagram.svg") no-repeat center center / contain;
+    }
+}
+
+.how-to-entry__button {
+    margin-top: 1.6rem;
+    text-align: center;
+
+    @include mq("lg") {
+        margin-top: 4.8rem;
+    }
+}

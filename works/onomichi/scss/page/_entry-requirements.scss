@@ -1,0 +1,127 @@
+@use "../global/mixin" as *;
+
+.entry-requirements__heading {
+    &::before {
+        content: "";
+        background: url("../img/icon-note.svg") no-repeat center center / contain;
+    }
+}
+
+.entry-requirements {
+    padding-top: 3.2rem;
+
+    @include mq("md") {
+        padding-top: 12rem;
+    }
+}
+
+.entry-requirements__inner {
+}
+
+.entry-requirements__contents {
+    padding: calc(2.4rem - 0.8rem) calc(2.35rem - 0.8rem);
+    background: rgba(255, 255, 255, 0.5);
+    border: 0.8rem solid #fff;
+
+    @include mq("mdPlus") {
+        padding: calc(4rem - 0.8rem) calc(5.6rem - 0.8rem);
+    }
+}
+
+.entry-requirements__list {
+    margin-top: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    @include mq("md") {
+        margin-top: 4rem;
+    }
+}
+
+.entry-requirements__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding-bottom: 1.6rem;
+    border-bottom: 0.1rem solid #ccc;
+
+    &:last-child {
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
+    @include mq("mdPlus") {
+        flex-direction: row;
+        padding-bottom: 1.2rem;
+        &--top {
+            align-items: flex-start;
+        }
+    }
+}
+
+.entry-requirements__item-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    &::before {
+        content: "";
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 50%;
+        background: var(--color-sub--primary);
+        flex: 0 0 0.8rem;
+    }
+
+    @include mq("mdPlus") {
+        font-size: 1.6rem;
+        width: 24rem;
+        align-items: baseline;
+        flex-shrink: 0;
+
+        &::before {
+            transform: translateY(-0.1em);
+        }
+    }
+}
+
+.entry-requirements__item-text {
+    font-size: 1.2rem;
+
+    @include mq("mdPlus") {
+        font-size: 1.6rem;
+        flex-grow: 1;
+    }
+}
+
+.entry-requirements__notes {
+    li {
+        text-transform: capitalize;
+        padding: 0;
+        position: relative;
+        padding-left: 1.6rem;
+
+        &::before {
+            content: "・";
+            position: absolute;
+            left: 0;
+            color: var(--color-blown);
+        }
+    }
+}
+
+.entry-requirements__cover {
+    display: block;
+    margin-top: 3.2rem;
+
+    img {
+        width: 100%;
+    }
+
+    @include mq("mdPlus") {
+        margin-top: 12rem;
+    }
+}

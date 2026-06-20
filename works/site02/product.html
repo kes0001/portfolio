@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="SPARK LINKSの商品一覧ページ。天然水、炭酸飲料、ジュース、お茶、機能性飲料など、自然の恵みを活かした多彩な商品ラインナップをご紹介。新商品から定番商品まで、あなたのライフスタイルに合わせた商品をお選びいただけます。" />
+        <meta name="robots" content="noindex nofollow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>商品一覧 | SPARK LINKS</title>
+
+        <!-- google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+
+        <!-- font awesome -->
+        <script src="https://kit.fontawesome.com/6bcafeb2ae.js" crossorigin="anonymous" defer></script>
+
+        <!-- swiper -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+        <!-- css -->
+        <link rel="stylesheet" href="./css/style.css" />
+    </head>
+    <body>
+        <header class="header">
+            <div class="header__inner inner">
+                <h1 class="header__logo"><a href="index.html">SPARK LINKS</a></h1>
+
+                <div class="header__nav-container">
+                    <nav class="header__nav-upper nav-upper" aria-label="上部ナビゲーション">
+                        <ul class="nav-upper__list">
+                            <li class="nav-upper__item"><a href="#x">お客様相談室</a></li>
+                            <li class="nav-upper__item"><a href="#x">GLOBAL</a></li>
+                            <li class="nav-upper__item"><a href="#x">リンクスホールディングス</a></li>
+                            <li class="nav-upper__item">
+                                <form action="#" method="get" role="search" class="nav-upper__search-form">
+                                    <label for="search" class="sr-only">キーワードで検索</label>
+                                    <input class="search" type="search" name="q" placeholder="キーワードで検索" id="search" />
+                                </form>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <nav class="header__nav-lower" aria-label="下部ナビゲーション">
+                        <ul class="nav-lower__list">
+                            <li class="nav-lower__item"><a href="product.html">商品情報</a></li>
+                            <li class="nav-lower__item"><a href="company.html">企業情報</a></li>
+                            <li class="nav-lower__item"><a href="#x">知る・楽しむ・つながる</a></li>
+                            <li class="nav-lower__item"><a href="#x">サステナビリティ</a></li>
+                            <li class="nav-lower__item"><a href="#x">お知らせ</a></li>
+                            <li class="nav-lower__item"><a href="#x">お問い合わせ</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- ハンバーガーメニュー -->
+                <button id="js-drawer-icon" type="button" class="drawer-icon" aria-label="メニューを開く">
+                    <span class="drawer-icon__bar"></span>
+                    <span class="drawer-icon__bar"></span>
+                    <span class="drawer-icon__bar"></span>
+                </button>
+
+                <!-- ドロワーメニュー -->
+                <div id="js-drawer-content" class="drawer-content inner">
+                    <nav class="drawer-content__menu">
+                        <div class="drawer-content__search">
+                            <form action="#x" method="get" role="search" class="drawer-content__search-form">
+                                <label for="q" class="sr-only">キーワードで検索</label>
+                                <input class="drawer-content__search-input" type="search" name="q" placeholder="キーワードで検索" id="q" />
+                            </form>
+                        </div>
+                        <ul class="drawer-content__list">
+                            <li class="drawer-content__item">
+                                <a href="product.html" class="drawer-content__link">商品情報</a>
+                            </li>
+                            <li class="drawer-content__item">
+                                <a href="company.html" class="drawer-content__link">企業情報</a>
+                            </li>
+                            <li class="drawer-content__item">
+                                <a href="#x" class="drawer-content__link">知る・楽しむ・つながる</a>
+                            </li>
+                            <li class="drawer-content__item">
+                                <a href="#x" class="drawer-content__link">サステナビリティ</a>
+                            </li>
+                            <li class="drawer-content__item">
+                                <a href="#x" class="drawer-content__link">お知らせ</a>
+                            </li>
+                            <li class="drawer-content__item">
+                                <a href="#x" class="drawer-content__link">お問い合わせ</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <section class="products-info">
+                <div class="products-info__inner inner">
+                    <h2 class="products-info__title">商品情報<span class="products-info__sub-title">カロリー・原材料</span></h2>
+                    <p class="products-info__text">SparkLinksの飲料製品情報をご紹介します。栄養成分、原材料、カロリー、容量、価格、賞味期限などを掲載しています。<br />※表示内容は商品により異なります。</p>
+                </div>
+            </section>
+
+            <section class="products-search">
+                <div class="products-search__inner inner">
+                    <h2 class="products-search__title">キーワードで検索</h2>
+                    <div class="products-search__items">
+                        <div class="products-search__container">
+                            <form action="#x" method="get" role="search" class="products-search__form">
+                                <button type="submit" class="products-search__button" aria-label="検索">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                                <input type="search" name="q" placeholder="キーワードで検索" id="products-search-q" class="products-search__input" />
+                                <button type="submit" class="products-search__submit">検索</button>
+                            </form>
+                        </div>
+
+                        <ul class="products-search__list">
+                            <li class="products-search__item">
+                                <a href="#x" class="products-search__info"><i class="fa-solid fa-list-ul products-search__component-icon"></i>栄養成分一覧</a>
+                            </li>
+                            <li class="products-search__item">
+                                <a href="#x" class="products-search__info"><i class="fa-solid fa-list-ul products-search__product-icon"></i>商品発売情報</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="products-tab">
+                <div class="products-tab__inner inner">
+                    <h2 class="products-tab__title">商品カテゴリーで検索</h2>
+                    <div class="products-tab__buttons">
+                        <button class="products-tab__button soft-drink-tab is-active" data-tab="soft-drink">ソフトドリンク</button>
+                        <button class="products-tab__button alcohol-tab" data-tab="alcohol">お酒</button>
+                    </div>
+
+                    <div class="products-tab__contents">
+                        <!-- soft-drinkTab -->
+                        <div class="products-tab__content soft-drink is-active">
+                            <ul class="soft-drink__lists">
+                                <li class="product-card__list">
+                                    <a href="#x" class="product-card__link">
+                                        <figure class="product-card__figure">
+                                            <div class="product-card__image-area">
+                                                <img class="product-card__image" src="./img/grapefruit-spark.png" alt="商品画像" width="600" height="600" />
+                                            </div>
+                                            <figcaption class="product-card__caption">炭酸飲料</figcaption>
+                                        </figure>
+                                    </a>
+                                </li>
+
+                                <li class="product-card__list">
+                                    <a href="#x" class="product-card__link">
+                                        <figure class="product-card__figure">
+                                            <div class="product-card__image-area">
+                                                <img class="product-card__image" src="./img/green-tea.png" alt="商品画像" width="600" height="600" />
+                                            </div>
+                                            <figcaption class="product-card__caption">お茶飲料</figcaption>
+                                        </figure>
+                                    </a>
+                                </li>
+
+                                <li class="product-card__list">
+                                    <a href="#x" class="product-card__link">
+                                        <figure class="product-card__figure">
+                                            <div class="product-card__image-area">
+                                                <img class="product-card__image" src="./img/aqua-water.png" alt="商品画像" width="600" height="600" />
+                                            </div>
+                                            <figcaption class="product-card__caption">ミネラルウォーター・水</figcaption>
+                                        </figure>
+                                    </a>
+                                </li>
+
+                                <li class="product-card__list">
+                                    <a href="#x" class="product-card__link">
+                                        <figure class="product-card__figure">
+                                            <div class="product-card__image-area">
+                                                <img class="product-card__image" src="./img/sizuku-apple.png" alt="商品画像" width="600" height="600" />
+                                            </div>
+                                            <figcaption class="product-card__caption">果汁・フルーツ飲料</figcaption>
+                                        </figure>
+                                    </a>
+                                </li>
+
+                                <li class="product-card__list">
+                                    <a href="#x" class="product-card__link">
+                                        <figure class="product-card__figure">
+                                            <div class="product-card__image-area">
+                                                <img class="product-card__image" src="./img/active.png" alt="商品画像" width="600" height="600" />
+                                            </div>
+                                            <figcaption class="product-card__caption">機能性・スポーツ飲料</figcaption>
+                                        </figure>
+                                    </a>
+                                </li>
+
+                                <li class="product-card__list">
+                                    <a href="#x" class="product-card__link">
+                                        <figure class="product-card__figure">
+                                            <div class="product-card__image-area">
+                                                <img class="product-card__image" src="./img/calcia.png" alt="商品画像" width="600" height="600" />
+                                            </div>
+                                            <figcaption class="product-card__caption">乳性・ヨーグルト系飲料</figcaption>
+                                        </figure>
+                                    </a>
+                                </li>
+
+                                <li class="product-card__list">
+                                    <a href="#x" class="product-card__link">
+                                        <figure class="product-card__figure">
+                                            <div class="product-card__image-area">
+                                                <img class="product-card__image" src="./img/kid-drink.png" alt="商品画像" width="600" height="600" />
+                                            </div>
+                                            <figcaption class="product-card__caption">ファミリー・キッズ向け</figcaption>
+                                        </figure>
+                                    </a>
+                                </li>
+
+                                <li class="product-card__list">
+                                    <a href="#x" class="product-card__link">
+                                        <figure class="product-card__figure">
+                                            <div class="product-card__image-area">
+                                                <img class="product-card__image" src="./img/e-drink.png" alt="商品画像" width="600" height="600" />
+                                            </div>
+                                            <figcaption class="product-card__caption">その他</figcaption>
+                                        </figure>
+                                    </a>
+                                </li>
+
+                                <li class="product-card__list--full-width">
+                                    <ul class="products-search__list products-search__list--secondary">
+                                        <li class="products-search__item">
+                                            <a href="#x" class="products-search__info"><i class="fa-solid fa-list-ul products-search__component-icon"></i>栄養成分一覧</a>
+                                        </li>
+                                        <li class="products-search__item">
+                                            <a href="#x" class="products-search__info"><i class="fa-solid fa-list-ul products-search__product-icon"></i>商品発売情報</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- alcoholTab -->
+                        <div class="products-tab__content alcohol">
+                            <ul class="alcohol__lists">
+                                <li class="product-card__list">
+                                    <a href="#x" class="product-card__link">
+                                        <figure class="product-card__figure">
+                                            <div class="product-card__image-area">
+                                                <img class="product-card__image" src="./img/beer.png" alt="商品画像" width="600" height="600" />
+                                            </div>
+                                            <figcaption class="product-card__caption">ビール</figcaption>
+                                        </figure>
+                                    </a>
+                                </li>
+
+                                <li class="product-card__list">
+                                    <a href="#x" class="product-card__link">
+                                        <figure class="product-card__figure">
+                                            <div class="product-card__image-area">
+                                                <img class="product-card__image" src="./img/spark-ale.png" alt="商品画像" width="600" height="600" />
+                                            </div>
+                                            <figcaption class="product-card__caption">チューハイ・カクテル</figcaption>
+                                        </figure>
+                                    </a>
+                                </li>
+
+                                <li class="product-card__list">
+                                    <a href="#x" class="product-card__link">
+                                        <figure class="product-card__figure">
+                                            <div class="product-card__image-area">
+                                                <img class="product-card__image" src="./img/wisky.png" alt="商品画像" width="600" height="600" />
+                                            </div>
+                                            <figcaption class="product-card__caption">ウイスキー</figcaption>
+                                        </figure>
+                                    </a>
+                                </li>
+
+                                <li class="product-card__list">
+                                    <a href="#x" class="product-card__link">
+                                        <figure class="product-card__figure">
+                                            <div class="product-card__image-area">
+                                                <img class="product-card__image" src="./img/brandy.png" alt="商品画像" width="600" height="600" />
+                                            </div>
+                                            <figcaption class="product-card__caption">ブランデー</figcaption>
+                                        </figure>
+                                    </a>
+                                </li>
+
+                                <li class="product-card__list">
+                                    <a href="#x" class="product-card__link">
+                                        <figure class="product-card__figure">
+                                            <div class="product-card__image-area">
+                                                <img class="product-card__image" src="./img/spark-l.png" alt="商品画像" width="600" height="600" />
+                                            </div>
+                                            <figcaption class="product-card__caption">リキュール・スピリッツ</figcaption>
+                                        </figure>
+                                    </a>
+                                </li>
+
+                                <li class="product-card__list">
+                                    <a href="#x" class="product-card__link">
+                                        <figure class="product-card__figure">
+                                            <div class="product-card__image-area">
+                                                <img class="product-card__image" src="./img/Shochu.png" alt="商品画像" width="600" height="600" />
+                                            </div>
+                                            <figcaption class="product-card__caption">焼酎</figcaption>
+                                        </figure>
+                                    </a>
+                                </li>
+
+                                <li class="product-card__list">
+                                    <a href="#x" class="product-card__link">
+                                        <figure class="product-card__figure">
+                                            <div class="product-card__image-area">
+                                                <img class="product-card__image" src="./img/wine.png" alt="商品画像" width="600" height="600" />
+                                            </div>
+                                            <figcaption class="product-card__caption">ワイン</figcaption>
+                                        </figure>
+                                    </a>
+                                </li>
+
+                                <li class="product-card__list">
+                                    <a href="#x" class="product-card__link">
+                                        <figure class="product-card__figure">
+                                            <div class="product-card__image-area">
+                                                <img class="product-card__image" src="./img/non-alcohol.png" alt="商品画像" width="600" height="600" />
+                                            </div>
+                                            <figcaption class="product-card__caption">ノンアルコール</figcaption>
+                                        </figure>
+                                    </a>
+                                </li>
+
+                                <li class="product-card__list--full-width">
+                                    <ul class="products-search__list products-search__list--secondary">
+                                        <li class="products-search__item">
+                                            <a href="#x" class="products-search__info"><i class="fa-solid fa-list-ul products-search__component-icon"></i>栄養成分一覧</a>
+                                        </li>
+                                        <li class="products-search__item">
+                                            <a href="#x" class="products-search__info"><i class="fa-solid fa-list-ul products-search__product-icon"></i>商品発売情報</a>
+                                        </li>
+                                    </ul>
+                                    <ul class="products-search__list products-search__list--secondary">
+                                        <li class="products-search__item">
+                                            <a href="#x" class="products-search__info">＜酒類を販売するために必要な手続きについて＞ 酒類の販売には税務署長の免許が必要です。（卸免許、小売免許、通信販売免許等） 免許には原則として販売方法や販売酒類の範囲に条件が付けられていますので、その条件範囲内で酒類の販売を行わなくてはなりません。 免許の詳細については、所轄の税務署にお問い合わせ頂くか、国税庁HPを参照ください。</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="category-search">
+                <div class="category-search__inner inner">
+                    <h2 class="category-search__title">ブランド名・商品名で検索</h2>
+                    <div class="category-search__boxes">
+                        <details class="category-search__accordion">
+                            <summary class="category-search__summary">
+                                <span>ソフトドリンク</span>
+                            </summary>
+                            <div class="category-search__content">
+                                <ul class="category-search__list">
+                                    <li class="category-search__item">
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>炭酸飲料</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">Spark Cola ZERO（スパークコーラゼロ）</a></li>
+                                                    <li><a href="#x" class="category-search__link">Spark Sparkling Water（スパークリングウォーター）</a></li>
+                                                    <li><a href="#x" class="category-search__link">Spark Lime Spark（ライムスパーク）</a></li>
+                                                    <li><a href="#x" class="category-search__link">Spark Peach Spark（ピーチスパーク・限定）</a></li>
+                                                    <li><a href="#x" class="category-search__link">Spark Soda EX（スパークソーダEX）</a></li>
+                                                    <li><a href="#x" class="category-search__link">Spark Lemon Spark（レモンスパーク）</a></li>
+                                                    <li><a href="#x" class="category-search__link">Spark Grape Spark（グレープスパーク）</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>お茶飲料</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">鮮茶（せんちゃ）</a></li>
+                                                    <li><a href="#x" class="category-search__link">深緑茶（しんりょくちゃ）</a></li>
+                                                    <li><a href="#x" class="category-search__link">香ばし麦茶 無添加</a></li>
+                                                    <li><a href="#x" class="category-search__link">カラダサポート緑茶（機能性表示食品）</a></li>
+                                                    <li><a href="#x" class="category-search__link">ジャスミンティー 香る時間</a></li>
+                                                    <li><a href="#x" class="category-search__link">カラダサポート緑茶（機能性表示食品）</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>ミネラルウォーター</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">信州天然水 ピュア（夏限定デザイン）</a></li>
+                                                    <li><a href="#x" class="category-search__link">アクアバランスウォーター</a></li>
+                                                    <li><a href="#x" class="category-search__link">Sparklinks のむ天然水 軟水仕立て</a></li>
+                                                    <li><a href="#x" class="category-search__link">富士の深層水 硬度100</a></li>
+                                                    <li><a href="#x" class="category-search__link">AQUA</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>果汁・フルーツ飲料</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">sizuku みかんそのまま</a></li>
+                                                    <li><a href="#x" class="category-search__link">sizuku りんごのめぐみ</a></li>
+                                                    <li><a href="#x" class="category-search__link">sizuku ぶどうのしずく</a></li>
+                                                    <li><a href="#x" class="category-search__link">まるごとみかん100</a></li>
+                                                    <li><a href="#x" class="category-search__link">りんごまるしぼり</a></li>
+                                                    <li><a href="#x" class="category-search__link">ももと白ぶどうミックス</a></li>
+                                                    <li><a href="#x" class="category-search__link">白桃スカッシュ（春季限定）</a></li>
+                                                    <li><a href="#x" class="category-search__link">信州りんごサイダー（地域限定）</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>機能性・スポーツ飲料</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">アクティブチャージ（電解質配合）</a></li>
+                                                    <li><a href="#x" class="category-search__link">Spark Energy Boost（スパークエナジーブースト）</a></li>
+                                                    <li><a href="#x" class="category-search__link">Spark（スパーク エナジー）</a></li>
+                                                    <li><a href="#x" class="category-search__link">リフレッシュプラス（ビタミン配合）</a></li>
+                                                    <li><a href="#x" class="category-search__link">Bカフェスパーク（カフェイン入り）</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>乳性飲料</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">カルシアプラス（カルシウム配合乳酸菌飲料）</a></li>
+                                                    <li><a href="#x" class="category-search__link">Spark 乳酸ドリンク さっぱりタイプ</a></li>
+                                                    <li><a href="#x" class="category-search__link">ヨーグルスムース（飲むヨーグルト）</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>ファミリー・キッズ向け</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">こどもりんごジュース</a></li>
+                                                    <li><a href="#x" class="category-search__link">やさしいミックスジュース</a></li>
+                                                    <li><a href="#x" class="category-search__link">すいとう 水分補給ドリンク（低糖・ノンカフェイン）</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>コーヒー飲料</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">Spark Barista（スパークバリスタ）</a></li>
+                                                    <li><a href="#x" class="category-search__link">Spark Barista Craft（スパークバリスタクラフト）</a></li>
+                                                    <li><a href="#x" class="category-search__link">割るだけバリスタクラフト</a></li>
+                                                    <li><a href="#x" class="category-search__link">Spark カフェリンクスコーヒー</a></li>
+                                                    <li><a href="#x" class="category-search__link">Spark Chill Café（スパークチルカフェ）</a></li>
+                                                    <li><a href="#x" class="category-search__link">Sparklinks Café Collaboration Series</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="category-search__accordion">
+                            <summary class="category-search__summary">
+                                <span>ビール</span>
+                            </summary>
+                            <div class="category-search__content">
+                                <ul class="category-search__list">
+                                    <li class="category-search__item">
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>ビール</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">スパークエール〈プレミアムゴールド〉</a></li>
+                                                    <li><a href="#x" class="category-search__link">スパークエール〈ジャパニーズクラフト〉</a></li>
+                                                    <li><a href="#x" class="category-search__link">スパークモルツ マイスターズセレクション</a></li>
+                                                    <li><a href="#x" class="category-search__link">スパークモルツ シグネチャーブレンド＃18s</a></li>
+                                                    <li><a href="#x" class="category-search__link">スパークモルツ シグネチャーブレンド＃26</a></li>
+                                                    <li><a href="#x" class="category-search__link">スパークモルツ〈フレッシュブリュー〉</a></li>
+                                                    <li><a href="#x" class="category-search__link">スパークモルツ〈香るジャパニーズクラフト〉</a></li>
+                                                    <li><a href="#x" class="category-search__link">スパークモルツ〈夜香るブラックエール〉</a></li>
+                                                    <li><a href="#x" class="category-search__link">フレッシュスパークビール</a></li>
+                                                    <li><a href="#x" class="category-search__link">パーフェクトスパークビール</a></li>
+                                                    <li><a href="#x" class="category-search__link">パーフェクトスパークビール〈ダーク〉</a></li>
+                                                    <li><a href="#x" class="category-search__link">東京スパーク〈ペールエール〉</a></li>
+                                                    <li><a href="#x" class="category-search__link">東京スパーク〈ゴールデンエール〉</a></li>
+                                                    <li><a href="#x" class="category-search__link">東京スパーク〈スタウト〉</a></li>
+                                                    <li><a href="#x" class="category-search__link">ビアスパーク</a></li>
+                                                    <li><a href="#x" class="category-search__link">カールリンク〈プレミアムピルスナー〉</a></li>
+                                                    <li><a href="#x" class="category-search__link">カールリンク〈イスタンブールエディション〉</a></li>
+                                                    <li><a href="#x" class="category-search__link">カールリンク〈クラブボトル〉</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>ビールテイスト飲料</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">スパークフリー〈ノンアルコールビール〉</a></li>
+                                                    <li><a href="#x" class="category-search__link">スパークフリー〈ライムショット〉</a></li>
+                                                    <li><a href="#x" class="category-search__link">スパークフリー〈カラダ想う〉（機能性表示食品）</a></li>
+                                                    <li><a href="#x" class="category-search__link">スパークフリー〈明日を想う〉（機能性表示食品）</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>発泡酒</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">スパークモルト〈晩酌サワー〉</a></li>
+                                                    <li><a href="#x" class="category-search__link">ビアスパーク〈レモネードスタイル〉</a></li>
+                                                    <li><a href="#x" class="category-search__link">ビアスパーク〈ジンジャースタイル〉</a></li>
+                                                    <li><a href="#x" class="category-search__link">スパークモルトサワー</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>新ジャンル（発泡酒②）</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">スパークモルト〈クラシック〉</a></li>
+                                                    <li><a href="#x" class="category-search__link">スパークモルト〈ザ・ラガー〉</a></li>
+                                                    <li><a href="#x" class="category-search__link">スパークモルト〈ライト75％オフ〉</a></li>
+                                                    <li><a href="#x" class="category-search__link">スパークモルト〈青空ブレンド〉</a></li>
+                                                    <li><a href="#x" class="category-search__link">スパークモルト〈金木犀リッチ〉</a></li>
+                                                    <li><a href="#x" class="category-search__link">スパークモルト〈ウィンターブレンド〉</a></li>
+                                                    <li><a href="#x" class="category-search__link">スパークジョッキ生</a></li>
+                                                    <li><a href="#x" class="category-search__link">スパークブリュー〈セブンプレミアム〉</a></li>
+                                                    <li><a href="#x" class="category-search__link">スパークブリュー〈セブンプレミアム 糖質ゼロ〉</a></li>
+                                                    <li><a href="#x" class="category-search__link">クリアスパークゴールド</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="category-search__accordion">
+                            <summary class="category-search__summary">
+                                <span>チューハイ・カクテル</span>
+                            </summary>
+                            <div class="category-search__content">
+                                <ul class="category-search__list">
+                                    <li class="category-search__item">
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>チューハイ・カクテル</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">瀬戸内レモンサワー</a></li>
+                                                    <li><a href="#x" class="category-search__link">大人のジンジャーハイボール</a></li>
+                                                    <li><a href="#x" class="category-search__link">ほろ香るピーチフィズ</a></li>
+                                                    <li><a href="#x" class="category-search__link">トロピカルパインサワー</a></li>
+                                                    <li><a href="#x" class="category-search__link">クラフトジンジャーソーダ</a></li>
+                                                    <li><a href="#x" class="category-search__link">しずくレモンサワー</a></li>
+                                                    <li><a href="#x" class="category-search__link">ミックスフルーツフィズ</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>ノンアルコールチューハイ</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">ノンアルレモンサワー しずくゼロ</a></li>
+                                                    <li><a href="#x" class="category-search__link">ノンアルジンジャーハイボール すっきりゼロ</a></li>
+                                                    <li><a href="#x" class="category-search__link">ノンアルピーチフィズ まろやかゼロ</a></li>
+                                                    <li><a href="#x" class="category-search__link">ノンアル南国パインサワー トロピカルゼロ</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="category-search__accordion">
+                            <summary class="category-search__summary">
+                                <span>焼酎</span>
+                            </summary>
+                            <div class="category-search__content">
+                                <ul class="category-search__list">
+                                    <li class="category-search__item">
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>芋焼酎</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">里山紅芋仕立て</a></li>
+                                                    <li><a href="#x" class="category-search__link">黒の滴</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>麦焼酎</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">里山 澄みの雫</a></li>
+                                                    <li><a href="#x" class="category-search__link">壱乃國 プレミアム</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>米焼酎</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">清流仕立て</a></li>
+                                                    <li><a href="#x" class="category-search__link">花の香</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>麦焼酎</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">里山 澄みの雫</a></li>
+                                                    <li><a href="#x" class="category-search__link">壱乃國 プレミアム</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>そば焼酎</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">里山香る舞</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>甲類 韓国焼酎</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">クリアリンク</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>甲類 韓国焼酎</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">しずくグリーン</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>甲乙混和</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">Spark フュージョンリンク</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>ジャスミン焼酎</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">茉莉花プレミアム</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>琉球泡盛</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">青海原プレミアム</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="category-search__accordion">
+                            <summary class="category-search__summary">
+                                <span>ウイスキー</span>
+                            </summary>
+                            <div class="category-search__content">
+                                <ul class="category-search__list">
+                                    <li class="category-search__item">
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>日本 モルト</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">シングルモルト 白峰（しらね）</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>日本 ブレンデッド</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">ブレンデッドウイスキー 山渓（さんけい）</a></li>
+                                                    <li><a href="#x" class="category-search__link">スパークウイスキー 碧浪（へきろう）</a></li>
+                                                    <li><a href="#x" class="category-search__link">オーシャンブレンド プレミアム</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>日本 グレーン</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">クリアグレイン知多仕立て</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>スコットランド モルト</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">ハイランドモルト マッカランエディション</a></li>
+                                                    <li><a href="#x" class="category-search__link">アイラモルト ボウモアセレクション</a></li>
+                                                    <li><a href="#x" class="category-search__link">アイラモルト ラフロイグクラフト</a></li>
+                                                    <li><a href="#x" class="category-search__link">アイランズモルト スキャパスピリット</a></li>
+                                                    <li><a href="#x" class="category-search__link">ローランドモルト オーヘントッシャンプレミアム</a></li>
+                                                    <li><a href="#x" class="category-search__link">スペイサイドモルト アードモアクラシック</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>スコットランド ブレンデッド</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">バランタイン クラフトリザーブ</a></li>
+                                                    <li><a href="#x" class="category-search__link">ティーチャーズ ハイランドクリーム</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>アイルランド</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">エメラルドウイスキー カネマラ</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>アメリカ バーボン</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">スパークビーム クラシックバーボン</a></li>
+                                                    <li><a href="#x" class="category-search__link">メーカーズセレクト</a></li>
+                                                    <li><a href="#x" class="category-search__link">ベイゼルヘイデンプレミアム</a></li>
+                                                    <li><a href="#x" class="category-search__link">ノブクリーク スモールバッチ</a></li>
+                                                    <li><a href="#x" class="category-search__link">オールドグランダッド リッチエディション</a></li>
+                                                    <li><a href="#x" class="category-search__link">オールドクロウ クラシックバーボン</a></li>
+                                                    <li><a href="#x" class="category-search__link">リージェントバーボン</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>カナダ</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">カナディアンリンク クラシック</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>ハイボール缶・水割り缶</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">角 ハイボール缶s</a></li>
+                                                    <li><a href="#x" class="category-search__link">トリス ハイボール缶</a></li>
+                                                    <li><a href="#x" class="category-search__link">スパークビーム ハイボール缶</a></li>
+                                                    <li><a href="#x" class="category-search__link">プレミアムリザーブ＆ウォーター</a></li>
+                                                    <li><a href="#x" class="category-search__link">白角水割りスペシャル</a></li>
+                                                    <li><a href="#x" class="category-search__link">碧Ao〈海薫るハイボール〉缶</a></li>
+                                                    <li><a href="#x" class="category-search__link">ティーチャーズ ハイボール缶</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="category-search__accordion">
+                            <summary class="category-search__summary">
+                                <span>ブランデー</span>
+                            </summary>
+                            <div class="category-search__content">
+                                <ul class="category-search__list">
+                                    <li class="category-search__item">
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>国産ブランデー</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">スパークブランデー V.O</a></li>
+                                                    <li><a href="#x" class="category-search__link">スパークブランデー V.S.O.P</a></li>
+                                                    <li><a href="#x" class="category-search__link">スパークブランデー X.O</a></li>
+                                                    <li><a href="#x" class="category-search__link">フルーツリキュール専用ブランデー V.O</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="category-search__accordion">
+                            <summary class="category-search__summary">
+                                <span>リキュール・スピリッツ</span>
+                            </summary>
+                            <div class="category-search__content">
+                                <ul class="category-search__list">
+                                    <li class="category-search__item">
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>ジン</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">翠香ジン（すいこうジン）</a></li>
+                                                    <li><a href="#x" class="category-search__link">ジャパニーズクラフトジン 六（ろく）</a></li>
+                                                    <li><a href="#x" class="category-search__link">プレミアムビーフィーター ジン</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>ウォッカ</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">ピュアリンク ウォッカ</a></li>
+                                                    <li><a href="#x" class="category-search__link">ジャパニーズクラフトウォッカ 白（しろ）</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>ラム</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">オリエントラム クラシック</a></li>
+                                                    <li><a href="#x" class="category-search__link">カリビアンゴールドラム</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>テキーラ</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">サウザブルー プレミアムテキーラ</a></li>
+                                                    <li><a href="#x" class="category-search__link">トレスジェネレーション クラフトテキーラ</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>リキュール フルーツ系</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">しずくレモンリキュール</a></li>
+                                                    <li><a href="#x" class="category-search__link">トロピカルマンゴーリキュール</a></li>
+                                                    <li><a href="#x" class="category-search__link">ミッドナイトメロンリキュール</a></li>
+                                                    <li><a href="#x" class="category-search__link">フルーツベリーカクテルリキュール</a></li>
+                                                    <li><a href="#x" class="category-search__link">プレミアムビーフィーター ジン</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>リキュール コーヒー・茶・ナッツ系</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">カルーアコーヒーリキュール</a></li>
+                                                    <li><a href="#x" class="category-search__link">モーツァルトチョコレートリキュール</a></li>
+                                                    <li><a href="#x" class="category-search__link">ティーフィン紅茶リキュール</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>リキュール その他</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">まろやかヨーグルトリキュール</a></li>
+                                                    <li><a href="#x" class="category-search__link">濃厚エッグクリームリキュール</a></li>
+                                                    <li><a href="#x" class="category-search__link">ジャスミンソーダリキュール</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="category-search__accordion">
+                            <summary class="category-search__summary">
+                                <span>ワイン</span>
+                            </summary>
+                            <div class="category-search__content">
+                                <ul class="category-search__list">
+                                    <li class="category-search__item">
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>日本ワイン</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">信州シャルドネ スパークリング</a></li>
+                                                    <li><a href="#x" class="category-search__link">甲州ブラン 白ワイン</a></li>
+                                                    <li><a href="#x" class="category-search__link">甲州ルージュ 赤ワイン</a></li>
+                                                    <li><a href="#x" class="category-search__link">スパークリンクス ロゼ・フレッシュ</a></li>
+                                                    <li><a href="#x" class="category-search__link">信州メルロー プレミアム</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>国産カジュアルワイン</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">ふんわり赤玉ワイン</a></li>
+                                                    <li><a href="#x" class="category-search__link">氷と楽しむスパークフルーツワイン</a></li>
+                                                    <li><a href="#x" class="category-search__link">酸化防止剤無添加テーブルワイン 赤・白・ロゼ</a></li>
+                                                    <li><a href="#x" class="category-search__link">スイートベリーワイン</a></li>
+                                                    <li><a href="#x" class="category-search__link">料理に合うやさしいワイン</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>輸入ワイン フランス</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">シャトー ラグランジュ ヴィンテージ</a></li>
+                                                    <li><a href="#x" class="category-search__link">ドメーヌ ロートシルト ボルドーセレクション</a></li>
+                                                    <li><a href="#x" class="category-search__link">バロン レスタック ルージュ</a></li>
+                                                    <li><a href="#x" class="category-search__link">ジョルジュ デュブッフ ボジョレー</a></li>
+                                                    <li><a href="#x" class="category-search__link">フォルタン リトラル 南仏ワイン</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>輸入ワイン イタリア</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">タヴェルネッロ トスカーナブレンド</a></li>
+                                                    <li><a href="#x" class="category-search__link">ボッラ ヴェローナクラシコ</a></li>
+                                                    <li><a href="#x" class="category-search__link">ヴィッラ サンディ スパークリング</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>輸入ワイン スペイン</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">フレシネ スパークセレクション</a></li>
+                                                    <li><a href="#x" class="category-search__link">ソラール ビエホ テンプラニーリョ</a></li>
+                                                    <li><a href="#x" class="category-search__link">バルデュボン スパニッシュブレンド</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>輸入ワイン アメリカ</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">カーニヴォ カベルネソーヴィニヨン</a></li>
+                                                    <li><a href="#x" class="category-search__link">ダークホース プレミアムブレンド</a></li>
+                                                    <li><a href="#x" class="category-search__link">カルロロッシ クラシック 赤・白・ロゼ</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>輸入ワイン チリ</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">サンタ カロリーナ メルロー</a></li>
+                                                    <li><a href="#x" class="category-search__link">ロス ヴァスコス カベルネ</a></li>
+                                                    <li><a href="#x" class="category-search__link">コルンピオ プレミアムセレクション</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details class="category-search__accordion category-search__accordion--nested">
+                                            <summary class="category-search__summary category-search__summary--nested">
+                                                <span>輸入ワイン オーストラリア</span>
+                                            </summary>
+                                            <div class="category-search__content category-search__content--nested">
+                                                <ul>
+                                                    <li><a href="#x" class="category-search__link">ヤルンバ シラーズ</a></li>
+                                                    <li><a href="#x" class="category-search__link">オックスフォード ランディング シャルドネ</a></li>
+                                                </ul>
+                                            </div>
+                                        </details>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </section>
+
+            <section class="products-search">
+                <div class="products-search__inner inner">
+                    <h2 class="products-search__title">商品情報<span class="products-info__sub-title">カロリー・原材料</span></h2>
+                    <div class="products-search__items">
+                        <div class="products-search__container">
+                            <form action="#x" method="get" role="search" class="products-search__form">
+                                <button type="submit" class="products-search__button" aria-label="検索">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                                <input type="search" name="q" placeholder="キーワードで検索" id="products-search-q" class="products-search__input" />
+                                <button type="submit" class="products-search__submit">検索</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="footer__inner inner">
+                <nav class="footer__nav">
+                    <div class="footer__nav-block">
+                        <h2 class="footer-nav__title">商品情報</h2>
+                        <ul class="footer-nav__list footer-nav__list--sub">
+                            <li class="footer-nav__item"><a href="#x">炭酸飲料</a></li>
+                            <li class="footer-nav__item"><a href="#x">お茶</a></li>
+                            <li class="footer-nav__item"><a href="#x">果汁飲料</a></li>
+                            <li class="footer-nav__item"><a href="#x">機能性飲料</a></li>
+                            <li class="footer-nav__item"><a href="#x">ミネラルウォーター</a></li>
+                            <li class="footer-nav__item"><a href="#x">乳性飲料</a></li>
+                            <li class="footer-nav__item"><a href="#x">キッズ・ファミリー</a></li>
+                            <li class="footer-nav__item"><a href="#x">限定・ギフト商品</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__nav-block">
+                        <h2 class="footer-nav__title">企業情報</h2>
+                        <ul class="footer-nav__list footer-nav__list--sub">
+                            <li class="footer-nav__item"><a href="#x">会社概要</a></li>
+                            <li class="footer-nav__item"><a href="#x">事業内容</a></li>
+                            <li class="footer-nav__item"><a href="#x">事業所・アクセス</a></li>
+                            <li class="footer-nav__item"><a href="#x">沿革</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__nav-block">
+                        <h2 class="footer-nav__title">採用・IR</h2>
+                        <ul class="footer-nav__list footer-nav__list--sub">
+                            <li class="footer-nav__item"><a href="#x">採用情報</a></li>
+                            <li class="footer-nav__item"><a href="#x">社員インタビュー</a></li>
+                            <li class="footer-nav__item"><a href="#x">ir情報</a></li>
+                            <li class="footer-nav__item"><a href="#x">経営方針</a></li>
+                            <li class="footer-nav__item"><a href="#x">株主・株式情報</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__nav-block">
+                        <h2 class="footer-nav__title">サポート・その他</h2>
+                        <ul class="footer-nav__list footer-nav__list--sub">
+                            <li class="footer-nav__item"><a href="#x">FAQ（よくあるご質問）</a></li>
+                            <li class="footer-nav__item"><a href="#x">ご利用ガイド</a></li>
+                            <li class="footer-nav__item"><a href="#x">配送・返品について</a></li>
+                            <li class="footer-nav__item"><a href="#x">プライバシーポリシー</a></li>
+                            <li class="footer-nav__item"><a href="#x">特定商取引法に基づく表示</a></li>
+                            <li class="footer-nav__item"><a href="#x">サイトマップ</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__nav-block">
+                        <h2 class="footer-nav__title">法人向け</h2>
+                        <ul class="footer-nav__list footer-nav__list--sub">
+                            <li class="footer-nav__item"><a href="#x">法人・業務用のお問い合わせ</a></li>
+                            <li class="footer-nav__item"><a href="#x">パートナー募集</a></li>
+                            <li class="footer-nav__item"><a href="#x">メディア・取材対応</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__nav-block">
+                        <h2 class="footer-nav__title">sns・外部リンク</h2>
+                        <ul class="footer-nav__list footer-nav__list--sub">
+                            <li class="footer-nav__item"><a href="#x">line</a></li>
+                            <li class="footer-nav__item"><a href="#x">instagram</a></li>
+                            <li class="footer-nav__item"><a href="#x">x（旧twitter）</a></li>
+                            <li class="footer-nav__item"><a href="#x">YouTube</a></li>
+                            <li class="footer-nav__item"><a href="#x">公式オンラインショップ</a></li>
+                            <li class="footer-nav__item sns-list__item">
+                                <ul class="footer__sns sns-list">
+                                    <li class="sns-list__item">
+                                        <a href="#x" target="_blank" rel="noopener noreferrer" aria-label="Instagramでフォロー">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                    <li class="sns-list__item">
+                                        <a href="#x" target="_blank" rel="noopener noreferrer" aria-label="YouTubeでフォロー">
+                                            <i class="fab fa-youtube"></i>
+                                        </a>
+                                    </li>
+                                    <li class="sns-list__item">
+                                        <a href="#x" target="_blank" rel="noopener noreferrer" aria-label="Xでフォロー">
+                                            <i class="fab fa-x-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li class="sns-list__item">
+                                        <a href="#x" target="_blank" rel="noopener noreferrer" aria-label="LINEでフォロー">
+                                            <i class="fab fa-line"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="footer__lower">
+                <div class="footer__info"></div>
+                <hr class="footer__divider" />
+                <small class="footer__copyright">
+                    <a class="footer__item" href="#x">&copy;2025 Spark Links Inc. All Rights Reserved.</a>
+                </small>
+                <ul class="footer__copyright-list">
+                    <li class="footer__copyright-item"><a href="">spark links</a></li>
+                    <li class="footer__copyright-item"><a href="">プライバシーポリシー</a></li>
+                    <li class="footer__copyright-item"><a href="">ご利用規約</a></li>
+                    <li class="footer__copyright-item"><a href="">特定商取引法に基づく表示</a></li>
+                    <li class="footer__copyright-item"><a href="">サイトマップ</a></li>
+                </ul>
+            </div>
+            <a href="#" id="js-to-top" class="footer__to-top">
+                <span class="sr-only">ページトップへ戻る</span>
+                <svg viewBox="0 0 320 512" width="16" height="16"><path fill="currentColor" d="M177 159.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 255.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 329.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.4 24.6-9.4 33.9 0z" /></svg>
+            </a>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+        <script src="./js/script.js" defer></script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+:root {
+    // 文字変換
+    text-transform: capitalize;
+
+    // フォントファミリー
+    --font-family-ja: "Open Sans", sans-serif;
+    --font-family-en: "Roboto", sans-serif;
+
+    // フォントサイズ
+    --font-size-base: 1.6rem;
+    --line-height-base: 1.5;
+
+    // カラー設定
+    --color-base: #111;
+    --color-bg-base: #fafafa;
+    --color-bg-blue: #e3f2fd;
+    --color-bg-gray: #f2f4f7;
+    --color-main: #007acc;
+    --color-sub-blue: #005f99;
+    --color-accent: #fabe00;
+    --color-accent-light: #fff5cc;
+
+    // 最大幅
+    --width-1200: 120rem;
+    --width-960: 96rem;
+
+    // ヘッダーの高さ
+    --header-height-pc: 9.2rem;
+    --header-height-sp: 7rem;
+}
