@@ -17,6 +17,8 @@
   --color-main:       light-dark(oklch(0.22 0 0), oklch(0.93 0.005 106));   /* メインカラー（見出し・本文） */
   --color-sub:        light-dark(oklch(0.45 0 0), oklch(0.74 0.005 106));   /* サブテキスト */
   --color-accent:     light-dark(oklch(0.52 0.23 264), oklch(0.7 0.17 264)); /* アクセント（リンク・CTA）。ダークは L↑C↓ でコントラスト確保 */
+  --color-cat-design: light-dark(oklch(0.52 0.2 320), oklch(0.7 0.15 320)); /* 作品カテゴリ：デザイン系（赤紫） */
+  --color-cat-coding: light-dark(oklch(0.5 0.14 210), oklch(0.7 0.12 210)); /* 作品カテゴリ：コーディング系（青緑） */
   --color-white:      oklch(1 0 0);                                          /* 純白（テーマで変えない固定値） */
   --color-surface:    light-dark(oklch(1 0 0), oklch(0.27 0.012 264));      /* カード等の面色（背景より一段明るく） */
   --color-border:     light-dark(oklch(0.91 0.005 106), oklch(0.33 0.012 264)); /* 区切り線 */

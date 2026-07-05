@@ -116,6 +116,15 @@
   color: var(--color-accent);
 }
 
+// カテゴリごとに色相を変えて一覧の見分けを助ける（WEB DESIGNは既定のaccent）
+.c-card__category--design {
+  color: var(--color-cat-design);
+}
+
+.c-card__category--coding {
+  color: var(--color-cat-coding);
+}
+
 .c-card__title {
   font-size: var(--text-lg);
   font-weight: var(--font-weight-bold);

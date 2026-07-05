@@ -6,11 +6,29 @@
 // ============================================================
 .c-section-title {
   counter-increment: section;
+  position: relative;
+  isolation: isolate; // ::after の z-index: -1 を見出し内に閉じ込める
   display: flex;
   flex-direction: column;
   gap: var(--space-12);
   padding-top: var(--space-16);
   border-top: 1px solid var(--color-border);
+}
+
+// 背面の大型番号（極薄のウォーターマーク。読み上げ対象外の純粋なあしらい）
+.c-section-title::after {
+  content: counter(section, decimal-leading-zero);
+  position: absolute;
+  right: 0;
+  top: rem(-8);
+  z-index: -1;
+  font-family: var(--font-family-en);
+  font-size: clamp(#{rem(64)}, 6vw + 2rem, #{rem(120)});
+  font-weight: var(--font-weight-bold);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  color: color-mix(in srgb, var(--color-ink) 6%, transparent);
+  pointer-events: none;
 }
 
 .c-section-title__en {

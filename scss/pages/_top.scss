@@ -395,12 +395,23 @@
   font-weight: var(--font-weight-bold);
 }
 
-// 事実ベースの1行メタ（経験年数・制作本数など）
+// 習熟度バッジ（実務レベル＝塗り／それ以外＝アウトラインで強弱をつける）
 .p-top-skills__meta {
-  margin-top: var(--space-4);
+  display: inline-block;
+  margin-top: var(--space-8);
+  padding: rem(2) rem(12);
   font-size: var(--text-xs);
   font-weight: var(--font-weight-bold);
+  letter-spacing: 0.04em;
   color: var(--color-accent);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 40%, transparent);
+  border-radius: var(--radius-full);
+}
+
+.p-top-skills__meta--solid {
+  color: var(--color-text-invert);
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
 }
 
 // 「できること」の箇条書き
