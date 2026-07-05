@@ -24,7 +24,9 @@
 
   &:hover {
     transform: translateY(rem(-6));
-    box-shadow: 0 rem(12) rem(40) var(--shadow-hover-color);
+    box-shadow:
+      0 rem(2) rem(6) var(--shadow-color-near),
+      0 rem(12) rem(40) var(--shadow-hover-color);
   }
 
   &:focus {
