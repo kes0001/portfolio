@@ -5,13 +5,9 @@
 // 上書き順を記述順ではなく層で固定する。後ろの層ほど強い。
 // reset(kiso.css) も層に取り込む：無レイヤーのまま <link> で読むと
 // 「無レイヤー > レイヤー」の規則で自作スタイルに勝ってしまうため。
+// アイコンは自前SVGスプライト（images/icons.svg + c-icon）のため外部CSSなし。
 // ============================================================
-@layer reset, vendor, foundation, layout, components, pages, utilities;
-
-// 外部CSS（Font Awesome）も vendor 層へ取り込む。
-// 無レイヤーの <link> のままだと「無レイヤー > レイヤー」の規則で
-// 自作スタイル（アイコンの display 制御など）に勝ってしまうため。
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css") layer(vendor);
+@layer reset, foundation, layout, components, pages, utilities;
 
 @layer reset {
   @include meta.load-css("../css/reset");
@@ -30,6 +26,7 @@
   @include meta.load-css("components/button");
   @include meta.load-css("components/card");
   @include meta.load-css("components/tag");
+  @include meta.load-css("components/icon");
 }
 
 @layer pages {

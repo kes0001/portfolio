@@ -22,9 +22,9 @@
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#15171e" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <!-- フォントCSSは非同期適用（レンダーブロック回避）。読み込み完了までシステムフォントで表示 -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media=all" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" /></noscript>
     <link rel="stylesheet" href="./css/style.css" />
     <script>
       // 描画前に保存済みテーマを復元（ちらつき防止）
@@ -65,8 +65,8 @@
           </ul>
         </nav>
         <button class="l-header__theme js-theme-toggle" type="button" aria-label="配色テーマを切り替える" aria-pressed="false">
-          <i class="fa-solid fa-moon l-header__theme-icon l-header__theme-icon--moon" aria-hidden="true"></i>
-          <i class="fa-solid fa-sun l-header__theme-icon l-header__theme-icon--sun" aria-hidden="true"></i>
+          <svg class="c-icon l-header__theme-icon l-header__theme-icon--moon" aria-hidden="true"><use href="./images/icons.svg#moon"></use></svg>
+          <svg class="c-icon l-header__theme-icon l-header__theme-icon--sun" aria-hidden="true"><use href="./images/icons.svg#sun"></use></svg>
         </button>
       </div>
     </header>
@@ -98,8 +98,8 @@
           </h1>
           <p class="p-top-hero__lead">デザインからコーディングまで一貫して担当。情報を整理し、見る人にきちんと「伝わる」Webサイトをつくります。</p>
           <div class="p-top-hero__actions">
-            <a class="c-button c-button--accent" href="#works"><i class="fa-regular fa-images" aria-hidden="true"></i>作品を見る</a>
-            <a class="c-button c-button--ghost" href="#contact"><i class="fa-regular fa-envelope" aria-hidden="true"></i>お問い合わせ</a>
+            <a class="c-button c-button--accent" href="#works"><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#images"></use></svg>作品を見る</a>
+            <a class="c-button c-button--ghost" href="#contact"><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#envelope-o"></use></svg>お問い合わせ</a>
           </div>
         </div>
         <p class="p-top-hero__vertical" aria-hidden="true">
@@ -147,7 +147,7 @@
           <div class="p-top-section__body">
             <ul class="p-top-skills__list">
               <li class="p-top-skills__item">
-                <i class="fa-brands fa-html5 p-top-skills__icon" aria-hidden="true"></i>
+                <span class="p-top-skills__icon" aria-hidden="true"><svg class="c-icon"><use href="./images/icons.svg#html5"></use></svg></span>
                 <h3 class="p-top-skills__name">HTML / CSS（SCSS）</h3>
                 <!-- TODO:要確認 経験年数・制作本数が確定したら「経験◯年 ／ 制作◯本」に差し替える -->
                 <p class="p-top-skills__meta p-top-skills__meta--solid">実務レベル</p>
@@ -158,7 +158,7 @@
                 </ul>
               </li>
               <li class="p-top-skills__item">
-                <i class="fa-brands fa-figma p-top-skills__icon" aria-hidden="true"></i>
+                <span class="p-top-skills__icon" aria-hidden="true"><svg class="c-icon"><use href="./images/icons.svg#figma"></use></svg></span>
                 <h3 class="p-top-skills__name">Figma / Adobe XD</h3>
                 <!-- TODO:要確認 経験年数・制作本数が確定したら「経験◯年 ／ 制作◯本」に差し替える -->
                 <p class="p-top-skills__meta p-top-skills__meta--solid">実務レベル</p>
@@ -169,7 +169,7 @@
                 </ul>
               </li>
               <li class="p-top-skills__item">
-                <i class="fa-brands fa-js p-top-skills__icon" aria-hidden="true"></i>
+                <span class="p-top-skills__icon" aria-hidden="true"><svg class="c-icon"><use href="./images/icons.svg#js"></use></svg></span>
                 <h3 class="p-top-skills__name">JavaScript</h3>
                 <p class="p-top-skills__meta">実装対応可</p>
                 <ul class="p-top-skills__points">
@@ -179,7 +179,7 @@
                 </ul>
               </li>
               <li class="p-top-skills__item">
-                <i class="fa-brands fa-wordpress p-top-skills__icon" aria-hidden="true"></i>
+                <span class="p-top-skills__icon" aria-hidden="true"><svg class="c-icon"><use href="./images/icons.svg#wordpress"></use></svg></span>
                 <h3 class="p-top-skills__name">WordPress / PHP</h3>
                 <p class="p-top-skills__meta">カスタマイズ対応</p>
                 <ul class="p-top-skills__points">
@@ -188,7 +188,7 @@
                 </ul>
               </li>
               <li class="p-top-skills__item">
-                <i class="fa-solid fa-palette p-top-skills__icon" aria-hidden="true"></i>
+                <span class="p-top-skills__icon" aria-hidden="true"><svg class="c-icon"><use href="./images/icons.svg#palette"></use></svg></span>
                 <h3 class="p-top-skills__name">Photoshop / Illustrator</h3>
                 <p class="p-top-skills__meta p-top-skills__meta--solid">実務レベル</p>
                 <ul class="p-top-skills__points">
@@ -197,7 +197,7 @@
                 </ul>
               </li>
               <li class="p-top-skills__item">
-                <i class="fa-solid fa-robot p-top-skills__icon" aria-hidden="true"></i>
+                <span class="p-top-skills__icon" aria-hidden="true"><svg class="c-icon"><use href="./images/icons.svg#robot"></use></svg></span>
                 <h3 class="p-top-skills__name">AI活用（Claude Code）</h3>
                 <p class="p-top-skills__meta">検証・導入中</p>
                 <ul class="p-top-skills__points">
@@ -515,15 +515,15 @@
           <div class="p-top-section__body">
             <p class="p-top-contact__text">お仕事のご相談・ご質問など、お気軽にご連絡ください。</p>
             <div class="p-top-contact__actions">
-              <a class="c-button c-button--accent" href="mailto:kanmasa30@icloud.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i>メールを送る</a>
+              <a class="c-button c-button--accent" href="mailto:kanmasa30@icloud.com"><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#envelope"></use></svg>メールを送る</a>
               <!-- TODO:要確認 GitHubアカウントURLが確定したらコメントを外して公開する
-              <a class="c-button c-button--ghost" href="https://github.com/USERNAME" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i>GitHubでコードを見る</a>
+              <a class="c-button c-button--ghost" href="https://github.com/USERNAME" target="_blank" rel="noopener"><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#github"></use></svg>GitHubでコードを見る</a>
               -->
             </div>
             <p class="p-top-contact__mail">
               <a href="mailto:kanmasa30@icloud.com">kanmasa30@icloud.com</a>
               <button class="p-top-contact__copy js-copy-mail" type="button" data-mail="kanmasa30@icloud.com" aria-label="メールアドレスをコピーする">
-                <i class="fa-regular fa-copy" aria-hidden="true"></i>
+                <svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#copy"></use></svg>
               </button>
             </p>
             <p class="p-top-contact__copy-status js-copy-status" role="status" aria-live="polite"></p>
