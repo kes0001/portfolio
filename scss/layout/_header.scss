@@ -1,0 +1,234 @@
+@use "../foundation" as *;
+
+// ============================================================
+// l-header — サイトヘッダー（sticky＋SPドロワー）
+// ============================================================
+.l-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: color-mix(in srgb, var(--color-bg-base) 85%, transparent);
+  backdrop-filter: blur(rem(8));
+  border-bottom: 1px solid var(--color-border);
+}
+
+.l-header__inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16);
+  padding-block: rem(12);
+  min-height: rem(56);
+
+  @include mq("md") {
+    gap: var(--space-24);
+    padding-block: 0;
+    min-height: rem(64);
+  }
+}
+
+.l-header__logo {
+  // 後続要素（nav・トグル・バーガー）を右へ寄せる
+  margin-inline-end: auto;
+  font-family: var(--font-family-en);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.05em;
+  color: var(--color-main);
+  text-decoration: none;
+}
+
+// テーマ切り替えボタン（JSあり時のみ表示）
+.l-header__theme {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(44);
+  height: rem(44);
+  padding: 0;
+  font-size: rem(16);
+  color: var(--color-text-sub);
+  background: none;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 0.2s var(--ease-standard);
+
+  &:hover {
+    color: var(--color-accent);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+html:not(.js) .l-header__theme {
+  display: none;
+}
+
+// 表示アイコンはトークンで切り替える（ライト時＝月、ダーク時＝太陽）
+.l-header__theme-icon--moon {
+  display: var(--theme-icon-moon);
+}
+
+.l-header__theme-icon--sun {
+  display: var(--theme-icon-sun);
+}
+
+// ハンバーガーボタン（SP専用）
+.l-header__burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: rem(6);
+  width: rem(44);
+  height: rem(44);
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+
+  @include mq("md") {
+    display: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: rem(4);
+  }
+}
+
+.l-header__burger-bar {
+  display: block;
+  width: rem(24);
+  height: 2px;
+  background-color: var(--color-main);
+  border-radius: 2px;
+  transform-origin: center;
+  transition: transform 0.25s var(--ease-standard), opacity 0.2s var(--ease-standard);
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+// X字変形
+.l-header__burger[aria-expanded="true"] .l-header__burger-bar:nth-child(1) {
+  transform: translateY(rem(8)) rotate(45deg);
+}
+
+.l-header__burger[aria-expanded="true"] .l-header__burger-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.l-header__burger[aria-expanded="true"] .l-header__burger-bar:nth-child(3) {
+  transform: translateY(rem(-8)) rotate(-45deg);
+}
+
+// ナビゲーション本体
+.l-header__nav {
+  // SP: ドロワーとして絶対配置
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: color-mix(in srgb, var(--color-bg-base) 95%, transparent);
+  backdrop-filter: blur(rem(12));
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-8) 0 var(--space-16);
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: visibility 0s 0.2s, opacity 0.2s var(--ease-standard), transform 0.2s var(--ease-standard);
+  pointer-events: none;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: visibility 0s 0.2s, opacity 0s;
+    transform: none;
+  }
+
+  @include mq("md") {
+    position: static;
+    background: none;
+    backdrop-filter: none;
+    border: none;
+    padding: 0;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    transition: none;
+    pointer-events: auto;
+  }
+}
+
+.l-header__nav.is-open {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  transition: visibility 0s, opacity 0.2s var(--ease-standard), transform 0.2s var(--ease-standard);
+  pointer-events: auto;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.l-header__nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  list-style: none;
+  padding-left: 0;
+
+  @include mq("md") {
+    flex-direction: row;
+    gap: var(--space-24);
+  }
+}
+
+.l-header__nav-link {
+  display: block;
+  font-family: var(--font-family-en);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-sub);
+  text-decoration: none;
+  padding: rem(12) var(--space-24);
+  transition: color 0.2s var(--ease-standard);
+
+  @include mq("md") {
+    padding: 0;
+  }
+
+  &:hover {
+    color: var(--color-accent);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+}

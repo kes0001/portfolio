@@ -1,3 +1,4 @@
+// functions / mixins のみ forward する。
+// base（CSS実体）は style.scss が foundation 層へ1回だけ読み込む。
 @forward "functions";
 @forward "mixins";
-@forward "base";

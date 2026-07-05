@@ -34,18 +34,29 @@
 portfolio/
 ├── CLAUDE.md
 ├── index.html
+├── favicon.svg           ← 手書きSVGファビコン
+├── works/                ← 作品詳細ページ（*.html）と実物サイト一式
 ├── docs/
 │   └── coding-rules.md   ← コーディングルール（ほぐしの森から流用）
 ├── scss/
-│   ├── foundation/       ← 変数・関数・mixin・ベース
+│   ├── foundation/       ← 変数（デザイントークン）・関数・mixin・ベース
+│   ├── layout/           ← l-container / l-header / l-footer
 │   ├── components/       ← c-button / c-card / c-tag / c-section-title
 │   ├── pages/            ← ページ固有スタイル
-│   └── style.scss
+│   ├── utilities/        ← u-sr-only 等（@layer 最終層）
+│   └── style.scss        ← @layer 宣言と各層への読み込み（meta.load-css）
 ├── css/
-│   └── reset.css         ← kiso.css
+│   └── reset.css         ← kiso.css（style.css に @layer reset として内包される）
+├── images/               ← WebP最適化済み画像・ogp.png・apple-touch-icon.png
 └── js/
     └── main.js
 ```
+
+## 実装済みの技術要素（ルールと実装を一致させること）
+
+- `@layer reset, foundation, layout, components, pages, utilities` によるカスケード管理
+- カラートークンは `oklch()` + `light-dark()`。ダークモード対応（OS追従＋ヘッダーの手動トグル）
+- 画像は WebP（`<picture>`）。OGP・favicon・canonical・JSON-LD 整備済み
 
 ---
 

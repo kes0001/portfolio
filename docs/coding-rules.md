@@ -389,7 +389,7 @@ letter-spacing: 0.02em;
 ```scss
 --color-accent: oklch(0.52 0.23 264); /* ≒ #2456f0 */
 ```
-> 現行の `_base.scss` は Figma 確定後に差し替える仮HEX。差し替えのタイミングで oklch 化する。
+> `_base.scss` のカラートークンは oklch() + light-dark() へ移行済み（本サイトで採用済み）。
 
 ### ダークモード
 

@@ -1,7 +1,42 @@
-@use "foundation";
-@use "components/section-title";
-@use "components/button";
-@use "components/card";
-@use "components/tag";
-@use "pages/top";
-@use "pages/work-detail";
+@use "sass:meta";
+
+// ============================================================
+// カスケードレイヤー
+// 上書き順を記述順ではなく層で固定する。後ろの層ほど強い。
+// reset(kiso.css) も層に取り込む：無レイヤーのまま <link> で読むと
+// 「無レイヤー > レイヤー」の規則で自作スタイルに勝ってしまうため。
+// ============================================================
+@layer reset, vendor, foundation, layout, components, pages, utilities;
+
+// 外部CSS（Font Awesome）も vendor 層へ取り込む。
+// 無レイヤーの <link> のままだと「無レイヤー > レイヤー」の規則で
+// 自作スタイル（アイコンの display 制御など）に勝ってしまうため。
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css") layer(vendor);
+
+@layer reset {
+  @include meta.load-css("../css/reset");
+}
+
+@layer foundation {
+  @include meta.load-css("foundation/base");
+}
+
+@layer layout {
+  @include meta.load-css("layout");
+}
+
+@layer components {
+  @include meta.load-css("components/section-title");
+  @include meta.load-css("components/button");
+  @include meta.load-css("components/card");
+  @include meta.load-css("components/tag");
+}
+
+@layer pages {
+  @include meta.load-css("pages/top");
+  @include meta.load-css("pages/work-detail");
+}
+
+@layer utilities {
+  @include meta.load-css("utilities");
+}

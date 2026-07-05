@@ -3,35 +3,54 @@
 
 // ============================================================
 // カスタムプロパティ（デザイントークン）
-// ※ 仮トークン。Figmaデザイン確定後に差し替える
+// カラーは oklch()（知覚均一・明度調整が直感的）＋ light-dark() で
+// ライト / ダークの両テーマを一元定義する。
+// ダークは純黒ではなく墨紺寄りダークグレー（L≈0.21 / hue 264）で
+// 「生成り×墨紺×ビビッドブルー」の世界観を反転側でも維持する。
 // ============================================================
 :root {
+  color-scheme: light dark;
 
   // ----------------------------------------------------------
-  // カラー
+  // カラー：light-dark(ライト, ダーク)
   // ----------------------------------------------------------
-  --color-main:       #1a1a1a;  /* メインカラー（見出し・本文） */
-  --color-sub:        #545454;  /* サブテキスト */
-  --color-accent:     #2456f0;  /* アクセントカラー（リンク・CTA）ビビッドブルー */
-  --color-white:      #fff;
-  --color-border:     #e4e4e0;  /* 区切り線 */
-  --color-bg-base:    #fafaf8;  /* 背景色（基本） */
-  --color-bg-light:   #f0f0ec;  /* 背景色（セクション切り替え用） */
-  --color-text-base:  #1a1a1a;  /* 本文テキスト */
-  --color-text-sub:   #545454;  /* サブテキスト */
-  --color-fv-bg:      #f3f0ea;  /* FV地色（生成り） */
-  --color-ink:        #1a2a4a;  /* FV見出し（墨紺） */
-  --color-wave-1:     #4c82ff;  /* FV波グラデーション始点（ビビッドブルー） */
-  --color-wave-2:     #1a4fe8;  /* FV波グラデーション終点 */
+  --color-main:       light-dark(oklch(0.22 0 0), oklch(0.93 0.005 106));   /* メインカラー（見出し・本文） */
+  --color-sub:        light-dark(oklch(0.45 0 0), oklch(0.74 0.005 106));   /* サブテキスト */
+  --color-accent:     light-dark(oklch(0.52 0.23 264), oklch(0.7 0.17 264)); /* アクセント（リンク・CTA）。ダークは L↑C↓ でコントラスト確保 */
+  --color-white:      oklch(1 0 0);                                          /* 純白（テーマで変えない固定値） */
+  --color-surface:    light-dark(oklch(1 0 0), oklch(0.27 0.012 264));      /* カード等の面色（背景より一段明るく） */
+  --color-border:     light-dark(oklch(0.91 0.005 106), oklch(0.33 0.012 264)); /* 区切り線 */
+  --color-bg-base:    light-dark(oklch(0.985 0.003 106), oklch(0.21 0.01 264)); /* 背景色（基本） */
+  --color-bg-light:   light-dark(oklch(0.955 0.005 106), oklch(0.24 0.012 264)); /* 背景色（セクション切り替え用） */
+  --color-text-base:  light-dark(oklch(0.22 0 0), oklch(0.93 0.005 106));   /* 本文テキスト */
+  --color-text-sub:   light-dark(oklch(0.45 0 0), oklch(0.74 0.005 106));   /* サブテキスト */
+  --color-text-invert: light-dark(oklch(0.985 0.003 106), oklch(0.21 0.01 264)); /* 濃色面（accent/main）に載せる文字色 */
+  --color-fv-bg:      light-dark(oklch(0.955 0.01 92), oklch(0.23 0.025 265)); /* FV地色（生成り／夜の墨紺） */
+  --color-ink:        light-dark(oklch(0.28 0.06 265), oklch(0.9 0.02 265)); /* FV見出し（墨紺） */
+  --color-wave-1:     light-dark(oklch(0.62 0.21 262), oklch(0.58 0.19 262)); /* FV波グラデーション始点 */
+  --color-wave-2:     light-dark(oklch(0.5 0.24 264), oklch(0.45 0.2 264));  /* FV波グラデーション終点 */
 
-  /* 方眼紙グリッド（FVのあしらい用） */
+  /* 方眼紙グリッド（FVのあしらい用）：墨紺の極薄 */
   --grid-cell:        #{rem(24)};
-  --grid-line:        rgb(27 42 78 / 5%);  /* 墨紺の極薄 */
+  --grid-line:        light-dark(oklch(0.28 0.06 265 / 5%), oklch(0.9 0.02 265 / 6%));
 
   // ----------------------------------------------------------
-  // シャドウ
+  // シャドウ（light-dark はカラー専用のため、色だけ変数化して合成）
   // ----------------------------------------------------------
-  --shadow-card: 0 #{rem(2)} #{rem(12)} rgb(0 0 0 / 8%);
+  --shadow-color:       light-dark(oklch(0 0 0 / 8%), oklch(0 0 0 / 45%));
+  --shadow-hover-color: light-dark(oklch(0 0 0 / 14%), oklch(0 0 0 / 60%));
+  --shadow-card: 0 #{rem(2)} #{rem(12)} var(--shadow-color);
+
+  // ----------------------------------------------------------
+  // グレイン質感（キーワード値は light-dark 不可のため個別に定義。
+  // ダーク時の上書きは下の @media / [data-theme] ブロックで行う）
+  // ----------------------------------------------------------
+  --grain-blend:   multiply;
+  --grain-opacity: 0.05;
+
+  // テーマトグルのアイコン表示切り替え（ライト時は月＝ダークへ誘う）
+  --theme-icon-moon: inline;
+  --theme-icon-sun:  none;
 
   // ----------------------------------------------------------
   // 角丸
@@ -103,15 +122,29 @@
 }
 
 // ============================================================
-// レイアウト共通
+// テーマ切り替え
+// カラーは color-scheme + light-dark() が自動で解決する。
+// キーワード値（blend mode / display）だけここで上書きする。
+// OS設定（prefers-color-scheme）と手動トグル（data-theme）の両対応。
 // ============================================================
-.l-container {
-  max-width: rem(1080);
-  margin-inline: auto;
-  padding-inline: rem(20);
+:root[data-theme="light"] {
+  color-scheme: light;
+}
 
-  @include mq("md") {
-    padding-inline: rem(40);
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --grain-blend: screen;
+  --grain-opacity: 0.04;
+  --theme-icon-moon: none;
+  --theme-icon-sun: inline;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --grain-blend: screen;
+    --grain-opacity: 0.04;
+    --theme-icon-moon: none;
+    --theme-icon-sun: inline;
   }
 }
 
@@ -146,8 +179,8 @@ body::before {
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: rem(180);
-  opacity: 0.05;
-  mix-blend-mode: multiply;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: var(--grain-blend);
 }
 
 // セクション見出しの自動採番の起点
@@ -161,6 +194,11 @@ img {
   display: block;
 }
 
+// picture はレイアウト上透明にし、img が直接の子と同じ振る舞いをする
+picture {
+  display: contents;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -168,17 +206,4 @@ img {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
-}
-
-// スクリーンリーダー向け非表示テキスト
-.u-sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
 }

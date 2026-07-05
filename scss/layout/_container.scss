@@ -1,0 +1,14 @@
+@use "../foundation" as *;
+
+// ============================================================
+// l-container — ページ共通の横幅コンテナ
+// ============================================================
+.l-container {
+  max-width: rem(1080);
+  margin-inline: auto;
+  padding-inline: rem(20);
+
+  @include mq("md") {
+    padding-inline: rem(40);
+  }
+}

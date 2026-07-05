@@ -65,6 +65,16 @@
   text-wrap: balance;
 }
 
+// タイトルの補足（サブタイトル行）
+.p-work__title-note {
+  display: block;
+  margin-top: var(--space-8);
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.02em;
+  color: var(--color-text-sub);
+}
+
 .p-work__lead {
   margin-top: var(--space-16);
   max-width: rem(720);
