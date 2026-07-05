@@ -5,13 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>デザインカンプからサイト制作（ライブコーディング） | KANZAKI Portfolio</title>
     <meta name="description" content="オンラインスクールの課題として、ライブコーディング形式でWebサイト制作の実務プロセスを学習した制作プロセスを紹介します。" />
+    <link rel="canonical" href="https://www.kanzaki.site/works/sobolon.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.kanzaki.site/works/sobolon.html" />
+    <meta property="og:title" content="デザインカンプからサイト制作（ライブコーディング） | KANZAKI Portfolio" />
+    <meta property="og:description" content="オンラインスクールの課題として、ライブコーディング形式でWebサイト制作の実務プロセスを学習した制作プロセスを紹介します。" />
+    <meta property="og:image" content="https://www.kanzaki.site/images/ogp.png" />
+    <meta property="og:site_name" content="KANZAKI Portfolio" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fafaf8" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#15171e" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
     <link rel="stylesheet" href="../css/style.css" />
+    <script>
+      // 描画前に保存済みテーマを復元（ちらつき防止）
+      (() => {
+        const theme = localStorage.getItem("theme");
+        if (theme) document.documentElement.dataset.theme = theme;
+      })();
+    </script>
     <script src="../js/main.js" defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.kanzaki.site/" },
+          { "@type": "ListItem", "position": 2, "name": "Works", "item": "https://www.kanzaki.site/#works" },
+          { "@type": "ListItem", "position": 3, "name": "デザインカンプからサイト制作（ライブコーディング）", "item": "https://www.kanzaki.site/works/sobolon.html" }
+        ]
+      }
+    </script>
   </head>
   <body>
     <header class="l-header">
@@ -30,6 +60,10 @@
             <li><a class="l-header__nav-link" href="../index.html#contact">Contact</a></li>
           </ul>
         </nav>
+        <button class="l-header__theme js-theme-toggle" type="button" aria-label="配色テーマを切り替える" aria-pressed="false">
+          <i class="fa-solid fa-moon l-header__theme-icon l-header__theme-icon--moon" aria-hidden="true"></i>
+          <i class="fa-solid fa-sun l-header__theme-icon l-header__theme-icon--sun" aria-hidden="true"></i>
+        </button>
       </div>
     </header>
 
@@ -38,7 +72,7 @@
         <div class="l-container">
           <a class="p-work__back" href="../index.html#works">Worksに戻る</a>
           <p class="p-work__eyebrow">Works — Coding</p>
-          <h1 class="p-work__title">デザインカンプからサイト制作（ライブコーディング）</h1>
+          <h1 class="p-work__title">デザインカンプからサイト制作<span class="p-work__title-note">ライブコーディング</span></h1>
           <p class="p-work__lead">オンラインスクールの課題。ライブコーディング形式で、Webサイト制作の実務プロセスを学習しました。</p>
 
           <div class="p-work__meta">

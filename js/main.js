@@ -85,7 +85,8 @@ if (prefersReducedMotion) {
         }
       });
     },
-    { rootMargin: "0px 0px -10% 0px" }
+    // 下端の外側10%から先読みで発火し、速いスクロールでも空白画面を見せない
+    { rootMargin: "0px 0px 10% 0px" }
   );
 
   revealTargets.forEach((target) => observer.observe(target));
@@ -130,6 +131,59 @@ if (burgerBtn && headerNav) {
       closeMenu();
       burgerBtn.focus();
     }
+  });
+}
+
+// ============================================================
+// テーマ切り替え（OS設定に追従しつつ、手動トグルで上書き）
+// 選択は localStorage に保存し、head内の初期化スクリプトが
+// 描画前に data-theme を復元する（FOUC防止）
+// ============================================================
+const themeToggle = document.querySelector(".js-theme-toggle");
+
+if (themeToggle) {
+  const getCurrentTheme = () => {
+    const manualTheme = document.documentElement.dataset.theme;
+    if (manualTheme === "light" || manualTheme === "dark") return manualTheme;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  };
+
+  const updatePressedState = () => {
+    themeToggle.setAttribute("aria-pressed", getCurrentTheme() === "dark" ? "true" : "false");
+  };
+
+  updatePressedState();
+
+  themeToggle.addEventListener("click", () => {
+    const nextTheme = getCurrentTheme() === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = nextTheme;
+    localStorage.setItem("theme", nextTheme);
+    updatePressedState();
+  });
+}
+
+// ============================================================
+// メールアドレスのコピー（メーラー未設定の閲覧環境向け）
+// 結果は aria-live="polite" の status 領域で通知する
+// ============================================================
+const copyMailButton = document.querySelector(".js-copy-mail");
+const copyMailStatus = document.querySelector(".js-copy-status");
+
+if (copyMailButton && copyMailStatus) {
+  let copyStatusTimerId = null;
+
+  copyMailButton.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(copyMailButton.dataset.mail);
+      copyMailStatus.textContent = "メールアドレスをコピーしました";
+    } catch {
+      copyMailStatus.textContent = "コピーできませんでした";
+    }
+
+    clearTimeout(copyStatusTimerId);
+    copyStatusTimerId = setTimeout(() => {
+      copyMailStatus.textContent = "";
+    }, 3000);
   });
 }
 
