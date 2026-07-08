@@ -2,6 +2,8 @@
 
 // ============================================================
 // c-button — 汎用ボタン（外側marginは持たせない）
+// バリエーションは primary（青ピル）と secondary（ゴーストピル）の2種のみ。
+// フラット原則：影・浮きは付けない。応答は透明度と押下の縮小で返す。
 // ============================================================
 .c-button {
   display: inline-flex;
@@ -9,28 +11,22 @@
   justify-content: center;
   gap: var(--space-8);
   min-height: rem(48);
-  padding: rem(12) rem(32);
-  font-size: var(--text-base);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text-invert);
-  background-color: var(--color-main);
-  border-radius: var(--radius-full);
+  padding: var(--space-12) var(--space-24);
+  font-size: var(--text-body);
+  font-weight: var(--font-weight-regular);
+  border-radius: var(--radius-pill);
   text-decoration: none;
   transition:
     opacity 0.2s var(--ease-standard),
-    transform 0.2s var(--ease-standard),
-    box-shadow 0.2s var(--ease-standard);
+    transform 0.2s var(--ease-standard);
 
   &:hover {
     opacity: var(--opacity-hover);
-    transform: translateY(rem(-2));
-    box-shadow: 0 rem(6) rem(16) var(--shadow-color);
   }
 
-  // 押下時は沈み込ませて「押した」感触を返す
+  // 押下時は縮めて「押した」感触を返す（システム共通のマイクロインタラクション）
   &:active {
-    transform: translateY(0) scale(0.98);
-    box-shadow: none;
+    transform: scale(0.95);
   }
 
   &:focus {
@@ -38,26 +34,18 @@
   }
 
   &:focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 2px solid var(--color-primary-focus);
     outline-offset: 2px;
   }
-
-  @media (prefers-reduced-motion: reduce) {
-    transition: opacity 0.2s var(--ease-standard);
-
-    &:hover,
-    &:active {
-      transform: none;
-    }
-  }
 }
 
-.c-button--accent {
-  background-color: var(--color-accent);
+.c-button--primary {
+  color: var(--color-on-primary);
+  background-color: var(--color-primary);
 }
 
-.c-button--ghost {
-  color: var(--color-main);
+.c-button--secondary {
+  color: var(--color-primary);
   background-color: transparent;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-primary);
 }

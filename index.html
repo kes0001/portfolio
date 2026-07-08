@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KANZAKI Portfolio | Webデザイン・コーディング</title>
-    <meta name="description" content="神﨑勝弘のポートフォリオサイト。見やすく、伝わるデザインとコーディングを。" />
+    <meta name="description" content="Webデザイナー・コーダー神﨑勝弘のポートフォリオ。Figmaでのデザイン制作からHTML/SCSS/JavaScriptによる実装まで一貫して担当。実案件・課題制作の実績を、担当範囲と工夫のポイントとともに紹介します。" />
     <link rel="canonical" href="https://www.kanzaki.site/" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.kanzaki.site/" />
     <meta property="og:title" content="KANZAKI Portfolio | Webデザイン・コーディング" />
-    <meta property="og:description" content="神﨑勝弘のポートフォリオサイト。見やすく、伝わるデザインとコーディングを。" />
+    <meta property="og:description" content="Webデザイナー・コーダー神﨑勝弘のポートフォリオ。Figmaでのデザイン制作からHTML/SCSS/JavaScriptによる実装まで一貫して担当。実案件・課題制作の実績を、担当範囲と工夫のポイントとともに紹介します。" />
     <meta property="og:image" content="https://www.kanzaki.site/images/ogp.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -18,13 +18,13 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="./images/apple-touch-icon.png" />
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fafaf8" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#15171e" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1d1d1f" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- フォントCSSは非同期適用（レンダーブロック回避）。読み込み完了までシステムフォントで表示 -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media=all" />
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" /></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet" /></noscript>
     <link rel="stylesheet" href="./css/style.css" />
     <script>
       // 描画前に保存済みテーマを復元（ちらつき防止）
@@ -46,8 +46,17 @@
         "knowsAbout": ["HTML", "CSS", "Sass", "JavaScript", "Figma", "WordPress", "Photoshop", "Illustrator"]
       }
     </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "KANZAKI Portfolio",
+        "url": "https://www.kanzaki.site/"
+      }
+    </script>
   </head>
   <body>
+    <a class="u-skip-link" href="#main">本文へスキップ</a>
     <header class="l-header">
       <div class="l-container l-header__inner">
         <a class="l-header__logo" href="#">KANZAKI</a>
@@ -71,7 +80,7 @@
       </div>
     </header>
 
-    <main>
+    <main id="main">
       <!-- ============================================================
       ヒーロー
     ============================================================ -->
@@ -98,8 +107,8 @@
           </h1>
           <p class="p-top-hero__lead">デザインからコーディングまで一貫して担当。情報を整理し、見る人にきちんと「伝わる」Webサイトをつくります。</p>
           <div class="p-top-hero__actions">
-            <a class="c-button c-button--accent" href="#works"><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#images"></use></svg>作品を見る</a>
-            <a class="c-button c-button--ghost" href="#contact"><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#envelope-o"></use></svg>お問い合わせ</a>
+            <a class="c-button c-button--primary" href="#works"><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#images"></use></svg>作品を見る</a>
+            <a class="c-button c-button--secondary" href="#contact"><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#envelope-o"></use></svg>お問い合わせ</a>
           </div>
         </div>
         <p class="p-top-hero__vertical" aria-hidden="true">
@@ -232,7 +241,7 @@
                     </picture>
                   </div>
                   <div class="c-card__body">
-                    <span class="c-card__category c-card__category--design">Design</span>
+                    <span class="c-card__category">Design</span>
                     <h3 class="c-card__title">ほぐしの森<span class="c-card__title-note">リラクゼーションサロンLP</span></h3>
                     <dl class="c-card__meta">
                       <div class="c-card__meta-row">
@@ -304,7 +313,7 @@
                     <img class="c-card__thumbnail" src="./images/work-onomichi.webp" alt="デザインカンプからのサイト制作（ピクセルパーフェクト再現）のサムネイル" width="800" height="533" loading="lazy" decoding="async" />
                   </div>
                   <div class="c-card__body">
-                    <span class="c-card__category c-card__category--coding">Coding</span>
+                    <span class="c-card__category">Coding</span>
                     <h3 class="c-card__title">デザインカンプからサイト制作<span class="c-card__title-note">ピクセルパーフェクト再現</span></h3>
                     <dl class="c-card__meta">
                       <div class="c-card__meta-row">
@@ -330,7 +339,7 @@
                     </picture>
                   </div>
                   <div class="c-card__body">
-                    <span class="c-card__category c-card__category--design">Design</span>
+                    <span class="c-card__category">Design</span>
                     <h3 class="c-card__title">架空のサブスクサービス バナー制作</h3>
                     <dl class="c-card__meta">
                       <div class="c-card__meta-row">
@@ -353,7 +362,7 @@
                     <img class="c-card__thumbnail" src="./images/work-logo.webp" alt="架空の建設会社のロゴマーク" width="800" height="533" loading="lazy" decoding="async" />
                   </div>
                   <div class="c-card__body">
-                    <span class="c-card__category c-card__category--design">Design</span>
+                    <span class="c-card__category">Design</span>
                     <h3 class="c-card__title">架空の建設会社 ロゴ制作</h3>
                     <dl class="c-card__meta">
                       <div class="c-card__meta-row">
@@ -379,7 +388,7 @@
                     </picture>
                   </div>
                   <div class="c-card__body">
-                    <span class="c-card__category c-card__category--coding">Coding</span>
+                    <span class="c-card__category">Coding</span>
                     <h3 class="c-card__title">デザインカンプからサイト制作<span class="c-card__title-note">スクール課題</span></h3>
                     <dl class="c-card__meta">
                       <div class="c-card__meta-row">
@@ -402,7 +411,7 @@
                     <img class="c-card__thumbnail" src="./images/work-sobolon.webp" alt="デザインカンプからのサイト制作（ライブコーディング）のサムネイル" width="800" height="533" loading="lazy" decoding="async" />
                   </div>
                   <div class="c-card__body">
-                    <span class="c-card__category c-card__category--coding">Coding</span>
+                    <span class="c-card__category">Coding</span>
                     <h3 class="c-card__title">デザインカンプからサイト制作<span class="c-card__title-note">ライブコーディング</span></h3>
                     <dl class="c-card__meta">
                       <div class="c-card__meta-row">
@@ -425,7 +434,7 @@
                     <img class="c-card__thumbnail" src="./images/work-etiga.webp" alt="自主制作課題のサイト制作のサムネイル" width="800" height="533" loading="lazy" decoding="async" />
                   </div>
                   <div class="c-card__body">
-                    <span class="c-card__category c-card__category--coding">Coding</span>
+                    <span class="c-card__category">Coding</span>
                     <h3 class="c-card__title">自主制作課題 デザインカンプからサイト制作</h3>
                     <dl class="c-card__meta">
                       <div class="c-card__meta-row">
@@ -448,7 +457,7 @@
                     <img class="c-card__thumbnail" src="./images/work-bootstrap.webp" alt="Bootstrapを使用したサイト制作のサムネイル" width="800" height="533" loading="lazy" decoding="async" />
                   </div>
                   <div class="c-card__body">
-                    <span class="c-card__category c-card__category--coding">Coding</span>
+                    <span class="c-card__category">Coding</span>
                     <h3 class="c-card__title">Bootstrapを使用したサイト制作</h3>
                     <dl class="c-card__meta">
                       <div class="c-card__meta-row">
@@ -515,10 +524,8 @@
           <div class="p-top-section__body">
             <p class="p-top-contact__text">お仕事のご相談・ご質問など、お気軽にご連絡ください。</p>
             <div class="p-top-contact__actions">
-              <a class="c-button c-button--accent" href="mailto:kanmasa30@icloud.com"><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#envelope"></use></svg>メールを送る</a>
-              <!-- TODO:要確認 GitHubアカウントURLが確定したらコメントを外して公開する
-              <a class="c-button c-button--ghost" href="https://github.com/USERNAME" target="_blank" rel="noopener"><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#github"></use></svg>GitHubでコードを見る</a>
-              -->
+              <a class="c-button c-button--primary" href="mailto:kanmasa30@icloud.com">メールを送る</a>
+              <a class="c-button c-button--secondary" href="https://github.com/kes0001" target="_blank" rel="noopener"><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#github"></use></svg>GitHubでコードを見る</a>
             </div>
             <p class="p-top-contact__mail">
               <a href="mailto:kanmasa30@icloud.com">kanmasa30@icloud.com</a>
@@ -533,7 +540,15 @@
     </main>
 
     <footer class="l-footer">
-      <div class="l-container">
+      <div class="l-container l-footer__inner">
+        <ul class="l-footer__links">
+          <li>
+            <a class="l-footer__link" href="https://github.com/kes0001" target="_blank" rel="noopener"><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#github"></use></svg>GitHub</a>
+          </li>
+          <li>
+            <a class="l-footer__link" href="mailto:kanmasa30@icloud.com"><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#envelope"></use></svg>kanmasa30@icloud.com</a>
+          </li>
+        </ul>
         <p class="l-footer__copyright">&copy; <span class="js-year">2026</span> KANZAKI</p>
       </div>
     </footer>

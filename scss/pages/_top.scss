@@ -1,22 +1,28 @@
 @use "../foundation" as *;
 
 // ============================================================
-// ※ l-header / l-footer は scss/layout/ へ移設済み
-// ============================================================
-
-// ============================================================
 // ヒーロー（ストロークワイプアニメーション）
-// 波形ストロークのSVGマスクで、カバーの奥の写真を描き出す
+// 波形ストロークのSVGマスクで、カバーの奥のグラデーションを描き出す
 // 地色は生成り・見出しは墨紺のゴシック（和モダン）
+// ※ このセクションのみ前デザインのビジュアルを保持する意図的な例外。
+//   専用トークンは .p-top-hero にスコープし、全体のトークン体系を汚さない。
 // ============================================================
 .p-top-hero {
+  // FV専用トークン（生成り／夜の墨紺・波グラデ・方眼紙）
+  --fv-bg:        light-dark(oklch(95.5% 0.01 92), oklch(23% 0.025 265));
+  --fv-ink:       light-dark(oklch(28% 0.06 265), oklch(90% 0.02 265));
+  --fv-wave-1:    light-dark(oklch(62% 0.21 262), oklch(58% 0.19 262));
+  --fv-wave-2:    light-dark(oklch(50% 0.24 264), oklch(45% 0.2 264));
+  --fv-grid-cell: #{rem(24)};
+  --fv-grid-line: light-dark(oklch(28% 0.06 265 / 5%), oklch(90% 0.02 265 / 6%));
+
   position: relative;
   display: flex;
   align-items: center;
   overflow: hidden;
   min-height: rem(560);
   padding-block: var(--space-96) var(--space-80);
-  background-color: var(--color-fv-bg);
+  background-color: var(--fv-bg);
 
   @include mq("md") {
     min-height: min(rem(780), 92svh);
@@ -32,18 +38,18 @@
   z-index: 1;
   pointer-events: none;
   background-image:
-    repeating-linear-gradient(to right, var(--grid-line) 0 1px, transparent 1px var(--grid-cell)),
-    repeating-linear-gradient(to bottom, var(--grid-line) 0 1px, transparent 1px var(--grid-cell));
+    repeating-linear-gradient(to right, var(--fv-grid-line) 0 1px, transparent 1px var(--fv-grid-cell)),
+    repeating-linear-gradient(to bottom, var(--fv-grid-line) 0 1px, transparent 1px var(--fv-grid-cell));
   mask-image: radial-gradient(120% 120% at 0% 0%, #000 45%, transparent 90%);
 }
 
 .p-top-hero__bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--color-wave-1), var(--color-wave-2));
+  background: linear-gradient(135deg, var(--fv-wave-1), var(--fv-wave-2));
 }
 
-// テキスト側（左半分）は写真を地色に溶かし、帯は右半分で見せる
+// テキスト側（左半分）はグラデを地色に溶かし、帯は右半分で見せる
 // SPは画面幅が足りず帯が文字に被るため、全体に薄いベールを掛けて気配だけ見せる
 .p-top-hero__bg::after {
   content: "";
@@ -51,16 +57,16 @@
   inset: 0;
   background: linear-gradient(
     95deg,
-    var(--color-fv-bg) 55%,
-    color-mix(in srgb, var(--color-fv-bg) 80%, transparent) 78%,
-    color-mix(in srgb, var(--color-fv-bg) 45%, transparent) 100%
+    var(--fv-bg) 55%,
+    color-mix(in srgb, var(--fv-bg) 80%, transparent) 78%,
+    color-mix(in srgb, var(--fv-bg) 45%, transparent) 100%
   );
 
   @include mq("md") {
     background: linear-gradient(
       95deg,
-      var(--color-fv-bg) 48%,
-      color-mix(in srgb, var(--color-fv-bg) 50%, transparent) 58%,
+      var(--fv-bg) 48%,
+      color-mix(in srgb, var(--fv-bg) 50%, transparent) 58%,
       transparent 70%
     );
   }
@@ -90,7 +96,7 @@
 }
 
 .p-top-hero__cover-rect {
-  fill: var(--color-fv-bg);
+  fill: var(--fv-bg);
 }
 
 .p-top-hero__content {
@@ -100,24 +106,22 @@
 }
 
 .p-top-hero__label {
-  font-family: var(--font-family-en);
-  font-size: var(--text-xs);
-  font-weight: var(--font-weight-bold);
+  font-size: var(--text-fine);
+  font-weight: var(--font-weight-semibold);
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-primary);
 }
 
 .p-top-hero__title {
   display: flex;
   flex-direction: column;
   margin-top: var(--space-16);
-  font-family: var(--font-family-heading);
-  font-size: var(--text-display);
+  font-size: clamp(#{rem(30)}, 0.7rem + 4.9vw, #{rem(60)});
   font-weight: var(--font-weight-bold);
   line-height: 1.28;
   letter-spacing: 0.04em;
-  color: var(--color-ink);
+  color: var(--fv-ink);
 }
 
 .p-top-hero__title-line {
@@ -127,8 +131,8 @@
 .p-top-hero__lead {
   margin-top: var(--space-24);
   max-width: rem(480);
-  font-size: var(--text-base);
-  color: var(--color-text-sub);
+  font-size: var(--text-body);
+  color: var(--color-ink-muted);
 }
 
 .p-top-hero__actions {
@@ -150,12 +154,11 @@
     display: flex;
     gap: var(--space-12);
     writing-mode: vertical-rl;
-    font-family: var(--font-family-jp);
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
+    font-size: var(--text-body);
+    font-weight: var(--font-weight-semibold);
     line-height: 2;
     letter-spacing: 0.3em;
-    color: var(--color-ink);
+    color: var(--fv-ink);
   }
 }
 
@@ -163,8 +166,8 @@
 .p-top-hero__vertical-col {
   @include mq("md") {
     padding: rem(24) rem(8);
-    background-color: color-mix(in srgb, var(--color-fv-bg) 92%, transparent);
-    border: 1px solid color-mix(in srgb, var(--color-ink) 18%, transparent);
+    background-color: color-mix(in srgb, var(--fv-bg) 92%, transparent);
+    border: 1px solid color-mix(in srgb, var(--fv-ink) 18%, transparent);
   }
 }
 
@@ -182,18 +185,17 @@
 }
 
 .p-top-hero__scroll-label {
-  font-family: var(--font-family-en);
-  font-size: var(--text-xs);
+  font-size: var(--text-fine);
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-ink);
+  color: var(--fv-ink);
 }
 
 .p-top-hero__scroll::after {
   content: "";
   width: 1px;
   height: rem(56);
-  background-color: var(--color-ink);
+  background-color: var(--fv-ink);
   transform-origin: top;
   animation: hero-scroll-line 2s var(--ease-standard) infinite;
 
@@ -239,7 +241,7 @@
   --char-stagger: 0.06s;
   display: inline-block;
   color: transparent;
-  -webkit-text-stroke: rem(2) var(--color-ink);
+  -webkit-text-stroke: rem(2) var(--fv-ink);
   clip-path: inset(100% 0 0 0);
   transition:
     clip-path var(--char-duration) cubic-bezier(0.16, 1, 0.3, 1),
@@ -247,15 +249,11 @@
   transition-delay:
     calc(var(--char-index, 0) * var(--char-stagger)),
     calc(var(--char-index, 0) * var(--char-stagger) + var(--char-duration) * 0.5);
-
-  @media (prefers-reduced-motion: reduce) {
-    transition: none;
-  }
 }
 
 .js .p-top-hero.is-start .p-top-hero__char {
   clip-path: inset(0 0 0 0);
-  color: var(--color-ink);
+  color: var(--fv-ink);
 }
 
 .js .p-top-hero.is-start .p-top-hero__label,
@@ -288,7 +286,7 @@
 }
 
 .p-top-section--alt {
-  background-color: var(--color-bg-light);
+  background-color: var(--color-canvas-alt);
 }
 
 .p-top-section__body {
@@ -314,7 +312,7 @@
   width: rem(200);
   aspect-ratio: 3 / 4; // prof.png(1086×1448)に合わせ、見切れさせない
   object-fit: cover;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-media);
   flex-shrink: 0;
 
   @include mq("md") {
@@ -324,19 +322,18 @@
 
 // 名前ブロック（本文に埋没させず、視覚階層の先頭に立てる）
 .p-top-profile__name {
-  font-size: var(--text-xl);
-  font-weight: var(--font-weight-bold);
-  line-height: 1.3;
-  letter-spacing: 0.04em;
+  font-size: var(--text-title);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.4;
 }
 
 .p-top-profile__name-kana {
   display: block;
   margin-top: var(--space-4);
-  font-size: var(--text-sm);
+  font-size: var(--text-caption);
   font-weight: var(--font-weight-regular);
   letter-spacing: 0.1em;
-  color: var(--color-text-sub);
+  color: var(--color-ink-muted);
 }
 
 .p-top-profile__name + .p-top-profile__text {
@@ -369,49 +366,43 @@
   }
 }
 
+// canvas 面上のカード。浮きは影ではなく面の色差で表現する
 .p-top-skills__item {
-  padding: rem(20) rem(24);
-  background-color: var(--color-surface);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-card);
+  padding: var(--space-24);
+  background-color: var(--color-canvas-alt);
+  border-radius: var(--radius-card);
 }
 
+// アイコンはチップに載せず素のまま置く（青は押せるもの専用）
 .p-top-skills__icon {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: rem(48);
-  height: rem(48);
-  font-size: rem(22);
-  color: var(--color-accent);
-  background-color: color-mix(in srgb, var(--color-accent) 10%, transparent);
-  border-radius: var(--radius-sm);
+  font-size: rem(24);
+  color: var(--color-ink);
 }
 
 .p-top-skills__name {
   margin-top: var(--space-12);
-  font-family: var(--font-family-en);
-  font-size: var(--text-lg);
-  font-weight: var(--font-weight-bold);
+  font-size: var(--text-body);
+  font-weight: var(--font-weight-semibold);
 }
 
-// 習熟度バッジ（実務レベル＝塗り／それ以外＝アウトラインで強弱をつける）
+// 習熟度バッジ（実務レベル＝墨面ピル／それ以外＝キャプションで静かに）
 .p-top-skills__meta {
   display: inline-block;
   margin-top: var(--space-8);
-  padding: rem(2) rem(12);
-  font-size: var(--text-xs);
-  font-weight: var(--font-weight-bold);
+  font-size: var(--text-fine);
+  font-weight: var(--font-weight-regular);
   letter-spacing: 0.04em;
-  color: var(--color-accent);
-  border: 1px solid color-mix(in srgb, var(--color-accent) 40%, transparent);
-  border-radius: var(--radius-full);
+  color: var(--color-ink-muted);
 }
 
 .p-top-skills__meta--solid {
-  color: var(--color-text-invert);
-  background-color: var(--color-accent);
-  border-color: var(--color-accent);
+  padding: rem(2) rem(12);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-canvas);
+  background-color: var(--color-ink);
+  border-radius: var(--radius-pill);
 }
 
 // 「できること」の箇条書き
@@ -427,9 +418,9 @@
 .p-top-skills__points > li {
   position: relative;
   padding-left: var(--space-16);
-  font-size: var(--text-sm);
+  font-size: var(--text-caption);
   line-height: 1.7;
-  color: var(--color-text-sub);
+  color: var(--color-ink-muted);
 
   &::before {
     content: "";
@@ -439,7 +430,7 @@
     width: rem(5);
     height: rem(5);
     border-radius: 50%;
-    background-color: var(--color-accent);
+    background-color: var(--color-ink-muted);
   }
 }
 
@@ -449,8 +440,8 @@
 .p-top-works__lead {
   margin-top: var(--space-16);
   max-width: rem(640);
-  font-size: var(--text-base);
-  color: var(--color-text-sub);
+  font-size: var(--text-body);
+  color: var(--color-ink-muted);
 }
 
 // ミニマル縦型カードのレスポンシブグリッド（SP:1列 / sm:2列 / lg:3列）
@@ -461,8 +452,6 @@
   list-style: none;
   padding-left: 0;
   margin-top: var(--space-32);
-  // カードがホバーで浮くので下端がクリップされないよう余白を確保
-  padding-bottom: rem(6);
 
   @include mq("sm") {
     grid-template-columns: repeat(2, 1fr);
@@ -504,20 +493,14 @@
   margin-top: var(--space-16);
 }
 
-// 使用技術スタック（右カラム）
-.p-top-note__stack {
-  padding: var(--space-24);
-  background-color: var(--color-bg-light);
-  border-radius: var(--radius-md);
-}
-
+// 使用技術スタック（右カラム）。面は敷かず余白で区切る
+// （canvas-alt 地のタグが沈まないようにするため）
 .p-top-note__stack-title {
-  font-family: var(--font-family-en);
-  font-size: var(--text-sm);
-  font-weight: var(--font-weight-bold);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-semibold);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-text-sub);
+  color: var(--color-ink-muted);
 }
 
 .p-top-note__stack-list {
@@ -539,7 +522,7 @@
 .p-top-contact__text {
   max-width: rem(560);
   margin-inline: auto;
-  color: var(--color-text-sub);
+  color: var(--color-ink-muted);
 }
 
 .p-top-contact__actions {
@@ -556,45 +539,43 @@
   justify-content: center;
   gap: var(--space-8);
   margin-top: var(--space-16);
-  font-family: var(--font-family-en);
-  font-size: var(--text-sm);
+  font-size: var(--text-caption);
   letter-spacing: 0.02em;
 
   a {
-    color: var(--color-text-sub);
+    color: var(--color-primary);
     text-decoration: none;
-    transition: color 0.2s var(--ease-standard);
 
     &:hover {
-      color: var(--color-accent);
+      text-decoration: underline;
     }
 
     &:focus-visible {
-      outline: 2px solid var(--color-accent);
+      outline: 2px solid var(--color-primary-focus);
       outline-offset: 2px;
     }
   }
 }
 
 // メールアドレスのコピーボタン（JSあり時のみ表示）
+// 44×44はタッチターゲットの最小サイズ（Apple HIG / WCAG）
 .p-top-contact__copy {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: rem(32);
-  height: rem(32);
+  width: rem(44);
+  height: rem(44);
   padding: 0;
-  font-size: var(--text-sm);
-  color: var(--color-text-sub);
+  font-size: var(--text-caption);
+  color: var(--color-ink-muted);
   background: none;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-pill);
   cursor: pointer;
-  transition: color 0.2s var(--ease-standard), border-color 0.2s var(--ease-standard);
+  transition: opacity 0.2s var(--ease-standard);
 
   &:hover {
-    color: var(--color-accent);
-    border-color: var(--color-accent);
+    opacity: var(--opacity-hover);
   }
 
   &:focus {
@@ -602,12 +583,8 @@
   }
 
   &:focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 2px solid var(--color-primary-focus);
     outline-offset: 2px;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    transition: none;
   }
 }
 
@@ -619,8 +596,8 @@ html:not(.js) .p-top-contact__copy {
 .p-top-contact__copy-status {
   min-height: rem(24);
   margin-top: var(--space-8);
-  font-size: var(--text-xs);
-  color: var(--color-accent);
+  font-size: var(--text-fine);
+  color: var(--color-ink-muted);
 }
 
 // ============================================================
@@ -660,13 +637,5 @@ html:not(.js) .p-top-contact__copy {
 @for $i from 1 through 6 {
   .js .js-reveal.is-visible .p-top-skills__item:nth-child(#{$i}) {
     transition-delay: #{($i - 1) * 0.05}s;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .js .p-top-works__grid > li,
-  .js .p-top-skills__item {
-    opacity: 1;
-    transition: none;
   }
 }

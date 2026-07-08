@@ -3,10 +3,10 @@
 
 // ============================================================
 // カスタムプロパティ（デザイントークン）
+// ルールの原典は docs/design-rules.md（ミニマム・フラット・青一色）。
 // カラーは oklch()（知覚均一・明度調整が直感的）＋ light-dark() で
 // ライト / ダークの両テーマを一元定義する。
-// ダークは純黒ではなく墨紺寄りダークグレー（L≈0.21 / hue 264）で
-// 「生成り×墨紺×ビビッドブルー」の世界観を反転側でも維持する。
+// アクセントは青1色。「押せるもの」以外に青を使わない。
 // ============================================================
 :root {
   color-scheme: light dark;
@@ -14,86 +14,55 @@
   // ----------------------------------------------------------
   // カラー：light-dark(ライト, ダーク)
   // ----------------------------------------------------------
-  --color-main:       light-dark(oklch(0.22 0 0), oklch(0.93 0.005 106));   /* メインカラー（見出し・本文） */
-  --color-sub:        light-dark(oklch(0.45 0 0), oklch(0.74 0.005 106));   /* サブテキスト */
-  --color-accent:     light-dark(oklch(0.52 0.23 264), oklch(0.7 0.17 264)); /* アクセント（リンク・CTA）。ダークは L↑C↓ でコントラスト確保 */
-  --color-cat-design: light-dark(oklch(0.52 0.2 320), oklch(0.7 0.15 320)); /* 作品カテゴリ：デザイン系（赤紫） */
-  --color-cat-coding: light-dark(oklch(0.5 0.14 210), oklch(0.7 0.12 210)); /* 作品カテゴリ：コーディング系（青緑） */
-  --color-white:      oklch(1 0 0);                                          /* 純白（テーマで変えない固定値） */
-  --color-surface:    light-dark(oklch(1 0 0), oklch(0.27 0.012 264));      /* カード等の面色（背景より一段明るく） */
-  --color-border:     light-dark(oklch(0.91 0.005 106), oklch(0.33 0.012 264)); /* 区切り線 */
-  --color-bg-base:    light-dark(oklch(0.985 0.003 106), oklch(0.21 0.01 264)); /* 背景色（基本） */
-  --color-bg-light:   light-dark(oklch(0.955 0.005 106), oklch(0.24 0.012 264)); /* 背景色（セクション切り替え用） */
-  --color-text-base:  light-dark(oklch(0.22 0 0), oklch(0.93 0.005 106));   /* 本文テキスト */
-  --color-text-sub:   light-dark(oklch(0.45 0 0), oklch(0.74 0.005 106));   /* サブテキスト */
-  --color-text-invert: light-dark(oklch(0.985 0.003 106), oklch(0.21 0.01 264)); /* 濃色面（accent/main）に載せる文字色 */
-  --color-fv-bg:      light-dark(oklch(0.955 0.01 92), oklch(0.23 0.025 265)); /* FV地色（生成り／夜の墨紺） */
-  --color-ink:        light-dark(oklch(0.28 0.06 265), oklch(0.9 0.02 265)); /* FV見出し（墨紺） */
-  --color-wave-1:     light-dark(oklch(0.62 0.21 262), oklch(0.58 0.19 262)); /* FV波グラデーション始点 */
-  --color-wave-2:     light-dark(oklch(0.5 0.24 264), oklch(0.45 0.2 264));  /* FV波グラデーション終点 */
-
-  /* 方眼紙グリッド（FVのあしらい用）：墨紺の極薄 */
-  --grid-cell:        #{rem(24)};
-  --grid-line:        light-dark(oklch(0.28 0.06 265 / 5%), oklch(0.9 0.02 265 / 6%));
+  --color-primary:       light-dark(oklch(52.2% 0.177 255.8), oklch(66.9% 0.181 251.8)); /* リンク・CTA・アクション全般。唯一のアクセント */
+  --color-primary-focus: oklch(56.3% 0.193 256.2);                                       /* フォーカスリング */
+  --color-on-primary:    oklch(100% 0 0);                                                /* 青ボタン上のテキスト */
+  --color-canvas:        light-dark(oklch(100% 0 0), oklch(23.2% 0.004 286.1));          /* 基本の背景 */
+  --color-canvas-alt:    light-dark(oklch(97.1% 0.003 286.4), oklch(27.4% 0.004 286.2)); /* 交互セクション・フッターの背景 */
+  --color-ink:           light-dark(oklch(23.2% 0.004 286.1), oklch(97.1% 0.003 286.4)); /* 見出し・本文。純黒は使わない */
+  --color-ink-muted:     light-dark(oklch(54.0% 0.008 286.1), oklch(71.1% 0.007 286.2)); /* 補足・キャプション・メタ情報 */
+  --color-hairline:      light-dark(oklch(90.7% 0 0), oklch(38.0% 0.005 286.2));         /* 1pxヘアライン（使用は最小限） */
 
   // ----------------------------------------------------------
-  // シャドウ（light-dark はカラー専用のため、色だけ変数化して合成）
+  // 影：唯一の例外（作品スクリーンショットが面の上に置かれるとき）。
+  // これ以外の影は書かない（UIはすべてフラット）。
   // ----------------------------------------------------------
-  --shadow-color:       light-dark(oklch(0 0 0 / 8%), oklch(0 0 0 / 45%));
-  --shadow-color-near:  light-dark(oklch(0 0 0 / 5%), oklch(0 0 0 / 30%));
-  --shadow-hover-color: light-dark(oklch(0 0 0 / 14%), oklch(0 0 0 / 60%));
-  // 近距離の締め＋遠距離のぼかしの2層で、上品な浮きを作る
-  --shadow-card:
-    0 #{rem(1)} #{rem(3)} var(--shadow-color-near),
-    0 #{rem(6)} #{rem(20)} var(--shadow-color);
-
-  // ----------------------------------------------------------
-  // グレイン質感（キーワード値は light-dark 不可のため個別に定義。
-  // ダーク時の上書きは下の @media / [data-theme] ブロックで行う）
-  // ----------------------------------------------------------
-  --grain-blend:   multiply;
-  --grain-opacity: 0.05;
+  --shadow-screenshot: 3px 5px 30px oklch(0% 0 0 / 0.22);
 
   // テーマトグルのアイコン表示切り替え（ライト時は月＝ダークへ誘う）
   --theme-icon-moon: inline;
   --theme-icon-sun:  none;
 
   // ----------------------------------------------------------
-  // 角丸
+  // 角丸（3種の文法＋スクショ例外。0はトークン不要）
   // ----------------------------------------------------------
-  --radius-sm:   #{rem(6)};
-  --radius-md:   #{rem(8)};
-  --radius-lg:   #{rem(14)};
-  --radius-full: 100vh;
+  --radius-pill:  9999px;      /* ボタン・タグ＝「押せるもの・ラベル」 */
+  --radius-card:  #{rem(16)};  /* カード */
+  --radius-media: #{rem(8)};   /* 作品スクリーンショット（design-rules コンポーネント指針の明示例外） */
 
   // ----------------------------------------------------------
-  // フォント
+  // フォント（単一スタック：欧文 Inter ＋ 和文システム優先）
   // ----------------------------------------------------------
-  // 本文（和欧混植）: 欧文(Roboto)を先頭に置き、英数字=Roboto／日本語=Noto Sans JP に振り分ける
-  --font-family-jp: "Roboto", "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-  // 欧文専用（ラベル・英字見出し）
-  --font-family-en: "Roboto", sans-serif;
-  // 和文見出し専用（純和文の大見出し）: Noto Sans JP を明示的に先頭に
-  --font-family-heading: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  --font-family-base: Inter, "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
 
   // ----------------------------------------------------------
-  // フォントサイズ（fluid typography）
+  // フォントサイズ（セマスケール。weight / line-height はコメントの組で使う）
   // ----------------------------------------------------------
-  --text-xs:   clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);   /* 12–14px */
-  --text-sm:   clamp(0.875rem, 0.8rem + 0.375vw, 1rem);     /* 14–16px */
-  --text-base: clamp(0.9375rem, 0.9rem + 0.2vw, 1rem);      /* 15–16px */
-  --text-lg:   clamp(1rem, 0.95rem + 0.28vw, 1.125rem);     /* 16–18px */
-  --text-xl:   clamp(1.25rem, 1.1rem + 0.75vw, 1.75rem);    /* 20–28px */
-  --text-2xl:  clamp(1.4375rem, 1.18rem + 1.3vw, 2.3125rem); /* 23–37px */
-  --text-3xl:  clamp(1.875rem, 1.45rem + 2.2vw, 3.25rem);   /* 30–52px */
-  --text-display: clamp(1.875rem, 0.7rem + 4.9vw, 3.75rem); /* 30–60px ヒーロー大見出し（上品に控えめ） */
+  --text-hero:    clamp(#{rem(34)}, 5vw, #{rem(56)});  /* 600 / 1.15 トップのヒーロー見出し */
+  --text-display: clamp(#{rem(28)}, 4vw, #{rem(40)});  /* 600 / 1.25 セクション見出し（h2） */
+  --text-title:   #{rem(24)};                          /* 600 / 1.4  カード見出し・h3 */
+  --text-lead:    #{rem(20)};                          /* 400 / 1.6  リード文 */
+  --text-body:    #{rem(16)};                          /* 400 / 1.8  本文 */
+  --text-caption: #{rem(14)};                          /* 400 / 1.6  補足・タグ・メタ情報 */
+  --text-fine:    #{rem(12)};                          /* 400 / 1.5  コピーライト等 */
 
   // ----------------------------------------------------------
-  // フォントウェイト
+  // フォントウェイト（梯子は 300/400/600/700。500 は使わない）
   // ----------------------------------------------------------
-  --font-weight-regular: 400;
-  --font-weight-medium:  500;
-  --font-weight-bold:    700;
+  --font-weight-light:    300;
+  --font-weight-regular:  400;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
 
   // ----------------------------------------------------------
   // スペーシング（4px ベース・8px 基調）
@@ -130,7 +99,7 @@
 // ============================================================
 // テーマ切り替え
 // カラーは color-scheme + light-dark() が自動で解決する。
-// キーワード値（blend mode / display）だけここで上書きする。
+// キーワード値（display）だけここで上書きする。
 // OS設定（prefers-color-scheme）と手動トグル（data-theme）の両対応。
 // ============================================================
 :root[data-theme="light"] {
@@ -139,16 +108,12 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --grain-blend: screen;
-  --grain-opacity: 0.04;
   --theme-icon-moon: none;
   --theme-icon-sun: inline;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --grain-blend: screen;
-    --grain-opacity: 0.04;
     --theme-icon-moon: none;
     --theme-icon-sun: inline;
   }
@@ -167,31 +132,12 @@ html {
 }
 
 body {
-  font-family: var(--font-family-jp);
-  font-size: var(--text-base);
+  font-family: var(--font-family-base);
+  font-size: var(--text-body);
   font-weight: var(--font-weight-regular);
-  color: var(--color-text-base);
-  background-color: var(--color-bg-base);
+  color: var(--color-ink);
+  background-color: var(--color-canvas);
   line-height: 1.8;
-  letter-spacing: 0.05em;
-}
-
-// 生成り紙のグレイン質感（全面・極薄）。インタラクションは透過。
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: rem(180);
-  opacity: var(--grain-opacity);
-  mix-blend-mode: var(--grain-blend);
-}
-
-// セクション見出しの自動採番の起点
-main {
-  counter-reset: section;
 }
 
 img {

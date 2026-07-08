@@ -1,32 +1,27 @@
 @use "../foundation" as *;
 
 // ============================================================
-// c-card — 作品カード（ミニマル縦型）
+// c-card — 作品カード（ミニマル縦型・フラット）
 // 「担当範囲・工夫」はカード下部に常時表示する。
 // （ホバー時のみの表示だとタッチデバイスやキーボード操作、
 // 一覧をざっと眺めるときに重要情報が届かないため）
 // カード全体が詳細ページへのリンク。
+// 浮きは影ではなく面の色差（canvas-alt 上の canvas 面）で表現する。
 // ============================================================
 .c-card {
   position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color: var(--color-surface);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-card);
+  background-color: var(--color-canvas);
+  border-radius: var(--radius-card);
   overflow: hidden;
   color: inherit;
   text-decoration: none;
-  transition:
-    transform 0.35s var(--ease-standard),
-    box-shadow 0.35s var(--ease-standard);
+  transition: transform 0.2s var(--ease-standard);
 
-  &:hover {
-    transform: translateY(rem(-6));
-    box-shadow:
-      0 rem(2) rem(6) var(--shadow-color-near),
-      0 rem(12) rem(40) var(--shadow-hover-color);
+  &:active {
+    transform: scale(0.95);
   }
 
   &:focus {
@@ -34,16 +29,8 @@
   }
 
   &:focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 2px solid var(--color-primary-focus);
     outline-offset: 3px;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    transition: box-shadow 0.35s var(--ease-standard);
-
-    &:hover {
-      transform: none;
-    }
   }
 }
 
@@ -67,18 +54,9 @@
   .c-card:focus-visible & {
     transform: scale(1.05);
   }
-
-  @media (prefers-reduced-motion: reduce) {
-    transition: none;
-
-    .c-card:hover &,
-    .c-card:focus-visible & {
-      transform: none;
-    }
-  }
 }
 
-// 実案件バッジ
+// 実案件バッジ（墨面ピル。light-dark で両モード自動反転）
 .c-card__badge {
   position: absolute;
   inset-block-start: var(--space-12);
@@ -86,14 +64,13 @@
   z-index: 2;
   display: inline-block;
   padding: rem(4) rem(12);
-  font-family: var(--font-family-en);
-  font-size: var(--text-xs);
-  font-weight: var(--font-weight-bold);
+  font-size: var(--text-fine);
+  font-weight: var(--font-weight-semibold);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-text-invert);
-  background-color: var(--color-accent);
-  border-radius: var(--radius-full);
+  color: var(--color-canvas);
+  background-color: var(--color-ink);
+  border-radius: var(--radius-pill);
 }
 
 // ------------------------------------------------------------
@@ -108,26 +85,16 @@
 }
 
 .c-card__category {
-  font-family: var(--font-family-en);
-  font-size: var(--text-xs);
-  font-weight: var(--font-weight-bold);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-regular);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-accent);
-}
-
-// カテゴリごとに色相を変えて一覧の見分けを助ける（WEB DESIGNは既定のaccent）
-.c-card__category--design {
-  color: var(--color-cat-design);
-}
-
-.c-card__category--coding {
-  color: var(--color-cat-coding);
+  color: var(--color-ink-muted);
 }
 
 .c-card__title {
-  font-size: var(--text-lg);
-  font-weight: var(--font-weight-bold);
+  font-size: var(--text-title);
+  font-weight: var(--font-weight-semibold);
   line-height: 1.4;
   text-wrap: pretty;
 }
@@ -136,9 +103,9 @@
 .c-card__title-note {
   display: block;
   margin-top: var(--space-4);
-  font-size: var(--text-sm);
+  font-size: var(--text-caption);
   font-weight: var(--font-weight-regular);
-  color: var(--color-text-sub);
+  color: var(--color-ink-muted);
 }
 
 // 担当範囲・工夫（常時表示）
@@ -148,7 +115,7 @@
   gap: var(--space-12);
   margin-top: var(--space-8);
   padding-top: var(--space-16);
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-hairline);
 }
 
 .c-card__meta-row {
@@ -158,16 +125,15 @@
 }
 
 .c-card__meta-label {
-  font-family: var(--font-family-en);
-  font-size: var(--text-xs);
-  font-weight: var(--font-weight-bold);
+  font-size: var(--text-fine);
+  font-weight: var(--font-weight-semibold);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-text-sub);
+  color: var(--color-ink-muted);
 }
 
 .c-card__meta-value {
-  font-size: var(--text-sm);
+  font-size: var(--text-caption);
   line-height: 1.6;
 }
 
@@ -178,11 +144,10 @@
   gap: var(--space-8);
   margin-top: auto;
   padding-top: var(--space-16);
-  font-family: var(--font-family-en);
-  font-size: var(--text-sm);
-  font-weight: var(--font-weight-bold);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-semibold);
   letter-spacing: 0.04em;
-  color: var(--color-accent);
+  color: var(--color-primary);
 
   &::after {
     content: "→";
@@ -191,11 +156,5 @@
 
   .c-card:hover &::after {
     translate: rem(4) 0;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    &::after {
-      transition: none;
-    }
   }
 }

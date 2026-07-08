@@ -1,16 +1,54 @@
 @use "../foundation" as *;
 
 // ============================================================
-// l-footer — サイトフッター
+// l-footer — サイトフッター（canvas-alt 地。区切りは面の色替えが担う）
 // ============================================================
 .l-footer {
-  padding-block: var(--space-32);
-  border-top: 1px solid var(--color-border);
+  padding-block: var(--space-48);
+  background-color: var(--color-canvas-alt);
+}
+
+.l-footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+.l-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-24);
+  list-style: none;
+  padding-left: 0;
+}
+
+.l-footer__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  min-height: rem(44); // タッチターゲット確保（見た目は変えず当たり判定だけ広げる）
+  font-size: var(--text-caption);
+  color: var(--color-primary);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary-focus);
+    outline-offset: 2px;
+  }
 }
 
 .l-footer__copyright {
-  font-family: var(--font-family-en);
-  font-size: var(--text-xs);
-  color: var(--color-text-sub);
+  font-size: var(--text-fine);
+  color: var(--color-ink-muted);
   text-align: center;
 }

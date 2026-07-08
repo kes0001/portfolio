@@ -2,14 +2,14 @@
 
 // ============================================================
 // l-header — サイトヘッダー（sticky＋SPドロワー）
+// 細いバー＋ロゴ・ナビ・テーマトグルのみ。ボーダーや背景装飾は足さない。
 // ============================================================
 .l-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: color-mix(in srgb, var(--color-bg-base) 85%, transparent);
+  background-color: color-mix(in srgb, var(--color-canvas) 85%, transparent);
   backdrop-filter: blur(rem(8));
-  border-bottom: 1px solid var(--color-border);
 }
 
 .l-header__inner {
@@ -18,24 +18,23 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--space-16);
-  padding-block: rem(12);
-  min-height: rem(56);
+  padding-block: rem(4);
+  min-height: rem(48);
 
   @include mq("md") {
     gap: var(--space-24);
     padding-block: 0;
-    min-height: rem(64);
+    min-height: rem(48);
   }
 }
 
 .l-header__logo {
   // 後続要素（nav・トグル・バーガー）を右へ寄せる
   margin-inline-end: auto;
-  font-family: var(--font-family-en);
-  font-size: var(--text-base);
-  font-weight: var(--font-weight-bold);
+  font-size: var(--text-body);
+  font-weight: var(--font-weight-semibold);
   letter-spacing: 0.05em;
-  color: var(--color-main);
+  color: var(--color-ink);
   text-decoration: none;
 }
 
@@ -48,16 +47,16 @@
   height: rem(44);
   padding: 0;
   font-size: rem(16);
-  color: var(--color-text-sub);
+  color: var(--color-ink-muted);
   background: none;
   border: none;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-pill);
   cursor: pointer;
   flex-shrink: 0;
-  transition: color 0.2s var(--ease-standard);
+  transition: opacity 0.2s var(--ease-standard);
 
   &:hover {
-    color: var(--color-accent);
+    opacity: var(--opacity-hover);
   }
 
   &:focus {
@@ -65,12 +64,8 @@
   }
 
   &:focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 2px solid var(--color-primary-focus);
     outline-offset: 2px;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    transition: none;
   }
 }
 
@@ -111,9 +106,8 @@ html:not(.js) .l-header__theme {
   }
 
   &:focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 2px solid var(--color-primary-focus);
     outline-offset: 2px;
-    border-radius: rem(4);
   }
 }
 
@@ -121,14 +115,9 @@ html:not(.js) .l-header__theme {
   display: block;
   width: rem(24);
   height: 2px;
-  background-color: var(--color-main);
-  border-radius: 2px;
+  background-color: var(--color-ink);
   transform-origin: center;
   transition: transform 0.25s var(--ease-standard), opacity 0.2s var(--ease-standard);
-
-  @media (prefers-reduced-motion: reduce) {
-    transition: none;
-  }
 }
 
 // X字変形
@@ -151,20 +140,15 @@ html:not(.js) .l-header__theme {
   top: 100%;
   left: 0;
   right: 0;
-  background-color: color-mix(in srgb, var(--color-bg-base) 95%, transparent);
+  background-color: color-mix(in srgb, var(--color-canvas) 95%, transparent);
   backdrop-filter: blur(rem(12));
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-hairline); // 開いたドロワーと本文の境界（最小限のヘアライン）
   padding: var(--space-8) 0 var(--space-16);
   visibility: hidden;
   opacity: 0;
   transform: translateY(-8px);
   transition: visibility 0s 0.2s, opacity 0.2s var(--ease-standard), transform 0.2s var(--ease-standard);
   pointer-events: none;
-
-  @media (prefers-reduced-motion: reduce) {
-    transition: visibility 0s 0.2s, opacity 0s;
-    transform: none;
-  }
 
   @include mq("md") {
     position: static;
@@ -186,10 +170,6 @@ html:not(.js) .l-header__theme {
   transform: translateY(0);
   transition: visibility 0s, opacity 0.2s var(--ease-standard), transform 0.2s var(--ease-standard);
   pointer-events: auto;
-
-  @media (prefers-reduced-motion: reduce) {
-    transition: none;
-  }
 }
 
 .l-header__nav-list {
@@ -207,19 +187,18 @@ html:not(.js) .l-header__theme {
 
 .l-header__nav-link {
   display: block;
-  font-family: var(--font-family-en);
-  font-size: var(--text-sm);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-sub);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-ink);
   text-decoration: none;
   padding: rem(12) var(--space-24);
-  transition: color 0.2s var(--ease-standard);
+  transition: opacity 0.2s var(--ease-standard);
 
   @include mq("md") {
     padding: 0;
     position: relative;
 
-    // 下線が左から伸びるホバー演出（PCナビのみ）
+    // 下線が左から伸びるホバー演出（PCナビのみ。色は文字色に追従＝青を装飾に使わない）
     &::after {
       content: "";
       position: absolute;
@@ -227,7 +206,7 @@ html:not(.js) .l-header__theme {
       right: 0;
       bottom: rem(-4);
       height: 1px;
-      background-color: var(--color-accent);
+      background-color: currentcolor;
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.25s var(--ease-standard);
@@ -240,7 +219,7 @@ html:not(.js) .l-header__theme {
   }
 
   &:hover {
-    color: var(--color-accent);
+    opacity: var(--opacity-hover);
   }
 
   &:focus {
@@ -248,13 +227,7 @@ html:not(.js) .l-header__theme {
   }
 
   &:focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 2px solid var(--color-primary-focus);
     outline-offset: 2px;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    &::after {
-      transition: none;
-    }
   }
 }
