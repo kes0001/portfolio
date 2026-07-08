@@ -1,0 +1,79 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"appearanceTools": false,
+		"color": {
+			"defaultPalette": false,
+			"defaultGradients": false,
+			"defaultDuotone": false,
+			"custom": false,
+			"customGradient": false,
+			"palette": [
+				{ "slug": "primary", "name": "Primary（青・唯一のアクセント）", "color": "var(--color-primary)" },
+				{ "slug": "canvas", "name": "Canvas", "color": "var(--color-canvas)" },
+				{ "slug": "canvas-alt", "name": "Canvas Alt", "color": "var(--color-canvas-alt)" },
+				{ "slug": "ink", "name": "Ink", "color": "var(--color-ink)" },
+				{ "slug": "ink-muted", "name": "Ink Muted", "color": "var(--color-ink-muted)" },
+				{ "slug": "hairline", "name": "Hairline", "color": "var(--color-hairline)" }
+			]
+		},
+		"typography": {
+			"defaultFontSizes": false,
+			"customFontSize": false,
+			"fluid": false,
+			"fontFamilies": [
+				{
+					"slug": "base",
+					"name": "Base（Inter + 和文システム）",
+					"fontFamily": "Inter, 'Hiragino Sans', 'Noto Sans JP', system-ui, sans-serif"
+				}
+			],
+			"fontSizes": [
+				{ "slug": "hero", "name": "Hero", "size": "var(--text-hero)" },
+				{ "slug": "display", "name": "Display", "size": "var(--text-display)" },
+				{ "slug": "title", "name": "Title", "size": "var(--text-title)" },
+				{ "slug": "lead", "name": "Lead", "size": "var(--text-lead)" },
+				{ "slug": "body", "name": "Body", "size": "var(--text-body)" },
+				{ "slug": "caption", "name": "Caption", "size": "var(--text-caption)" },
+				{ "slug": "fine", "name": "Fine", "size": "var(--text-fine)" }
+			]
+		},
+		"spacing": {
+			"defaultSpacingSizes": false,
+			"customSpacingSize": false,
+			"units": [ "rem", "%", "vw" ],
+			"spacingSizes": [
+				{ "slug": "8", "name": "8", "size": "var(--space-8)" },
+				{ "slug": "16", "name": "16", "size": "var(--space-16)" },
+				{ "slug": "24", "name": "24", "size": "var(--space-24)" },
+				{ "slug": "32", "name": "32", "size": "var(--space-32)" },
+				{ "slug": "48", "name": "48", "size": "var(--space-48)" },
+				{ "slug": "64", "name": "64", "size": "var(--space-64)" },
+				{ "slug": "96", "name": "96", "size": "var(--space-96)" },
+				{ "slug": "section", "name": "Section", "size": "var(--space-section)" }
+			]
+		},
+		"layout": {
+			"contentSize": "45rem",
+			"wideSize": "67.5rem"
+		}
+	},
+	"styles": {
+		"spacing": { "blockGap": null },
+		"color": {
+			"background": "var(--color-canvas)",
+			"text": "var(--color-ink)"
+		},
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--base)",
+			"fontSize": "var(--wp--preset--font-size--body)",
+			"lineHeight": "1.8"
+		}
+	},
+	"templateParts": [
+		{ "name": "header", "title": "ヘッダー", "area": "header" },
+		{ "name": "footer", "title": "フッター", "area": "footer" }
+	],
+	"customTemplates": []
+}

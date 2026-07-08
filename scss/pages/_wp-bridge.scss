@@ -1,0 +1,160 @@
+@use "../foundation" as *;
+
+// ============================================================
+// WPブロックテーマ用ブリッジ（wp-theme/kanzaki）
+// WPコアブロックが挟むラッパー（figure・div等）と既存FLOCSSコンポーネントの
+// 橋渡しに限定した最小マッピング。静的サイトには存在しないクラスのみを扱う。
+// ============================================================
+
+// ------------------------------------------------------------
+// Bindings で値が空のときに要素ごと非表示（バッジ・補足など）
+// ------------------------------------------------------------
+.c-card__badge:empty,
+.c-card__title-note:empty,
+.p-work__eyebrow:empty,
+.p-work__title-note:empty {
+  display: none;
+}
+
+// ------------------------------------------------------------
+// works カード（Query Loop 内）
+// ------------------------------------------------------------
+// カード全面リンク：read-more（.c-card__action）をストレッチドリンク化
+// （group ブロックは a で包めないため。矢印は既存の ::after が担当）
+.c-card .wp-block-read-more {
+  display: inline-flex; // コアのread-moreスタイルに負けないよう明示
+  align-items: center;
+  gap: var(--space-8);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+}
+
+// post-featured-image の figure ラッパーをサムネイル領域いっぱいに敷く
+.c-card__media .wp-block-post-featured-image {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.c-card__media .wp-block-post-featured-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.5s var(--ease-standard);
+}
+
+// 静的版の「カードhoverでサムネイルズーム」を再現
+.c-card:hover .c-card__media img,
+.c-card:focus-within .c-card__media img {
+  transform: scale(1.05);
+}
+
+// ------------------------------------------------------------
+// 作品詳細（single-works）
+// ------------------------------------------------------------
+// post-excerpt はdiv+pの2重構造になる（.p-work__lead は外側divに付く）
+.p-work__lead .wp-block-post-excerpt__excerpt {
+  margin: 0;
+}
+
+// post-featured-image（figure）へのサムネイルスタイル委譲
+.wp-block-post-featured-image.p-work__thumbnail {
+  overflow: hidden;
+}
+
+.wp-block-post-featured-image.p-work__thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// 外部リンクボタン（core/button + url Binding）を c-button--primary 相当に
+.p-work__actions .wp-block-button__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  min-height: rem(48);
+  padding: var(--space-12) var(--space-24);
+  font-size: var(--text-body);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-on-primary);
+  background-color: var(--color-primary);
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  transition:
+    opacity 0.2s var(--ease-standard),
+    transform 0.2s var(--ease-standard);
+
+  &:hover {
+    opacity: var(--opacity-hover);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary-focus);
+    outline-offset: 2px;
+  }
+
+  // 外部リンクアイコン（RichText内にSVGを保持できないため mask で付与）
+  &::before {
+    content: "";
+    flex-shrink: 0;
+    width: 1em;
+    height: 1em;
+    background-color: currentcolor;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M320 0h160c17.7 0 32 14.3 32 32v160c0 17.7-14.3 32-32 32s-32-14.3-32-32v-82.7L214.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L402.7 64H320c-17.7 0-32-14.3-32-32s14.3-32 32-32zM80 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H80c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16H368c8.8 0 16-7.2 16-16V336c0-17.7 14.3-32 32-32s32 14.3 32 32v96c0 44.2-35.8 80-80 80H80c-44.2 0-80-35.8-80-80V112C0 67.8 35.8 32 80 32z'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+}
+
+// URL未設定（メタが空）のときはボタンごと非表示
+.p-work__actions .wp-block-button__link:not([href]) {
+  display: none;
+}
+
+// 前後ページャー（post-navigation-link。.p-work__pager-link の既存スタイルが載る）
+.p-work__pager .wp-block-post-navigation-link {
+  position: relative;
+}
+
+// 隣接する投稿がない側（先頭のPREV・末尾のNEXT）は空ボックスを出さない
+.p-work__pager .wp-block-post-navigation-link:empty,
+.p-work__pager .wp-block-post-navigation-link:not(:has(a)) {
+  display: none;
+}
+
+.p-work__pager .wp-block-post-navigation-link a {
+  color: inherit;
+  text-decoration: none;
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.5;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary-focus);
+    outline-offset: 2px;
+  }
+
+  // カード全面をクリック可能に
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+}

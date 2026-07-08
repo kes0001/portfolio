@@ -4,7 +4,11 @@
   "private": true,
   "scripts": {
     "sass": "sass --watch scss/style.scss css/style.css",
-    "sass:build": "sass scss/style.scss css/style.css --style=compressed --no-source-map"
+    "sass:build": "sass scss/style.scss css/style.css --style=compressed --no-source-map",
+    "wp:css": "sass scss/style.scss wp-theme/kanzaki/assets/css/style.css --style=compressed --no-source-map",
+    "wp:css:watch": "sass --watch scss/style.scss wp-theme/kanzaki/assets/css/style.css",
+    "wp:assets": "mkdir -p wp-theme/kanzaki/assets/js wp-theme/kanzaki/assets/images && cp js/main.js wp-theme/kanzaki/assets/js/main.js && cp images/icons.svg images/prof-800.webp images/prof.png images/ogp.png images/apple-touch-icon.png wp-theme/kanzaki/assets/images/ && cp favicon.svg wp-theme/kanzaki/assets/images/favicon.svg",
+    "wp:build": "npm run wp:css && npm run wp:assets"
   },
   "devDependencies": {
     "sass": "^1.80.0"

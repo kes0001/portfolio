@@ -37,3 +37,9 @@
 @layer utilities {
   @include meta.load-css("utilities");
 }
+
+// WPブロックテーマ用ブリッジ（静的サイトには無害）
+// WPコアの block-library / global-styles は無レイヤーで注入され
+// 「無レイヤー > レイヤー」の規則で常に @layer 内より強いため、
+// コアCSSを上書きするこのファイルだけ意図的に無レイヤーで読み込む。
+@include meta.load-css("pages/wp-bridge");
