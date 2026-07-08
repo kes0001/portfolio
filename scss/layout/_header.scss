@@ -38,50 +38,6 @@
   text-decoration: none;
 }
 
-// テーマ切り替えボタン（JSあり時のみ表示）
-.l-header__theme {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: rem(44);
-  height: rem(44);
-  padding: 0;
-  font-size: rem(16);
-  color: var(--color-ink-muted);
-  background: none;
-  border: none;
-  border-radius: var(--radius-pill);
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: opacity 0.2s var(--ease-standard);
-
-  &:hover {
-    opacity: var(--opacity-hover);
-  }
-
-  &:focus {
-    outline: none;
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--color-primary-focus);
-    outline-offset: 2px;
-  }
-}
-
-html:not(.js) .l-header__theme {
-  display: none;
-}
-
-// 表示アイコンはトークンで切り替える（ライト時＝月、ダーク時＝太陽）
-.l-header__theme-icon--moon {
-  display: var(--theme-icon-moon);
-}
-
-.l-header__theme-icon--sun {
-  display: var(--theme-icon-sun);
-}
-
 // ハンバーガーボタン（SP専用）
 .l-header__burger {
   display: flex;

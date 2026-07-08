@@ -55,8 +55,9 @@ portfolio/
 ## 実装済みの技術要素（ルールと実装を一致させること）
 
 - `@layer reset, foundation, layout, components, pages, utilities` によるカスケード管理
-- カラートークンは `oklch()` + `light-dark()`。ダークモード対応（OS追従＋ヘッダーの手動トグル）
+- カラートークンは `oklch()`（ライトテーマ固定。ダークモードは過剰と判断し廃止済み）
 - 画像は WebP（`<picture>`）。OGP・favicon・canonical・JSON-LD 整備済み
+- WordPressブロックテーマ版が `wp-theme/kanzaki/`（Localの portfolio-site で稼働。作品はCPT「works」）
 
 ---
 

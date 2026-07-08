@@ -16,21 +16,13 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="../images/apple-touch-icon.png" />
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1d1d1f" />
+    <meta name="theme-color" content="#ffffff" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- フォントCSSは非同期適用（レンダーブロック回避）。読み込み完了までシステムフォントで表示 -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet" /></noscript>
     <link rel="stylesheet" href="../css/style.css" />
-    <script>
-      // 描画前に保存済みテーマを復元（ちらつき防止）
-      (() => {
-        const theme = localStorage.getItem("theme");
-        if (theme) document.documentElement.dataset.theme = theme;
-      })();
-    </script>
     <script src="../js/main.js" defer></script>
     <script type="application/ld+json">
       {
@@ -62,10 +54,6 @@
             <li><a class="l-header__nav-link" href="../index.html#contact">Contact</a></li>
           </ul>
         </nav>
-        <button class="l-header__theme js-theme-toggle" type="button" aria-label="配色テーマを切り替える" aria-pressed="false">
-          <svg class="c-icon l-header__theme-icon l-header__theme-icon--moon" aria-hidden="true"><use href="../images/icons.svg#moon"></use></svg>
-          <svg class="c-icon l-header__theme-icon l-header__theme-icon--sun" aria-hidden="true"><use href="../images/icons.svg#sun"></use></svg>
-        </button>
       </div>
     </header>
 

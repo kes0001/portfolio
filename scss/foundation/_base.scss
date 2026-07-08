@@ -4,34 +4,29 @@
 // ============================================================
 // カスタムプロパティ（デザイントークン）
 // ルールの原典は docs/design-rules.md（ミニマム・フラット・青一色）。
-// カラーは oklch()（知覚均一・明度調整が直感的）＋ light-dark() で
-// ライト / ダークの両テーマを一元定義する。
+// カラーは oklch()（知覚均一・明度調整が直感的）。ライトテーマ固定。
 // アクセントは青1色。「押せるもの」以外に青を使わない。
 // ============================================================
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
 
   // ----------------------------------------------------------
-  // カラー：light-dark(ライト, ダーク)
+  // カラー
   // ----------------------------------------------------------
-  --color-primary:       light-dark(oklch(52.2% 0.177 255.8), oklch(66.9% 0.181 251.8)); /* リンク・CTA・アクション全般。唯一のアクセント */
-  --color-primary-focus: oklch(56.3% 0.193 256.2);                                       /* フォーカスリング */
-  --color-on-primary:    oklch(100% 0 0);                                                /* 青ボタン上のテキスト */
-  --color-canvas:        light-dark(oklch(100% 0 0), oklch(23.2% 0.004 286.1));          /* 基本の背景 */
-  --color-canvas-alt:    light-dark(oklch(97.1% 0.003 286.4), oklch(27.4% 0.004 286.2)); /* 交互セクション・フッターの背景 */
-  --color-ink:           light-dark(oklch(23.2% 0.004 286.1), oklch(97.1% 0.003 286.4)); /* 見出し・本文。純黒は使わない */
-  --color-ink-muted:     light-dark(oklch(54.0% 0.008 286.1), oklch(71.1% 0.007 286.2)); /* 補足・キャプション・メタ情報 */
-  --color-hairline:      light-dark(oklch(90.7% 0 0), oklch(38.0% 0.005 286.2));         /* 1pxヘアライン（使用は最小限） */
+  --color-primary:       oklch(52.2% 0.177 255.8); /* リンク・CTA・アクション全般。唯一のアクセント */
+  --color-primary-focus: oklch(56.3% 0.193 256.2); /* フォーカスリング */
+  --color-on-primary:    oklch(100% 0 0);          /* 青ボタン上のテキスト */
+  --color-canvas:        oklch(100% 0 0);          /* 基本の背景 */
+  --color-canvas-alt:    oklch(97.1% 0.003 286.4); /* 交互セクション・フッターの背景 */
+  --color-ink:           oklch(23.2% 0.004 286.1); /* 見出し・本文。純黒は使わない */
+  --color-ink-muted:     oklch(54.0% 0.008 286.1); /* 補足・キャプション・メタ情報 */
+  --color-hairline:      oklch(90.7% 0 0);         /* 1pxヘアライン（使用は最小限） */
 
   // ----------------------------------------------------------
   // 影：唯一の例外（作品スクリーンショットが面の上に置かれるとき）。
   // これ以外の影は書かない（UIはすべてフラット）。
   // ----------------------------------------------------------
   --shadow-screenshot: 3px 5px 30px oklch(0% 0 0 / 0.22);
-
-  // テーマトグルのアイコン表示切り替え（ライト時は月＝ダークへ誘う）
-  --theme-icon-moon: inline;
-  --theme-icon-sun:  none;
 
   // ----------------------------------------------------------
   // 角丸（3種の文法＋スクショ例外。0はトークン不要）
@@ -94,29 +89,6 @@
   --ease-standard:   cubic-bezier(0.2, 0, 0, 1);
   --ease-decelerate: cubic-bezier(0, 0, 0, 1);
   --opacity-hover:   0.7;
-}
-
-// ============================================================
-// テーマ切り替え
-// カラーは color-scheme + light-dark() が自動で解決する。
-// キーワード値（display）だけここで上書きする。
-// OS設定（prefers-color-scheme）と手動トグル（data-theme）の両対応。
-// ============================================================
-:root[data-theme="light"] {
-  color-scheme: light;
-}
-
-:root[data-theme="dark"] {
-  color-scheme: dark;
-  --theme-icon-moon: none;
-  --theme-icon-sun: inline;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --theme-icon-moon: none;
-    --theme-icon-sun: inline;
-  }
 }
 
 // ============================================================

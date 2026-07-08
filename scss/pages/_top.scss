@@ -8,13 +8,13 @@
 //   専用トークンは .p-top-hero にスコープし、全体のトークン体系を汚さない。
 // ============================================================
 .p-top-hero {
-  // FV専用トークン（生成り／夜の墨紺・波グラデ・方眼紙）
-  --fv-bg:        light-dark(oklch(95.5% 0.01 92), oklch(23% 0.025 265));
-  --fv-ink:       light-dark(oklch(28% 0.06 265), oklch(90% 0.02 265));
-  --fv-wave-1:    light-dark(oklch(62% 0.21 262), oklch(58% 0.19 262));
-  --fv-wave-2:    light-dark(oklch(50% 0.24 264), oklch(45% 0.2 264));
+  // FV専用トークン（生成り×墨紺・波グラデ・方眼紙）
+  --fv-bg:        oklch(95.5% 0.01 92);
+  --fv-ink:       oklch(28% 0.06 265);
+  --fv-wave-1:    oklch(62% 0.21 262);
+  --fv-wave-2:    oklch(50% 0.24 264);
   --fv-grid-cell: #{rem(24)};
-  --fv-grid-line: light-dark(oklch(28% 0.06 265 / 5%), oklch(90% 0.02 265 / 6%));
+  --fv-grid-line: oklch(28% 0.06 265 / 5%);
 
   position: relative;
   display: flex;

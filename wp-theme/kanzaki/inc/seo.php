@@ -12,25 +12,6 @@ const KANZAKI_SITE_NAME  = 'KANZAKI Portfolio';
 const KANZAKI_FRONT_TITLE = 'KANZAKI Portfolio | Webデザイン・コーディング';
 const KANZAKI_FRONT_DESC  = 'Webデザイナー・コーダー神﨑勝弘のポートフォリオ。Figmaでのデザイン制作からHTML/SCSS/JavaScriptによる実装まで一貫して担当。実案件・課題制作の実績を、担当範囲と工夫のポイントとともに紹介します。';
 
-/**
- * ダークモード初期化（描画前に localStorage からテーマ復元・FOUC防止）。
- * CSSより先に実行させるため priority 0。
- */
-add_action(
-	'wp_head',
-	function () {
-		?>
-		<script>
-			(() => {
-				const theme = localStorage.getItem("theme");
-				if (theme) document.documentElement.dataset.theme = theme;
-			})();
-		</script>
-		<?php
-	},
-	0
-);
-
 /** タイトル（コアの title-tag 出力を上書き） */
 add_filter(
 	'pre_get_document_title',
@@ -84,8 +65,7 @@ add_action(
 		<meta name="twitter:card" content="summary_large_image" />
 		<link rel="icon" href="<?php echo esc_url( get_theme_file_uri( 'assets/images/favicon.svg' ) ); ?>" type="image/svg+xml" />
 		<link rel="apple-touch-icon" href="<?php echo esc_url( get_theme_file_uri( 'assets/images/apple-touch-icon.png' ) ); ?>" />
-		<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
-		<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1d1d1f" />
+		<meta name="theme-color" content="#ffffff" />
 		<?php
 	},
 	4
