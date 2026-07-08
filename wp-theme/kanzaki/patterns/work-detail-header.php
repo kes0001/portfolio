@@ -25,7 +25,7 @@
 <p class="p-work__title-note"></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:post-excerpt {"className":"p-work__lead"} /-->
+<!-- wp:post-excerpt {"excerptLength":100,"className":"p-work__lead"} /-->
 
 <!-- wp:group {"className":"p-work__meta","layout":{"type":"default"}} -->
 <div class="wp-block-group p-work__meta">

@@ -8,6 +8,8 @@
  * @package kanzaki
  */
 
+
+$kanzaki_icons = esc_url( get_theme_file_uri( 'assets/images/icons.svg' ) );
 ?>
 <!-- wp:html -->
 <section class="p-top-section js-reveal" id="skills">
@@ -19,17 +21,17 @@
 		<div class="p-top-section__body">
 			<ul class="p-top-skills__list">
 				<li class="p-top-skills__item">
-					<span class="p-top-skills__icon" aria-hidden="true"><svg class="c-icon"><use href="#html5"></use></svg></span>
+					<span class="p-top-skills__icon" aria-hidden="true"><svg class="c-icon"><use href="<?php echo $kanzaki_icons; // phpcs:ignore ?>#html5"></use></svg></span>
 					<h3 class="p-top-skills__name">HTML / CSS（SCSS）</h3>
 					<p class="p-top-skills__meta p-top-skills__meta--solid">実務レベル</p>
 					<ul class="p-top-skills__points">
 						<li>デザインカンプからのレスポンシブ実装（ピクセルパーフェクト）</li>
 						<li>BEM設計・デザイントークン運用・コーディングルールの整備</li>
-						<li>@layer / oklch() / light-dark() などモダンCSSの実践（本サイトで使用）</li>
+						<li>@layer / oklch() / カスケードレイヤー設計などモダンCSSの実践（本サイトで使用）</li>
 					</ul>
 				</li>
 				<li class="p-top-skills__item">
-					<span class="p-top-skills__icon" aria-hidden="true"><svg class="c-icon"><use href="#figma"></use></svg></span>
+					<span class="p-top-skills__icon" aria-hidden="true"><svg class="c-icon"><use href="<?php echo $kanzaki_icons; // phpcs:ignore ?>#figma"></use></svg></span>
 					<h3 class="p-top-skills__name">Figma / Adobe XD</h3>
 					<p class="p-top-skills__meta p-top-skills__meta--solid">実務レベル</p>
 					<ul class="p-top-skills__points">
@@ -39,7 +41,7 @@
 					</ul>
 				</li>
 				<li class="p-top-skills__item">
-					<span class="p-top-skills__icon" aria-hidden="true"><svg class="c-icon"><use href="#js"></use></svg></span>
+					<span class="p-top-skills__icon" aria-hidden="true"><svg class="c-icon"><use href="<?php echo $kanzaki_icons; // phpcs:ignore ?>#js"></use></svg></span>
 					<h3 class="p-top-skills__name">JavaScript</h3>
 					<p class="p-top-skills__meta">実装対応可</p>
 					<ul class="p-top-skills__points">
@@ -49,7 +51,7 @@
 					</ul>
 				</li>
 				<li class="p-top-skills__item">
-					<span class="p-top-skills__icon" aria-hidden="true"><svg class="c-icon"><use href="#wordpress"></use></svg></span>
+					<span class="p-top-skills__icon" aria-hidden="true"><svg class="c-icon"><use href="<?php echo $kanzaki_icons; // phpcs:ignore ?>#wordpress"></use></svg></span>
 					<h3 class="p-top-skills__name">WordPress / PHP</h3>
 					<p class="p-top-skills__meta">カスタマイズ対応</p>
 					<ul class="p-top-skills__points">
@@ -58,7 +60,7 @@
 					</ul>
 				</li>
 				<li class="p-top-skills__item">
-					<span class="p-top-skills__icon" aria-hidden="true"><svg class="c-icon"><use href="#palette"></use></svg></span>
+					<span class="p-top-skills__icon" aria-hidden="true"><svg class="c-icon"><use href="<?php echo $kanzaki_icons; // phpcs:ignore ?>#palette"></use></svg></span>
 					<h3 class="p-top-skills__name">Photoshop / Illustrator</h3>
 					<p class="p-top-skills__meta p-top-skills__meta--solid">実務レベル</p>
 					<ul class="p-top-skills__points">
@@ -67,7 +69,7 @@
 					</ul>
 				</li>
 				<li class="p-top-skills__item">
-					<span class="p-top-skills__icon" aria-hidden="true"><svg class="c-icon"><use href="#robot"></use></svg></span>
+					<span class="p-top-skills__icon" aria-hidden="true"><svg class="c-icon"><use href="<?php echo $kanzaki_icons; // phpcs:ignore ?>#robot"></use></svg></span>
 					<h3 class="p-top-skills__name">AI活用（Claude Code）</h3>
 					<p class="p-top-skills__meta">検証・導入中</p>
 					<ul class="p-top-skills__points">

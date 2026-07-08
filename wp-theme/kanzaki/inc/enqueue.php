@@ -35,6 +35,26 @@ add_action(
 );
 
 /**
+ * エディタ（iframe内キャンバス）にもビルド済みCSSを変換なしで読み込む。
+ * add_editor_style だと @layer がセレクタ変換で壊れるため、この方式を採る。
+ */
+add_action(
+	'enqueue_block_assets',
+	function () {
+		if ( ! is_admin() ) {
+			return; // フロントは wp_enqueue_scripts 側で読み込み済み
+		}
+		$css_path = get_theme_file_path( 'assets/css/style.css' );
+		wp_enqueue_style(
+			'kanzaki-editor',
+			get_theme_file_uri( 'assets/css/style.css' ),
+			array(),
+			file_exists( $css_path ) ? (string) filemtime( $css_path ) : '1.0.0'
+		);
+	}
+);
+
+/**
  * Google Fonts（静的版と同じ「media=print → onload で適用」の非同期読み込みパターン）。
  * wp_enqueue_style では onload 属性が付けられないため wp_head へ直書きする。
  */

@@ -9,6 +9,8 @@
  */
 
 $kanzaki_home = esc_url( home_url( '/' ) );
+
+$kanzaki_icons = esc_url( get_theme_file_uri( 'assets/images/icons.svg' ) );
 ?>
 <!-- wp:html -->
 <a class="u-skip-link" href="#main">本文へスキップ</a>
@@ -28,10 +30,6 @@ $kanzaki_home = esc_url( home_url( '/' ) );
 				<li><a class="l-header__nav-link" href="<?php echo $kanzaki_home; // phpcs:ignore ?>#contact">Contact</a></li>
 			</ul>
 		</nav>
-		<button class="l-header__theme js-theme-toggle" type="button" aria-label="配色テーマを切り替える" aria-pressed="false">
-			<svg class="c-icon l-header__theme-icon l-header__theme-icon--moon" aria-hidden="true"><use href="#moon"></use></svg>
-			<svg class="c-icon l-header__theme-icon l-header__theme-icon--sun" aria-hidden="true"><use href="#sun"></use></svg>
-		</button>
 	</div>
 </header>
 <!-- /wp:html -->

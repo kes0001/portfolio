@@ -11,12 +11,10 @@ add_action(
 	'after_setup_theme',
 	function () {
 		add_theme_support( 'post-thumbnails' );
-		add_theme_support( 'editor-styles' );
 
-		// エディタ iframe にもビルド済みCSSを読み込む
-		// （theme.json のパレットが参照する --color-* トークンの定義元。
-		//   @layer の変換に問題が出た場合は enqueue_block_assets 方式へ切替）
-		add_editor_style( 'assets/css/style.css' );
+		// エディタCSSは add_editor_style ではなく enqueue_block_assets（inc/enqueue.php）で読み込む。
+		// add_editor_style のセレクタ変換が @layer 構造を壊し、
+		// トークン・ボタン等のスタイルがエディタに届かなくなるため。
 
 		// works カード用の中間サイズ（16:10）
 		add_image_size( 'kanzaki-card', 640, 400, true );

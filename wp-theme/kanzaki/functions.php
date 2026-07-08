@@ -11,7 +11,6 @@ defined( 'ABSPATH' ) || exit;
 
 require_once get_theme_file_path( 'inc/setup.php' );
 require_once get_theme_file_path( 'inc/enqueue.php' );
-require_once get_theme_file_path( 'inc/icons.php' );
 require_once get_theme_file_path( 'inc/cpt-works.php' );
 require_once get_theme_file_path( 'inc/metabox-works.php' );
 require_once get_theme_file_path( 'inc/seo.php' );

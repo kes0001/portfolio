@@ -10,6 +10,8 @@
  * @package kanzaki
  */
 
+
+$kanzaki_icons = esc_url( get_theme_file_uri( 'assets/images/icons.svg' ) );
 ?>
 <!-- wp:html -->
 <section class="p-top-hero js-hero" aria-label="イントロダクション">
@@ -35,8 +37,8 @@
 		</h1>
 		<p class="p-top-hero__lead">デザインからコーディングまで一貫して担当。情報を整理し、見る人にきちんと「伝わる」Webサイトをつくります。</p>
 		<div class="p-top-hero__actions">
-			<a class="c-button c-button--primary" href="#works"><svg class="c-icon" aria-hidden="true"><use href="#images"></use></svg>作品を見る</a>
-			<a class="c-button c-button--secondary" href="#contact"><svg class="c-icon" aria-hidden="true"><use href="#envelope-o"></use></svg>お問い合わせ</a>
+			<a class="c-button c-button--primary" href="#works"><svg class="c-icon" aria-hidden="true"><use href="<?php echo $kanzaki_icons; // phpcs:ignore ?>#images"></use></svg>作品を見る</a>
+			<a class="c-button c-button--secondary" href="#contact"><svg class="c-icon" aria-hidden="true"><use href="<?php echo $kanzaki_icons; // phpcs:ignore ?>#envelope-o"></use></svg>お問い合わせ</a>
 		</div>
 	</div>
 	<p class="p-top-hero__vertical" aria-hidden="true">

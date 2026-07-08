@@ -19,7 +19,7 @@
 		<div class="p-top-section__body p-top-note__inner">
 			<div>
 				<p class="p-top-note__text">本サイトはテンプレートを使わず、自身で整備したコーディングルール（BEM設計・デザイントークン・SCSSのコンポーネント分割）に基づいて、設計から実装まで一貫して制作しています。</p>
-				<p class="p-top-note__text">CSSは @layer によるカスケード管理、oklch() と light-dark() によるダークモード対応、WebPによる画像最適化まで、ルールに定めたモダンな手法をこのサイト自身で実践しています。</p>
+				<p class="p-top-note__text">CSSは @layer によるカスケード管理、oklch() によるカラートークン設計、WebPによる画像最適化まで、ルールに定めたモダンな手法をこのサイト自身で実践しています。</p>
 				<p class="p-top-note__text">デザインはFigmaで制作し、実装ワークフローの一部にAI（Claude Code）を活用。フロントエンドはWordPressオリジナルブロックテーマとして実装し、「どう作るか」という設計判断そのものも含めて、制作プロセスを作品の一部としてご覧いただけます。</p>
 			</div>
 			<div class="p-top-note__stack">
@@ -33,7 +33,6 @@
 					<li><span class="c-tag">BEM</span></li>
 					<li><span class="c-tag">@layer</span></li>
 					<li><span class="c-tag">oklch()</span></li>
-					<li><span class="c-tag">light-dark()</span></li>
 					<li><span class="c-tag">WebP</span></li>
 					<li><span class="c-tag">Figma</span></li>
 					<li><span class="c-tag">Claude Code</span></li>

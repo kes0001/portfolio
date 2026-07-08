@@ -57,6 +57,16 @@
 // ------------------------------------------------------------
 // 作品詳細（single-works）
 // ------------------------------------------------------------
+// 本文のセクション見出し：静的版はh2内のspanだったが、ブロック版では
+// 英ラベル（p）＋見出し（h2）の兄弟要素になるため間隔を再現
+.p-work__section .p-work__section-title-en {
+  margin: 0;
+}
+
+.p-work__section .p-work__section-title-en + .p-work__section-title {
+  margin-top: var(--space-12);
+}
+
 // post-excerpt はdiv+pの2重構造になる（.p-work__lead は外側divに付く）
 .p-work__lead .wp-block-post-excerpt__excerpt {
   margin: 0;

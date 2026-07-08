@@ -19,6 +19,84 @@ def zen(text):
     return re.sub(r"\s+", " ", text).strip()
 
 
+COMPLEX_MARKERS = ("<figure", "<img", "<dl", "p-work__cases", "p-work__variations", "p-work__spec")
+
+
+def convert_section_to_blocks(section_html):
+    """h2/p/ul だけのシンプルなセクションを本物のブロックへ変換する。
+    画像・definition list 等を含む複雑なセクションは None を返す（wp:html で保持）。"""
+    if any(marker in section_html for marker in COMPLEX_MARKERS):
+        return None
+
+    inner = re.search(r'<section class="p-work__section">(.*)</section>', section_html, re.S)
+    if not inner:
+        return None
+    parts = []
+    pos = 0
+    src = inner.group(1)
+    token = re.compile(
+        r'<h2 class="p-work__section-title">'
+        r'(?:<span class="p-work__section-title-en">(?P<en>[^<]*)</span>)?(?P<jp>[^<]+)</h2>'
+        r"|<p class=\"p-work__text\">(?P<text>.*?)</p>"
+        r"|<ul class=\"p-work__list\">(?P<list>.*?)</ul>",
+        re.S,
+    )
+    for m in token.finditer(src):
+        if m.group("jp"):
+            if m.group("en"):
+                parts.append(
+                    '<!-- wp:paragraph {"className":"p-work__section-title-en"} -->\n'
+                    f'<p class="p-work__section-title-en">{m.group("en").strip()}</p>\n'
+                    "<!-- /wp:paragraph -->"
+                )
+            parts.append(
+                '<!-- wp:heading {"className":"p-work__section-title"} -->\n'
+                f'<h2 class="wp-block-heading p-work__section-title">{m.group("jp").strip()}</h2>\n'
+                "<!-- /wp:heading -->"
+            )
+        elif m.group("text") is not None:
+            parts.append(
+                '<!-- wp:paragraph {"className":"p-work__text"} -->\n'
+                f'<p class="p-work__text">{zen(m.group("text"))}</p>\n'
+                "<!-- /wp:paragraph -->"
+            )
+        elif m.group("list") is not None:
+            items = re.findall(r"<li>(.*?)</li>", m.group("list"), re.S)
+            li_blocks = "\n".join(
+                f"<!-- wp:list-item -->\n<li>{zen(i)}</li>\n<!-- /wp:list-item -->" for i in items
+            )
+            parts.append(
+                '<!-- wp:list {"className":"p-work__list"} -->\n'
+                f'<ul class="wp-block-list p-work__list">\n{li_blocks}\n</ul>\n'
+                "<!-- /wp:list -->"
+            )
+        pos = m.end()
+    if not parts:
+        return None
+    inner_blocks = "\n\n".join(parts)
+    return (
+        '<!-- wp:group {"className":"p-work__section","layout":{"type":"default"}} -->\n'
+        f'<div class="wp-block-group p-work__section">\n{inner_blocks}\n</div>\n'
+        "<!-- /wp:group -->"
+    )
+
+
+def convert_to_blocks(body):
+    """本文をセクション単位でブロック化。シンプルなセクション=本物のブロック、
+    複雑なセクション（画像・dl等）=wp:html のまま保持。"""
+    sections = re.findall(r'<section class="p-work__section">.*?</section>', body, re.S)
+    if not sections:
+        return f"<!-- wp:html -->\n{body}\n<!-- /wp:html -->"
+    blocks = []
+    for sec in sections:
+        converted = convert_section_to_blocks(sec)
+        if converted:
+            blocks.append(converted)
+        else:
+            blocks.append(f"<!-- wp:html -->\n{sec}\n<!-- /wp:html -->")
+    return "\n\n".join(blocks)
+
+
 def parse_cards():
     """index.html のカードから 掲載順・カード用メタを取得"""
     html = (ROOT / "index.html").read_text(encoding="utf-8")
@@ -64,6 +142,7 @@ def parse_detail(slug):
     body = re.sub(r'href="\./([a-z0-9-]+)/', r'href="/demo/\1/', body)
     # インデントを浅く整える
     body = re.sub(r"^ {10}", "", body, flags=re.M)
+    body = convert_to_blocks(body)
 
     site_url = ""
     if site:
@@ -93,10 +172,7 @@ def main():
     for i, card in enumerate(cards, start=1):
         detail = parse_detail(card["slug"])
         content_file = OUT / f"content-{card['slug']}.html"
-        content_file.write_text(
-            "<!-- wp:html -->\n" + detail["body"] + "\n<!-- /wp:html -->\n",
-            encoding="utf-8",
-        )
+        content_file.write_text(detail["body"] + "\n", encoding="utf-8")
 
         def sh(s):
             return "'" + s.replace("'", "'\\''") + "'"
