@@ -173,8 +173,19 @@ if (copyMailButton && copyMailStatus) {
   let copyStatusTimerId = null;
 
   copyMailButton.addEventListener("click", async () => {
+    // data-mail が正。なければ同じ枠内の mailto リンクから取得
+    // （WP版はアドレスの編集箇所を mailto リンク1箇所に集約しているため）
+    const mailToCopy =
+      copyMailButton.dataset.mail ||
+      copyMailButton
+        .closest(".p-top-contact__mail")
+        ?.querySelector('a[href^="mailto:"]')
+        ?.getAttribute("href")
+        .replace(/^mailto:/, "") ||
+      "";
+
     try {
-      await navigator.clipboard.writeText(copyMailButton.dataset.mail);
+      await navigator.clipboard.writeText(mailToCopy);
       copyMailStatus.textContent = "メールアドレスをコピーしました";
     } catch {
       copyMailStatus.textContent = "コピーできませんでした";

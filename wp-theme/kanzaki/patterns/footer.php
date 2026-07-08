@@ -5,24 +5,34 @@
  * Categories: kanzaki
  * Inserter: no
  *
+ * 全体を標準ブロックで構成。アイコンは l-footer__item--* の ::before mask
+ * （_wp-bridge.scss）。年はサーバー側で出力する（.js-year は静的サイト専用）。
+ *
  * @package kanzaki
  */
 
-
-$kanzaki_icons = esc_url( get_theme_file_uri( 'assets/images/icons.svg' ) );
 ?>
-<!-- wp:html -->
-<footer class="l-footer">
-	<div class="l-container l-footer__inner">
-		<ul class="l-footer__links">
-			<li>
-				<a class="l-footer__link" href="https://github.com/kes0001" target="_blank" rel="noopener"><svg class="c-icon" aria-hidden="true"><use href="<?php echo $kanzaki_icons; // phpcs:ignore ?>#github"></use></svg>GitHub</a>
-			</li>
-			<li>
-				<a class="l-footer__link" href="mailto:kanmasa30@icloud.com"><svg class="c-icon" aria-hidden="true"><use href="<?php echo $kanzaki_icons; // phpcs:ignore ?>#envelope"></use></svg>kanmasa30@icloud.com</a>
-			</li>
-		</ul>
-		<p class="l-footer__copyright">&copy; <span class="js-year"><?php echo esc_html( gmdate( 'Y' ) ); ?></span> KANZAKI</p>
-	</div>
+<!-- wp:group {"tagName":"footer","className":"l-footer","layout":{"type":"default"}} -->
+<footer class="wp-block-group l-footer">
+<!-- wp:group {"className":"l-container l-footer__inner","layout":{"type":"default"}} -->
+<div class="wp-block-group l-container l-footer__inner">
+
+<!-- wp:group {"className":"l-footer__links","layout":{"type":"default"}} -->
+<div class="wp-block-group l-footer__links">
+<!-- wp:paragraph {"className":"l-footer__item l-footer__item--github"} -->
+<p class="l-footer__item l-footer__item--github"><a href="https://github.com/kes0001" target="_blank" rel="noopener">GitHub</a></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"l-footer__item l-footer__item--envelope"} -->
+<p class="l-footer__item l-footer__item--envelope"><a href="mailto:kanmasa30@icloud.com">kanmasa30@icloud.com</a></p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:paragraph {"className":"l-footer__copyright"} -->
+<p class="l-footer__copyright">&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> KANZAKI</p>
+<!-- /wp:paragraph -->
+
+</div>
+<!-- /wp:group -->
 </footer>
-<!-- /wp:html -->
+<!-- /wp:group -->

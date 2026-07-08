@@ -11,6 +11,13 @@
   gap: var(--space-12);
 }
 
+// WP版では __en/__jp が span ではなく p/h1/h2 の兄弟ブロックになる。
+// 間隔は親の gap のみが担う（h1 のUA既定マージン対策を兼ねる）。
+.c-section-title__en,
+.c-section-title__jp {
+  margin-block: 0;
+}
+
 .c-section-title__en {
   font-size: var(--text-caption);
   font-weight: var(--font-weight-regular);

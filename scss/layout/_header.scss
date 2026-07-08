@@ -38,6 +38,12 @@
   text-decoration: none;
 }
 
+// WP: site-titleブロックは p.l-header__logo > a になる（静的サイトでは非マッチ）
+.l-header__logo a {
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
 // ハンバーガーボタン（SP専用）
 .l-header__burger {
   display: flex;

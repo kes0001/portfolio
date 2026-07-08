@@ -5,12 +5,13 @@
  * Categories: kanzaki
  * Inserter: no
  *
+ * リンクの見た目は .p-work__footer-nav a に委譲（RichText内のリンクは
+ * クラスを保持できないため、クラスは親段落に付ける）。
+ *
  * @package kanzaki
  */
 
 ?>
-<!-- wp:html -->
-<p class="p-work__footer-nav">
-	<a class="p-work__back" href="<?php echo esc_url( home_url( '/' ) ); ?>#works">Worksに戻る</a>
-</p>
-<!-- /wp:html -->
+<!-- wp:paragraph {"className":"p-work__footer-nav"} -->
+<p class="p-work__footer-nav"><a href="<?php echo esc_url( home_url( '/' ) ); ?>#works">Worksに戻る</a></p>
+<!-- /wp:paragraph -->

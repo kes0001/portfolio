@@ -16,13 +16,20 @@
 <!-- wp:group {"className":"l-container","layout":{"type":"default"}} -->
 <div class="wp-block-group l-container">
 
-<!-- wp:html -->
-<h2 class="c-section-title">
-	<span class="c-section-title__en">Works</span>
-	<span class="c-section-title__jp">作品</span>
-</h2>
+<!-- wp:group {"className":"c-section-title","layout":{"type":"default"}} -->
+<div class="wp-block-group c-section-title">
+<!-- wp:paragraph {"className":"c-section-title__en"} -->
+<p class="c-section-title__en">Works</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"className":"c-section-title__jp"} -->
+<h2 class="wp-block-heading c-section-title__jp">作品</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:paragraph {"className":"p-top-works__lead"} -->
 <p class="p-top-works__lead">テンプレートを使わず、デザインから実装まで一貫して制作した作品です。気になる作品は、カードから詳細ページで制作プロセスをご覧いただけます。</p>
-<!-- /wp:html -->
+<!-- /wp:paragraph -->
 
 <!-- wp:group {"className":"p-top-section__body","layout":{"type":"default"}} -->
 <div class="wp-block-group p-top-section__body">

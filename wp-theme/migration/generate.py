@@ -19,35 +19,151 @@ def zen(text):
     return re.sub(r"\s+", " ", text).strip()
 
 
-COMPLEX_MARKERS = ("<figure", "<img", "<dl", "p-work__cases", "p-work__variations", "p-work__spec")
+def group_block(class_name, inner_blocks):
+    """core/group ブロックを生成する（layout: default = 余白CSSなしのプレーンdiv）"""
+    return (
+        f'<!-- wp:group {{"className":"{class_name}","layout":{{"type":"default"}}}} -->\n'
+        f'<div class="wp-block-group {class_name}">\n{inner_blocks}\n</div>\n'
+        "<!-- /wp:group -->"
+    )
+
+
+def paragraph_block(class_name, text):
+    if class_name:
+        return (
+            f'<!-- wp:paragraph {{"className":"{class_name}"}} -->\n'
+            f'<p class="{class_name}">{text}</p>\n'
+            "<!-- /wp:paragraph -->"
+        )
+    return f"<!-- wp:paragraph -->\n<p>{text}</p>\n<!-- /wp:paragraph -->"
+
+
+def extract_balanced_div(src, start):
+    """src[start:] が <div ...> で始まる前提で、対応する </div> までを返す"""
+    depth = 0
+    for m in re.finditer(r"<div\b|</div>", src[start:]):
+        depth += 1 if m.group(0) != "</div>" else -1
+        if depth == 0:
+            end = start + m.end()
+            return src[start:end], end
+    raise ValueError("unbalanced div")
+
+
+def convert_figure(fig_html):
+    """figure（picture+img または素のimg、任意のfigcaption）→ core/image
+
+    画像ファイルは2x書き出しのため、静的版と同じく width/height 属性で
+    表示サイズを制約する（属性なしだと原寸で表示され拡大されてしまう）。
+    """
+    # picture がある場合は webp ソースを採用（表示は同一・単一ソースに集約）
+    source = re.search(r'<source srcset="([^"]+)"', fig_html)
+    img = re.search(r'<img src="([^"]+)" alt="([^"]*)"', fig_html)
+    src = source.group(1) if source else img.group(1)
+    alt = img.group(2)
+    size = re.search(r'width="(\d+)" height="(\d+)"', fig_html)
+    attrs = '"className":"p-work__variation-fig"'
+    size_attrs = ""
+    if size:
+        attrs = f'"width":{size.group(1)},"height":{size.group(2)},' + attrs
+        size_attrs = f' width="{size.group(1)}" height="{size.group(2)}"'
+    cap = re.search(r'<figcaption class="p-work__variation-fig-cap">(.*?)</figcaption>', fig_html, re.S)
+    caption = f'<figcaption class="wp-element-caption">{zen(cap.group(1))}</figcaption>' if cap else ""
+    return (
+        f"<!-- wp:image {{{attrs}}} -->\n"
+        f'<figure class="wp-block-image p-work__variation-fig"><img src="{src}" alt="{alt}"{size_attrs}/>{caption}</figure>\n'
+        "<!-- /wp:image -->"
+    )
+
+
+def convert_variations(html):
+    """div.p-work__variations → group（各案 = group > ラベルp + 画像group > core/image + 本文p）"""
+    variations = []
+    pos = 0
+    while True:
+        m = re.compile(r'<div class="p-work__variation">').search(html, pos)
+        if not m:
+            break
+        var_html, pos = extract_balanced_div(html, m.start())
+        parts = []
+        label = re.search(r'<p class="p-work__variation-label">(.*?)</p>', var_html, re.S)
+        if label:
+            parts.append(paragraph_block("p-work__variation-label", zen(label.group(1))))
+        images = re.search(r'<div class="(p-work__variation-images[^"]*)">', var_html)
+        if images:
+            images_html, _ = extract_balanced_div(var_html, images.start())
+            figs = [
+                convert_figure(f)
+                for f in re.findall(r"<figure.*?</figure>", images_html, re.S)
+            ]
+            parts.append(group_block(images.group(1), "\n".join(figs)))
+        for text in re.findall(r'<p class="p-work__variation-text">(.*?)</p>', var_html, re.S):
+            parts.append(paragraph_block("p-work__variation-text", zen(text)))
+        variations.append(group_block("p-work__variation", "\n".join(parts)))
+    return group_block("p-work__variations", "\n".join(variations))
+
+
+def convert_spec(dl_html):
+    """dl.p-work__spec → group（行 = 素group > 用語p + 説明p。dlに相当するブロックがないため）"""
+    rows = []
+    for dt, dd in re.findall(r"<div><dt>(.*?)</dt><dd>(.*?)</dd></div>", dl_html, re.S):
+        row = (
+            paragraph_block("p-work__spec-term", zen(dt))
+            + "\n"
+            + paragraph_block("p-work__spec-desc", zen(dd))
+        )
+        rows.append(
+            '<!-- wp:group {"layout":{"type":"default"}} -->\n'
+            f'<div class="wp-block-group">\n{row}\n</div>\n'
+            "<!-- /wp:group -->"
+        )
+    return group_block("p-work__spec", "\n".join(rows))
+
+
+def convert_cases(html):
+    """div.p-work__cases → group（各カード = group > ラベルp + 本文p）"""
+    cases = []
+    for label, text in re.findall(
+        r'<div class="p-work__case">\s*<p class="p-work__case-label">(.*?)</p>\s*'
+        r'<p class="p-work__case-text">(.*?)</p>\s*</div>',
+        html,
+        re.S,
+    ):
+        inner = (
+            paragraph_block("p-work__case-label", zen(label))
+            + "\n"
+            + paragraph_block("p-work__case-text", zen(text))
+        )
+        cases.append(group_block("p-work__case", inner))
+    return group_block("p-work__cases", "\n".join(cases))
 
 
 def convert_section_to_blocks(section_html):
-    """h2/p/ul だけのシンプルなセクションを本物のブロックへ変換する。
-    画像・definition list 等を含む複雑なセクションは None を返す（wp:html で保持）。"""
-    if any(marker in section_html for marker in COMPLEX_MARKERS):
-        return None
-
+    """セクションを標準ブロックへ変換する（画像・スペック表・ペルソナカード含め全て）"""
     inner = re.search(r'<section class="p-work__section">(.*)</section>', section_html, re.S)
     if not inner:
         return None
-    parts = []
-    pos = 0
     src = inner.group(1)
+    parts = []
     token = re.compile(
         r'<h2 class="p-work__section-title">'
         r'(?:<span class="p-work__section-title-en">(?P<en>[^<]*)</span>)?(?P<jp>[^<]+)</h2>'
         r"|<p class=\"p-work__text\">(?P<text>.*?)</p>"
-        r"|<ul class=\"p-work__list\">(?P<list>.*?)</ul>",
+        r"|<ul class=\"p-work__list\">(?P<list>.*?)</ul>"
+        r"|<dl class=\"p-work__spec\">(?P<spec>.*?)</dl>"
+        r"|(?P<variations><div class=\"p-work__variations\">)"
+        r"|(?P<cases><div class=\"p-work__cases\">)",
         re.S,
     )
-    for m in token.finditer(src):
+    pos = 0
+    while True:
+        m = token.search(src, pos)
+        if not m:
+            break
+        pos = m.end()
         if m.group("jp"):
             if m.group("en"):
                 parts.append(
-                    '<!-- wp:paragraph {"className":"p-work__section-title-en"} -->\n'
-                    f'<p class="p-work__section-title-en">{m.group("en").strip()}</p>\n'
-                    "<!-- /wp:paragraph -->"
+                    paragraph_block("p-work__section-title-en", m.group("en").strip())
                 )
             parts.append(
                 '<!-- wp:heading {"className":"p-work__section-title"} -->\n'
@@ -55,11 +171,7 @@ def convert_section_to_blocks(section_html):
                 "<!-- /wp:heading -->"
             )
         elif m.group("text") is not None:
-            parts.append(
-                '<!-- wp:paragraph {"className":"p-work__text"} -->\n'
-                f'<p class="p-work__text">{zen(m.group("text"))}</p>\n'
-                "<!-- /wp:paragraph -->"
-            )
+            parts.append(paragraph_block("p-work__text", zen(m.group("text"))))
         elif m.group("list") is not None:
             items = re.findall(r"<li>(.*?)</li>", m.group("list"), re.S)
             li_blocks = "\n".join(
@@ -70,20 +182,22 @@ def convert_section_to_blocks(section_html):
                 f'<ul class="wp-block-list p-work__list">\n{li_blocks}\n</ul>\n'
                 "<!-- /wp:list -->"
             )
-        pos = m.end()
+        elif m.group("spec") is not None:
+            parts.append(convert_spec(m.group("spec")))
+        elif m.group("variations") is not None:
+            block_html, pos = extract_balanced_div(src, m.start())
+            parts.append(convert_variations(block_html))
+        elif m.group("cases") is not None:
+            block_html, pos = extract_balanced_div(src, m.start())
+            parts.append(convert_cases(block_html))
     if not parts:
         return None
     inner_blocks = "\n\n".join(parts)
-    return (
-        '<!-- wp:group {"className":"p-work__section","layout":{"type":"default"}} -->\n'
-        f'<div class="wp-block-group p-work__section">\n{inner_blocks}\n</div>\n'
-        "<!-- /wp:group -->"
-    )
+    return group_block("p-work__section", inner_blocks)
 
 
 def convert_to_blocks(body):
-    """本文をセクション単位でブロック化。シンプルなセクション=本物のブロック、
-    複雑なセクション（画像・dl等）=wp:html のまま保持。"""
+    """本文をセクション単位で標準ブロック化する（wp:html は使わない）"""
     sections = re.findall(r'<section class="p-work__section">.*?</section>', body, re.S)
     if not sections:
         return f"<!-- wp:html -->\n{body}\n<!-- /wp:html -->"

@@ -34,14 +34,45 @@ add_action(
 				'menu_position' => 5,
 				'supports'     => array( 'title', 'editor', 'excerpt', 'thumbnail', 'page-attributes' ),
 				'show_in_rest' => true,
-				// 新規作品のひな形（PURPOSE / DESIGN / CODING）
+				// 新規作品のひな形（PURPOSE / DESIGN / CODING）。既存作品と同じ
+				// 「セクションgroup > 英ラベル + 見出し + 本文」の構造で用意する
 				'template'     => array(
-					array( 'core/heading', array( 'level' => 2, 'className' => 'p-work__section-title', 'placeholder' => '制作の目的' ) ),
-					array( 'core/paragraph', array( 'className' => 'p-work__text', 'placeholder' => '目的・ターゲット・ゴールを書く' ) ),
-					array( 'core/heading', array( 'level' => 2, 'className' => 'p-work__section-title', 'placeholder' => 'デザインの工夫' ) ),
-					array( 'core/paragraph', array( 'className' => 'p-work__text', 'placeholder' => 'レイアウト・配色・導線の意図を書く' ) ),
-					array( 'core/heading', array( 'level' => 2, 'className' => 'p-work__section-title', 'placeholder' => 'コーディングの工夫' ) ),
-					array( 'core/paragraph', array( 'className' => 'p-work__text', 'placeholder' => '実装面の工夫を書く' ) ),
+					array(
+						'core/group',
+						array(
+							'className' => 'p-work__section',
+							'layout'    => array( 'type' => 'default' ),
+						),
+						array(
+							array( 'core/paragraph', array( 'className' => 'p-work__section-title-en', 'content' => 'PURPOSE' ) ),
+							array( 'core/heading', array( 'level' => 2, 'className' => 'p-work__section-title', 'placeholder' => '制作の目的' ) ),
+							array( 'core/paragraph', array( 'className' => 'p-work__text', 'placeholder' => '目的・ターゲット・ゴールを書く' ) ),
+						),
+					),
+					array(
+						'core/group',
+						array(
+							'className' => 'p-work__section',
+							'layout'    => array( 'type' => 'default' ),
+						),
+						array(
+							array( 'core/paragraph', array( 'className' => 'p-work__section-title-en', 'content' => 'DESIGN' ) ),
+							array( 'core/heading', array( 'level' => 2, 'className' => 'p-work__section-title', 'placeholder' => 'デザインの工夫' ) ),
+							array( 'core/paragraph', array( 'className' => 'p-work__text', 'placeholder' => 'レイアウト・配色・導線の意図を書く' ) ),
+						),
+					),
+					array(
+						'core/group',
+						array(
+							'className' => 'p-work__section',
+							'layout'    => array( 'type' => 'default' ),
+						),
+						array(
+							array( 'core/paragraph', array( 'className' => 'p-work__section-title-en', 'content' => 'CODING' ) ),
+							array( 'core/heading', array( 'level' => 2, 'className' => 'p-work__section-title', 'placeholder' => 'コーディングの工夫' ) ),
+							array( 'core/paragraph', array( 'className' => 'p-work__text', 'placeholder' => '実装面の工夫を書く' ) ),
+						),
+					),
 				),
 			)
 		);

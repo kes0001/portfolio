@@ -24,7 +24,9 @@
   padding-left: 0;
 }
 
-.l-footer__link {
+// .l-footer__item a はWP版（段落ブロック内リンク）用。静的サイトでは非マッチ
+.l-footer__link,
+.l-footer__item a {
   display: inline-flex;
   align-items: center;
   gap: var(--space-8);

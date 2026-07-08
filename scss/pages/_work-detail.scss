@@ -14,7 +14,10 @@
   max-width: rem(820);
 }
 
-.p-work__back {
+// .p-work__back-nav a / .p-work__footer-nav a はWP版（段落ブロック内リンク）用
+.p-work__back,
+.p-work__back-nav a,
+.p-work__footer-nav a {
   display: inline-flex;
   align-items: center;
   gap: var(--space-8);
@@ -399,7 +402,9 @@
   }
 }
 
-.p-work__spec dt {
+// .p-work__spec-term / -desc はWP版（dl非対応のため段落ブロック）用
+.p-work__spec dt,
+.p-work__spec .p-work__spec-term {
   flex-shrink: 0;
   font-size: var(--text-caption);
   font-weight: var(--font-weight-semibold);
@@ -410,7 +415,8 @@
   }
 }
 
-.p-work__spec dd {
+.p-work__spec dd,
+.p-work__spec .p-work__spec-desc {
   font-size: var(--text-caption);
   color: var(--color-ink);
 }

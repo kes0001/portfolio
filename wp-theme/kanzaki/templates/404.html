@@ -4,16 +4,30 @@
 <main class="wp-block-group p-top-section" id="main">
 <!-- wp:group {"className":"l-container","layout":{"type":"default"}} -->
 <div class="wp-block-group l-container">
-<!-- wp:html -->
-<h1 class="c-section-title">
-  <span class="c-section-title__en">404 Not Found</span>
-  <span class="c-section-title__jp">ページが見つかりません</span>
-</h1>
-<p class="p-top-section__body">お探しのページは移動または削除された可能性があります。</p>
-<div class="p-top-section__body">
-  <a class="c-button c-button--primary" href="/">トップページへ戻る</a>
+
+<!-- wp:group {"className":"c-section-title","layout":{"type":"default"}} -->
+<div class="wp-block-group c-section-title">
+<!-- wp:paragraph {"className":"c-section-title__en"} -->
+<p class="c-section-title__en">404 Not Found</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":1,"className":"c-section-title__jp"} -->
+<h1 class="wp-block-heading c-section-title__jp">ページが見つかりません</h1>
+<!-- /wp:heading -->
 </div>
-<!-- /wp:html -->
+<!-- /wp:group -->
+
+<!-- wp:paragraph {"className":"p-top-section__body"} -->
+<p class="p-top-section__body">お探しのページは移動または削除された可能性があります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons {"className":"p-top-section__body"} -->
+<div class="wp-block-buttons p-top-section__body">
+<!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/">トップページへ戻る</a></div>
+<!-- /wp:button -->
+</div>
+<!-- /wp:buttons -->
+
 </div>
 <!-- /wp:group -->
 </main>

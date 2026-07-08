@@ -330,6 +330,8 @@
 .p-top-profile__name-kana {
   display: block;
   margin-top: var(--space-4);
+  // 静的版は名前(p)の1.4を継承。WP版は独立した段落になるため明示する
+  line-height: 1.4;
   font-size: var(--text-caption);
   font-weight: var(--font-weight-regular);
   letter-spacing: 0.1em;
@@ -337,6 +339,11 @@
 }
 
 .p-top-profile__name + .p-top-profile__text {
+  margin-top: var(--space-16);
+}
+
+// WP: かなが名前と別の段落ブロックになるため（静的サイトでは非マッチ）
+.p-top-profile__name-kana + .p-top-profile__text {
   margin-top: var(--space-16);
 }
 

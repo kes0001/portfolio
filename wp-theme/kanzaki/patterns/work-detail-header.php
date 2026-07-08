@@ -11,9 +11,9 @@
  */
 
 ?>
-<!-- wp:html -->
-<a class="p-work__back" href="<?php echo esc_url( home_url( '/' ) ); ?>#works">Worksに戻る</a>
-<!-- /wp:html -->
+<!-- wp:paragraph {"className":"p-work__back-nav"} -->
+<p class="p-work__back-nav"><a href="<?php echo esc_url( home_url( '/' ) ); ?>#works">Worksに戻る</a></p>
+<!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"p-work__eyebrow","metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"kanzaki_eyebrow"}}}}} -->
 <p class="p-work__eyebrow"></p>
