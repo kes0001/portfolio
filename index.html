@@ -22,7 +22,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- フォントCSSは非同期適用（レンダーブロック回避）。読み込み完了までシステムフォントで表示 -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media = 'all'" />
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet" /></noscript>
     <link rel="stylesheet" href="./css/style.css" />
     <script src="./js/main.js" defer></script>
@@ -95,8 +95,12 @@
           </h1>
           <p class="p-top-hero__lead">デザインからコーディングまで一貫して担当。情報を整理し、見る人にきちんと「伝わる」Webサイトをつくります。</p>
           <div class="p-top-hero__actions">
-            <a class="c-button c-button--primary" href="#works"><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#images"></use></svg>作品を見る</a>
-            <a class="c-button c-button--secondary" href="#contact"><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#envelope-o"></use></svg>お問い合わせ</a>
+            <a class="c-button c-button--primary" href="#works"
+              ><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#images"></use></svg>作品を見る</a
+            >
+            <a class="c-button c-button--secondary" href="#contact"
+              ><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#envelope-o"></use></svg>お問い合わせ</a
+            >
           </div>
         </div>
         <p class="p-top-hero__vertical" aria-hidden="true">
@@ -144,7 +148,9 @@
           <div class="p-top-section__body">
             <ul class="p-top-skills__list">
               <li class="p-top-skills__item">
-                <span class="p-top-skills__icon" aria-hidden="true"><svg class="c-icon"><use href="./images/icons.svg#html5"></use></svg></span>
+                <span class="p-top-skills__icon" aria-hidden="true"
+                  ><svg class="c-icon"><use href="./images/icons.svg#html5"></use></svg
+                ></span>
                 <h3 class="p-top-skills__name">HTML / CSS（SCSS）</h3>
                 <!-- TODO:要確認 経験年数・制作本数が確定したら「経験◯年 ／ 制作◯本」に差し替える -->
                 <p class="p-top-skills__meta p-top-skills__meta--solid">実務レベル</p>
@@ -155,7 +161,9 @@
                 </ul>
               </li>
               <li class="p-top-skills__item">
-                <span class="p-top-skills__icon" aria-hidden="true"><svg class="c-icon"><use href="./images/icons.svg#figma"></use></svg></span>
+                <span class="p-top-skills__icon" aria-hidden="true"
+                  ><svg class="c-icon"><use href="./images/icons.svg#figma"></use></svg
+                ></span>
                 <h3 class="p-top-skills__name">Figma / Adobe XD</h3>
                 <!-- TODO:要確認 経験年数・制作本数が確定したら「経験◯年 ／ 制作◯本」に差し替える -->
                 <p class="p-top-skills__meta p-top-skills__meta--solid">実務レベル</p>
@@ -166,7 +174,9 @@
                 </ul>
               </li>
               <li class="p-top-skills__item">
-                <span class="p-top-skills__icon" aria-hidden="true"><svg class="c-icon"><use href="./images/icons.svg#js"></use></svg></span>
+                <span class="p-top-skills__icon" aria-hidden="true"
+                  ><svg class="c-icon"><use href="./images/icons.svg#js"></use></svg
+                ></span>
                 <h3 class="p-top-skills__name">JavaScript</h3>
                 <p class="p-top-skills__meta">実装対応可</p>
                 <ul class="p-top-skills__points">
@@ -176,7 +186,9 @@
                 </ul>
               </li>
               <li class="p-top-skills__item">
-                <span class="p-top-skills__icon" aria-hidden="true"><svg class="c-icon"><use href="./images/icons.svg#wordpress"></use></svg></span>
+                <span class="p-top-skills__icon" aria-hidden="true"
+                  ><svg class="c-icon"><use href="./images/icons.svg#wordpress"></use></svg
+                ></span>
                 <h3 class="p-top-skills__name">WordPress / PHP</h3>
                 <p class="p-top-skills__meta">カスタマイズ対応</p>
                 <ul class="p-top-skills__points">
@@ -185,7 +197,9 @@
                 </ul>
               </li>
               <li class="p-top-skills__item">
-                <span class="p-top-skills__icon" aria-hidden="true"><svg class="c-icon"><use href="./images/icons.svg#palette"></use></svg></span>
+                <span class="p-top-skills__icon" aria-hidden="true"
+                  ><svg class="c-icon"><use href="./images/icons.svg#palette"></use></svg
+                ></span>
                 <h3 class="p-top-skills__name">Photoshop / Illustrator</h3>
                 <p class="p-top-skills__meta p-top-skills__meta--solid">実務レベル</p>
                 <ul class="p-top-skills__points">
@@ -194,7 +208,9 @@
                 </ul>
               </li>
               <li class="p-top-skills__item">
-                <span class="p-top-skills__icon" aria-hidden="true"><svg class="c-icon"><use href="./images/icons.svg#robot"></use></svg></span>
+                <span class="p-top-skills__icon" aria-hidden="true"
+                  ><svg class="c-icon"><use href="./images/icons.svg#robot"></use></svg
+                ></span>
                 <h3 class="p-top-skills__name">AI活用（Claude Code）</h3>
                 <p class="p-top-skills__meta">検証・導入中</p>
                 <ul class="p-top-skills__points">
@@ -512,7 +528,9 @@
             <p class="p-top-contact__text">お仕事のご相談・ご質問など、お気軽にご連絡ください。</p>
             <div class="p-top-contact__actions">
               <a class="c-button c-button--primary" href="mailto:kanmasa30@icloud.com">メールを送る</a>
-              <a class="c-button c-button--secondary" href="https://github.com/kes0001" target="_blank" rel="noopener"><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#github"></use></svg>GitHubでコードを見る</a>
+              <a class="c-button c-button--secondary" href="https://github.com/kes0001" target="_blank" rel="noopener"
+                ><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#github"></use></svg>GitHubでコードを見る</a
+              >
             </div>
             <p class="p-top-contact__mail">
               <a href="mailto:kanmasa30@icloud.com">kanmasa30@icloud.com</a>
@@ -530,10 +548,14 @@
       <div class="l-container l-footer__inner">
         <ul class="l-footer__links">
           <li>
-            <a class="l-footer__link" href="https://github.com/kes0001" target="_blank" rel="noopener"><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#github"></use></svg>GitHub</a>
+            <a class="l-footer__link" href="https://github.com/kes0001" target="_blank" rel="noopener"
+              ><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#github"></use></svg>GitHub</a
+            >
           </li>
           <li>
-            <a class="l-footer__link" href="mailto:kanmasa30@icloud.com"><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#envelope"></use></svg>kanmasa30@icloud.com</a>
+            <a class="l-footer__link" href="mailto:kanmasa30@icloud.com"
+              ><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#envelope"></use></svg>kanmasa30@icloud.com</a
+            >
           </li>
         </ul>
         <p class="l-footer__copyright">&copy; <span class="js-year">2026</span> KANZAKI</p>
