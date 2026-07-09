@@ -394,11 +394,12 @@
   }
 }
 
-// canvas 面上のカード。浮きは影ではなく面の色差で表現する
+// canvas 面上のカード。浮きは面の色差＋ごく淡い落ち影で表現する
 .p-top-skills__item {
   padding: var(--space-24);
   background-color: var(--color-canvas-alt);
   border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
 }
 
 // アイコンはチップに載せず素のまま置く（青は押せるもの専用）
