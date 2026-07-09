@@ -442,12 +442,12 @@ body {
 
 // アバウトセクション
 .about {
-  background: url(../img/sp/about-bg-sp.jpg) no-repeat center center / cover;
+  background: url(../img/sp/about-bg-sp.webp) no-repeat center center / cover;
   position: relative;
   padding-block: 11.25rem 3.12rem; /* 180px-50px */
 
   @include mq("md") {
-    background: url(../img/about-bg-pc.jpg) no-repeat center center / cover;
+    background: url(../img/about-bg-pc.webp) no-repeat center center / cover;
     padding-block: 7.69rem 7.5rem; /* 123px-120px */
   }
 
@@ -729,7 +729,7 @@ body {
 // コンタクトセクション
 .contact {
   padding-block: 3.5rem;
-  background: url(../img/contact-bg.png) no-repeat center center / cover;
+  background: url(../img/contact-bg.webp) no-repeat center center / cover;
 
   @include mq("md") {
     padding-block: 5rem; // 80px //

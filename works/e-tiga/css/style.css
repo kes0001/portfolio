@@ -1092,12 +1092,12 @@ body {
 
 .case-card__prev {
   left: 0;
-  background: url(../img/prev.png) no-repeat center center/contain;
+  background: url(../img/prev.webp) no-repeat center center/contain;
 }
 
 .case-card__next {
   right: 0;
-  background: url(../img/next.png) no-repeat center center/contain;
+  background: url(../img/next.webp) no-repeat center center/contain;
 }
 
 .case__button {

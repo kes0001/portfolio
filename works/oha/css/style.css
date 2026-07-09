@@ -794,7 +794,7 @@ body {
 
 .movie {
   padding-block: 60px;
-  background: url(../img/section-bg.png) repeat top left/529px auto;
+  background: url(../img/section-bg.webp) repeat top left/529px auto;
 }
 @media screen and (min-width: 768px) {
   .movie {
@@ -1467,7 +1467,7 @@ body {
   right: 14px;
   width: 9.26px;
   height: 6.834px;
-  background: url(../img/qa-arrow.png) no-repeat center center/contain;
+  background: url(../img/qa-arrow.webp) no-repeat center center/contain;
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
   -webkit-margin-before: 3px;
@@ -1678,12 +1678,12 @@ body {
 
 .gallery__prev {
   left: 0;
-  background: url(../img/prev-icon.png) no-repeat center center/contain;
+  background: url(../img/prev-icon.webp) no-repeat center center/contain;
 }
 
 .gallery__next {
   right: 0;
-  background: url(../img/next-icon.png) no-repeat center center/contain;
+  background: url(../img/next-icon.webp) no-repeat center center/contain;
 }
 
 .gallery-card {
@@ -1739,7 +1739,7 @@ body {
 
 .contact {
   padding-block: 60px;
-  background: url(../img/section-bg.png) repeat top left/529px auto;
+  background: url(../img/section-bg.webp) repeat top left/529px auto;
 }
 @media screen and (min-width: 768px) {
   .contact {
@@ -1959,7 +1959,7 @@ body {
   background: #fff;
   font-weight: 700;
   padding: 12px 43px 11px 13px;
-  background: url(../img/select-arrow.png) no-repeat center right 14px/9.451px 6.969px;
+  background: url(../img/select-arrow.webp) no-repeat center right 14px/9.451px 6.969px;
   -webkit-transition: border-color 0.6s;
   transition: border-color 0.6s;
 }
@@ -2037,7 +2037,7 @@ body {
   left: -1px;
   -webkit-margin-before: -1.2px;
           margin-block-start: -1.2px;
-  background: url(../img/check-icon.png) no-repeat center center/contain;
+  background: url(../img/check-icon.webp) no-repeat center center/contain;
   opacity: 0;
 }
 @media screen and (min-width: 768px) {

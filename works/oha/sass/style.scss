@@ -810,7 +810,7 @@ body {
 // movie
 .movie {
   padding-block: 60px;
-  background: url(../img/section-bg.png) repeat top left / 529px auto;
+  background: url(../img/section-bg.webp) repeat top left / 529px auto;
 
   @include breakpoints.mq("md") {
     padding-block: 100px;
@@ -1431,7 +1431,7 @@ body {
     right: 14px;
     width: 9.26px;
     height: 6.834px;
-    background: url(../img/qa-arrow.png) no-repeat center center / contain;
+    background: url(../img/qa-arrow.webp) no-repeat center center / contain;
     transform: rotate(180deg);
     margin-block-start: 3px;
 
@@ -1616,12 +1616,12 @@ body {
 
 .gallery__prev {
   left: 0;
-  background: url(../img/prev-icon.png) no-repeat center center / contain;
+  background: url(../img/prev-icon.webp) no-repeat center center / contain;
 }
 
 .gallery__next {
   right: 0;
-  background: url(../img/next-icon.png) no-repeat center center / contain;
+  background: url(../img/next-icon.webp) no-repeat center center / contain;
 }
 
 .gallery-card {
@@ -1669,7 +1669,7 @@ body {
 // contact
 .contact {
   padding-block: 60px;
-  background: url(../img/section-bg.png) repeat top left / 529px auto;
+  background: url(../img/section-bg.webp) repeat top left / 529px auto;
 
   @include breakpoints.mq("md") {
     padding-block: 100px;
@@ -1807,7 +1807,7 @@ body {
   //   background: #fff;
   //   font-weight: 700;
   //   padding: 15px 46px 14px 16px;
-  //   background: url(../img/select-arrow.png) no-repeat center right 16px / 9.451px 6.969px;
+  //   background: url(../img/select-arrow.webp) no-repeat center right 16px / 9.451px 6.969px;
   // }
 
   // textarea {
@@ -1924,7 +1924,7 @@ body {
   background: #fff;
   font-weight: 700;
   padding: calc(15px - 3px) calc(46px - 3px) calc(14px - 3px) calc(16px - 3px);
-  background: url(../img/select-arrow.png) no-repeat center right 14px / 9.451px 6.969px;
+  background: url(../img/select-arrow.webp) no-repeat center right 14px / 9.451px 6.969px;
   transition: border-color 0.6s;
 
   &:hover,
@@ -2047,7 +2047,7 @@ body {
     height: 17.53px;
     left: -1px;
     margin-block-start: -1.2px;
-    background: url(../img/check-icon.png) no-repeat center center / contain;
+    background: url(../img/check-icon.webp) no-repeat center center / contain;
     opacity: 0;
 
     @include breakpoints.mq("md") {
