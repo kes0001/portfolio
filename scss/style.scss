@@ -43,3 +43,8 @@
 // 「無レイヤー > レイヤー」の規則で常に @layer 内より強いため、
 // コアCSSを上書きするこのファイルだけ意図的に無レイヤーで読み込む。
 @include meta.load-css("pages/wp-bridge");
+
+// Contact Form 7 の出力（.wpcf7-*）へ意匠を当てるフォーム用CSS。
+// CF7もコア同様に無レイヤーでCSSを注入するため、同じく無レイヤーで読む
+// （@layer components 内だと CF7 の無レイヤーCSSに負ける）。静的サイトには無害。
+@include meta.load-css("components/form");

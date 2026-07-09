@@ -35,13 +35,13 @@
 <!-- wp:group {"layout":{"type":"default"}} -->
 <div class="wp-block-group">
 <!-- wp:paragraph {"className":"p-top-note__text"} -->
-<p class="p-top-note__text">本サイトはテンプレートを使わず、自身で整備したコーディングルール（BEM設計・デザイントークン・SCSSのコンポーネント分割）に基づいて、設計から実装まで一貫して制作しています。</p>
+<p class="p-top-note__text">本サイトはテンプレートを使わず、自分で整備したコーディングルール（BEM設計・デザイントークン・SCSSのコンポーネント分割）に基づいて、設計から実装まで一貫して制作しました。デザインはFigmaで組み、フロントエンドはWordPressのオリジナルブロックテーマとして実装しています。</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"p-top-note__text"} -->
-<p class="p-top-note__text">CSSは @layer によるカスケード管理、oklch() によるカラートークン設計、WebPによる画像最適化まで、ルールに定めたモダンな手法をこのサイト自身で実践しています。</p>
+<p class="p-top-note__text">この制作では、AI（Claude Code）を実装のパートナーとして本格的に活用しました。コードの多くはAIとの協働から生まれたもので、その事実を隠すつもりはありません。</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"p-top-note__text"} -->
-<p class="p-top-note__text">デザインはFigmaで制作し、実装ワークフローの一部にAI（Claude Code）を活用。フロントエンドはWordPressオリジナルブロックテーマとして実装し、「どう作るか」という設計判断そのものも含めて、制作プロセスを作品の一部としてご覧いただけます。</p>
+<p class="p-top-note__text">一方で、何をどう作るかという設計判断と、品質の最終責任は自分が握り続けました。AIを「手を動かす道具」として使いこなし、@layer によるカスケード管理、oklch() によるカラートークン設計、WebPによる画像最適化といったモダンな手法を、迷いなくこのサイト自身で実践しています。AIを使いこなす力もまた、これからの制作者に必要なスキルだと考え、「どう作るか」という判断そのものを作品の一部としてご覧いただけるようにしました。</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

@@ -35,8 +35,16 @@ $kanzaki_icons = esc_url( get_theme_file_uri( 'assets/images/icons.svg' ) );
 <div class="wp-block-group p-top-section__body">
 
 <!-- wp:paragraph {"className":"p-top-contact__text"} -->
-<p class="p-top-contact__text">お仕事のご相談・ご質問など、お気軽にご連絡ください。</p>
+<p class="p-top-contact__text">お仕事のご相談・ご質問など、お気軽にご連絡ください。下記フォームからお送りいただくか、メールでも承ります。</p>
 <!-- /wp:paragraph -->
+
+<!-- wp:group {"className":"p-top-contact__form p-form","layout":{"type":"default"}} -->
+<div class="wp-block-group p-top-contact__form p-form">
+<!-- wp:shortcode -->
+[contact-form-7 id="21f9a58" title="お問い合わせ"]
+<!-- /wp:shortcode -->
+</div>
+<!-- /wp:group -->
 
 <!-- wp:buttons {"className":"p-top-contact__actions"} -->
 <div class="wp-block-buttons p-top-contact__actions">

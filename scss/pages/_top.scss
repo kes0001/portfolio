@@ -232,28 +232,49 @@
   translate: -50% rem(20);
 }
 
-// メインキャッチコピーは「袋文字→塗り」のワイプで1文字ずつ出現させる
-// （JSが文字を span 分割し --char-index を付与）
-// 初期：塗りなし・stroke のみ・下端からクリップ
-// is-start：clip-path を下から上へ開いて袋文字をワイプ → 少し遅れて塗りが乗る
+// メインキャッチコピーはタイプライターで1文字ずつ打鍵し、青い点滅キャレットが追従。
+// 各文字は「袋文字（輪郭のスケルトン）→塗り」で立ち上がる（JSが .is-filled を付与）。
+// （JSが文字を span 分割し、打鍵前は hidden にして順に表示する）
 .js .p-top-hero__char {
-  --char-duration: 0.65s;
-  --char-stagger: 0.06s;
-  display: inline-block;
   color: transparent;
-  -webkit-text-stroke: rem(2) var(--fv-ink);
-  clip-path: inset(100% 0 0 0);
-  transition:
-    clip-path var(--char-duration) cubic-bezier(0.16, 1, 0.3, 1),
-    color calc(var(--char-duration) * 0.6) ease;
-  transition-delay:
-    calc(var(--char-index, 0) * var(--char-stagger)),
-    calc(var(--char-index, 0) * var(--char-stagger) + var(--char-duration) * 0.5);
+  -webkit-text-stroke: rem(1.2) var(--fv-ink); // 骨組み：輪郭のみ
+  transition: color 0.35s ease;
 }
 
-.js .p-top-hero.is-start .p-top-hero__char {
-  clip-path: inset(0 0 0 0);
+// 塗り：色が乗って中身が満ちる（stroke は塗りと同色になり実質消える）
+.js .p-top-hero__char.is-filled {
   color: var(--fv-ink);
+}
+
+// 打鍵前の文字は行幅を占有しない（行が打つたびに伸びる）
+.js .p-top-hero__char[hidden] {
+  display: none;
+}
+
+// 青い点滅キャレット（JS生成・書き位置に追従）
+.p-top-hero__caret {
+  display: inline-block;
+  width: rem(3);
+  height: 0.92em;
+  margin-inline-start: rem(2);
+  vertical-align: -0.1em;
+  background-color: var(--fv-wave-1);
+  animation: hero-caret-blink 1s step-end infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes hero-caret-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0;
+  }
 }
 
 .js .p-top-hero.is-start .p-top-hero__label,

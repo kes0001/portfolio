@@ -75,6 +75,12 @@
 // post-featured-image（figure）へのサムネイルスタイル委譲
 .wp-block-post-featured-image.p-work__thumbnail {
   overflow: hidden;
+
+  // WPコアが無レイヤーで注入する :where(figure){margin:0 0 1em} が
+  // @layer内の .p-work__thumbnail の margin-top（--space-48）を潰し、
+  // ボタン等の直前要素と密着してしまう。無レイヤーの通常宣言には
+  // レイヤー内の通常宣言は !important 無しでは勝てないため、ここで取り戻す。
+  margin-top: var(--space-48) !important;
 }
 
 .wp-block-post-featured-image.p-work__thumbnail img {
