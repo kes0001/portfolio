@@ -325,6 +325,21 @@
   max-width: 100%;
 }
 
+// 仮画像プレースホルダー（画像差し替え前提の「準備中」表示）
+.p-work__placeholder {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  max-width: rem(728);
+  min-height: rem(120);
+  padding: var(--space-24);
+  font-size: var(--text-caption);
+  color: var(--color-ink-muted);
+  background-color: var(--color-canvas-alt);
+  border: 1px dashed var(--color-hairline);
+  border-radius: var(--radius-media);
+}
+
 .p-work__variation-images--pair .p-work__variation-fig {
   flex: 1 1 rem(240);
 }
