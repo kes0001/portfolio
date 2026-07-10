@@ -150,6 +150,26 @@
 </div>
 <!-- /wp:group -->
 
+<!-- wp:group {"className":"p-top-skills__item p-top-skills__item--chart","layout":{"type":"default"}} -->
+<div class="wp-block-group p-top-skills__item p-top-skills__item--chart">
+<!-- wp:heading {"level":3,"className":"p-top-skills__name"} -->
+<h3 class="wp-block-heading p-top-skills__name">サイト公開・計測設定</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"p-top-skills__meta p-top-skills__meta--solid"} -->
+<p class="p-top-skills__meta p-top-skills__meta--solid">本サイトで実践</p>
+<!-- /wp:paragraph -->
+<!-- wp:list {"className":"p-top-skills__points"} -->
+<ul class="wp-block-list p-top-skills__points"><!-- wp:list-item -->
+<li>レンタルサーバーへの公開（独自ドメイン・SSL・WordPress移行）</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>GA4・Google Search Console の導入とサイトマップ送信</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>PageSpeed Insights による表示速度改善（本サイトはデスクトップ全項目100点）</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+</div>
+<!-- /wp:group -->
+
 </div>
 <!-- /wp:group -->
 

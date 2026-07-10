@@ -43,6 +43,9 @@
 <!-- wp:paragraph {"className":"p-top-note__text"} -->
 <p class="p-top-note__text">一方で、何をどう作るかという設計判断と、品質の最終責任は自分が握り続けました。AIを「手を動かす道具」として使いこなし、@layer によるカスケード管理、oklch() によるカラートークン設計、WebPによる画像最適化といったモダンな手法を、迷いなくこのサイト自身で実践しています。AIを使いこなす力もまた、これからの制作者に必要なスキルだと考え、「どう作るか」という判断そのものを作品の一部としてご覧いただけるようにしました。</p>
 <!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"p-top-note__text"} -->
+<p class="p-top-note__text">公開後の運用も自分の手で行っています。レンタルサーバーへの公開から、GA4・Google Search Console の導入とサイトマップ送信、PageSpeed Insights を用いたパフォーマンス改善（デスクトップ全項目100点）まで、「作って終わり」ではなく「届けて計測する」ところまでを本サイトで実践しています。</p>
+<!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
 
@@ -85,6 +88,12 @@
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"c-tag"} -->
 <p class="c-tag">Claude Code</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"c-tag"} -->
+<p class="c-tag">GA4</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"c-tag"} -->
+<p class="c-tag">Search Console</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
