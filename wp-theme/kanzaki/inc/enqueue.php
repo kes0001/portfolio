@@ -1,6 +1,13 @@
 <?php
 /**
- * アセット読み込み（CSS / JS / Google Fonts）
+ * アセット読み込み（CSS / JS / セルフホストフォント）
+ *
+ * パフォーマンス方針（PageSpeed対応）:
+ * - テーマCSSは <link> ではなく wp_head へインライン出力し、
+ *   render-blocking なCSS取得の往復を丸ごと無くす（FCP短縮）。
+ * - CF7 のCSSも同様に小さいためインライン化して統合する。
+ * - フォントは Inter（バリアブル・latinサブセット）をセルフホストし preload。
+ *   Google Fonts への外部依存は廃止（LCPのフォント再描画遅延対策）。
  *
  * @package kanzaki
  */
@@ -10,15 +17,7 @@ defined( 'ABSPATH' ) || exit;
 add_action(
 	'wp_enqueue_scripts',
 	function () {
-		$css_path = get_theme_file_path( 'assets/css/style.css' );
-		$js_path  = get_theme_file_path( 'assets/js/main.js' );
-
-		wp_enqueue_style(
-			'kanzaki',
-			get_theme_file_uri( 'assets/css/style.css' ),
-			array(),
-			file_exists( $css_path ) ? (string) filemtime( $css_path ) : '1.0.0'
-		);
+		$js_path = get_theme_file_path( 'assets/js/main.js' );
 
 		// 静的版の <script defer> を再現（head内・defer）
 		wp_enqueue_script(
@@ -31,7 +30,50 @@ add_action(
 				'in_footer' => false,
 			)
 		);
-	}
+
+		// CF7 のCSS（約1KB）は下のインライン出力へ統合するため <link> を止める
+		wp_dequeue_style( 'contact-form-7' );
+		wp_deregister_style( 'contact-form-7' );
+	},
+	20
+);
+
+/**
+ * フォント preload とテーマCSSのインライン出力。
+ * 優先度2 = analytics(1) の直後・他の head 出力より前に置き、最初の描画に間に合わせる。
+ */
+add_action(
+	'wp_head',
+	function () {
+		echo '<link rel="preload" href="' . esc_url( get_theme_file_uri( 'assets/fonts/inter-latin.woff2' ) ) . '" as="font" type="font/woff2" crossorigin>' . "\n";
+
+		$css = '';
+
+		// CF7 標準CSS（wp_enqueue_scripts 側で dequeue 済み）。
+		// 無レイヤーのまま結合すると @layer 内の自作スタイル（_form.scss）に勝って
+		// しまうため、最下位レイヤーに包む。テーマCSSより前に置くことで
+		// vendor レイヤーが「最初に登場」＝カスケード最弱になる。
+		$cf7_css = WP_PLUGIN_DIR . '/contact-form-7/includes/css/styles.css';
+		if ( file_exists( $cf7_css ) ) {
+			$css .= '@layer vendor{' . file_get_contents( $cf7_css ) . '}'; // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+		}
+
+		$theme_css = get_theme_file_path( 'assets/css/style.css' );
+		if ( file_exists( $theme_css ) ) {
+			// インライン<style>では相対URLがページURL基準で解決されてしまうため、
+			// ビルドCSS内の ../fonts/（スタイルシート基準の相対パス）を絶対URLへ書き換える
+			$css .= str_replace(
+				'../fonts/',
+				esc_url( get_theme_file_uri( 'assets/fonts' ) ) . '/',
+				file_get_contents( $theme_css ) // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+			);
+		}
+
+		if ( '' !== $css ) {
+			echo '<style id="kanzaki-inline-css">' . $css . '</style>' . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		}
+	},
+	2
 );
 
 /**
@@ -42,7 +84,7 @@ add_action(
 	'enqueue_block_assets',
 	function () {
 		if ( ! is_admin() ) {
-			return; // フロントは wp_enqueue_scripts 側で読み込み済み
+			return; // フロントは wp_head のインライン出力で読み込み済み
 		}
 		$css_path = get_theme_file_path( 'assets/css/style.css' );
 		wp_enqueue_style(
@@ -52,22 +94,4 @@ add_action(
 			file_exists( $css_path ) ? (string) filemtime( $css_path ) : '1.0.0'
 		);
 	}
-);
-
-/**
- * Google Fonts（静的版と同じ「media=print → onload で適用」の非同期読み込みパターン）。
- * wp_enqueue_style では onload 属性が付けられないため wp_head へ直書きする。
- */
-add_action(
-	'wp_head',
-	function () {
-		$fonts_url = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&display=swap';
-		?>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="<?php echo esc_url( $fonts_url ); ?>" rel="stylesheet" media="print" onload="this.media='all'" />
-		<noscript><link href="<?php echo esc_url( $fonts_url ); ?>" rel="stylesheet" /></noscript>
-		<?php
-	},
-	5
 );

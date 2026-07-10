@@ -48,8 +48,8 @@ $kanzaki_icons = esc_url( get_theme_file_uri( 'assets/images/icons.svg' ) );
 
 <!-- wp:buttons {"className":"p-top-contact__actions"} -->
 <div class="wp-block-buttons p-top-contact__actions">
-<!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="mailto:kanmasa30@icloud.com">メールを送る</a></div>
+<!-- wp:button {"className":"kanzaki-button--secondary"} -->
+<div class="wp-block-button kanzaki-button--secondary"><a class="wp-block-button__link wp-element-button" href="mailto:kanmasa30@icloud.com">メールを送る</a></div>
 <!-- /wp:button -->
 <!-- wp:button {"className":"kanzaki-button--secondary kanzaki-button--github"} -->
 <div class="wp-block-button kanzaki-button--secondary kanzaki-button--github"><a class="wp-block-button__link wp-element-button" href="https://github.com/kes0001" target="_blank" rel="noopener">GitHubでコードを見る</a></div>

@@ -17,3 +17,4 @@ require_once get_theme_file_path( 'inc/adjacent-works.php' );
 require_once get_theme_file_path( 'inc/metabox-works.php' );
 require_once get_theme_file_path( 'inc/seo.php' );
 require_once get_theme_file_path( 'inc/analytics.php' );
+require_once get_theme_file_path( 'inc/cf7-tweaks.php' );

@@ -32,7 +32,7 @@
 <div class="wp-block-group p-top-section__body p-top-profile__inner">
 
 <!-- wp:image {"className":"p-top-profile__figure"} -->
-<figure class="wp-block-image p-top-profile__figure"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/prof-800.webp' ) ); ?>" alt="神﨑勝弘のプロフィール写真"/></figure>
+<figure class="wp-block-image p-top-profile__figure"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/prof-800.webp' ) ); ?>" alt="神﨑勝弘のプロフィール写真" width="600" height="800" loading="lazy" decoding="async"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:group {"layout":{"type":"default"}} -->

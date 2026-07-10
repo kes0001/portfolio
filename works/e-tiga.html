@@ -17,11 +17,8 @@
     <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="../images/apple-touch-icon.png" />
     <meta name="theme-color" content="#ffffff" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- フォントCSSは非同期適用（レンダーブロック回避）。読み込み完了までシステムフォントで表示 -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet" /></noscript>
+    <!-- Inter はセルフホスト（@font-face は style.css 内）。外部フォントCSSの往復を排除 -->
+    <link rel="preload" href="../fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="../css/style.css" />
     <script src="../js/main.js" defer></script>
     <script type="application/ld+json">

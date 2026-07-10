@@ -111,6 +111,9 @@
 .wpcf7-submit.p-form__submit {
   @include c-button-base;
   @include c-button-primary;
+  // フォームの主CTA：他のボタン(min-height 48)よりひと回り大きく、幅も確保する
+  min-width: rem(240);
+  min-height: rem(56);
   border: none;
   cursor: pointer;
 }
@@ -151,9 +154,12 @@
   border-color: var(--form-danger);
 }
 
-// 送信中スピナー
+// 送信中スピナー：インラインだと非表示時も幅を占有しボタンが中央からズレるため、
+// ボタンの下に独立させて中央に出す
 .wpcf7-spinner {
-  margin-inline-start: var(--space-12);
+  display: block;
+  margin-inline: auto;
+  margin-top: var(--space-12);
 }
 
 // ハニーポット（スパム用の隠しフィールド）は常に不可視に
