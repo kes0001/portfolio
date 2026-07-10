@@ -394,6 +394,27 @@
   }
 }
 
+// カードが奇数枚のとき、最終カードを全幅にして「最終行に1枚」の間延びを防ぐ。
+// 偶数枚に戻れば :nth-child(odd) が外れて自動で通常グリッドに戻る。
+.p-top-skills__item:last-child:nth-child(odd) {
+  @include mq("md") {
+    grid-column: 1 / -1;
+  }
+}
+
+// 全幅カード内の箇条書きは横並びにして、縦積みによる右側の空白を防ぐ
+.p-top-skills__item:last-child:nth-child(odd) .p-top-skills__points {
+  @include mq("md") {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8) var(--space-24);
+  }
+
+  @include mq("lg") {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 // canvas 面上のカード。浮きは面の色差＋ごく淡い落ち影で表現する
 .p-top-skills__item {
   padding: var(--space-24);
