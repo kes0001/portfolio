@@ -30,12 +30,21 @@
 
 .l-header__logo {
   // 後続要素（nav・トグル・バーガー）を右へ寄せる
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
   margin-inline-end: auto;
   font-size: var(--text-body);
   font-weight: var(--font-weight-semibold);
   letter-spacing: 0.05em;
   color: var(--color-ink);
   text-decoration: none;
+}
+
+// ロゴマーク（#を象った site-logo。テキスト「KANZAKI」と横並び）
+.l-header__logo-mark {
+  inline-size: rem(28);
+  block-size: auto;
 }
 
 // WP: site-titleブロックは p.l-header__logo > a になる（静的サイトでは非マッチ）

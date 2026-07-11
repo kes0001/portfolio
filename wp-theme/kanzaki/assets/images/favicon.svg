@@ -1,8 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#2456f0"/>
-  <g stroke="#fff" stroke-width="8" stroke-linecap="round" fill="none">
-    <path d="M23 17v30"/>
-    <path d="M43 17 23 34.5"/>
-    <path d="M28.5 30 43 47"/>
+  <!-- サイトロゴ（site-logo.webp）と同デザイン：「＋」4つで「#」— blue #2766d8 / red #dd2656 -->
+  <defs>
+    <!-- 外形プラス（ベタの身） -->
+    <path id="plus-out" d="M-6.6 -15.1h13.2v8.5H15.1v13.2H6.6V15.1h-13.2V6.6H-15.1v-13.2h8.5Z"/>
+    <!-- 内側の白プラス -->
+    <path id="plus-in" d="M-2.4 -10.9h4.8v8.5H10.9v4.8H2.4V10.9h-4.8V2.4H-10.9v-4.8h8.5Z"/>
+  </defs>
+  <!-- 重ね順は本家準拠：左上の青 → 赤（左下・手前） → 右列の青2つが最前面 -->
+  <use href="#plus-out" x="20" y="20" fill="#2766d8"/>
+  <use href="#plus-in" x="20" y="20" fill="#fff"/>
+  <use href="#plus-out" x="20" y="44" fill="#dd2656"/>
+  <use href="#plus-in" x="20" y="44" fill="#fff"/>
+  <g fill="#2766d8">
+    <use href="#plus-out" x="44" y="20"/>
+    <use href="#plus-out" x="44" y="44"/>
+  </g>
+  <g fill="#fff">
+    <use href="#plus-in" x="44" y="20"/>
+    <use href="#plus-in" x="44" y="44"/>
   </g>
 </svg>
