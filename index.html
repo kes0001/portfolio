@@ -3,6 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J4RXY3ZW0L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-J4RXY3ZW0L');
+    </script>
+    <meta name="google-site-verification" content="H6n-iBCV30dKyBsj94QLOyOgV8Hi7rmWB_uzlp4rxR4" />
     <title>KANZAKI Portfolio | Webデザイン・コーディング</title>
     <meta name="description" content="Webデザイナー・コーダー神﨑勝弘のポートフォリオ。Figmaでのデザイン制作からHTML/SCSS/JavaScriptによる実装まで一貫して担当。実案件・課題制作の実績を、担当範囲と工夫のポイントとともに紹介します。" />
     <link rel="canonical" href="https://www.kanzaki.site/" />
@@ -48,7 +57,7 @@
     <a class="u-skip-link" href="#main">本文へスキップ</a>
     <header class="l-header">
       <div class="l-container l-header__inner">
-        <a class="l-header__logo" href="#">KANZAKI</a>
+        <a class="l-header__logo" href="#"><img class="l-header__logo-mark" src="./images/site-logo.webp" alt="" width="278" height="270" />KANZAKI</a>
         <button class="l-header__burger" aria-label="メニューを開く" aria-expanded="false" aria-controls="l-header-nav">
           <span class="l-header__burger-bar"></span>
           <span class="l-header__burger-bar"></span>
@@ -346,9 +355,10 @@
               <li>
                 <a class="c-card" href="./works/banner-fruit.html">
                   <div class="c-card__media">
+                    <span class="c-card__badge">実案件あり</span>
                     <picture>
-                      <source srcset="./images/work-banner.webp" type="image/webp" />
-                      <img class="c-card__thumbnail" src="./images/work-banner.jpg" alt="フルーツサブスク フルハビの告知バナー" width="800" height="533" loading="lazy" decoding="async" />
+                      <source srcset="./images/work-banner-sela-thumb.webp" type="image/webp" />
+                      <img class="c-card__thumbnail" src="./images/work-banner-sela-thumb.jpg" alt="電話占いSelaの広告バナー" width="800" height="533" loading="lazy" decoding="async" />
                     </picture>
                   </div>
                   <div class="c-card__body">
@@ -361,7 +371,7 @@
                       </div>
                       <div class="c-card__meta-row">
                         <dt class="c-card__meta-label">工夫</dt>
-                        <dd class="c-card__meta-value">ターゲット別に訴求を変えた複数案。補色のインパクトと文字組での視線誘導</dd>
+                        <dd class="c-card__meta-value">電話占いサービスの実案件バナー（A/Bテスト設計）ほか、ターゲット別に訴求を変えた複数案</dd>
                       </div>
                     </dl>
                     <span class="c-card__action">詳細を見る</span>
