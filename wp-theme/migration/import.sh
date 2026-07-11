@@ -73,21 +73,21 @@ wp post meta update $ID kanzaki_badge ''
 wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-onomichi.webp' --post_id=$ID --featured_image --title='デザインカンプからサイト制作'
 echo "imported: onomichi (ID=$ID)"
 
-# ---- 05: 架空のサブスクサービス バナー制作 ----
+# ---- 05: バナー制作 ----
 EXISTING=$(wp post list --post_type=works --name=banner-fruit --format=ids)
 if [ -n "$EXISTING" ]; then wp post delete $EXISTING --force; fi
 ID=$(wp post create "$MIG_DIR/content-banner-fruit.html" --post_type=works --post_status=publish \
-  --post_title='架空のサブスクサービス バナー制作' --post_name=banner-fruit --menu_order=5 \
-  --post_date='2026-01-05 10:00:00' --post_excerpt='フルーツサブスク「フルハビ」の新発売告知バナー。ターゲット別に訴求を変えた複数案を、2サイズ1組で制作しました。' --porcelain)
+  --post_title='バナー制作' --post_name=banner-fruit --menu_order=5 \
+  --post_date='2026-01-05 10:00:00' --post_excerpt='電話占いサービス「Sela（セラ）」の実案件広告バナーを担当。あわせて、自主制作（架空案件）のフルーツサブスク「フルハビ」の提案バナーも掲載しています。' --porcelain)
 wp post meta update $ID kanzaki_subtitle ''
-wp post meta update $ID kanzaki_eyebrow 'Works — Banner'
+wp post meta update $ID kanzaki_eyebrow 'Works — Banner（実案件あり）'
 wp post meta update $ID kanzaki_category 'DESIGN'
 wp post meta update $ID kanzaki_role 'デザイン'
 wp post meta update $ID kanzaki_tools 'Photoshop / Illustrator'
-wp post meta update $ID kanzaki_highlight 'ターゲット別に訴求を変えた複数案。補色のインパクトと文字組での視線誘導'
+wp post meta update $ID kanzaki_highlight '電話占いサービスの実案件バナー（A/Bテスト設計）ほか、ターゲット別に訴求を変えた複数案'
 wp post meta update $ID kanzaki_site_url ''
-wp post meta update $ID kanzaki_badge ''
-wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-banner.jpg' --post_id=$ID --featured_image --title='架空のサブスクサービス バナー制作'
+wp post meta update $ID kanzaki_badge '実案件あり'
+wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-banner-sela-thumb.jpg' --post_id=$ID --featured_image --title='バナー制作'
 echo "imported: banner-fruit (ID=$ID)"
 
 # ---- 06: 架空の建設会社 ロゴ制作 ----
