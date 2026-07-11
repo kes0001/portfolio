@@ -45,8 +45,5 @@ $kanzaki_icons = esc_url( get_theme_file_uri( 'assets/images/icons.svg' ) );
 		<span class="p-top-hero__vertical-col">正確なコーディングと</span>
 		<span class="p-top-hero__vertical-col">共に。</span>
 	</p>
-	<div class="p-top-hero__scroll" aria-hidden="true">
-		<span class="p-top-hero__scroll-label">Scroll</span>
-	</div>
 </section>
 <!-- /wp:html -->
