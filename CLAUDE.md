@@ -6,7 +6,7 @@
 | -------- | ------------------------------------------------ |
 | サイト名 | KANZAKI Portfolio                                |
 | 種別     | ポートフォリオ                                   |
-| URL      | https://www.kanzaki.site/ （現行版・リニューアル対象） |
+| URL      | https://kanzaki-web.com/ （本番・WP版）。旧 kanzaki.site は休止 |
 | Figma    | （デザイン制作後に記入）                         |
 
 ---

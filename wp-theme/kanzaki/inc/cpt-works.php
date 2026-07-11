@@ -32,7 +32,7 @@ add_action(
 				),
 				'menu_icon'    => 'dashicons-portfolio',
 				'menu_position' => 5,
-				'supports'     => array( 'title', 'editor', 'excerpt', 'thumbnail', 'page-attributes' ),
+				'supports'     => array( 'title', 'editor', 'excerpt', 'thumbnail', 'page-attributes', 'custom-fields' ),
 				'show_in_rest' => true,
 				// 新規作品のひな形（PURPOSE / DESIGN / CODING）。既存作品と同じ
 				// 「セクションgroup > 英ラベル + 見出し + 本文」の構造で用意する
