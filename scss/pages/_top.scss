@@ -1,11 +1,12 @@
 @use "../foundation" as *;
 
 // ============================================================
-// ヒーロー（ストロークワイプアニメーション）
-// 波形ストロークのSVGマスクで、カバーの奥のグラデーションを描き出す
+// ヒーロー（「＋」モチーフの組み上がり演出）
+// ロゴ（site-logo）の構成要素「＋」が方眼グリッドに沿って
+// スタッガーで立ち上がる。CSSアニメのみ・transform/opacity限定で
+// LCP（タイトル）を遅らせない設計。
 // 地色は生成り・見出しは墨紺のゴシック（和モダン）
-// ※ このセクションのみ前デザインのビジュアルを保持する意図的な例外。
-//   専用トークンは .p-top-hero にスコープし、全体のトークン体系を汚さない。
+// 専用トークンは .p-top-hero にスコープし、全体のトークン体系を汚さない。
 // ============================================================
 .p-top-hero {
   // FV専用トークン（生成り×墨紺・波グラデ・方眼紙）
@@ -43,33 +44,15 @@
   mask-image: radial-gradient(120% 120% at 0% 0%, #000 45%, transparent 90%);
 }
 
+// 背景は淡い色気だけ（「＋」が主役。右肩にブランド青のごく薄いウォッシュ）
 .p-top-hero__bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--fv-wave-1), var(--fv-wave-2));
-}
-
-// テキスト側（左半分）はグラデを地色に溶かし、帯は右半分で見せる
-// SPは画面幅が足りず帯が文字に被るため、全体に薄いベールを掛けて気配だけ見せる
-.p-top-hero__bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    95deg,
-    var(--fv-bg) 55%,
-    color-mix(in srgb, var(--fv-bg) 80%, transparent) 78%,
-    color-mix(in srgb, var(--fv-bg) 45%, transparent) 100%
+  background: radial-gradient(
+    60% 85% at 85% 25%,
+    color-mix(in srgb, var(--fv-wave-1) 13%, transparent),
+    transparent 72%
   );
-
-  @include mq("md") {
-    background: linear-gradient(
-      95deg,
-      var(--fv-bg) 48%,
-      color-mix(in srgb, var(--fv-bg) 50%, transparent) 58%,
-      transparent 70%
-    );
-  }
 }
 
 // JSあり時はストローク描画の15%地点でフェードイン
@@ -82,22 +65,68 @@
   opacity: 1;
 }
 
-.p-top-hero__cover {
+// 「＋」モチーフのフィールド（背景と本文の間のレイヤー）
+.p-top-hero__plus-field {
   position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;
 }
 
-.p-top-hero__cover-svg {
-  width: 100%;
-  height: 100%;
+// ＋1つぶん。サイズ・位置は方眼セル（--fv-grid-cell）の倍数に載せる
+.p-top-hero__plus {
+  position: absolute;
   display: block;
+  aspect-ratio: 1;
+  background-color: var(--color-logo);
+  clip-path: polygon(33% 0, 67% 0, 67% 33%, 100% 33%, 100% 67%, 67% 67%, 67% 100%, 33% 100%, 33% 67%, 0 67%, 0 33%, 33% 33%);
 }
 
-.p-top-hero__cover-rect {
-  fill: var(--fv-bg);
+// 配置（右肩を主に、左下へ視線が流れる対角構成。赤は2つだけのアクセント）
+// SPは画面が狭く文字に被るため、テキストと重なる4つ（2/4/7/8）は隠して
+// 端に逃がした最小構成にする。md以上でフル構成
+.p-top-hero__plus:nth-child(1) { width: calc(var(--fv-grid-cell) * 4); top: calc(var(--fv-grid-cell) * 3); right: calc(var(--fv-grid-cell) * 7); opacity: 0.14; }
+.p-top-hero__plus:nth-child(2) { display: none; width: calc(var(--fv-grid-cell) * 2); top: calc(var(--fv-grid-cell) * 7); right: calc(var(--fv-grid-cell) * 13); opacity: 0.2; @include mq("md") { display: block; } }
+.p-top-hero__plus:nth-child(3) {
+  width: calc(var(--fv-grid-cell) * 3);
+  top: calc(var(--fv-grid-cell) * 2);
+  right: calc(var(--fv-grid-cell) * 2);
+  background-color: var(--color-logo-accent);
+  opacity: 0.5;
+
+  @include mq("md") {
+    top: calc(var(--fv-grid-cell) * 10);
+    right: calc(var(--fv-grid-cell) * 7);
+  }
 }
+.p-top-hero__plus:nth-child(4) { display: none; width: var(--fv-grid-cell); top: calc(var(--fv-grid-cell) * 4); right: calc(var(--fv-grid-cell) * 15); opacity: 0.26; @include mq("md") { display: block; } }
+.p-top-hero__plus:nth-child(5) { width: calc(var(--fv-grid-cell) * 2); bottom: calc(var(--fv-grid-cell) * 6); right: calc(var(--fv-grid-cell) * 9); opacity: 0.16; }
+.p-top-hero__plus:nth-child(6) { width: calc(var(--fv-grid-cell) * 6); bottom: calc(var(--fv-grid-cell) * -2); right: calc(var(--fv-grid-cell) * -2); opacity: 0.1; }
+.p-top-hero__plus:nth-child(7) { display: none; width: var(--fv-grid-cell); bottom: calc(var(--fv-grid-cell) * 9); right: calc(var(--fv-grid-cell) * 18); opacity: 0.22; @include mq("md") { display: block; } }
+.p-top-hero__plus:nth-child(8) { display: none; width: var(--fv-grid-cell); top: calc(var(--fv-grid-cell) * 12); right: calc(var(--fv-grid-cell) * 12); background-color: var(--color-logo-accent); opacity: 0.32; @include mq("md") { display: block; } }
+.p-top-hero__plus:nth-child(9) { width: calc(var(--fv-grid-cell) * 2); top: calc(var(--fv-grid-cell) * 6); right: calc(var(--fv-grid-cell) * 5); opacity: 0.12; @include mq("md") { top: calc(var(--fv-grid-cell) * 2); right: calc(var(--fv-grid-cell) * 2); } }
+
+// 組み上がり：スケールとフェードのみ（transform/opacity限定）
+@keyframes hero-plus-in {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+}
+
+.js .p-top-hero__plus {
+  animation: hero-plus-in 0.7s var(--ease-decelerate) backwards;
+}
+
+.js .p-top-hero__plus:nth-child(1) { animation-delay: 0.05s; }
+.js .p-top-hero__plus:nth-child(2) { animation-delay: 0.15s; }
+.js .p-top-hero__plus:nth-child(3) { animation-delay: 0.4s; }
+.js .p-top-hero__plus:nth-child(4) { animation-delay: 0.1s; }
+.js .p-top-hero__plus:nth-child(5) { animation-delay: 0.25s; }
+.js .p-top-hero__plus:nth-child(6) { animation-delay: 0.2s; }
+.js .p-top-hero__plus:nth-child(7) { animation-delay: 0.3s; }
+.js .p-top-hero__plus:nth-child(8) { animation-delay: 0.5s; }
+.js .p-top-hero__plus:nth-child(9) { animation-delay: 0.35s; }
 
 .p-top-hero__content {
   position: relative;
@@ -232,49 +261,18 @@
   translate: -50% rem(20);
 }
 
-// メインキャッチコピーはタイプライターで1文字ずつ打鍵し、青い点滅キャレットが追従。
-// 各文字は「袋文字（輪郭のスケルトン）→塗り」で立ち上がる（JSが .is-filled を付与）。
-// （JSが文字を span 分割し、打鍵前は hidden にして順に表示する）
-.js .p-top-hero__char {
-  color: transparent;
-  -webkit-text-stroke: rem(1.2) var(--fv-ink); // 骨組み：輪郭のみ
-  transition: color 0.35s ease;
+// タイトルはLCP要素のため最速で立ち上げる（遅延なし・短めのトランジション）
+.js .p-top-hero__title {
+  opacity: 0;
+  translate: 0 rem(12);
+  transition:
+    opacity 0.5s var(--ease-decelerate),
+    translate 0.5s var(--ease-decelerate);
 }
 
-// 塗り：色が乗って中身が満ちる（stroke は塗りと同色になり実質消える）
-.js .p-top-hero__char.is-filled {
-  color: var(--fv-ink);
-}
-
-// 打鍵前の文字は行幅を占有しない（行が打つたびに伸びる）
-.js .p-top-hero__char[hidden] {
-  display: none;
-}
-
-// 青い点滅キャレット（JS生成・書き位置に追従）
-.p-top-hero__caret {
-  display: inline-block;
-  width: rem(3);
-  height: 0.92em;
-  margin-inline-start: rem(2);
-  vertical-align: -0.1em;
-  background-color: var(--fv-wave-1);
-  animation: hero-caret-blink 1s step-end infinite;
-
-  @media (prefers-reduced-motion: reduce) {
-    animation: none;
-  }
-}
-
-@keyframes hero-caret-blink {
-  0%,
-  50% {
-    opacity: 1;
-  }
-  50.01%,
-  100% {
-    opacity: 0;
-  }
+.js .p-top-hero.is-start .p-top-hero__title {
+  opacity: 1;
+  translate: 0 0;
 }
 
 .js .p-top-hero.is-start .p-top-hero__label,

@@ -4,100 +4,21 @@ document.documentElement.classList.add("js");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 // ============================================================
-// FVストロークワイプ
-// 波形パスのstroke-dashoffsetを描画し、マスク越しに背景を見せる（オリジナルの波）
+// FV入場演出のトリガー
+// 「＋」モチーフの組み上がりと本文リビールはCSSアニメ/トランジションが担当。
+// JSはクラスを付けるだけ（タイトルはLCPを遅らせないため即時リビール）。
 // ============================================================
 const heroElement = document.querySelector(".js-hero");
-const heroWavePath = document.querySelector(".js-hero-wave");
 
-if (heroElement && heroWavePath) {
+if (heroElement) {
   if (prefersReducedMotion) {
     heroElement.classList.add("is-photo");
     heroElement.classList.add("is-start");
   } else {
-    const wavePathLength = heroWavePath.getTotalLength();
-    const waveDuration = 2200;
-    const waveStrokeWidth = 340; // viewBox(1920x1100)座標系での帯の太さ（オリジナル）
-
-    heroWavePath.style.strokeWidth = `${waveStrokeWidth}px`;
-    heroWavePath.style.strokeDasharray = `${wavePathLength} ${wavePathLength}`;
-    heroWavePath.style.strokeDashoffset = `${wavePathLength}px`;
-
-    const easeInOut = (t) => (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t);
-    let waveStartTime = null;
-
-    const waveTick = (timestamp) => {
-      if (!waveStartTime) waveStartTime = timestamp;
-      const progress = Math.min((timestamp - waveStartTime) / waveDuration, 1);
-
-      heroWavePath.style.strokeDashoffset = `${wavePathLength * (1 - easeInOut(progress))}px`;
-
-      if (progress >= 0.15) heroElement.classList.add("is-photo");
-      if (progress >= 0.6) heroElement.classList.add("is-start");
-      if (progress < 1) requestAnimationFrame(waveTick);
-    };
-
-    requestAnimationFrame(waveTick);
-  }
-}
-
-// ============================================================
-// FVメインキャッチコピー：タイプライター＋点滅キャレット
-// 文字を span 分割し、打鍵前は hidden。タイマーで1文字ずつ表示し、
-// 直近の文字の後ろに青いキャレットを追従させる。
-// ============================================================
-const heroTitle = document.querySelector(".p-top-hero__title");
-
-if (heroTitle) {
-  // 全文をアクセシブルネームに退避（分割した文字はSRから隠す）
-  heroTitle.setAttribute("aria-label", heroTitle.textContent.replace(/\s+/g, " ").trim());
-
-  if (prefersReducedMotion) {
-    // モーション低減時はタイプせず全文表示のまま。本文リビールも即時
-    heroElement?.classList.add("is-start");
-  } else {
-    const lines = heroTitle.querySelectorAll(".p-top-hero__title-line");
-    const charUnits = [];
-
-    lines.forEach((line) => {
-      const chars = Array.from(line.textContent); // コードポイント単位
-      line.textContent = "";
-      line.setAttribute("aria-hidden", "true");
-
-      chars.forEach((char) => {
-        const span = document.createElement("span");
-        span.className = "p-top-hero__char";
-        span.textContent = char;
-        span.hidden = true;
-        line.appendChild(span);
-        charUnits.push({ span, line });
-      });
+    requestAnimationFrame(() => {
+      heroElement.classList.add("is-photo");
+      window.setTimeout(() => heroElement.classList.add("is-start"), 150);
     });
-
-    // 青い点滅キャレット
-    const caret = document.createElement("span");
-    caret.className = "p-top-hero__caret";
-    caret.setAttribute("aria-hidden", "true");
-    if (lines[0]) lines[0].appendChild(caret);
-
-    const typeSpeed = 70;
-    let charIndex = 0;
-
-    const typeNext = () => {
-      if (charIndex < charUnits.length) {
-        const { span, line } = charUnits[charIndex];
-        span.hidden = false; // まず袋文字（輪郭）で出す
-        // 少し輪郭のまま保持してから塗りへ（骨組み→テキストのトレイルをはっきり見せる）
-        window.setTimeout(() => span.classList.add("is-filled"), 160);
-        line.appendChild(caret); // 現在の行末（＝直近文字の後ろ）へキャレットを移す
-        charIndex += 1;
-        window.setTimeout(typeNext, typeSpeed);
-      } else {
-        heroElement?.classList.add("is-start"); // 打ち終えたら本文をリビール
-      }
-    };
-
-    window.setTimeout(typeNext, 400); // 少し溜めてから打鍵開始
   }
 }
 
