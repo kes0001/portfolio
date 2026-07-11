@@ -27,7 +27,8 @@
 
   @include mq("md") {
     min-height: min(rem(780), 92svh);
-    padding-block: rem(160) rem(120);
+    // 上を詰めてコンテンツを高めに置く（ノートPC級の画面高でCTAが見切れんように）
+    padding-block: rem(96) rem(120);
   }
 }
 
@@ -74,59 +75,79 @@
 }
 
 // ＋1つぶん。サイズ・位置は方眼セル（--fv-grid-cell）の倍数に載せる
+// 濃さは --o（アンビエントループのkeyframesが参照するピーク不透明度）
 .p-top-hero__plus {
   position: absolute;
   display: block;
   aspect-ratio: 1;
   background-color: var(--color-logo);
+  opacity: var(--o, 0.15);
   clip-path: polygon(33% 0, 67% 0, 67% 33%, 100% 33%, 100% 67%, 67% 67%, 67% 100%, 33% 100%, 33% 67%, 0 67%, 0 33%, 33% 33%);
 }
 
 // 配置（右肩を主に、左下へ視線が流れる対角構成。赤は2つだけのアクセント）
 // SPは画面が狭く文字に被るため、テキストと重なる4つ（2/4/7/8）は隠して
 // 端に逃がした最小構成にする。md以上でフル構成
-.p-top-hero__plus:nth-child(1) { width: calc(var(--fv-grid-cell) * 4); top: calc(var(--fv-grid-cell) * 3); right: calc(var(--fv-grid-cell) * 7); opacity: 0.14; }
-.p-top-hero__plus:nth-child(2) { display: none; width: calc(var(--fv-grid-cell) * 2); top: calc(var(--fv-grid-cell) * 7); right: calc(var(--fv-grid-cell) * 13); opacity: 0.2; @include mq("md") { display: block; } }
+.p-top-hero__plus:nth-child(1) { width: calc(var(--fv-grid-cell) * 4); top: calc(var(--fv-grid-cell) * 3); right: calc(var(--fv-grid-cell) * 7); --o: 0.14; }
+.p-top-hero__plus:nth-child(2) { display: none; width: calc(var(--fv-grid-cell) * 2); top: calc(var(--fv-grid-cell) * 7); right: calc(var(--fv-grid-cell) * 13); --o: 0.2; @include mq("md") { display: block; } }
 .p-top-hero__plus:nth-child(3) {
   width: calc(var(--fv-grid-cell) * 3);
   top: calc(var(--fv-grid-cell) * 2);
   right: calc(var(--fv-grid-cell) * 2);
   background-color: var(--color-logo-accent);
-  opacity: 0.5;
+  --o: 0.5;
 
   @include mq("md") {
     top: calc(var(--fv-grid-cell) * 10);
     right: calc(var(--fv-grid-cell) * 7);
   }
 }
-.p-top-hero__plus:nth-child(4) { display: none; width: var(--fv-grid-cell); top: calc(var(--fv-grid-cell) * 4); right: calc(var(--fv-grid-cell) * 15); opacity: 0.26; @include mq("md") { display: block; } }
-.p-top-hero__plus:nth-child(5) { width: calc(var(--fv-grid-cell) * 2); bottom: calc(var(--fv-grid-cell) * 6); right: calc(var(--fv-grid-cell) * 9); opacity: 0.16; }
-.p-top-hero__plus:nth-child(6) { width: calc(var(--fv-grid-cell) * 6); bottom: calc(var(--fv-grid-cell) * -2); right: calc(var(--fv-grid-cell) * -2); opacity: 0.1; }
-.p-top-hero__plus:nth-child(7) { display: none; width: var(--fv-grid-cell); bottom: calc(var(--fv-grid-cell) * 9); right: calc(var(--fv-grid-cell) * 18); opacity: 0.22; @include mq("md") { display: block; } }
-.p-top-hero__plus:nth-child(8) { display: none; width: var(--fv-grid-cell); top: calc(var(--fv-grid-cell) * 12); right: calc(var(--fv-grid-cell) * 12); background-color: var(--color-logo-accent); opacity: 0.32; @include mq("md") { display: block; } }
-.p-top-hero__plus:nth-child(9) { width: calc(var(--fv-grid-cell) * 2); top: calc(var(--fv-grid-cell) * 6); right: calc(var(--fv-grid-cell) * 5); opacity: 0.12; @include mq("md") { top: calc(var(--fv-grid-cell) * 2); right: calc(var(--fv-grid-cell) * 2); } }
+.p-top-hero__plus:nth-child(4) { display: none; width: var(--fv-grid-cell); top: calc(var(--fv-grid-cell) * 4); right: calc(var(--fv-grid-cell) * 15); --o: 0.26; @include mq("md") { display: block; } }
+.p-top-hero__plus:nth-child(5) { width: calc(var(--fv-grid-cell) * 2); bottom: calc(var(--fv-grid-cell) * 6); right: calc(var(--fv-grid-cell) * 9); --o: 0.16; }
+.p-top-hero__plus:nth-child(6) { width: calc(var(--fv-grid-cell) * 6); bottom: calc(var(--fv-grid-cell) * -2); right: calc(var(--fv-grid-cell) * -2); --o: 0.1; }
+.p-top-hero__plus:nth-child(7) { display: none; width: var(--fv-grid-cell); bottom: calc(var(--fv-grid-cell) * 9); right: calc(var(--fv-grid-cell) * 18); --o: 0.22; @include mq("md") { display: block; } }
+.p-top-hero__plus:nth-child(8) { display: none; width: var(--fv-grid-cell); top: calc(var(--fv-grid-cell) * 12); right: calc(var(--fv-grid-cell) * 12); background-color: var(--color-logo-accent); --o: 0.32; @include mq("md") { display: block; } }
+.p-top-hero__plus:nth-child(9) { width: calc(var(--fv-grid-cell) * 2); top: calc(var(--fv-grid-cell) * 6); right: calc(var(--fv-grid-cell) * 5); --o: 0.12; @include mq("md") { top: calc(var(--fv-grid-cell) * 2); right: calc(var(--fv-grid-cell) * 2); } }
 
-// 組み上がり：スケールとフェードのみ（transform/opacity限定）
-@keyframes hero-plus-in {
-  from {
+// アンビエントループ：ゆっくり上昇しながら湧いて、漂って、溶けて消える。
+// 透明度の山は各要素の --o（ピーク値）。transform/opacityのみ・線形で等速の漂い。
+// 周期と位相を要素ごとにずらし、常にどれかが生まれてどれかが消えていく場をつくる。
+@keyframes hero-plus-drift {
+  0% {
     opacity: 0;
-    transform: scale(0.4);
+    transform: translateY(#{rem(16)}) scale(0.92);
+  }
+  18% {
+    opacity: var(--o, 0.15);
+  }
+  72% {
+    opacity: var(--o, 0.15);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(#{rem(-28)}) scale(1);
   }
 }
 
 .js .p-top-hero__plus {
-  animation: hero-plus-in 0.7s var(--ease-decelerate) backwards;
+  animation: hero-plus-drift 12s linear infinite backwards;
+
+  // 長周期の環境アニメはreduce時に完全停止し、静的な配置として見せる
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 }
 
-.js .p-top-hero__plus:nth-child(1) { animation-delay: 0.05s; }
-.js .p-top-hero__plus:nth-child(2) { animation-delay: 0.15s; }
-.js .p-top-hero__plus:nth-child(3) { animation-delay: 0.4s; }
-.js .p-top-hero__plus:nth-child(4) { animation-delay: 0.1s; }
-.js .p-top-hero__plus:nth-child(5) { animation-delay: 0.25s; }
-.js .p-top-hero__plus:nth-child(6) { animation-delay: 0.2s; }
-.js .p-top-hero__plus:nth-child(7) { animation-delay: 0.3s; }
-.js .p-top-hero__plus:nth-child(8) { animation-delay: 0.5s; }
-.js .p-top-hero__plus:nth-child(9) { animation-delay: 0.35s; }
+// 周期（9〜16s）と初動の位相をばらして「呼吸」させる
+.js .p-top-hero__plus:nth-child(1) { animation-duration: 12s; animation-delay: 0.1s; }
+.js .p-top-hero__plus:nth-child(2) { animation-duration: 10s; animation-delay: 2.4s; }
+.js .p-top-hero__plus:nth-child(3) { animation-duration: 14s; animation-delay: 0.6s; }
+.js .p-top-hero__plus:nth-child(4) { animation-duration: 9s;  animation-delay: 1.6s; }
+.js .p-top-hero__plus:nth-child(5) { animation-duration: 11s; animation-delay: 3.2s; }
+.js .p-top-hero__plus:nth-child(6) { animation-duration: 16s; animation-delay: 0.3s; }
+.js .p-top-hero__plus:nth-child(7) { animation-duration: 9.5s; animation-delay: 4.1s; }
+.js .p-top-hero__plus:nth-child(8) { animation-duration: 13s; animation-delay: 1.1s; }
+.js .p-top-hero__plus:nth-child(9) { animation-duration: 10.5s; animation-delay: 2s; }
 
 .p-top-hero__content {
   position: relative;

@@ -157,6 +157,7 @@ picture {
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important; // 無限ループを1回で終わらせる（0.01msの空回り防止）
     transition-duration: 0.01ms !important;
   }
 }
