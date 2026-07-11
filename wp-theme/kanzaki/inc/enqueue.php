@@ -70,6 +70,10 @@ add_action(
 		}
 
 		if ( '' !== $css ) {
+			// Sassは非ASCIIを含む圧縮CSSの先頭にBOM(U+FEFF)を出力する。連結すると
+			// BOMがシート途中に紛れ込み、CSSパーサが後続の @layer 順宣言と
+			// reset層（kiso）を丸ごと無効トークンとして破棄してしまうため必ず剥ぐ。
+			$css = str_replace( "\xEF\xBB\xBF", '', $css );
 			echo '<style id="kanzaki-inline-css">' . $css . '</style>' . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	},
