@@ -59,6 +59,8 @@
   font-weight: var(--font-weight-semibold);
   line-height: 1.25;
   text-wrap: balance;
+  word-break: keep-all; // 折り返しは語境界のみ（位置はHTMLの<wbr>が指定）
+  overflow-wrap: anywhere;
 }
 
 // タイトルの補足（サブタイトル行）
@@ -120,6 +122,8 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
+  // ソース画像は16:10。16:9に切るときサイトのヘッダー側（上端）は残す
+  object-position: top center;
   border-radius: var(--radius-media);
   box-shadow: var(--shadow-screenshot);
 }

@@ -26,6 +26,7 @@
 
   &:hover,
   &:focus-visible {
+    transform: translateY(rem(-4));
     box-shadow: var(--shadow-card-hover);
   }
 
@@ -44,12 +45,15 @@
 }
 
 // ------------------------------------------------------------
-// サムネイル領域（ズームのクリップ基準）
+// サムネイル領域（台紙）
+// 作品スクショはカードの角丸に食われんよう台紙余白の内側に置き、
+// 詳細ページと同じ「radius-media＋許容影」の文法で載せる。
+// ズーム（1.05倍・成長約9px）は台紙余白16pxの内側に収まるためクリップ不要。
 // ------------------------------------------------------------
 .c-card__media {
   position: relative;
-  overflow: hidden;
   aspect-ratio: 16 / 10;
+  padding: var(--space-16) var(--space-16) 0;
 }
 
 .c-card__thumbnail {
@@ -57,6 +61,8 @@
   height: 100%;
   object-fit: cover;
   object-position: top center;
+  border-radius: var(--radius-media);
+  box-shadow: var(--shadow-screenshot);
   transition: transform 0.5s var(--ease-standard);
 
   .c-card:hover &,
@@ -65,11 +71,11 @@
   }
 }
 
-// 実案件バッジ（墨面ピル）
+// 実案件バッジ（墨面ピル）：台紙余白ぶん内側へ寄せ、スクショの上に載せる
 .c-card__badge {
   position: absolute;
-  inset-block-start: var(--space-12);
-  inset-inline-start: var(--space-12);
+  inset-block-start: calc(var(--space-16) + var(--space-12));
+  inset-inline-start: calc(var(--space-16) + var(--space-12));
   z-index: 2;
   display: inline-block;
   padding: rem(4) rem(12);
@@ -105,45 +111,29 @@
   font-size: var(--text-title);
   font-weight: var(--font-weight-semibold);
   line-height: 1.4;
-  text-wrap: pretty;
+  // 折り返しは語境界（wbr・空白）のみに限定し、「ライトディレク/ション」の
+  // ような語中切りを防ぐ。折りたい位置はHTML側の <wbr> が指定する。
+  // ヒントの無い長い語がカード幅を超えたときだけ anywhere が緊急折返し
+  text-wrap: balance;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
-// タイトルの補足（サブタイトル行）
+// タイトルの補足（タイトル直後の兄弟要素。subgridで独立行にするため
+// h3内のspanではなくpとして置く。間隔はbodyのgapが担う）
 .c-card__title-note {
-  display: block;
-  margin-top: var(--space-4);
   font-size: var(--text-caption);
   font-weight: var(--font-weight-regular);
   color: var(--color-ink-muted);
 }
 
-// 担当範囲・工夫（常時表示）
-.c-card__meta {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-12);
+// 担当範囲（ラベルなしの1行。工夫は詳細ページが語る——
+// 一覧の仕事は「見つけて選ばせる」ことなのでカードでは説明しすぎない）
+.c-card__roles {
   margin-top: var(--space-8);
-  padding-top: var(--space-16);
-  border-top: 1px solid var(--color-hairline);
-}
-
-.c-card__meta-row {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-}
-
-.c-card__meta-label {
-  font-size: var(--text-fine);
-  font-weight: var(--font-weight-semibold);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-ink-muted);
-}
-
-.c-card__meta-value {
   font-size: var(--text-caption);
   line-height: 1.6;
+  color: var(--color-ink-muted);
 }
 
 // 「詳細を見る」：カード下端に揃える（margin-top: auto）
@@ -170,8 +160,10 @@
 
 // ------------------------------------------------------------
 // subgrid 整列（docs/coding-rules.md §9 のレシピ）
-// カード内部の行（media / category / title / 担当範囲 / 工夫 / action）を
+// カード内部の行（media / category / title / 補足 / 担当範囲 / action）を
 // 隣のカードと共有し、6本の水平線を通す。
+// 行は明示割り当て：補足が無いカードでも後続がずり上がらず、
+// 補足・担当・詳細リンクが全カードで水平に揃う。
 // 非対応ブラウザは上記 flex レイアウトのまま（プログレッシブエンハンスメント）。
 // 一覧グリッド側（p-top-works__grid > li）の受けは pages/_top.scss。
 // ------------------------------------------------------------
@@ -183,37 +175,38 @@
     row-gap: 0;
   }
 
-  // body と meta は「行の器」をやめて子を直接グリッド行へ流す
-  .c-card__body,
-  .c-card__meta {
+  // body は「行の器」をやめて子を直接グリッド行へ流す
+  .c-card__body {
     display: contents;
   }
 
   // body の padding / gap は各行要素に付け替える
+  .c-card__media {
+    grid-row: 1;
+  }
+
   .c-card__category {
+    grid-row: 2;
     padding: var(--space-24) var(--space-24) 0;
   }
 
   .c-card__title {
+    grid-row: 3;
     padding: var(--space-8) var(--space-24) 0;
   }
 
-  // 区切り線は1行目のメタ（担当範囲）が持つ。線は本文幅に合わせて inset
-  .c-card__meta-row {
-    margin-inline: var(--space-24);
+  .c-card__title-note {
+    grid-row: 4;
+    padding: var(--space-4) var(--space-24) 0;
   }
 
-  .c-card__meta-row:first-of-type {
-    margin-top: var(--space-16);
-    padding-top: var(--space-16);
-    border-top: 1px solid var(--color-hairline);
-  }
-
-  .c-card__meta-row:last-of-type {
-    margin-top: var(--space-12);
+  .c-card__roles {
+    grid-row: 5;
+    padding-inline: var(--space-24);
   }
 
   .c-card__action {
+    grid-row: 6;
     align-self: end;
     margin-top: 0;
     padding: var(--space-16) var(--space-24) var(--space-24);

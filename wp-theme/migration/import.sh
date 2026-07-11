@@ -73,11 +73,11 @@ wp post meta update $ID kanzaki_badge ''
 wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-sasazuka.jpg' --post_id=$ID --featured_image --title='笹塚スマイルクリニック'
 echo "imported: sasazuka (ID=$ID)"
 
-# ---- 05: デザインカンプからサイト制作 ----
+# ---- 05: カンプからサイト制作 ----
 EXISTING=$(wp post list --post_type=works --name=onomichi --format=ids)
 if [ -n "$EXISTING" ]; then wp post delete $EXISTING --force; fi
 ID=$(wp post create "$MIG_DIR/content-onomichi.html" --post_type=works --post_status=publish \
-  --post_title='デザインカンプからサイト制作' --post_name=onomichi --menu_order=5 \
+  --post_title='カンプからサイト制作' --post_name=onomichi --menu_order=5 \
   --post_date='2026-01-05 10:00:00' --post_excerpt='プロのデザイナーが作成したFigmaカンプを、ピクセルパーフェクトを目標に再現しました。' --porcelain)
 wp post meta update $ID kanzaki_subtitle 'ピクセルパーフェクト再現'
 wp post meta update $ID kanzaki_eyebrow 'Works — Coding'
@@ -87,7 +87,7 @@ wp post meta update $ID kanzaki_tools 'Figma / HTML / SCSS / JavaScript / Swiper
 wp post meta update $ID kanzaki_highlight 'SCSSのコンポーネント分割とBEM設計。Swiperの無限ループやフォームバリデーションにも挑戦'
 wp post meta update $ID kanzaki_site_url '/demo/onomichi/index.html'
 wp post meta update $ID kanzaki_badge ''
-wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-onomichi.webp' --post_id=$ID --featured_image --title='デザインカンプからサイト制作'
+wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-onomichi.webp' --post_id=$ID --featured_image --title='カンプからサイト制作'
 echo "imported: onomichi (ID=$ID)"
 
 # ---- 06: バナー制作 ----
@@ -124,11 +124,11 @@ wp post meta update $ID kanzaki_badge ''
 wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-logo.webp' --post_id=$ID --featured_image --title='架空の建設会社 ロゴ制作'
 echo "imported: logo-kenchiku (ID=$ID)"
 
-# ---- 08: デザインカンプからサイト制作 ----
+# ---- 08: カンプからサイト制作 ----
 EXISTING=$(wp post list --post_type=works --name=oha --format=ids)
 if [ -n "$EXISTING" ]; then wp post delete $EXISTING --force; fi
 ID=$(wp post create "$MIG_DIR/content-oha.html" --post_type=works --post_status=publish \
-  --post_title='デザインカンプからサイト制作' --post_name=oha --menu_order=8 \
+  --post_title='カンプからサイト制作' --post_name=oha --menu_order=8 \
   --post_date='2026-01-08 10:00:00' --post_excerpt='オンラインスクールの課題。デザインカンプからのコーディング練習として制作しました。' --porcelain)
 wp post meta update $ID kanzaki_subtitle 'スクール課題'
 wp post meta update $ID kanzaki_eyebrow 'Works — Coding'
@@ -138,14 +138,14 @@ wp post meta update $ID kanzaki_tools 'HTML / SCSS / JavaScript / Swiper'
 wp post meta update $ID kanzaki_highlight 'SCSS＋BEM設計。ドロワー・アコーディオン・モーダル・Swiper等の実装'
 wp post meta update $ID kanzaki_site_url '/demo/oha/index.html'
 wp post meta update $ID kanzaki_badge ''
-wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-oha.jpg' --post_id=$ID --featured_image --title='デザインカンプからサイト制作'
+wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-oha.jpg' --post_id=$ID --featured_image --title='カンプからサイト制作'
 echo "imported: oha (ID=$ID)"
 
-# ---- 09: デザインカンプからサイト制作 ----
+# ---- 09: カンプからサイト制作 ----
 EXISTING=$(wp post list --post_type=works --name=sobolon --format=ids)
 if [ -n "$EXISTING" ]; then wp post delete $EXISTING --force; fi
 ID=$(wp post create "$MIG_DIR/content-sobolon.html" --post_type=works --post_status=publish \
-  --post_title='デザインカンプからサイト制作' --post_name=sobolon --menu_order=9 \
+  --post_title='カンプからサイト制作' --post_name=sobolon --menu_order=9 \
   --post_date='2026-01-09 10:00:00' --post_excerpt='オンラインスクールの課題。ライブコーディング形式で、Webサイト制作の実務プロセスを学習しました。' --porcelain)
 wp post meta update $ID kanzaki_subtitle 'ライブコーディング'
 wp post meta update $ID kanzaki_eyebrow 'Works — Coding'
@@ -155,14 +155,14 @@ wp post meta update $ID kanzaki_tools 'HTML / SCSS / JavaScript'
 wp post meta update $ID kanzaki_highlight 'Sassのモジュール設計とコンポーネント単位の開発で保守性を重視'
 wp post meta update $ID kanzaki_site_url '/demo/sobolon/index.html'
 wp post meta update $ID kanzaki_badge ''
-wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-sobolon.webp' --post_id=$ID --featured_image --title='デザインカンプからサイト制作'
+wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-sobolon.webp' --post_id=$ID --featured_image --title='カンプからサイト制作'
 echo "imported: sobolon (ID=$ID)"
 
-# ---- 10: 自主制作課題 デザインカンプからサイト制作 ----
+# ---- 10: 自主制作課題 カンプからサイト制作 ----
 EXISTING=$(wp post list --post_type=works --name=e-tiga --format=ids)
 if [ -n "$EXISTING" ]; then wp post delete $EXISTING --force; fi
 ID=$(wp post create "$MIG_DIR/content-e-tiga.html" --post_type=works --post_status=publish \
-  --post_title='自主制作課題 デザインカンプからサイト制作' --post_name=e-tiga --menu_order=10 \
+  --post_title='自主制作課題 カンプからサイト制作' --post_name=e-tiga --menu_order=10 \
   --post_date='2026-01-10 10:00:00' --post_excerpt='自主制作課題。デザインカンプからのコーディング練習として、自力で制作しました。' --porcelain)
 wp post meta update $ID kanzaki_subtitle ''
 wp post meta update $ID kanzaki_eyebrow 'Works — Coding'
@@ -172,7 +172,7 @@ wp post meta update $ID kanzaki_tools 'HTML / SCSS / JavaScript / Swiper'
 wp post meta update $ID kanzaki_highlight 'ピクセルパーフェクトの再現とJSアニメーションの実装'
 wp post meta update $ID kanzaki_site_url '/demo/e-tiga/index.html'
 wp post meta update $ID kanzaki_badge ''
-wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-etiga.webp' --post_id=$ID --featured_image --title='自主制作課題 デザインカンプからサイト制作'
+wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-etiga.webp' --post_id=$ID --featured_image --title='自主制作課題 カンプからサイト制作'
 echo "imported: e-tiga (ID=$ID)"
 
 # ---- 11: Bootstrapを使用したサイト制作 ----

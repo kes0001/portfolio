@@ -40,10 +40,10 @@ $kanzaki_icons = esc_url( get_theme_file_uri( 'assets/images/icons.svg' ) );
 			<a class="c-button c-button--primary" href="#works"><svg class="c-icon" aria-hidden="true"><use href="<?php echo $kanzaki_icons; // phpcs:ignore ?>#images"></use></svg>作品を見る</a>
 			<a class="c-button c-button--secondary" href="#contact"><svg class="c-icon" aria-hidden="true"><use href="<?php echo $kanzaki_icons; // phpcs:ignore ?>#envelope-o"></use></svg>お問い合わせ</a>
 		</div>
+		<p class="p-top-hero__vertical" aria-hidden="true">
+			<span class="p-top-hero__vertical-col">正確なコーディングと</span>
+			<span class="p-top-hero__vertical-col">共に。</span>
+		</p>
 	</div>
-	<p class="p-top-hero__vertical" aria-hidden="true">
-		<span class="p-top-hero__vertical-col">正確なコーディングと</span>
-		<span class="p-top-hero__vertical-col">共に。</span>
-	</p>
 </section>
 <!-- /wp:html -->

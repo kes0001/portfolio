@@ -28,7 +28,7 @@
 <!-- /wp:group -->
 
 <!-- wp:paragraph {"className":"p-top-works__lead"} -->
-<p class="p-top-works__lead">テンプレートを使わず、デザインから実装まで一貫して制作した作品です。気になる作品は、カードから詳細ページで制作プロセスをご覧いただけます。</p>
+<p class="p-top-works__lead">デザインから実装まで一貫して制作した作品です。気になる作品は、カードから詳細ページで制作プロセスをご覧いただけます。</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:group {"className":"p-top-section__body","layout":{"type":"default"}} -->
@@ -57,39 +57,14 @@
 <p class="c-card__category"></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:group {"className":"c-card__title-wrap","layout":{"type":"default"}} -->
-<div class="wp-block-group c-card__title-wrap">
 <!-- wp:post-title {"level":3,"className":"c-card__title"} /-->
 <!-- wp:paragraph {"className":"c-card__title-note","metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"kanzaki_subtitle"}}}}} -->
 <p class="c-card__title-note"></p>
 <!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
 
-<!-- wp:group {"className":"c-card__meta","layout":{"type":"default"}} -->
-<div class="wp-block-group c-card__meta">
-<!-- wp:group {"className":"c-card__meta-row","layout":{"type":"default"}} -->
-<div class="wp-block-group c-card__meta-row">
-<!-- wp:paragraph {"className":"c-card__meta-label"} -->
-<p class="c-card__meta-label">担当範囲</p>
+<!-- wp:paragraph {"className":"c-card__roles","metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"kanzaki_role"}}}}} -->
+<p class="c-card__roles"></p>
 <!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"c-card__meta-value","metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"kanzaki_role"}}}}} -->
-<p class="c-card__meta-value"></p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"className":"c-card__meta-row","layout":{"type":"default"}} -->
-<div class="wp-block-group c-card__meta-row">
-<!-- wp:paragraph {"className":"c-card__meta-label"} -->
-<p class="c-card__meta-label">工夫</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"c-card__meta-value","metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"kanzaki_highlight"}}}}} -->
-<p class="c-card__meta-value"></p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-</div>
-<!-- /wp:group -->
 
 <!-- wp:read-more {"content":"詳細を見る","className":"c-card__action"} /-->
 

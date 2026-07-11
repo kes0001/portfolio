@@ -19,28 +19,14 @@
 // ------------------------------------------------------------
 // works カード（Query Loop 内）
 // ------------------------------------------------------------
-// subgrid整列（components/_card.scss と対）：WPでは title-note が
-// title の兄弟pのため、title-wrap で包んで「タイトル行」1行に統合する
-@supports (grid-template-columns: subgrid) {
-  .c-card__title-wrap {
-    padding: var(--space-8) var(--space-24) 0;
-  }
+// subgrid整列は components/_card.scss の明示行割り当てに統一
+// （静的側も title-note を兄弟pにしたため、title-wrap ラッパーは廃止）
 
-  // 行のpaddingはwrap側が持つ（_card.scssのtitle用paddingを打ち消す）
-  .c-card__title-wrap .c-card__title {
-    padding: 0;
-  }
-
-  // WPのblock-gap（フローレイアウトの自動margin）を打ち消して
-  // 静的サイトと同じ密度に揃える（間隔はflexのgap／個別marginが担当）
-  .c-card__title-wrap > *,
-  .c-card__meta-row > * {
-    margin-block-start: 0;
-  }
-
-  .c-card__title-wrap > .c-card__title-note {
-    margin-block-start: var(--space-4);
-  }
+// WPコアが無レイヤーで注入する .wp-block-post-title{word-break:break-word}
+// が @layer 内の word-break: keep-all（語境界折返し）を潰すため取り戻す
+.c-card__title.wp-block-post-title,
+.p-work__title.wp-block-post-title {
+  word-break: keep-all;
 }
 
 // カード全面リンク：read-more（.c-card__action）をストレッチドリンク化
@@ -111,6 +97,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
 }
 
 // ------------------------------------------------------------
