@@ -21,14 +21,15 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  min-height: rem(560);
+  // フルビューポート級にはせず、1スクロール目で次のセクションの気配が見える高さ
+  min-height: rem(500);
   padding-block: var(--space-96) var(--space-80);
   background-color: var(--fv-bg);
 
   @include mq("md") {
-    min-height: min(rem(780), 92svh);
+    min-height: min(rem(640), 78svh);
     // 上を詰めてコンテンツを高めに置く（ノートPC級の画面高でCTAが見切れんように）
-    padding-block: rem(96) rem(120);
+    padding-block: rem(96) rem(96);
   }
 }
 
