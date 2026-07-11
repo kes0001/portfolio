@@ -34,16 +34,18 @@
   align-items: center;
   gap: var(--space-8);
   margin-inline-end: auto;
-  font-size: var(--text-body);
-  font-weight: var(--font-weight-semibold);
-  letter-spacing: 0.05em;
+  // ロゴタイプとして扱う：マークの極太ジオメトリに負けんよう
+  // 太く・わずかに大きく・字間は締める（間延びした0.05emをやめる）
+  font-size: rem(18);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.02em;
   color: var(--color-ink);
   text-decoration: none;
 }
 
 // ロゴマーク（#を象った site-logo。テキスト「KANZAKI」と横並び）
 .l-header__logo-mark {
-  inline-size: rem(28);
+  inline-size: rem(24);
   block-size: auto;
 }
 
