@@ -521,6 +521,34 @@
   }
 }
 
+// 最終カードもlgで2枠（先頭span2により計11セル＝最終行が1つ空くのを埋める。
+// Skillsの奇数枚全幅化と同じ「版面を空けない」判断）
+.p-top-works__grid > li:last-child {
+  @include mq("lg") {
+    grid-column: span 2;
+  }
+}
+
+// subgrid 整列の受け（詳細は components/_card.scss のsubgridセクション）
+// li が親グリッドの行6本を借り、c-card がさらにそれを継ぐ2段subgrid。
+@supports (grid-template-columns: subgrid) {
+  .p-top-works__grid > li {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 6;
+    row-gap: 0;
+  }
+
+  // span2カードはサムネをパノラマ比率にして、メディア帯の高さを
+  // 通常カード（16:10）と揃える（行の水平線を全帯で統一する）
+  .p-top-works__grid > li:first-child .c-card__media,
+  .p-top-works__grid > li:last-child .c-card__media {
+    @include mq("lg") {
+      aspect-ratio: 32 / 10;
+    }
+  }
+}
+
 // ============================================================
 // このサイトについて
 // ============================================================

@@ -167,3 +167,55 @@
     translate: rem(4) 0;
   }
 }
+
+// ------------------------------------------------------------
+// subgrid 整列（docs/coding-rules.md §9 のレシピ）
+// カード内部の行（media / category / title / 担当範囲 / 工夫 / action）を
+// 隣のカードと共有し、6本の水平線を通す。
+// 非対応ブラウザは上記 flex レイアウトのまま（プログレッシブエンハンスメント）。
+// 一覧グリッド側（p-top-works__grid > li）の受けは pages/_top.scss。
+// ------------------------------------------------------------
+@supports (grid-template-columns: subgrid) {
+  .c-card {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 6;
+    row-gap: 0;
+  }
+
+  // body と meta は「行の器」をやめて子を直接グリッド行へ流す
+  .c-card__body,
+  .c-card__meta {
+    display: contents;
+  }
+
+  // body の padding / gap は各行要素に付け替える
+  .c-card__category {
+    padding: var(--space-24) var(--space-24) 0;
+  }
+
+  .c-card__title {
+    padding: var(--space-8) var(--space-24) 0;
+  }
+
+  // 区切り線は1行目のメタ（担当範囲）が持つ。線は本文幅に合わせて inset
+  .c-card__meta-row {
+    margin-inline: var(--space-24);
+  }
+
+  .c-card__meta-row:first-of-type {
+    margin-top: var(--space-16);
+    padding-top: var(--space-16);
+    border-top: 1px solid var(--color-hairline);
+  }
+
+  .c-card__meta-row:last-of-type {
+    margin-top: var(--space-12);
+  }
+
+  .c-card__action {
+    align-self: end;
+    margin-top: 0;
+    padding: var(--space-16) var(--space-24) var(--space-24);
+  }
+}

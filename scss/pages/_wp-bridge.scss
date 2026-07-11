@@ -19,6 +19,30 @@
 // ------------------------------------------------------------
 // works カード（Query Loop 内）
 // ------------------------------------------------------------
+// subgrid整列（components/_card.scss と対）：WPでは title-note が
+// title の兄弟pのため、title-wrap で包んで「タイトル行」1行に統合する
+@supports (grid-template-columns: subgrid) {
+  .c-card__title-wrap {
+    padding: var(--space-8) var(--space-24) 0;
+  }
+
+  // 行のpaddingはwrap側が持つ（_card.scssのtitle用paddingを打ち消す）
+  .c-card__title-wrap .c-card__title {
+    padding: 0;
+  }
+
+  // WPのblock-gap（フローレイアウトの自動margin）を打ち消して
+  // 静的サイトと同じ密度に揃える（間隔はflexのgap／個別marginが担当）
+  .c-card__title-wrap > *,
+  .c-card__meta-row > * {
+    margin-block-start: 0;
+  }
+
+  .c-card__title-wrap > .c-card__title-note {
+    margin-block-start: var(--space-4);
+  }
+}
+
 // カード全面リンク：read-more（.c-card__action）をストレッチドリンク化
 // （group ブロックは a で包めないため。矢印は既存の ::after が担当）
 .c-card .wp-block-read-more {

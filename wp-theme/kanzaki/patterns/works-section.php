@@ -57,11 +57,14 @@
 <p class="c-card__category"></p>
 <!-- /wp:paragraph -->
 
+<!-- wp:group {"className":"c-card__title-wrap","layout":{"type":"default"}} -->
+<div class="wp-block-group c-card__title-wrap">
 <!-- wp:post-title {"level":3,"className":"c-card__title"} /-->
-
 <!-- wp:paragraph {"className":"c-card__title-note","metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"kanzaki_subtitle"}}}}} -->
 <p class="c-card__title-note"></p>
 <!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
 
 <!-- wp:group {"className":"c-card__meta","layout":{"type":"default"}} -->
 <div class="wp-block-group c-card__meta">
