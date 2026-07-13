@@ -68,6 +68,7 @@
             <li><a class="l-header__nav-link" href="#profile">Profile</a></li>
             <li><a class="l-header__nav-link" href="#skills">Skills</a></li>
             <li><a class="l-header__nav-link" href="#works">Works</a></li>
+            <li><a class="l-header__nav-link" href="#service">Service</a></li>
             <li><a class="l-header__nav-link" href="#contact">Contact</a></li>
           </ul>
         </nav>
@@ -270,6 +271,25 @@
               </li>
 
               <li>
+                <a class="c-card" href="./works/sea-crews.html">
+                  <div class="c-card__media">
+                    <span class="c-card__badge">実案件</span>
+                    <picture>
+                      <source srcset="./images/work-sea-crews.webp" type="image/webp" />
+                      <img class="c-card__thumbnail" src="./images/work-sea-crews.jpg" alt="津堅島シークルーズ ランディングページのファーストビュー" width="1600" height="1000" loading="lazy" decoding="async" />
+                    </picture>
+                  </div>
+                  <div class="c-card__body">
+                    <span class="c-card__category">Design</span>
+                    <h3 class="c-card__title">津堅島<wbr>シークルーズ</h3>
+                    <p class="c-card__title-note">マリンアクティビティLP</p>
+                    <p class="c-card__roles">デザイン・ディレクション・原稿・写真素材</p>
+                    <span class="c-card__action">詳細を見る</span>
+                  </div>
+                </a>
+              </li>
+
+              <li>
                 <a class="c-card" href="./works/right-direction.html">
                   <div class="c-card__media">
                     <span class="c-card__badge">実案件</span>
@@ -279,7 +299,7 @@
                     </picture>
                   </div>
                   <div class="c-card__body">
-                    <span class="c-card__category">Web Design</span>
+                    <span class="c-card__category">Design</span>
                     <h3 class="c-card__title">株式会社<wbr>ライトディレクション</h3>
                     <p class="c-card__title-note">コーポレートサイト</p>
                     <p class="c-card__roles">デザイン・コーディング・ディレクション・名刺デザイン</p>
@@ -294,7 +314,7 @@
                     <img class="c-card__thumbnail" src="./images/work-sparklinks.webp" alt="Spark Links Webサイトのサムネイル" width="1600" height="1000" loading="lazy" decoding="async" />
                   </div>
                   <div class="c-card__body">
-                    <span class="c-card__category">Web Design</span>
+                    <span class="c-card__category">Design</span>
                     <h3 class="c-card__title">Spark Links</h3>
                     <p class="c-card__title-note">架空の飲料メーカーサイト</p>
                     <p class="c-card__roles">デザイン・コーディング・ディレクション</p>
@@ -312,7 +332,7 @@
                     </picture>
                   </div>
                   <div class="c-card__body">
-                    <span class="c-card__category">Web Design</span>
+                    <span class="c-card__category">Design</span>
                     <h3 class="c-card__title">笹塚<wbr>スマイルクリニック</h3>
                     <p class="c-card__title-note">架空の歯科医院サイト</p>
                     <p class="c-card__roles">デザイン・コーディング</p>
@@ -434,9 +454,83 @@
       </section>
 
       <!-- ============================================================
+      できること・制作の流れ（副業・ご依頼向けの案内）
+    ============================================================ -->
+      <section class="p-top-section js-reveal" id="service">
+        <div class="l-container">
+          <h2 class="c-section-title">
+            <span class="c-section-title__en">Service</span>
+            <span class="c-section-title__jp">できること</span>
+          </h2>
+          <p class="p-top-service__lead">LP・コーポレートサイトを中心に、下記の範囲でお仕事をお受けしています。デザインのみ・実装のみといった部分的なご依頼も可能です。</p>
+          <div class="p-top-section__body">
+            <ul class="p-top-service__list">
+              <li class="p-top-service__item">
+                <span class="p-top-service__icon" aria-hidden="true"
+                  ><svg class="c-icon"><use href="./images/icons.svg#html5"></use></svg
+                ></span>
+                <h3 class="p-top-service__name">LP・Webサイト制作</h3>
+                <p class="p-top-service__text">構成・ワイヤーフレームからデザイン・コーディング・公開まで一貫して対応します。1ページのランディングページから、中小規模のコーポレートサイトまでお受けできます。</p>
+              </li>
+              <li class="p-top-service__item">
+                <span class="p-top-service__icon" aria-hidden="true"
+                  ><svg class="c-icon"><use href="./images/icons.svg#wordpress"></use></svg
+                ></span>
+                <h3 class="p-top-service__name">WordPressサイト構築</h3>
+                <p class="p-top-service__text">オリジナルテーマでの構築に対応します。ブロックエディタで運用できる形で納品するため、公開後はお客様ご自身の手でお知らせやページの更新ができます。</p>
+              </li>
+              <li class="p-top-service__item">
+                <span class="p-top-service__icon" aria-hidden="true"
+                  ><svg class="c-icon"><use href="./images/icons.svg#figma"></use></svg
+                ></span>
+                <h3 class="p-top-service__name">デザイン・素材制作</h3>
+                <p class="p-top-service__text">Figmaでのデザイン単体のご依頼にも対応します。実装への受け渡しを前提としたデータ設計で納品するため、別のコーダーさんへもスムーズに引き継げます。バナー・ロゴの制作も可能です。</p>
+              </li>
+              <li class="p-top-service__item">
+                <span class="p-top-service__icon" aria-hidden="true"
+                  ><svg class="c-icon"><use href="./images/icons.svg#chart"></use></svg
+                ></span>
+                <h3 class="p-top-service__name">公開後の計測・改善</h3>
+                <p class="p-top-service__text">GA4・Googleサーチコンソールの導入と、アクセス状況のレポート作成に対応します。表示速度やアクセシビリティの改善もご相談いただけます。</p>
+              </li>
+            </ul>
+
+            <h3 class="p-top-service__flow-title">制作の流れ</h3>
+            <ol class="p-top-service__flow">
+              <li class="p-top-service__step">
+                <span class="p-top-service__step-num" aria-hidden="true">01</span>
+                <h4 class="p-top-service__step-name">ヒアリング</h4>
+                <p class="p-top-service__step-text">目的・ターゲット・参考サイトを伺い、ゴールのすり合わせをします。</p>
+              </li>
+              <li class="p-top-service__step">
+                <span class="p-top-service__step-num" aria-hidden="true">02</span>
+                <h4 class="p-top-service__step-name">構成・ワイヤー</h4>
+                <p class="p-top-service__step-text">ページ構成と骨組みを先にご確認いただき、方向性を固めてから進めます。</p>
+              </li>
+              <li class="p-top-service__step">
+                <span class="p-top-service__step-num" aria-hidden="true">03</span>
+                <h4 class="p-top-service__step-name">デザイン</h4>
+                <p class="p-top-service__step-text">Figmaでデザインを作成し、確認と修正のやりとりを重ねて仕上げます。</p>
+              </li>
+              <li class="p-top-service__step">
+                <span class="p-top-service__step-num" aria-hidden="true">04</span>
+                <h4 class="p-top-service__step-name">実装</h4>
+                <p class="p-top-service__step-text">コーディング・WordPress構築。表示速度とアクセシビリティに配慮します。</p>
+              </li>
+              <li class="p-top-service__step">
+                <span class="p-top-service__step-num" aria-hidden="true">05</span>
+                <h4 class="p-top-service__step-name">公開・運用</h4>
+                <p class="p-top-service__step-text">サーバーへの公開、GA4等の計測設定まで対応。公開後のご相談も承ります。</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
       このサイトについて（意図を明示するセクション）
     ============================================================ -->
-      <section class="p-top-section js-reveal" aria-labelledby="about-site-title">
+      <section class="p-top-section p-top-section--alt js-reveal" aria-labelledby="about-site-title">
         <div class="l-container">
           <h2 class="c-section-title" id="about-site-title">
             <span class="c-section-title__en">About This Site</span>
@@ -472,7 +566,7 @@
       <!-- ============================================================
       コンタクト
     ============================================================ -->
-      <section class="p-top-section p-top-section--alt p-top-contact js-reveal" id="contact">
+      <section class="p-top-section p-top-contact js-reveal" id="contact">
         <div class="l-container">
           <h2 class="c-section-title">
             <span class="c-section-title__en">Contact</span>

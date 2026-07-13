@@ -15,8 +15,8 @@
 
 $kanzaki_icons = esc_url( get_theme_file_uri( 'assets/images/icons.svg' ) );
 ?>
-<!-- wp:group {"tagName":"section","anchor":"contact","className":"p-top-section p-top-section--alt p-top-contact js-reveal","layout":{"type":"default"}} -->
-<section class="wp-block-group p-top-section p-top-section--alt p-top-contact js-reveal" id="contact">
+<!-- wp:group {"tagName":"section","anchor":"contact","className":"p-top-section p-top-contact js-reveal","layout":{"type":"default"}} -->
+<section class="wp-block-group p-top-section p-top-contact js-reveal" id="contact">
 <!-- wp:group {"className":"l-container","layout":{"type":"default"}} -->
 <div class="wp-block-group l-container">
 

@@ -105,7 +105,9 @@
 // このテーマのボタンは primary / secondary の2種のみ。
 // 既定を primary とし、secondary はラッパーの kanzaki-button--secondary で切替
 // ------------------------------------------------------------
-.wp-block-button__link {
+// WPの global-styles が :root :where(.wp-element-button, .wp-block-button__link) で
+// 黒背景（#32373c）等を無レイヤー・後読みで当ててくるため、(0,2,0)で確実に勝つ
+.wp-block-button .wp-block-button__link {
   @include c-button-base;
   @include c-button-primary;
 }
@@ -204,6 +206,23 @@ $icon-envelope: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
 .p-top-skills__item--robot::before { mask-image: $icon-robot; }
 .p-top-skills__item--chart::before { mask-image: $icon-chart; }
 
+// Serviceカードのアイコン（静的版 span.p-top-service__icon 24px 相当）
+.p-top-service__item[class*="p-top-service__item--"]::before {
+  content: "";
+  display: block;
+  width: rem(24);
+  height: rem(24);
+  background-color: var(--color-ink);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+}
+
+.p-top-service__item--html5::before { mask-image: $icon-html5; }
+.p-top-service__item--wordpress::before { mask-image: $icon-wordpress; }
+.p-top-service__item--figma::before { mask-image: $icon-figma; }
+.p-top-service__item--chart::before { mask-image: $icon-chart; }
+
 // コンタクトのGitHubボタン・フッターのリンクアイコン（1em＝静的版svg.c-iconと同寸）
 .kanzaki-button--github .wp-block-button__link::before,
 .l-footer__item--github a::before,
@@ -221,6 +240,11 @@ $icon-envelope: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
 .kanzaki-button--github .wp-block-button__link::before,
 .l-footer__item--github a::before {
   mask-image: $icon-github;
+}
+
+// 作品詳細のFigmaボタン（既定の外部リンクアイコンをFigmaマークに差し替え）
+.p-work__actions .kanzaki-figma-button .wp-block-button__link::before {
+  mask-image: $icon-figma;
 }
 
 .l-footer__item--envelope a::before {

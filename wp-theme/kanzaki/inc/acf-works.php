@@ -57,9 +57,8 @@ add_action(
 						'type'          => 'select',
 						'instructions'  => 'カード上部に出る分類。',
 						'choices'       => array(
-							'DESIGN'     => 'DESIGN',
-							'WEB DESIGN' => 'WEB DESIGN',
-							'CODING'     => 'CODING',
+							'DESIGN' => 'DESIGN',
+							'CODING' => 'CODING',
 						),
 						'allow_null'    => 1,
 						'return_format' => 'value',
@@ -126,6 +125,15 @@ add_action(
 						'label'        => '公開サイト / デモURL',
 						'instructions' => '外部サイトは https://〜、同サーバーのデモは /demo/〜 の相対パス。空欄で「公開サイトを見る」ボタン非表示。',
 						'placeholder'  => 'https://example.com/ または /demo/xxx/index.html',
+					),
+					array(
+						'key'          => 'field_kanzaki_figma_url',
+						'name'         => 'kanzaki_figma_url',
+						// site_url と揃えて text で持つ（保存は esc_url_raw でサニタイズ）
+						'type'         => 'text',
+						'label'        => 'FigmaデザインデータURL',
+						'instructions' => 'Figmaの共有URL。空欄で「デザインデータを見る」ボタン非表示。共有設定は「リンクを知っている全員が閲覧可」にすること。',
+						'placeholder'  => 'https://www.figma.com/design/...',
 					),
 
 					// ---- 共通の案内 ----

@@ -13,8 +13,8 @@
  */
 
 ?>
-<!-- wp:group {"tagName":"section","className":"p-top-section js-reveal","layout":{"type":"default"}} -->
-<section class="wp-block-group p-top-section js-reveal">
+<!-- wp:group {"tagName":"section","className":"p-top-section p-top-section--alt js-reveal","layout":{"type":"default"}} -->
+<section class="wp-block-group p-top-section p-top-section--alt js-reveal">
 <!-- wp:group {"className":"l-container","layout":{"type":"default"}} -->
 <div class="wp-block-group l-container">
 

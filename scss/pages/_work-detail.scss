@@ -76,6 +76,7 @@
   margin-top: var(--space-16);
   max-width: rem(720);
   color: var(--color-ink-muted);
+  text-align: justify;
   text-wrap: pretty;
 }
 
@@ -128,6 +129,50 @@
   box-shadow: var(--shadow-screenshot);
 }
 
+// MacBookモックアップ：スクショを実機の画面に載せて実物感を出す（純CSS・画像合成なし）。
+// 筐体色は墨とグレー系＝配色ルール（青＋アンバーの2色厳守）の枠外にならん中立色で描く
+.p-work__device {
+  margin-top: var(--space-48);
+  // 筐体シルエット全体にひとつの影を落とす（screen/baseに個別のbox-shadowだと分断される）
+  filter: drop-shadow(3px 5px 30px oklch(0% 0 0 / 0.22));
+}
+
+// 画面部：ベゼル。スクショは16:10素材をそのまま（ノートPCの実比率）
+.p-work__device-screen {
+  width: 84%;
+  margin-inline: auto;
+  padding: rem(12);
+  background-color: var(--color-ink);
+  border-radius: rem(16) rem(16) 0 0;
+}
+
+.p-work__device .p-work__thumbnail {
+  margin-top: 0;
+  aspect-ratio: 16 / 10;
+  border-radius: rem(4);
+  box-shadow: none;
+}
+
+// 底面部：アルミのデッキ。中央のくぼみは開閉用ノッチ
+.p-work__device-base {
+  position: relative;
+  height: rem(16);
+  background: linear-gradient(var(--color-canvas-alt), var(--color-hairline));
+  border-radius: 0 0 rem(12) rem(12);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: rem(120);
+    height: rem(6);
+    background-color: var(--color-hairline);
+    border-radius: 0 0 rem(8) rem(8);
+  }
+}
+
 .p-work__body {
   margin-top: var(--space-64);
 }
@@ -157,6 +202,7 @@
 .p-work__text {
   margin-top: var(--space-16);
   color: var(--color-ink);
+  text-align: justify;
 }
 
 .p-work__text + .p-work__text {
@@ -193,6 +239,7 @@
   margin-top: var(--space-12);
   font-size: var(--text-caption);
   color: var(--color-ink-muted);
+  text-align: justify;
 }
 
 // 作品末尾のコンタクト導線
@@ -373,6 +420,7 @@
 .p-work__variation-text {
   font-size: var(--text-caption);
   color: var(--color-ink);
+  text-align: justify;
 }
 
 // ============================================================

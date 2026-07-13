@@ -57,7 +57,21 @@
 <!-- wp:button {"className":"kanzaki-external-button","metadata":{"bindings":{"url":{"source":"core/post-meta","args":{"key":"kanzaki_site_url"}}}}} -->
 <div class="wp-block-button kanzaki-external-button"><a class="wp-block-button__link wp-element-button" target="_blank" rel="noopener">公開サイトを見る</a></div>
 <!-- /wp:button -->
+<!-- wp:button {"className":"kanzaki-figma-button kanzaki-button--secondary","metadata":{"bindings":{"url":{"source":"core/post-meta","args":{"key":"kanzaki_figma_url"}}}}} -->
+<div class="wp-block-button kanzaki-figma-button kanzaki-button--secondary"><a class="wp-block-button__link wp-element-button" target="_blank" rel="noopener">デザインデータを見る</a></div>
+<!-- /wp:button -->
 </div>
 <!-- /wp:buttons -->
 
+<!-- wp:group {"className":"p-work__device","layout":{"type":"default"}} -->
+<div class="wp-block-group p-work__device">
+<!-- wp:group {"className":"p-work__device-screen","layout":{"type":"default"}} -->
+<div class="wp-block-group p-work__device-screen">
 <!-- wp:post-featured-image {"className":"p-work__thumbnail","sizeSlug":"full"} /-->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"p-work__device-base","layout":{"type":"default"}} -->
+<div class="wp-block-group p-work__device-base"></div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->

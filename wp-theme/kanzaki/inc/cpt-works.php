@@ -80,7 +80,7 @@ add_action(
 		$string_meta = array(
 			'kanzaki_subtitle'  => 'タイトル補足（例: リラクゼーションサロンLP）',
 			'kanzaki_eyebrow'   => 'ページ冒頭ラベル（例: Works — LP Design（実案件））',
-			'kanzaki_category'  => 'カテゴリラベル（DESIGN / WEB DESIGN / CODING）',
+			'kanzaki_category'  => 'カテゴリラベル（DESIGN / CODING）',
 			'kanzaki_role'      => '担当範囲（ROLE）',
 			'kanzaki_tools'     => '使用ツール（TOOLS）',
 			'kanzaki_highlight' => '工夫（カード用サマリー）',
@@ -113,6 +113,22 @@ add_action(
 				'single'            => true,
 				'default'           => '',
 				'description'       => '公開サイト / デモのURL（空欄でボタン非表示）',
+				'show_in_rest'      => true,
+				'sanitize_callback' => 'esc_url_raw',
+				'auth_callback'     => function () {
+					return current_user_can( 'edit_posts' );
+				},
+			)
+		);
+
+		register_post_meta(
+			'works',
+			'kanzaki_figma_url',
+			array(
+				'type'              => 'string',
+				'single'            => true,
+				'default'           => '',
+				'description'       => 'Figmaデザインデータの共有URL（空欄でボタン非表示）',
 				'show_in_rest'      => true,
 				'sanitize_callback' => 'esc_url_raw',
 				'auth_callback'     => function () {
