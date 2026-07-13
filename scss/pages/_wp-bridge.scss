@@ -100,6 +100,17 @@
   object-position: top center;
 }
 
+// MacBookモックアップのはめ込み（WP側）。コアの
+// .wp-block-post-featured-image{position:relative} が無レイヤーのため、
+// @layer pages 内の position:absolute は詳細度に関係なく負ける。
+// position をここで宣言し直し、上の委譲ルールの margin-top !important も
+// （絶対配置を48px押し下げてしまうため）同じ強さで打ち消す。
+// 座標等は _work-detail.scss 側が効く
+.p-work__device:has(.p-work__device-frame) .p-work__thumbnail {
+  position: absolute;
+  margin-top: 0 !important;
+}
+
 // ------------------------------------------------------------
 // 汎用ボタン（core/button → c-button 相当）
 // このテーマのボタンは primary / secondary の2種のみ。

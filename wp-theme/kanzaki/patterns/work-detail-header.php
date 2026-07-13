@@ -65,13 +65,9 @@
 
 <!-- wp:group {"className":"p-work__device","layout":{"type":"default"}} -->
 <div class="wp-block-group p-work__device">
-<!-- wp:group {"className":"p-work__device-screen","layout":{"type":"default"}} -->
-<div class="wp-block-group p-work__device-screen">
 <!-- wp:post-featured-image {"className":"p-work__thumbnail","sizeSlug":"full"} /-->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"className":"p-work__device-base","layout":{"type":"default"}} -->
-<div class="wp-block-group p-work__device-base"></div>
-<!-- /wp:group -->
+<!-- wp:html -->
+<img class="p-work__device-frame" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/device-macbook.webp" alt="" width="2020" height="1318" decoding="async" />
+<!-- /wp:html -->
 </div>
 <!-- /wp:group -->

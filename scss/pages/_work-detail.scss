@@ -129,48 +129,40 @@
   box-shadow: var(--shadow-screenshot);
 }
 
-// MacBookモックアップ：スクショを実機の画面に載せて実物感を出す（純CSS・画像合成なし）。
-// 筐体色は墨とグレー系＝配色ルール（青＋アンバーの2色厳守）の枠外にならん中立色で描く
+// MacBookモックアップ：スクショを実機フレーム画像の画面（透過部）にはめ込む。
+// フレーム素材は MockUPhone（oursky/mockuphone.com・Apache-2.0）の
+// apple-macbookair13-front を WebP 化したもの。座標はPNGの透過領域の実測値。
+// サイト作品のみ対象——バナー・ロゴ等の非サイト作品はフレームなしの素の表示
+// （WPは work-buttons.php が kanzaki_site_url 空でフレームを外し、:has()で素に戻る）
 .p-work__device {
+  position: relative;
   margin-top: var(--space-48);
-  // 筐体シルエット全体にひとつの影を落とす（screen/baseに個別のbox-shadowだと分断される）
+  // 筐体シルエットに影を落とす（box-shadowじゃと透明部まで矩形に影が出る）
   filter: drop-shadow(3px 5px 30px oklch(0% 0 0 / 0.22));
 }
 
-// 画面部：ベゼル。スクショは16:10素材をそのまま（ノートPCの実比率）
-.p-work__device-screen {
-  width: 84%;
-  margin-inline: auto;
-  padding: rem(12);
-  background-color: var(--color-ink);
-  border-radius: rem(16) rem(16) 0 0;
-}
-
-.p-work__device .p-work__thumbnail {
-  margin-top: 0;
-  aspect-ratio: 16 / 10;
-  border-radius: rem(4);
-  box-shadow: none;
-}
-
-// 底面部：アルミのデッキ。中央のくぼみは開閉用ノッチ
-.p-work__device-base {
+// フレームが通常フローでサイズを決め、スクショが下層（z:0）に潜る。
+// display:block はベースライン余白対策（inlineのままだと器が数px伸びて%配置がズレる）
+.p-work__device-frame {
   position: relative;
-  height: rem(16);
-  background: linear-gradient(var(--color-canvas-alt), var(--color-hairline));
-  border-radius: 0 0 rem(12) rem(12);
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: rem(120);
-    height: rem(6);
-    background-color: var(--color-hairline);
-    border-radius: 0 0 rem(8) rem(8);
-  }
+.p-work__device:has(.p-work__device-frame) .p-work__thumbnail {
+  position: absolute;
+  z-index: 0;
+  left: 10.2484%;
+  top: 10.381%;
+  width: 79.5031%;
+  height: 79.2381%;
+  margin-top: 0;
+  aspect-ratio: auto;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .p-work__body {

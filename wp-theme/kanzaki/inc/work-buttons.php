@@ -35,3 +35,24 @@ add_filter(
 	10,
 	2
 );
+
+/**
+ * MacBookモックアップのフレーム画像制御。
+ *
+ * サイト作品（kanzaki_site_url あり）だけ実機フレームにはめ込む。
+ * バナー・ロゴ等（site_url 空）はフレームを出さず、CSSの :has() が
+ * 効かなくなることでサムネイルが素の表示に戻る。
+ */
+add_filter(
+	'render_block_core/html',
+	function ( $block_content ) {
+		if ( false === strpos( (string) $block_content, 'p-work__device-frame' ) ) {
+			return $block_content;
+		}
+		$url = get_post_meta( get_the_ID(), 'kanzaki_site_url', true );
+		if ( '' === trim( (string) $url ) ) {
+			return '';
+		}
+		return $block_content;
+	}
+);
