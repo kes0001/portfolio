@@ -1,0 +1,8 @@
+# 本番 kanzaki-web.com のWPルート .htaccess に追加する301リダイレクト（控え）
+# 貼り付け位置: 「# BEGIN WordPress」ブロックより前
+# 経緯: 2026-07 カンプ系コーディング練習5作品を /works/coding-practice/ に集約
+RedirectPermanent /works/onomichi/ https://kanzaki-web.com/works/coding-practice/
+RedirectPermanent /works/oha/ https://kanzaki-web.com/works/coding-practice/
+RedirectPermanent /works/sobolon/ https://kanzaki-web.com/works/coding-practice/
+RedirectPermanent /works/e-tiga/ https://kanzaki-web.com/works/coding-practice/
+RedirectPermanent /works/bootstrap/ https://kanzaki-web.com/works/coding-practice/

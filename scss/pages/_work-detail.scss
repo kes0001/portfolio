@@ -485,3 +485,93 @@
   font-size: var(--text-caption);
   color: var(--color-ink);
 }
+
+// ============================================================
+// 集約ページのギャラリー（コーディング練習：スクショ＋固有解説＋実物リンク）
+// WP版はcoreブロック（group/image/heading/paragraph）＋classNameで同構造を組む
+// ============================================================
+.p-work__gallery {
+  margin-top: var(--space-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-48);
+}
+
+.p-work__gallery-item {
+  display: grid;
+  gap: var(--space-16);
+
+  @include mq("md") {
+    grid-template-columns: rem(280) 1fr;
+    gap: var(--space-24);
+    align-items: start;
+  }
+}
+
+.p-work__gallery-fig {
+  margin: 0;
+}
+
+.p-work__gallery-fig img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: var(--radius-media);
+  box-shadow: var(--shadow-card);
+}
+
+.p-work__gallery-title {
+  font-size: var(--text-body);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.5;
+}
+
+.p-work__gallery-text {
+  margin-top: var(--space-8);
+  font-size: var(--text-caption);
+  color: var(--color-ink-muted);
+  text-align: justify;
+}
+
+// WP版は段落ブロック内リンクになるため a にも同スタイルを当てる
+.p-work__gallery-link,
+.p-work__gallery-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  margin-top: var(--space-12);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-primary);
+  text-decoration: none;
+
+  &::after {
+    content: "→";
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary-focus);
+    outline-offset: 2px;
+  }
+}
+
+// 段落側（外側）にはリンク装飾を持たせない
+.p-work__gallery-link:has(a) {
+  display: block;
+  margin-top: 0;
+
+  &::after {
+    content: none;
+  }
+}

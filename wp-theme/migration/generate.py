@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 """静的 works/*.html + index.html から WP 移行データを生成する。
 
+【注意】content-*.html / import.sh は手動管理に移行済み。このスクリプトは実行しないこと。
+現行マークアップに対して陳腐化している（c-card__roles 非対応・kanzaki_figma_url 未出力・
+coding-practice の集約セクション非対応）ため、再実行すると手書きの内容が失われる。
+
 出力:
   content-<slug>.html … post_content（wp:html ブロック1つに本文セクションを格納）
   import.sh          … Local の Open Site Shell で実行する wp-cli スクリプト
-
-再実行可能（出力は毎回上書き）。
 """
+raise SystemExit("import.sh / content-*.html は手動管理に移行済み。このスクリプトは実行しないでください。")
 import re
 import pathlib
 

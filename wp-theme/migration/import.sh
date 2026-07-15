@@ -94,22 +94,25 @@ wp post meta update $ID kanzaki_badge ''
 wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-sasazuka.jpg' --post_id=$ID --featured_image --title='笹塚スマイルクリニック'
 echo "imported: sasazuka (ID=$ID)"
 
-# ---- 06: カンプからサイト制作 ----
-EXISTING=$(wp post list --post_type=works --name=onomichi --format=ids)
-if [ -n "$EXISTING" ]; then wp post delete $EXISTING --force; fi
-ID=$(wp post create "$MIG_DIR/content-onomichi.html" --post_type=works --post_status=publish \
-  --post_title='カンプからサイト制作' --post_name=onomichi --menu_order=6 \
-  --post_date='2026-01-06 10:00:00' --post_excerpt='プロのデザイナーが作成したFigmaカンプを、ピクセルパーフェクトを目標に再現しました。' --porcelain)
-wp post meta update $ID kanzaki_subtitle 'ピクセルパーフェクト再現'
+# ---- 06: カンプからサイト制作（コーディング練習5作品の集約） ----
+# 旧個別ページ5件（onomichi/oha/sobolon/e-tiga/bootstrap）はこの1件に統合。残っていれば掃除する
+for SLUG in onomichi oha sobolon e-tiga bootstrap coding-practice; do
+  EXISTING=$(wp post list --post_type=works --name=$SLUG --format=ids)
+  if [ -n "$EXISTING" ]; then wp post delete $EXISTING --force; fi
+done
+ID=$(wp post create "$MIG_DIR/content-coding-practice.html" --post_type=works --post_status=publish \
+  --post_title='カンプからサイト制作' --post_name=coding-practice --menu_order=6 \
+  --post_date='2026-01-06 10:00:00' --post_excerpt='オンラインスクールの課題や自主制作として取り組んだ、デザインカンプ（完成デザインデータ）からのコーディング練習5作品のまとめです。いずれもSass（SCSS）＋BEM設計と、素のJavaScriptでのUI実装を軸にしています。' --porcelain)
+wp post meta update $ID kanzaki_subtitle 'コーディング練習 5作品'
 wp post meta update $ID kanzaki_eyebrow 'Works — Coding'
 wp post meta update $ID kanzaki_category 'CODING'
 wp post meta update $ID kanzaki_role 'コーディング'
-wp post meta update $ID kanzaki_tools 'Figma / HTML / SCSS / JavaScript / Swiper'
-wp post meta update $ID kanzaki_highlight 'SCSSのコンポーネント分割とBEM設計。Swiperの無限ループやフォームバリデーションにも挑戦'
-wp post meta update $ID kanzaki_site_url '/demo/onomichi/index.html'
+wp post meta update $ID kanzaki_tools 'Figma / HTML / SCSS / JavaScript / Swiper / Bootstrap'
+wp post meta update $ID kanzaki_highlight 'SCSS＋BEM設計と素のJSでのUI実装。コーディング練習5作品を1ページに集約'
+wp post meta update $ID kanzaki_site_url ''
 wp post meta update $ID kanzaki_badge ''
 wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-onomichi.webp' --post_id=$ID --featured_image --title='カンプからサイト制作'
-echo "imported: onomichi (ID=$ID)"
+echo "imported: coding-practice (ID=$ID)"
 
 # ---- 07: バナー制作 ----
 EXISTING=$(wp post list --post_type=works --name=banner-fruit --format=ids)
@@ -144,72 +147,4 @@ wp post meta update $ID kanzaki_site_url ''
 wp post meta update $ID kanzaki_badge ''
 wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-logo.webp' --post_id=$ID --featured_image --title='架空の建設会社 ロゴ制作'
 echo "imported: logo-kenchiku (ID=$ID)"
-
-# ---- 09: カンプからサイト制作 ----
-EXISTING=$(wp post list --post_type=works --name=oha --format=ids)
-if [ -n "$EXISTING" ]; then wp post delete $EXISTING --force; fi
-ID=$(wp post create "$MIG_DIR/content-oha.html" --post_type=works --post_status=publish \
-  --post_title='カンプからサイト制作' --post_name=oha --menu_order=9 \
-  --post_date='2026-01-09 10:00:00' --post_excerpt='オンラインスクールの課題。デザインカンプからのコーディング練習として制作しました。' --porcelain)
-wp post meta update $ID kanzaki_subtitle 'スクール課題'
-wp post meta update $ID kanzaki_eyebrow 'Works — Coding'
-wp post meta update $ID kanzaki_category 'CODING'
-wp post meta update $ID kanzaki_role 'コーディング'
-wp post meta update $ID kanzaki_tools 'HTML / SCSS / JavaScript / Swiper'
-wp post meta update $ID kanzaki_highlight 'SCSS＋BEM設計。ドロワー・アコーディオン・モーダル・Swiper等の実装'
-wp post meta update $ID kanzaki_site_url '/demo/oha/index.html'
-wp post meta update $ID kanzaki_badge ''
-wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-oha.jpg' --post_id=$ID --featured_image --title='カンプからサイト制作'
-echo "imported: oha (ID=$ID)"
-
-# ---- 10: カンプからサイト制作 ----
-EXISTING=$(wp post list --post_type=works --name=sobolon --format=ids)
-if [ -n "$EXISTING" ]; then wp post delete $EXISTING --force; fi
-ID=$(wp post create "$MIG_DIR/content-sobolon.html" --post_type=works --post_status=publish \
-  --post_title='カンプからサイト制作' --post_name=sobolon --menu_order=10 \
-  --post_date='2026-01-10 10:00:00' --post_excerpt='オンラインスクールの課題。ライブコーディング形式で、Webサイト制作の実務プロセスを学習しました。' --porcelain)
-wp post meta update $ID kanzaki_subtitle 'ライブコーディング'
-wp post meta update $ID kanzaki_eyebrow 'Works — Coding'
-wp post meta update $ID kanzaki_category 'CODING'
-wp post meta update $ID kanzaki_role 'コーディング'
-wp post meta update $ID kanzaki_tools 'HTML / SCSS / JavaScript'
-wp post meta update $ID kanzaki_highlight 'Sassのモジュール設計とコンポーネント単位の開発で保守性を重視'
-wp post meta update $ID kanzaki_site_url '/demo/sobolon/index.html'
-wp post meta update $ID kanzaki_badge ''
-wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-sobolon.webp' --post_id=$ID --featured_image --title='カンプからサイト制作'
-echo "imported: sobolon (ID=$ID)"
-
-# ---- 11: 自主制作課題 カンプからサイト制作 ----
-EXISTING=$(wp post list --post_type=works --name=e-tiga --format=ids)
-if [ -n "$EXISTING" ]; then wp post delete $EXISTING --force; fi
-ID=$(wp post create "$MIG_DIR/content-e-tiga.html" --post_type=works --post_status=publish \
-  --post_title='自主制作課題 カンプからサイト制作' --post_name=e-tiga --menu_order=11 \
-  --post_date='2026-01-11 10:00:00' --post_excerpt='自主制作課題。デザインカンプからのコーディング練習として、自力で制作しました。' --porcelain)
-wp post meta update $ID kanzaki_subtitle ''
-wp post meta update $ID kanzaki_eyebrow 'Works — Coding'
-wp post meta update $ID kanzaki_category 'CODING'
-wp post meta update $ID kanzaki_role 'コーディング'
-wp post meta update $ID kanzaki_tools 'HTML / SCSS / JavaScript / Swiper'
-wp post meta update $ID kanzaki_highlight 'ピクセルパーフェクトの再現とJSアニメーションの実装'
-wp post meta update $ID kanzaki_site_url '/demo/e-tiga/index.html'
-wp post meta update $ID kanzaki_badge ''
-wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-etiga.webp' --post_id=$ID --featured_image --title='自主制作課題 カンプからサイト制作'
-echo "imported: e-tiga (ID=$ID)"
-
-# ---- 12: Bootstrapを使用したサイト制作 ----
-EXISTING=$(wp post list --post_type=works --name=bootstrap --format=ids)
-if [ -n "$EXISTING" ]; then wp post delete $EXISTING --force; fi
-ID=$(wp post create "$MIG_DIR/content-bootstrap.html" --post_type=works --post_status=publish \
-  --post_title='Bootstrapを使用したサイト制作' --post_name=bootstrap --menu_order=12 \
-  --post_date='2026-01-12 10:00:00' --post_excerpt='Bootstrapの習熟を目的に、標準機能のみでレスポンシブサイトを構築しました。' --porcelain)
-wp post meta update $ID kanzaki_subtitle ''
-wp post meta update $ID kanzaki_eyebrow 'Works — Coding'
-wp post meta update $ID kanzaki_category 'CODING'
-wp post meta update $ID kanzaki_role 'コーディング'
-wp post meta update $ID kanzaki_tools 'HTML / Bootstrap'
-wp post meta update $ID kanzaki_highlight 'カスタムCSS・JSを使わず、グリッドとユーティリティクラスのみで構築'
-wp post meta update $ID kanzaki_site_url '/demo/bstrap/index.html'
-wp post meta update $ID kanzaki_badge ''
-wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-bootstrap.webp' --post_id=$ID --featured_image --title='Bootstrapを使用したサイト制作'
-echo "imported: bootstrap (ID=$ID)"
 
