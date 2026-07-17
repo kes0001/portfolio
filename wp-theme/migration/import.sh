@@ -41,12 +41,29 @@ wp post meta update $ID kanzaki_badge '実案件'
 wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-sea-crews.jpg' --post_id=$ID --featured_image --title='津堅島シークルーズ'
 echo "imported: sea-crews (ID=$ID)"
 
-# ---- 03: 株式会社ライトディレクション ----
+# ---- 03: 津堅ハーリー ----
+EXISTING=$(wp post list --post_type=works --name=tsuken-haari --format=ids)
+if [ -n "$EXISTING" ]; then wp post delete $EXISTING --force; fi
+ID=$(wp post create "$MIG_DIR/content-tsuken-haari.html" --post_type=works --post_status=publish \
+  --post_title='津堅ハーリー' --post_name=tsuken-haari --menu_order=3 \
+  --post_date='2026-01-03 10:00:00' --post_excerpt='沖縄県うるま市・津堅島の伝統行事「津堅ハーリー」の公式サイト。独自の情報発信の場がなかった島の海神祭に、企画・デザイン・実装からWordPress構築・アクセス計測までを一人で一貫して担当しました。' --porcelain)
+wp post meta update $ID kanzaki_subtitle 'イベント公式サイト'
+wp post meta update $ID kanzaki_eyebrow 'Works — Event Site（実案件）'
+wp post meta update $ID kanzaki_category 'DESIGN'
+wp post meta update $ID kanzaki_role '企画・デザイン・実装・WordPress構築・計測設定'
+wp post meta update $ID kanzaki_tools 'Claude Code / HTML / SCSS / JavaScript / WordPress'
+wp post meta update $ID kanzaki_highlight '実写のレース写真を主役にした波形リビール演出と、フォント自前配信によるパフォーマンス改善。AI協働で企画から公開・運用設計まで一人で完結'
+wp post meta update $ID kanzaki_site_url 'https://tsuken-navi.com/'
+wp post meta update $ID kanzaki_badge '実案件'
+wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-tsuken-haari.jpg' --post_id=$ID --featured_image --title='津堅ハーリー'
+echo "imported: tsuken-haari (ID=$ID)"
+
+# ---- 04: 株式会社ライトディレクション ----
 EXISTING=$(wp post list --post_type=works --name=right-direction --format=ids)
 if [ -n "$EXISTING" ]; then wp post delete $EXISTING --force; fi
 ID=$(wp post create "$MIG_DIR/content-right-direction.html" --post_type=works --post_status=publish \
-  --post_title='株式会社ライトディレクション' --post_name=right-direction --menu_order=3 \
-  --post_date='2026-01-03 10:00:00' --post_excerpt='東京・江東区のWeb制作・システム開発会社「株式会社ライトディレクション」のコーポレートサイト。「AIをどこまで実務の制作に使えるか」を検証する依頼案件として、構成からデザイン・実装・公開までを一貫して担当しました。名刺デザインもあわせて制作しています。' --porcelain)
+  --post_title='株式会社ライトディレクション' --post_name=right-direction --menu_order=4 \
+  --post_date='2026-01-04 10:00:00' --post_excerpt='東京・江東区のWeb制作・システム開発会社「株式会社ライトディレクション」のコーポレートサイト。「AIをどこまで実務の制作に使えるか」を検証する依頼案件として、構成からデザイン・実装・公開までを一貫して担当しました。名刺デザインもあわせて制作しています。' --porcelain)
 wp post meta update $ID kanzaki_subtitle 'コーポレートサイト'
 wp post meta update $ID kanzaki_eyebrow 'Works — Corporate Site（実案件）'
 wp post meta update $ID kanzaki_category 'DESIGN'
@@ -58,12 +75,12 @@ wp post meta update $ID kanzaki_badge '実案件'
 wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-right-direction.jpg' --post_id=$ID --featured_image --title='株式会社ライトディレクション'
 echo "imported: right-direction (ID=$ID)"
 
-# ---- 04: Spark Links ----
+# ---- 05: Spark Links ----
 EXISTING=$(wp post list --post_type=works --name=spark-links --format=ids)
 if [ -n "$EXISTING" ]; then wp post delete $EXISTING --force; fi
 ID=$(wp post create "$MIG_DIR/content-spark-links.html" --post_type=works --post_status=publish \
-  --post_title='Spark Links' --post_name=spark-links --menu_order=4 \
-  --post_date='2026-01-04 10:00:00' --post_excerpt='架空の飲料メーカー「Spark Links」のブランドサイト。ペルソナ設計からデザイン・実装まで一貫して担当しました。' --porcelain)
+  --post_title='Spark Links' --post_name=spark-links --menu_order=5 \
+  --post_date='2026-01-05 10:00:00' --post_excerpt='架空の飲料メーカー「Spark Links」のブランドサイト。ペルソナ設計からデザイン・実装まで一貫して担当しました。' --porcelain)
 wp post meta update $ID kanzaki_subtitle '架空の飲料メーカーサイト'
 wp post meta update $ID kanzaki_eyebrow 'Works — Corporate Site'
 wp post meta update $ID kanzaki_category 'DESIGN'
@@ -76,12 +93,12 @@ wp post meta update $ID kanzaki_badge ''
 wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-sparklinks.webp' --post_id=$ID --featured_image --title='Spark Links'
 echo "imported: spark-links (ID=$ID)"
 
-# ---- 05: 笹塚スマイルクリニック ----
+# ---- 06: 笹塚スマイルクリニック ----
 EXISTING=$(wp post list --post_type=works --name=sasazuka --format=ids)
 if [ -n "$EXISTING" ]; then wp post delete $EXISTING --force; fi
 ID=$(wp post create "$MIG_DIR/content-sasazuka.html" --post_type=works --post_status=publish \
-  --post_title='笹塚スマイルクリニック' --post_name=sasazuka --menu_order=5 \
-  --post_date='2026-01-05 10:00:00' --post_excerpt='架空の歯科医院のコーポレートサイト。安心感と、ユーザーが迷わず予約できる導線設計を重視して制作しました。' --porcelain)
+  --post_title='笹塚スマイルクリニック' --post_name=sasazuka --menu_order=6 \
+  --post_date='2026-01-06 10:00:00' --post_excerpt='架空の歯科医院のコーポレートサイト。安心感と、ユーザーが迷わず予約できる導線設計を重視して制作しました。' --porcelain)
 wp post meta update $ID kanzaki_subtitle '架空の歯科医院サイト'
 wp post meta update $ID kanzaki_eyebrow 'Works — Corporate Site'
 wp post meta update $ID kanzaki_category 'DESIGN'
@@ -94,15 +111,15 @@ wp post meta update $ID kanzaki_badge ''
 wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-sasazuka.jpg' --post_id=$ID --featured_image --title='笹塚スマイルクリニック'
 echo "imported: sasazuka (ID=$ID)"
 
-# ---- 06: カンプからサイト制作（コーディング練習5作品の集約） ----
+# ---- 07: カンプからサイト制作（コーディング練習5作品の集約） ----
 # 旧個別ページ5件（onomichi/oha/sobolon/e-tiga/bootstrap）はこの1件に統合。残っていれば掃除する
 for SLUG in onomichi oha sobolon e-tiga bootstrap coding-practice; do
   EXISTING=$(wp post list --post_type=works --name=$SLUG --format=ids)
   if [ -n "$EXISTING" ]; then wp post delete $EXISTING --force; fi
 done
 ID=$(wp post create "$MIG_DIR/content-coding-practice.html" --post_type=works --post_status=publish \
-  --post_title='カンプからサイト制作' --post_name=coding-practice --menu_order=6 \
-  --post_date='2026-01-06 10:00:00' --post_excerpt='オンラインスクールの課題や自主制作として取り組んだ、デザインカンプ（完成デザインデータ）からのコーディング練習5作品のまとめです。いずれもSass（SCSS）＋BEM設計と、素のJavaScriptでのUI実装を軸にしています。' --porcelain)
+  --post_title='カンプからサイト制作' --post_name=coding-practice --menu_order=7 \
+  --post_date='2026-01-07 10:00:00' --post_excerpt='オンラインスクールの課題や自主制作として取り組んだ、デザインカンプ（完成デザインデータ）からのコーディング練習5作品のまとめです。いずれもSass（SCSS）＋BEM設計と、素のJavaScriptでのUI実装を軸にしています。' --porcelain)
 wp post meta update $ID kanzaki_subtitle 'コーディング練習 5作品'
 wp post meta update $ID kanzaki_eyebrow 'Works — Coding'
 wp post meta update $ID kanzaki_category 'CODING'
@@ -114,12 +131,12 @@ wp post meta update $ID kanzaki_badge ''
 wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-onomichi.webp' --post_id=$ID --featured_image --title='カンプからサイト制作'
 echo "imported: coding-practice (ID=$ID)"
 
-# ---- 07: バナー制作 ----
+# ---- 08: バナー制作 ----
 EXISTING=$(wp post list --post_type=works --name=banner-fruit --format=ids)
 if [ -n "$EXISTING" ]; then wp post delete $EXISTING --force; fi
 ID=$(wp post create "$MIG_DIR/content-banner-fruit.html" --post_type=works --post_status=publish \
-  --post_title='バナー制作' --post_name=banner-fruit --menu_order=7 \
-  --post_date='2026-01-07 10:00:00' --post_excerpt='電話占いサービス「Sela（セラ）」の実案件広告バナーを担当。あわせて、自主制作（架空案件）のフルーツサブスク「フルハビ」の提案バナーも掲載しています。' --porcelain)
+  --post_title='バナー制作' --post_name=banner-fruit --menu_order=8 \
+  --post_date='2026-01-08 10:00:00' --post_excerpt='電話占いサービス「Sela（セラ）」の実案件広告バナーを担当。あわせて、自主制作（架空案件）のフルーツサブスク「フルハビ」の提案バナーも掲載しています。' --porcelain)
 wp post meta update $ID kanzaki_subtitle ''
 wp post meta update $ID kanzaki_eyebrow 'Works — Banner（実案件あり）'
 wp post meta update $ID kanzaki_category 'DESIGN'
@@ -131,12 +148,12 @@ wp post meta update $ID kanzaki_badge '実案件あり'
 wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-banner-sela-thumb.jpg' --post_id=$ID --featured_image --title='バナー制作'
 echo "imported: banner-fruit (ID=$ID)"
 
-# ---- 08: 架空の建設会社 ロゴ制作 ----
+# ---- 09: 架空の建設会社 ロゴ制作 ----
 EXISTING=$(wp post list --post_type=works --name=logo-kenchiku --format=ids)
 if [ -n "$EXISTING" ]; then wp post delete $EXISTING --force; fi
 ID=$(wp post create "$MIG_DIR/content-logo-kenchiku.html" --post_type=works --post_status=publish \
-  --post_title='架空の建設会社 ロゴ制作' --post_name=logo-kenchiku --menu_order=8 \
-  --post_date='2026-01-08 10:00:00' --post_excerpt='株式会社神崎建設のCIデザインを、コンセプトの異なる3案で提案。ブランドの方向性を提示しました。' --porcelain)
+  --post_title='架空の建設会社 ロゴ制作' --post_name=logo-kenchiku --menu_order=9 \
+  --post_date='2026-01-09 10:00:00' --post_excerpt='株式会社神崎建設のCIデザインを、コンセプトの異なる3案で提案。ブランドの方向性を提示しました。' --porcelain)
 wp post meta update $ID kanzaki_subtitle ''
 wp post meta update $ID kanzaki_eyebrow 'Works — Logo'
 wp post meta update $ID kanzaki_category 'DESIGN'
