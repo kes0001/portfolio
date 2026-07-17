@@ -46,12 +46,12 @@ EXISTING=$(wp post list --post_type=works --name=tsuken-haari --format=ids)
 if [ -n "$EXISTING" ]; then wp post delete $EXISTING --force; fi
 ID=$(wp post create "$MIG_DIR/content-tsuken-haari.html" --post_type=works --post_status=publish \
   --post_title='津堅ハーリー' --post_name=tsuken-haari --menu_order=3 \
-  --post_date='2026-01-03 10:00:00' --post_excerpt='沖縄県うるま市・津堅島の伝統行事「津堅ハーリー」の公式サイト。独自の情報発信の場がなかった島の海神祭に、企画・デザイン・実装からWordPress構築・アクセス計測までを一人で一貫して担当しました。' --porcelain)
+  --post_date='2026-01-03 10:00:00' --post_excerpt='沖縄県うるま市・津堅島の伝統行事「津堅ハーリー」の公式サイト。独自の情報発信の場がなかった島の海神祭に、企画・デザイン・実装からアクセス計測までを一人で一貫して担当しました。' --porcelain)
 wp post meta update $ID kanzaki_subtitle 'イベント公式サイト'
 wp post meta update $ID kanzaki_eyebrow 'Works — Event Site（実案件）'
 wp post meta update $ID kanzaki_category 'DESIGN'
-wp post meta update $ID kanzaki_role '企画・デザイン・実装・WordPress構築・計測設定'
-wp post meta update $ID kanzaki_tools 'Claude Code / HTML / SCSS / JavaScript / WordPress'
+wp post meta update $ID kanzaki_role '企画・デザイン・実装・計測設定'
+wp post meta update $ID kanzaki_tools 'Claude Code / HTML / SCSS / JavaScript'
 wp post meta update $ID kanzaki_highlight '実写のレース写真を主役にした波形リビール演出と、フォント自前配信によるパフォーマンス改善。AI協働で企画から公開・運用設計まで一人で完結'
 wp post meta update $ID kanzaki_site_url 'https://tsuken-navi.com/'
 wp post meta update $ID kanzaki_badge '実案件'
