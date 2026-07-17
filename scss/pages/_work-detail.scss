@@ -575,3 +575,47 @@
     content: none;
   }
 }
+
+// ============================================================
+// モーション（決めの動きは2つだけ。どちらもCSSのみ＝静的・WP共通）
+// ============================================================
+
+// ① ヒーロー入場：初回描画時に @starting-style からトランジションで
+//    立ち上げ、視線を作品そのものへ誘導する。JS不要・未対応ブラウザは静止表示。
+//    静的のフレーム無し作品は素の p-work__thumbnail が対象（:notで二重適用を防ぐ）
+.p-work__device,
+.p-work__thumbnail:not(.p-work__device *) {
+  transition:
+    opacity 0.4s var(--ease-decelerate),
+    translate 0.4s var(--ease-decelerate);
+
+  @starting-style {
+    opacity: 0;
+    translate: 0 rem(16);
+  }
+}
+
+// ② 本文セクション：スクロール駆動リビール（トップの js-reveal と同じモーション言語）。
+//    スクロールイベントJSは使わず、未対応ブラウザは @supports で静止表示のまま
+@supports (animation-timeline: view()) {
+  .p-work__section {
+    animation: work-section-reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 25%;
+  }
+
+  @keyframes work-section-reveal {
+    from {
+      opacity: 0;
+      translate: 0 rem(24);
+    }
+  }
+
+  // スクロール駆動アニメは進捗ベースで animation-duration が効かず、
+  // foundation のグローバル reduce ブロックでは止まらないため、ここで個別に殺す
+  @media (prefers-reduced-motion: reduce) {
+    .p-work__section {
+      animation: none;
+    }
+  }
+}
