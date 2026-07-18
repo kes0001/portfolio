@@ -45,11 +45,11 @@
 ### フォントスタック
 
 ```scss
-// 見出し・本文共通（和文優先のシステムスタック＋Inter）
-font-family: Inter, "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
+// 見出し・本文共通（和文優先のシステムスタック＋D-DIN）
+font-family: "D-DIN", "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
 ```
 
-- SF Proは使えないため、欧文は **Inter**（variable・Google Fonts）、和文はシステムフォント優先
+- SF Proは使えないため、欧文は **D-DIN**（Datto Inc. / SIL OFL 1.1・セルフホスト、ライセンス全文は fonts/LICENSE-D-DIN.txt）、和文はシステムフォント優先。実ウェイトは Regular/Bold の2つで、@font-face のレンジ宣言により 300-400→Regular / 600-700→Bold に解決する
 - ウェイトの梯子は **300 / 400 / 600 / 700**。**500は使わない**（原典のルールを踏襲）。見出しは600、本文は400
 
 ### スケール（rem() 関数で指定。clampでレスポンシブ）

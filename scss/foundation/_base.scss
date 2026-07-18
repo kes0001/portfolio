@@ -2,17 +2,29 @@
 @use "./mixins" as *;
 
 // ============================================================
-// Webフォント（Inter バリアブル・latinサブセットのセルフホスト）
-// Google Fonts の外部CSS往復を排除し LCP を短縮する。
-// 1ファイルで wght 400-700 をカバー。和文は unicode-range 外＝システムフォント。
+// Webフォント（D-DIN・セルフホスト。Datto Inc. / SIL OFL 1.1 → fonts/LICENSE-D-DIN.txt）
+// 外部CSS往復を排除し LCP を短縮する。和文は unicode-range 外＝システムフォント。
+// D-DIN の実ウェイトは Regular / Bold の2つ。font-weight レンジ宣言で
+// 300-400→Regular、600-700→Bold に受けさせる（欧文で合成ボールドを発生させない）。
 // 相対パスは 静的版(css/→../fonts/) と WP版(assets/css/→../fonts/) の両方で成立する。
 // ============================================================
 @font-face {
-  font-family: "Inter";
+  font-family: "D-DIN";
   font-style: normal;
-  font-weight: 400 700;
+  font-weight: 100 500;
   font-display: swap;
-  src: url("../fonts/inter-latin.woff2") format("woff2");
+  src: url("../fonts/d-din-regular.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "D-DIN";
+  font-style: normal;
+  font-weight: 600 900;
+  font-display: swap;
+  src: url("../fonts/d-din-bold.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
     U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
     U+2212, U+2215, U+FEFF, U+FFFD;
@@ -65,9 +77,9 @@
   --radius-media: #{rem(8)};   /* 作品スクリーンショット（design-rules コンポーネント指針の明示例外） */
 
   // ----------------------------------------------------------
-  // フォント（単一スタック：欧文 Inter ＋ 和文システム優先）
+  // フォント（単一スタック：欧文 D-DIN ＋ 和文システム優先）
   // ----------------------------------------------------------
-  --font-family-base: Inter, "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
+  --font-family-base: "D-DIN", "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
 
   // ----------------------------------------------------------
   // フォントサイズ（セマスケール。weight / line-height はコメントの組で使う）

@@ -6,7 +6,7 @@
  * - テーマCSSは <link> ではなく wp_head へインライン出力し、
  *   render-blocking なCSS取得の往復を丸ごと無くす（FCP短縮）。
  * - CF7 のCSSも同様に小さいためインライン化して統合する。
- * - フォントは Inter（バリアブル・latinサブセット）をセルフホストし preload。
+ * - フォントは D-DIN（Regular/Bold・OFL 1.1）をセルフホストし preload。
  *   Google Fonts への外部依存は廃止（LCPのフォント再描画遅延対策）。
  *
  * @package kanzaki
@@ -45,7 +45,8 @@ add_action(
 add_action(
 	'wp_head',
 	function () {
-		echo '<link rel="preload" href="' . esc_url( get_theme_file_uri( 'assets/fonts/inter-latin.woff2' ) ) . '" as="font" type="font/woff2" crossorigin>' . "\n";
+		echo '<link rel="preload" href="' . esc_url( get_theme_file_uri( 'assets/fonts/d-din-regular.woff2' ) ) . '" as="font" type="font/woff2" crossorigin>' . "\n";
+		echo '<link rel="preload" href="' . esc_url( get_theme_file_uri( 'assets/fonts/d-din-bold.woff2' ) ) . '" as="font" type="font/woff2" crossorigin>' . "\n";
 
 		$css = '';
 
