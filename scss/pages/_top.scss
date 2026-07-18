@@ -561,10 +561,72 @@
   text-align: justify;
 }
 
-.p-top-service__flow-title {
+// 料金・流れ・FAQ 共通の小見出し（旧 flow-title を汎用化）
+.p-top-service__sub-title {
   margin-top: var(--space-64);
   font-size: var(--text-title);
   font-weight: var(--font-weight-semibold);
+}
+
+.p-top-service__sub-lead {
+  margin-top: var(--space-8);
+  font-size: var(--text-caption);
+  color: var(--color-ink-muted);
+}
+
+// ------------------------------------------------------------
+// 料金の目安：ミニマムな定義リスト表。区切りはヘアライン
+// （カード化しない——料金は「読む」情報であり、面で浮かせる対象ではない）
+// ------------------------------------------------------------
+.p-top-service__price-list {
+  margin-top: var(--space-24);
+  max-width: rem(640);
+  border-block-start: 1px solid var(--color-hairline);
+}
+
+.p-top-service__price-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  column-gap: var(--space-16);
+  padding-block: var(--space-16);
+  border-block-end: 1px solid var(--color-hairline);
+}
+
+.p-top-service__price-name {
+  font-weight: var(--font-weight-semibold);
+}
+
+.p-top-service__price-scope {
+  display: block;
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-ink-muted);
+}
+
+.p-top-service__price-value {
+  font-weight: var(--font-weight-semibold);
+  white-space: nowrap;
+}
+
+.p-top-service__price-note {
+  margin-top: var(--space-16);
+  max-width: rem(640);
+  font-size: var(--text-caption);
+  line-height: 1.7;
+  color: var(--color-ink-muted);
+  text-align: justify;
+}
+
+// ------------------------------------------------------------
+// FAQ：c-accordion の置き場。上端ヘアラインは並びの受け側で引く
+// （c-accordion 自身は下端のみ持つ）
+// ------------------------------------------------------------
+.p-top-service__faq {
+  margin-top: var(--space-24);
+  max-width: rem(720);
+  border-block-start: 1px solid var(--color-hairline);
 }
 
 .p-top-service__flow {

@@ -25,6 +25,7 @@
   @include meta.load-css("components/section-title");
   @include meta.load-css("components/button");
   @include meta.load-css("components/card");
+  @include meta.load-css("components/accordion");
   @include meta.load-css("components/tag");
   @include meta.load-css("components/icon");
 }

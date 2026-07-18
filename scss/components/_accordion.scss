@@ -1,0 +1,99 @@
+@use "../foundation" as *;
+
+// ============================================================
+// c-accordion — FAQ等の開閉パネル（<details> ベース・JSなし）
+// name属性を揃えると排他開閉（1つ開くと他が閉じる）。
+// 開閉アニメは ::details-content（非対応ブラウザはアニメなしで開閉する劣化）。
+// 区切りのヘアラインは下端のみ持ち、上端は置き場（p-* 側）が引く。
+// ============================================================
+.c-accordion {
+  interpolate-size: allow-keywords;
+  border-block-end: 1px solid var(--color-hairline);
+
+  &::details-content {
+    block-size: 0;
+    overflow-y: clip;
+    transition: block-size 0.3s var(--ease-standard), content-visibility 0.3s allow-discrete;
+  }
+
+  &[open]::details-content {
+    block-size: auto;
+  }
+}
+
+.c-accordion__summary {
+  display: flex;
+  align-items: baseline;
+  column-gap: var(--space-12);
+  padding-block: var(--space-16);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  list-style: none; // デフォルトの三角マーカーを消す（アイコンは自前の「＋」）
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  &:hover {
+    opacity: var(--opacity-hover);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary-focus);
+    outline-offset: 2px;
+  }
+}
+
+// Q. / A. ＝反復する構造ラベル → アクセント色（design-rules の用途に合致）
+.c-accordion__label {
+  flex-shrink: 0;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent);
+}
+
+// 「＋」アイコン（ロゴの＋モチーフと同語彙）。open時は縦棒が消えて「−」になる
+.c-accordion__icon {
+  position: relative;
+  flex-shrink: 0;
+  margin-inline-start: auto;
+  align-self: center;
+  inline-size: rem(12);
+  block-size: rem(12);
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    background-color: var(--color-ink-muted);
+  }
+
+  &::before {
+    block-size: rem(2);
+  }
+
+  &::after {
+    inline-size: rem(2);
+    transition: rotate 0.3s var(--ease-standard), opacity 0.3s var(--ease-standard);
+  }
+}
+
+.c-accordion[open] .c-accordion__icon::after {
+  rotate: 90deg;
+  opacity: 0;
+}
+
+.c-accordion__content {
+  display: flex;
+  align-items: baseline;
+  column-gap: var(--space-12);
+  padding-block-end: var(--space-16);
+}
+
+.c-accordion__content > p {
+  font-size: var(--text-caption);
+  line-height: 1.7;
+  color: var(--color-ink-muted);
+  text-align: justify;
+}
