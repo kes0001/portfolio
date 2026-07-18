@@ -21,7 +21,7 @@
 <!-- wp:group {"className":"c-section-title","layout":{"type":"default"}} -->
 <div class="wp-block-group c-section-title">
 <!-- wp:paragraph {"className":"c-section-title__en"} -->
-<p class="c-section-title__en">About This Site</p>
+<p class="c-section-title__en">About</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading {"anchor":"about-site-title","className":"c-section-title__jp"} -->
 <h2 class="wp-block-heading c-section-title__jp" id="about-site-title">このサイトについて</h2>

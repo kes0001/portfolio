@@ -173,24 +173,26 @@
   margin-top: var(--space-64);
 }
 
-// エディトリアルな見出し：うっすら青の欧文ゴーストを和文見出しの上に敷く
-// （トップの c-section-title と同じ語彙の縮小版）
+// エディトリアルな見出し：ウォーターマーク欧文を和文見出しに重ねる
+// （トップの c-section-title と同じ語彙の縮小版。和文がテキストノードのため
+// 重なりは translate で作る＝レイアウト非破壊）
 .p-work__section-title {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: 0;
   font-size: var(--text-title);
   font-weight: var(--font-weight-semibold);
   line-height: 1.4;
 }
 
 .p-work__section-title-en {
-  font-size: clamp(#{rem(28)}, 3.5vw, #{rem(36)});
+  font-size: clamp(#{rem(32)}, 4vw, #{rem(48)});
   font-weight: var(--font-weight-bold);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   line-height: 1;
   text-transform: uppercase;
-  color: var(--color-primary-pale);
+  color: var(--color-ghost);
+  transform: translateY(0.18em);
 }
 
 .p-work__text {

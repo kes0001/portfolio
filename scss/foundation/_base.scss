@@ -35,7 +35,7 @@
   --color-primary-focus: oklch(56.3% 0.193 256.2); /* フォーカスリング */
   --color-on-primary:    oklch(100% 0 0);          /* 青ボタン上のテキスト */
   --color-accent:        oklch(55% 0.115 68);       /* 反復する構造ラベル専用の暖色（アンバー/オーカー、AA 4.5:1確保）。青はアクション専用を維持し、寒色×暖色で強弱を出す */
-  --color-primary-pale:  oklch(87% 0.055 255.8);   /* うっすら青。サブタイトルの大型欧文ラベル等、装飾テキスト専用（本文には使わない） */
+  --color-ghost: color-mix(in srgb, var(--color-logo) 12%, transparent); /* 見出しウォーターマーク。FVの「＋」（ロゴ青×低透明度）と同じ血統。装飾テキスト専用 */
   --color-primary-mist:  oklch(96.8% 0.014 255.8); /* ごく淡い青の面。料金プランカードのストライプ行など */
   --color-canvas:        oklch(100% 0 0);          /* 基本の背景 */
   --color-canvas-alt:    oklch(97.1% 0.003 286.4); /* 交互セクション・フッターの背景 */

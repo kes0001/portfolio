@@ -1,10 +1,11 @@
 @use "../foundation" as *;
 
 // ============================================================
-// c-section-title — セクション見出し（うっすら青の大型欧文ゴースト + 日本語）
-// 欧文はうっすら青（--color-primary-pale）の大型ウォーターマークとして敷き、
-// 和文見出しをその裾に少し重ねて奥行きを作る。仕上げの「＋」は
-// ロゴモチーフのあしらい（アクセント色・代替テキストなし）。
+// c-section-title — セクション見出し（ウォーターマーク欧文 + 日本語）
+// 欧文はFVの「＋」と同じ血統（ロゴ青×低透明度＝--color-ghost）の
+// 超大型ウォーターマークとして完全に背景化し（和文の約3倍）、
+// 和文見出しを裾に深く重ねてレイヤーを作る。
+// 仕上げはFVと同一clip-pathの赤い十字を1点だけ（文字ではなく面）。
 // ============================================================
 .c-section-title {
   display: flex;
@@ -20,26 +21,30 @@
 }
 
 .c-section-title__en {
-  font-size: clamp(#{rem(40)}, 7vw, #{rem(72)});
+  font-size: clamp(#{rem(64)}, 11vw, #{rem(120)});
   font-weight: var(--font-weight-bold);
   line-height: 1;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
-  color: var(--color-primary-pale);
+  color: var(--color-ghost);
 }
 
 .c-section-title__jp {
-  margin-block-start: -0.25em; // ゴーストの裾に重ねる（jpのフォントサイズ基準）
+  margin-block-start: -0.55em; // ウォーターマークの下半分へ深く重ねる（jpのフォントサイズ基準）
   font-size: var(--text-display);
   font-weight: var(--font-weight-semibold);
   line-height: 1.25;
   text-wrap: balance;
 
+  // FVの赤い「＋」と同一のclip-path面。ここだけに置く希少なアクセント
   &::after {
-    content: "＋" / "";
+    content: "";
+    display: inline-block;
+    inline-size: rem(12);
+    block-size: rem(12);
     margin-inline-start: var(--space-12);
-    font-size: 0.6em;
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-accent);
+    clip-path: polygon(33% 0, 67% 0, 67% 33%, 100% 33%, 100% 67%, 67% 67%, 67% 100%, 33% 100%, 33% 67%, 0 67%, 0 33%, 33% 33%);
+    background-color: var(--color-logo-accent);
+    opacity: 0.55;
   }
 }
