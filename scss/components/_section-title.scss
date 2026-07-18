@@ -37,15 +37,4 @@
   letter-spacing: 0.12em; // 和文見出しはトラッキングを取り、巨大な欧文と質感で対比させる
   line-height: 1.25;
   text-wrap: balance;
-
-  // タイトルの花押：実色のロゴマークを小さく右に添える（ヘッダーロゴと同じ顔）。
-  // 大きいもの＝薄く（ゴースト欧文）、小さいもの＝濃く、の役割分担
-  &::after {
-    content: "";
-    display: inline-block;
-    inline-size: 0.6em; // jpのclamp(28-40px)に追従 ≒ 17〜24px
-    aspect-ratio: 278 / 270; // ロゴの実寸比
-    margin-inline-start: var(--space-12);
-    background: url("../images/site-logo.webp") no-repeat center / contain;
-  }
 }
