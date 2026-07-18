@@ -170,30 +170,29 @@
 }
 
 .p-work__section {
-  margin-top: var(--space-64);
+  margin-top: var(--space-80); // 詳細ページは余白を多めに取り、静かな縦リズムにする
 }
 
-// エディトリアルな見出し：ウォーターマーク欧文を和文見出しに重ねる
-// （トップの c-section-title と同じ語彙の縮小版。和文がテキストノードのため
-// 重なりは translate で作る＝レイアウト非破壊）
+// 詳細ページの見出し：トップのウォーターマークとは役割を変え、
+// 小さな欧文ラベル（字間広め）＋和文の控えめなエディトリアル構成。
+// ページの声量を落とし、本文の読みやすさを主役にする
 .p-work__section-title {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: var(--space-16);
   font-size: var(--text-title);
   font-weight: var(--font-weight-semibold);
-  letter-spacing: 0.08em; // 和文見出しのトラッキング（欧文ゴーストは自身の0.01emが勝つ）
+  letter-spacing: 0.08em;
   line-height: 1.4;
 }
 
 .p-work__section-title-en {
-  font-size: clamp(#{rem(32)}, 4vw, #{rem(48)});
-  font-weight: var(--font-weight-bold);
-  letter-spacing: 0.01em;
+  font-size: var(--text-fine);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.24em;
   line-height: 1;
   text-transform: uppercase;
-  color: var(--color-ghost);
-  transform: translateY(0.55em); // ウォーターマークを和文の行へ沈み込ませる（レイアウト非破壊）
+  color: var(--color-ink-muted);
 }
 
 .p-work__text {
