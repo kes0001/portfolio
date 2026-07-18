@@ -1,6 +1,8 @@
 <?php
 /**
  * カスタム投稿タイプ「works」とカスタムフィールドの登録。
+ * 編集画面は通常の投稿と同じフル装備にする（supports・標準タクソノミー紐付け）。
+ * カテゴリー等はフロント表示には未使用（表示分類は kanzaki_category メタが担当）。
  *
  * メタは Block Bindings（core/post-meta）でテンプレートに表示するため、
  * すべて show_in_rest / single / sanitize_callback 付きで登録する。
@@ -32,7 +34,8 @@ add_action(
 				),
 				'menu_icon'    => 'dashicons-portfolio',
 				'menu_position' => 5,
-				'supports'     => array( 'title', 'editor', 'excerpt', 'thumbnail', 'page-attributes', 'custom-fields' ),
+				'supports'     => array( 'title', 'editor', 'excerpt', 'thumbnail', 'page-attributes', 'custom-fields', 'revisions', 'author', 'comments' ),
+				'taxonomies'   => array( 'category', 'post_tag' ),
 				'show_in_rest' => true,
 				// 新規作品のひな形（PURPOSE / DESIGN / CODING）。既存作品と同じ
 				// 「セクションgroup > 英ラベル + 見出し + 本文」の構造で用意する

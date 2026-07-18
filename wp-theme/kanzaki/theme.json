@@ -2,13 +2,8 @@
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 3,
 	"settings": {
-		"appearanceTools": false,
+		"appearanceTools": true,
 		"color": {
-			"defaultPalette": false,
-			"defaultGradients": false,
-			"defaultDuotone": false,
-			"custom": false,
-			"customGradient": false,
 			"palette": [
 				{ "slug": "primary", "name": "Primary（青・唯一のアクセント）", "color": "var(--color-primary)" },
 				{ "slug": "canvas", "name": "Canvas", "color": "var(--color-canvas)" },
@@ -19,9 +14,6 @@
 			]
 		},
 		"typography": {
-			"defaultFontSizes": false,
-			"customFontSize": false,
-			"fluid": false,
 			"fontFamilies": [
 				{
 					"slug": "base",
@@ -40,9 +32,6 @@
 			]
 		},
 		"spacing": {
-			"defaultSpacingSizes": false,
-			"customSpacingSize": false,
-			"units": [ "rem", "%", "vw" ],
 			"spacingSizes": [
 				{ "slug": "8", "name": "8", "size": "var(--space-8)" },
 				{ "slug": "16", "name": "16", "size": "var(--space-16)" },
