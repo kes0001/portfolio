@@ -291,7 +291,7 @@
 }
 
 .p-top-section__body {
-  margin-top: var(--space-40);
+  margin-top: var(--space-48); // 被せ化で見出しが締まった分、直下は広めに取って呼吸させる
 }
 
 // ============================================================
@@ -586,12 +586,12 @@
 
 .p-top-service__sub-jp {
   grid-area: 1 / 1;
-  align-self: center; // ウォーターマークの文字ど真ん中に被せる
-  margin-block-start: 0.3em; // 光学調整
+  align-self: end; // ウォーターマークの下辺に座らせる（c-section-titleと同じ構図）
+  letter-spacing: 0.1em;
 }
 
 .p-top-service__sub-lead {
-  margin-top: var(--space-8);
+  margin-top: var(--space-16);
   font-size: var(--text-caption);
   color: var(--color-ink-muted);
 }

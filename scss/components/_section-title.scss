@@ -29,10 +29,10 @@
 }
 
 .c-section-title__jp {
-  align-self: center; // ウォーターマークの文字のど真ん中に被せる
-  margin-block-start: 0.35em; // 光学調整: キャップハイト帯へ少し下げる
+  align-self: end; // ウォーターマークの下辺に座らせる（上半分は欧文だけが香る）
   font-size: var(--text-display);
   font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.12em; // 和文見出しはトラッキングを取り、巨大な欧文と質感で対比させる
   line-height: 1.25;
   text-wrap: balance;
 
