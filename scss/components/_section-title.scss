@@ -1,34 +1,45 @@
 @use "../foundation" as *;
 
 // ============================================================
-// c-section-title — セクション見出し（英ラベル + 日本語）
-// 装飾（採番・ウォーターマーク・罫線）は持たない。
-// 区切りはセクションの面の色替えと余白が担う。
+// c-section-title — セクション見出し（うっすら青の大型欧文ゴースト + 日本語）
+// 欧文はうっすら青（--color-primary-pale）の大型ウォーターマークとして敷き、
+// 和文見出しをその裾に少し重ねて奥行きを作る。仕上げの「＋」は
+// ロゴモチーフのあしらい（アクセント色・代替テキストなし）。
 // ============================================================
 .c-section-title {
   display: flex;
   flex-direction: column;
-  gap: var(--space-12);
+  gap: 0; // 重なりは __jp の負マージンで管理する
 }
 
 // WP版では __en/__jp が span ではなく p/h1/h2 の兄弟ブロックになる。
-// 間隔は親の gap のみが担う（h1 のUA既定マージン対策を兼ねる）。
+// UA既定マージンをリセットし、重なり量を __jp 側で一元管理する。
 .c-section-title__en,
 .c-section-title__jp {
   margin-block: 0;
 }
 
 .c-section-title__en {
-  font-size: var(--text-caption);
-  font-weight: var(--font-weight-regular);
-  letter-spacing: 0.18em;
+  font-size: clamp(#{rem(40)}, 7vw, #{rem(72)});
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-primary-pale);
 }
 
 .c-section-title__jp {
+  margin-block-start: -0.25em; // ゴーストの裾に重ねる（jpのフォントサイズ基準）
   font-size: var(--text-display);
   font-weight: var(--font-weight-semibold);
   line-height: 1.25;
   text-wrap: balance;
+
+  &::after {
+    content: "＋" / "";
+    margin-inline-start: var(--space-12);
+    font-size: 0.6em;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-accent);
+  }
 }
