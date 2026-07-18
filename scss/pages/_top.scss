@@ -419,7 +419,7 @@
   line-height: 1.4;
 }
 
-// 習熟度バッジ（実務レベル＝墨面ピル／それ以外＝キャプションで静かに）
+// 習熟度バッジ（実務レベル＝淡青ピル／それ以外＝キャプションで静かに）
 .p-top-skills__meta {
   display: inline-block;
   margin-top: var(--space-8);
@@ -429,11 +429,13 @@
   color: var(--color-ink-muted);
 }
 
+// 唯一の黒ベタ面じゃった墨ピルを廃止し、期間チップ・料金ストライプと
+// 同じ淡青の面（primary-mist）に揃える——面の語彙を一本化
 .p-top-skills__meta--solid {
   padding: rem(2) rem(12);
   font-weight: var(--font-weight-semibold);
-  color: var(--color-canvas);
-  background-color: var(--color-ink);
+  color: var(--color-ink);
+  background-color: var(--color-primary-mist);
   border-radius: var(--radius-pill);
 }
 
@@ -768,8 +770,10 @@
   gap: var(--space-40);
   align-items: start;
 
+  // auto-fitで「入るだけ並ぶ」リキッドに。中間幅では2カラムに落ちて
+  // 質問文の過剰な折返しを防ぐ（固定3カラムだと340px幅で3行折れが出とった）
   @include mq("lg") {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(rem(300), 1fr));
     gap: var(--space-32);
   }
 }
