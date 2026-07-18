@@ -8,14 +8,17 @@
 // 仕上げはFVと同一clip-pathの赤い十字を1点だけ（文字ではなく面）。
 // ============================================================
 .c-section-title {
-  display: grid; // 欧文と和文を同一セルに重ねる（負マージンと違いブロック高さが安定する）
+  display: flex;
+  flex-direction: column;
+  // 欧文キャップスはベースライン下に約15%の空きを持つため、
+  // gapは小さめでも光学的には十分な余白になる
+  gap: var(--space-8);
 }
 
 // WP版では __en/__jp が span ではなく p/h1/h2 の兄弟ブロックになる。
-// UA既定マージンをリセットし、両者を同じグリッドセルへ置く。
+// UA既定マージンをリセットし、間隔は親の gap だけが担う。
 .c-section-title__en,
 .c-section-title__jp {
-  grid-area: 1 / 1;
   margin-block: 0;
 }
 
@@ -29,7 +32,6 @@
 }
 
 .c-section-title__jp {
-  align-self: end; // ウォーターマークの下辺に座らせる（上半分は欧文だけが香る）
   font-size: var(--text-display);
   font-weight: var(--font-weight-semibold);
   letter-spacing: 0.12em; // 和文見出しはトラッキングを取り、巨大な欧文と質感で対比させる
