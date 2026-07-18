@@ -924,6 +924,12 @@
   text-align: center;
 }
 
+// センター揃えセクションでは、ロゴ紋章も見出しの中央背面へ
+.p-top-contact .c-section-title::before {
+  inset-inline-start: 50%;
+  translate: -50% 0;
+}
+
 .p-top-contact__text {
   max-width: rem(560);
   margin-inline: auto;

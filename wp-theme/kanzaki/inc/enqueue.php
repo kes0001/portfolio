@@ -61,10 +61,13 @@ add_action(
 		$theme_css = get_theme_file_path( 'assets/css/style.css' );
 		if ( file_exists( $theme_css ) ) {
 			// インライン<style>では相対URLがページURL基準で解決されてしまうため、
-			// ビルドCSS内の ../fonts/（スタイルシート基準の相対パス）を絶対URLへ書き換える
+			// ビルドCSS内の ../fonts/ と ../images/（スタイルシート基準の相対パス）を絶対URLへ書き換える
 			$css .= str_replace(
-				'../fonts/',
-				esc_url( get_theme_file_uri( 'assets/fonts' ) ) . '/',
+				array( '../fonts/', '../images/' ),
+				array(
+					esc_url( get_theme_file_uri( 'assets/fonts' ) ) . '/',
+					esc_url( get_theme_file_uri( 'assets/images' ) ) . '/',
+				),
 				file_get_contents( $theme_css ) // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 			);
 		}
