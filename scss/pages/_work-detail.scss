@@ -192,7 +192,7 @@
   line-height: 1;
   text-transform: uppercase;
   color: var(--color-ghost);
-  transform: translateY(0.18em);
+  transform: translateY(0.55em); // ウォーターマークを和文の行へ沈み込ませる（レイアウト非破壊）
 }
 
 .p-work__text {

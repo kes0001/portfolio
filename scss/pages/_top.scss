@@ -568,15 +568,14 @@
 // 情報は和文が持つ）。赤の「＋」は h2 だけの特権なのでここには置かん
 .p-top-service__sub-title {
   margin-top: var(--space-96);
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+  display: grid; // 欧文と和文を同一セルに重ねる（c-section-titleと同方式）
   font-size: rem(28);
   font-weight: var(--font-weight-semibold);
   line-height: 1.3;
 }
 
 .p-top-service__sub-en {
+  grid-area: 1 / 1;
   font-size: clamp(#{rem(48)}, 7vw, #{rem(80)});
   font-weight: var(--font-weight-bold);
   line-height: 1;
@@ -586,7 +585,9 @@
 }
 
 .p-top-service__sub-jp {
-  margin-block-start: -0.5em; // ウォーターマークの裾へ重ねる
+  grid-area: 1 / 1;
+  align-self: center; // ウォーターマークの文字ど真ん中に被せる
+  margin-block-start: 0.3em; // 光学調整
 }
 
 .p-top-service__sub-lead {

@@ -8,15 +8,14 @@
 // 仕上げはFVと同一clip-pathの赤い十字を1点だけ（文字ではなく面）。
 // ============================================================
 .c-section-title {
-  display: flex;
-  flex-direction: column;
-  gap: 0; // 重なりは __jp の負マージンで管理する
+  display: grid; // 欧文と和文を同一セルに重ねる（負マージンと違いブロック高さが安定する）
 }
 
 // WP版では __en/__jp が span ではなく p/h1/h2 の兄弟ブロックになる。
-// UA既定マージンをリセットし、重なり量を __jp 側で一元管理する。
+// UA既定マージンをリセットし、両者を同じグリッドセルへ置く。
 .c-section-title__en,
 .c-section-title__jp {
+  grid-area: 1 / 1;
   margin-block: 0;
 }
 
@@ -30,7 +29,8 @@
 }
 
 .c-section-title__jp {
-  margin-block-start: -0.55em; // ウォーターマークの下半分へ深く重ねる（jpのフォントサイズ基準）
+  align-self: center; // ウォーターマークの文字のど真ん中に被せる
+  margin-block-start: 0.35em; // 光学調整: キャップハイト帯へ少し下げる
   font-size: var(--text-display);
   font-weight: var(--font-weight-semibold);
   line-height: 1.25;
