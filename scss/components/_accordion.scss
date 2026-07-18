@@ -27,6 +27,7 @@
   column-gap: var(--space-12);
   padding-block: var(--space-16);
   font-weight: var(--font-weight-semibold);
+  line-height: 1.5; // 2行に折れる質問文の間延び防止（1.8継承を断つ）
   cursor: pointer;
   list-style: none; // デフォルトの三角マーカーを消す（アイコンは自前の「＋」）
 

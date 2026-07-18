@@ -33,7 +33,7 @@ $breakpoints: (
   min-height: rem(48);
   padding: var(--space-12) var(--space-24);
   font-size: var(--text-body);
-  font-weight: var(--font-weight-regular);
+  font-weight: var(--font-weight-semibold); // ボタンは押下対象としての文字圧を持たせる
   border-radius: var(--radius-pill);
   text-decoration: none;
   transition:

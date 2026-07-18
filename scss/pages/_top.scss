@@ -414,8 +414,9 @@
 
 .p-top-skills__name {
   margin-top: var(--space-12);
-  font-size: var(--text-body);
+  font-size: var(--text-lead); // カード見出しは20pxで統一（本文16pxと同寸にしない）
   font-weight: var(--font-weight-semibold);
+  line-height: 1.4;
 }
 
 // 習熟度バッジ（実務レベル＝墨面ピル／それ以外＝キャプションで静かに）
@@ -549,8 +550,9 @@
 
 .p-top-service__name {
   margin-top: var(--space-12);
-  font-size: var(--text-body);
+  font-size: var(--text-lead); // カード見出しは20pxで統一（スキルカードと同格）
   font-weight: var(--font-weight-semibold);
+  line-height: 1.4;
 }
 
 .p-top-service__text {
