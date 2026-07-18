@@ -13,16 +13,6 @@
   // 欧文キャップスはベースライン下に約15%の空きを持つため、
   // gapは小さめでも光学的には十分な余白になる
   gap: var(--space-8);
-
-  // タイトル下のあしらい：メインカラー1色の短い角丸バー
-  &::after {
-    content: "";
-    inline-size: rem(48);
-    block-size: rem(6);
-    margin-top: var(--space-8); // gap 8と合わせ、和文から光学16px下に置く
-    border-radius: var(--radius-pill);
-    background-color: var(--color-primary);
-  }
 }
 
 // WP版では __en/__jp が span ではなく p/h1/h2 の兄弟ブロックになる。

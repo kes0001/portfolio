@@ -924,11 +924,6 @@
   text-align: center;
 }
 
-// センター揃えセクションでは、見出し下のバー（flexアイテム）も中央へ
-.p-top-contact .c-section-title::after {
-  align-self: center;
-}
-
 .p-top-contact__text {
   max-width: rem(560);
   margin-inline: auto;
