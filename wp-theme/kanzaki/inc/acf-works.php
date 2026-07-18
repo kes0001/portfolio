@@ -135,6 +135,14 @@ add_action(
 						'instructions' => 'Figmaの共有URL。空欄で「デザインデータを見る」ボタン非表示。共有設定は「リンクを知っている全員が閲覧可」にすること。',
 						'placeholder'  => 'https://www.figma.com/design/...',
 					),
+					array(
+						'key'          => 'field_kanzaki_device_frame',
+						'name'         => 'kanzaki_device_frame',
+						'type'         => 'true_false',
+						'label'        => 'MacBookフレームを強制表示',
+						'instructions' => '通常は「公開サイト/デモURL」がある作品だけフレームに嵌まる。URLが空のサイト作品（カンプ集約ページ等）でフレームを出したいときだけON。',
+						'ui'           => 1,
+					),
 
 					// ---- 共通の案内 ----
 					array(

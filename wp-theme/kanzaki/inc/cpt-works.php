@@ -136,5 +136,21 @@ add_action(
 				},
 			)
 		);
+
+		register_post_meta(
+			'works',
+			'kanzaki_device_frame',
+			array(
+				'type'              => 'boolean',
+				'single'            => true,
+				'default'           => false,
+				'description'       => 'サイトURLが空の作品でもMacBookフレームに嵌める（カンプ集約ページ等）',
+				'show_in_rest'      => true,
+				'sanitize_callback' => 'rest_sanitize_boolean',
+				'auth_callback'     => function () {
+					return current_user_can( 'edit_posts' );
+				},
+			)
+		);
 	}
 );
