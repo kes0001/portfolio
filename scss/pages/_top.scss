@@ -561,11 +561,26 @@
   text-align: justify;
 }
 
-// 料金・流れ・FAQ 共通の小見出し（旧 flow-title を汎用化）
+// 料金・流れ・FAQ 共通のサブタイトル。
+// うっすら青の大型欧文（Pricing / Flow / FAQ）を上に重ねて
+// ジャンプ率と色の階層を同時に作る（欧文は装飾＝aria-hidden、情報は和文が持つ）
 .p-top-service__sub-title {
-  margin-top: var(--space-64);
-  font-size: var(--text-title);
+  margin-top: var(--space-96);
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--space-8);
+  font-size: rem(28);
   font-weight: var(--font-weight-semibold);
+  line-height: 1.3;
+}
+
+.p-top-service__sub-en {
+  font-size: clamp(#{rem(40)}, 4.5vw, #{rem(56)});
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-primary-pale);
 }
 
 .p-top-service__sub-lead {
@@ -575,13 +590,94 @@
 }
 
 // ------------------------------------------------------------
-// 料金の目安：ミニマムな定義リスト表。区切りはヘアライン
-// （カード化しない——料金は「読む」情報であり、面で浮かせる対象ではない）
+// 料金の目安：主力3プランはカード型（プラン名・金額をセンター、
+// 仕様行はストライプ）。auto-fit でコンテナ全幅を使うリキッド。
+// プラン名と金額は「選ぶ」ための情報なので primary の青を許可する
+// （青＝アクション専用の原則に対する、料金表だけの明示的な例外）
 // ------------------------------------------------------------
-.p-top-service__price-list {
+.p-top-service__plan-list {
+  margin-top: var(--space-32);
+  padding-left: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(rem(260), 1fr));
+  gap: var(--space-24);
+}
+
+.p-top-service__plan {
+  padding: var(--space-32) var(--space-24);
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+.p-top-service__plan-name {
+  text-align: center;
+  font-size: var(--text-lead);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.4;
+  color: var(--color-primary);
+}
+
+.p-top-service__plan-price {
+  margin-top: var(--space-8);
+  text-align: center;
+  font-size: rem(32);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  color: var(--color-primary);
+}
+
+.p-top-service__plan-unit {
+  margin-inline-start: var(--space-4);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-ink);
+}
+
+.p-top-service__plan-specs {
   margin-top: var(--space-24);
-  max-width: rem(640);
+}
+
+.p-top-service__plan-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  column-gap: var(--space-16);
+  padding: var(--space-8) var(--space-12);
+
+  &:nth-child(odd) {
+    background-color: var(--color-primary-mist);
+  }
+}
+
+.p-top-service__plan-row > dt {
+  font-size: var(--text-caption);
+  color: var(--color-ink-muted);
+}
+
+.p-top-service__plan-row > dd {
+  font-weight: var(--font-weight-semibold);
+  text-align: right;
+}
+
+.p-top-service__plan-note {
+  margin-top: var(--space-12);
+  font-size: var(--text-caption);
+  color: var(--color-ink-muted);
+}
+
+// 単品メニュー（バナー・ロゴ）：ヘアライン行。mdで2カラムのリキッド
+.p-top-service__price-list {
+  margin-top: var(--space-16);
   border-block-start: 1px solid var(--color-hairline);
+
+  @include mq("md") {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: var(--space-48);
+  }
 }
 
 .p-top-service__price-row {
@@ -613,7 +709,6 @@
 
 .p-top-service__price-note {
   margin-top: var(--space-16);
-  max-width: rem(640);
   font-size: var(--text-caption);
   line-height: 1.7;
   color: var(--color-ink-muted);
@@ -621,11 +716,10 @@
 }
 
 // ------------------------------------------------------------
-// 料金の内訳詳細（共通で含まれるもの／追加費用）: lgで2カラム
+// 料金の内訳詳細（共通で含まれるもの／追加費用）: lgで2カラムのリキッド
 // ------------------------------------------------------------
 .p-top-service__price-detail {
-  margin-top: var(--space-32);
-  max-width: rem(640); // price-list と読み幅を揃える
+  margin-top: var(--space-48);
   display: grid;
   gap: var(--space-32);
 
@@ -635,15 +729,18 @@
   }
 }
 
-// 料金まわり共通の小小見出し（含まれるもの／追加費用／組み合わせ例）
+// 料金まわり共通の小見出し（単品／含まれるもの／追加費用／組み合わせ例）。
+// 本文16pxを下回らせない（見出しの階層逆転を起こさない）
 .p-top-service__detail-title {
-  font-size: var(--text-caption);
+  font-size: var(--text-body);
   font-weight: var(--font-weight-semibold);
+  line-height: 1.4;
 }
 
-// 「組み合わせ例」だけ price-detail の後に単独で立つため余白を持たせる
+// 単独で立つ小見出し（単品メニュー／組み合わせ例）には上余白を持たせる
+.p-top-service__plan-note + .p-top-service__detail-title,
 .p-top-service__price-detail + .p-top-service__detail-title {
-  margin-top: var(--space-40);
+  margin-top: var(--space-48);
 }
 
 .p-top-service__include-list {
@@ -732,27 +829,47 @@
 
 // ------------------------------------------------------------
 // FAQ：3グループ（ご依頼前／制作中／公開後・費用）× c-accordion。
-// 上端ヘアラインは各グループのリスト（受け側）が引く
-// （c-accordion 自身は下端のみ持つ）
+// lgでは3カラムのリキッド。上端ヘアラインは各グループのリスト
+// （受け側）が引く（c-accordion 自身は下端のみ持つ）
 // ------------------------------------------------------------
 .p-top-service__faq {
-  margin-top: var(--space-24);
-  max-width: rem(720);
-}
-
-.p-top-service__faq-group + .p-top-service__faq-group {
   margin-top: var(--space-32);
+  display: grid;
+  gap: var(--space-40);
+  align-items: start;
+
+  @include mq("lg") {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-32);
+  }
 }
 
 .p-top-service__faq-label {
-  font-size: var(--text-caption);
+  font-size: var(--text-body);
   font-weight: var(--font-weight-semibold);
-  color: var(--color-ink-muted);
+  line-height: 1.4;
 }
 
 .p-top-service__faq-list {
   margin-top: var(--space-8);
   border-block-start: 1px solid var(--color-hairline);
+}
+
+// 相談CTA：料金とFAQを読み終えた温度が高いうちに Contact へ渡す
+.p-top-service__cta {
+  margin-top: var(--space-64);
+  padding: var(--space-40) var(--space-24);
+  background-color: var(--color-primary-mist);
+  border-radius: var(--radius-card);
+  text-align: center;
+}
+
+.p-top-service__cta-text {
+  font-size: var(--text-body);
+}
+
+.p-top-service__cta > .c-button {
+  margin-top: var(--space-24);
 }
 
 .p-top-service__flow {

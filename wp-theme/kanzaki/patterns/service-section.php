@@ -11,6 +11,7 @@
  * @package kanzaki
  */
 
+$kanzaki_icons = esc_url( get_theme_file_uri( 'assets/images/icons.svg' ) );
 ?>
 <!-- wp:group {"tagName":"section","anchor":"service","className":"p-top-section js-reveal","layout":{"type":"default"}} -->
 <section class="wp-block-group p-top-section js-reveal" id="service">
@@ -79,7 +80,7 @@
 <!-- /wp:group -->
 
 <!-- wp:heading {"level":3,"className":"p-top-service__sub-title"} -->
-<h3 class="wp-block-heading p-top-service__sub-title">料金の目安</h3>
+<h3 class="wp-block-heading p-top-service__sub-title"><span class="p-top-service__sub-en" aria-hidden="true">Pricing</span>料金の目安</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"p-top-service__sub-lead"} -->
@@ -87,19 +88,44 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:html -->
+<ul class="p-top-service__plan-list">
+<li class="p-top-service__plan">
+<h4 class="p-top-service__plan-name">LP制作</h4>
+<p class="p-top-service__plan-price">120,000<span class="p-top-service__plan-unit">円〜</span></p>
+<dl class="p-top-service__plan-specs">
+<div class="p-top-service__plan-row"><dt>ページ数</dt><dd>1ページ</dd></div>
+<div class="p-top-service__plan-row"><dt>構成・ワイヤー</dt><dd>込み</dd></div>
+<div class="p-top-service__plan-row"><dt>デザイン</dt><dd>込み</dd></div>
+<div class="p-top-service__plan-row"><dt>コーディング</dt><dd>込み</dd></div>
+<div class="p-top-service__plan-row"><dt>期間目安</dt><dd>3〜4週間</dd></div>
+</dl>
+</li>
+<li class="p-top-service__plan">
+<h4 class="p-top-service__plan-name">コーポレートサイト制作</h4>
+<p class="p-top-service__plan-price">250,000<span class="p-top-service__plan-unit">円〜</span></p>
+<dl class="p-top-service__plan-specs">
+<div class="p-top-service__plan-row"><dt>ページ数</dt><dd>〜5ページ</dd></div>
+<div class="p-top-service__plan-row"><dt>構成・ワイヤー</dt><dd>込み</dd></div>
+<div class="p-top-service__plan-row"><dt>デザイン</dt><dd>込み</dd></div>
+<div class="p-top-service__plan-row"><dt>コーディング</dt><dd>込み</dd></div>
+<div class="p-top-service__plan-row"><dt>期間目安</dt><dd>1〜2ヶ月</dd></div>
+</dl>
+</li>
+<li class="p-top-service__plan">
+<h4 class="p-top-service__plan-name">WordPress構築</h4>
+<p class="p-top-service__plan-price">＋80,000<span class="p-top-service__plan-unit">円〜</span></p>
+<dl class="p-top-service__plan-specs">
+<div class="p-top-service__plan-row"><dt>テーマ</dt><dd>オリジナル</dd></div>
+<div class="p-top-service__plan-row"><dt>更新画面</dt><dd>ブロックエディタ</dd></div>
+<div class="p-top-service__plan-row"><dt>更新レクチャー</dt><dd>込み</dd></div>
+<div class="p-top-service__plan-row"><dt>ご自身での更新</dt><dd>可能</dd></div>
+<div class="p-top-service__plan-row"><dt>期間目安</dt><dd>＋1週間〜</dd></div>
+</dl>
+</li>
+</ul>
+<p class="p-top-service__plan-note">※ WordPress構築は、LP・コーポレートサイト制作に追加するオプションです。</p>
+<h4 class="p-top-service__detail-title">単品メニュー</h4>
 <dl class="p-top-service__price-list">
-<div class="p-top-service__price-row">
-<dt class="p-top-service__price-name">LP制作<span class="p-top-service__price-scope">1ページ／デザイン＋コーディング</span></dt>
-<dd class="p-top-service__price-value">120,000円〜</dd>
-</div>
-<div class="p-top-service__price-row">
-<dt class="p-top-service__price-name">コーポレートサイト制作<span class="p-top-service__price-scope">〜5ページ／構成・デザイン・コーディング</span></dt>
-<dd class="p-top-service__price-value">250,000円〜</dd>
-</div>
-<div class="p-top-service__price-row">
-<dt class="p-top-service__price-name">WordPress構築<span class="p-top-service__price-scope">オリジナルテーマ／サイト制作に追加で</span></dt>
-<dd class="p-top-service__price-value">＋80,000円〜</dd>
-</div>
 <div class="p-top-service__price-row">
 <dt class="p-top-service__price-name">バナー制作</dt>
 <dd class="p-top-service__price-value">8,000円〜／枚</dd>
@@ -166,7 +192,7 @@
 <!-- /wp:html -->
 
 <!-- wp:heading {"level":3,"className":"p-top-service__sub-title"} -->
-<h3 class="wp-block-heading p-top-service__sub-title">制作の流れ</h3>
+<h3 class="wp-block-heading p-top-service__sub-title"><span class="p-top-service__sub-en" aria-hidden="true">Flow</span>制作の流れ</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"p-top-service__sub-lead"} -->
@@ -214,7 +240,7 @@
 <!-- /wp:html -->
 
 <!-- wp:heading {"level":3,"className":"p-top-service__sub-title"} -->
-<h3 class="wp-block-heading p-top-service__sub-title">よくあるご質問</h3>
+<h3 class="wp-block-heading p-top-service__sub-title"><span class="p-top-service__sub-en" aria-hidden="true">FAQ</span>よくあるご質問</h3>
 <!-- /wp:heading -->
 
 <!-- wp:html -->
@@ -274,6 +300,13 @@
 </details>
 </div>
 </div>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="p-top-service__cta">
+<p class="p-top-service__cta-text">料金や進め方について、まずはお気軽にご相談ください。お見積りは無料です。</p>
+<a class="c-button c-button--primary" href="#contact"><svg class="c-icon" aria-hidden="true"><use href="<?php echo $kanzaki_icons; // phpcs:ignore ?>#envelope-o"></use></svg>相談してみる</a>
 </div>
 <!-- /wp:html -->
 </div>
