@@ -53,7 +53,7 @@
 <!-- wp:group {"className":"c-card__body","layout":{"type":"default"}} -->
 <div class="wp-block-group c-card__body">
 
-<!-- wp:paragraph {"className":"c-card__category","metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"kanzaki_category"}}}}} -->
+<!-- wp:paragraph {"className":"c-card__category","metadata":{"bindings":{"content":{"source":"kanzaki/terms","args":{"taxonomy":"category","separator":" / "}}}}} -->
 <p class="c-card__category"></p>
 <!-- /wp:paragraph -->
 

@@ -50,19 +50,8 @@ add_action(
 						'instructions' => 'タイトル横に小さく出る補足。例: リラクゼーションサロンLP',
 						'placeholder'  => '例: リラクゼーションサロンLP',
 					),
-					array(
-						'key'           => 'field_kanzaki_category',
-						'name'          => 'kanzaki_category',
-						'label'         => 'カテゴリラベル',
-						'type'          => 'select',
-						'instructions'  => 'カード上部に出る分類。',
-						'choices'       => array(
-							'DESIGN' => 'DESIGN',
-							'CODING' => 'CODING',
-						),
-						'allow_null'    => 1,
-						'return_format' => 'value',
-					),
+					// 分類はWP標準の「カテゴリー」欄に一本化した（単一選択のselectでは
+					// デザインとコーディングを兼任した作品を表現できんかったため）。
 					array(
 						'key'          => 'field_kanzaki_badge',
 						'name'         => 'kanzaki_badge',

@@ -2,7 +2,8 @@
 /**
  * カスタム投稿タイプ「works」とカスタムフィールドの登録。
  * 編集画面は通常の投稿と同じフル装備にする（supports・標準タクソノミー紐付け）。
- * カテゴリー等はフロント表示には未使用（表示分類は kanzaki_category メタが担当）。
+ * 標準カテゴリーが作品の分類そのもの（カード上の「デザイン / コーディング」）。
+ * 表示は inc/block-bindings.php の kanzaki/terms ソースが担う。
  *
  * メタは Block Bindings（core/post-meta）でテンプレートに表示するため、
  * すべて show_in_rest / single / sanitize_callback 付きで登録する。
@@ -83,7 +84,6 @@ add_action(
 		$string_meta = array(
 			'kanzaki_subtitle'  => 'タイトル補足（例: リラクゼーションサロンLP）',
 			'kanzaki_eyebrow'   => 'ページ冒頭ラベル（例: Works — LP Design（実案件））',
-			'kanzaki_category'  => 'カテゴリラベル（DESIGN / CODING）',
 			'kanzaki_role'      => '担当範囲（ROLE）',
 			'kanzaki_tools'     => '使用ツール（TOOLS）',
 			'kanzaki_highlight' => '工夫（カード用サマリー）',
