@@ -37,10 +37,11 @@
   --color-accent:        oklch(55% 0.115 68);       /* 反復する構造ラベル専用の暖色（アンバー/オーカー、AA 4.5:1確保）。青はアクション専用を維持し、寒色×暖色で強弱を出す */
   --color-ghost: color-mix(in srgb, var(--color-logo) 8%, transparent); /* 見出しウォーターマーク。FVの「＋」（ロゴ青×低透明度）と同じ血統。ささやく程度の薄さが品を作る。装飾テキスト専用 */
   --color-primary-mist:  oklch(96.8% 0.014 255.8); /* ごく淡い青の面。料金プランカードのストライプ行など */
+  --color-accent-mist:   oklch(97.5% 0.022 68);    /* ごく淡いアンバー面。上位スキルチップ専用（accent文字とAA 4.58:1） */
   --color-canvas:        oklch(100% 0 0);          /* 基本の背景 */
   --color-canvas-alt:    oklch(97.1% 0.003 286.4); /* 交互セクション・フッターの背景 */
   --color-ink:           oklch(23.2% 0.004 286.1); /* 見出し・本文。純黒は使わない */
-  --color-ink-muted:     oklch(54.0% 0.008 286.1); /* 補足・キャプション・メタ情報 */
+  --color-ink-muted:     oklch(53.0% 0.008 286.1); /* 補足・キャプション・メタ情報。FVの生成り背景(#f2f0e9)上でもAAを通す明度（54%だと4.45で落ちた／53%で4.64・白5.24・canvas-alt 4.82） */
   --color-hairline:      oklch(90.7% 0 0);         /* 1pxヘアライン（使用は最小限） */
   --color-logo:          oklch(53.7% 0.187 261.1); /* サイトロゴの青（site-logo.webp #2766d8 と同色） */
   --color-logo-accent:   oklch(58.6% 0.214 13.3);  /* サイトロゴの赤（#dd2656。＋モチーフ装飾用） */

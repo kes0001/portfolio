@@ -420,23 +420,27 @@
 }
 
 // 習熟度バッジ（実務レベル＝淡青ピル／それ以外＝キャプションで静かに）
+// 全チップをピルに統一。面の意味は2階層——
+// 白ピル＋ヘアライン枠＝通常（対応可・導入中）、淡アンバー面＝上位（実務レベル）。
+// アンバーはFLOW番号・FAQ「Q.」と同じ「構造ラベルの暖色」で、青=アクション専用は維持
 .p-top-skills__meta {
   display: inline-block;
   margin-top: var(--space-8);
+  padding: rem(2) rem(12);
   font-size: var(--text-fine);
   font-weight: var(--font-weight-regular);
   letter-spacing: 0.04em;
   color: var(--color-ink-muted);
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-pill);
 }
 
-// 唯一の黒ベタ面じゃった墨ピルを廃止し、期間チップ・料金ストライプと
-// 同じ淡青の面（primary-mist）に揃える——面の語彙を一本化
 .p-top-skills__meta--solid {
-  padding: rem(2) rem(12);
   font-weight: var(--font-weight-semibold);
-  color: var(--color-ink);
-  background-color: var(--color-primary-mist);
-  border-radius: var(--radius-pill);
+  color: var(--color-accent);
+  background-color: var(--color-accent-mist);
+  border-color: transparent; // 枠なし・箱サイズは通常チップと揃える
 }
 
 // 「できること」の箇条書き
@@ -570,6 +574,8 @@
 // 情報は和文が持つ）。赤の「＋」は h2 だけの特権なのでここには置かん
 .p-top-service__sub-title {
   margin-top: var(--space-96);
+  // ナビからの #pricing 等の直リンク着地時、stickyヘッダー（48px）に隠れんよう逃がす
+  scroll-margin-block-start: rem(64);
   display: flex;
   flex-direction: column;
   gap: var(--space-8); // c-section-title と同じ「香らせて、離して読ませる」間合い

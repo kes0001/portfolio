@@ -40,6 +40,7 @@ $kanzaki_home = esc_url( home_url( '/' ) );
 		<li><a class="l-header__nav-link" href="<?php echo $kanzaki_home; // phpcs:ignore ?>#skills">Skills</a></li>
 		<li><a class="l-header__nav-link" href="<?php echo $kanzaki_home; // phpcs:ignore ?>#works">Works</a></li>
 		<li><a class="l-header__nav-link" href="<?php echo $kanzaki_home; // phpcs:ignore ?>#service">Service</a></li>
+		<li><a class="l-header__nav-link" href="<?php echo $kanzaki_home; // phpcs:ignore ?>#pricing">Pricing</a></li>
 		<li><a class="l-header__nav-link" href="<?php echo $kanzaki_home; // phpcs:ignore ?>#contact">Contact</a></li>
 	</ul>
 </nav>
