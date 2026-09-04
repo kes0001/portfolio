@@ -79,8 +79,8 @@ $kanzaki_icons = esc_url( get_theme_file_uri( 'assets/images/icons.svg' ) );
 </div>
 <!-- /wp:group -->
 
-<!-- wp:heading {"anchor":"pricing","className":"p-top-service__sub-title"} -->
-<h2 class="wp-block-heading p-top-service__sub-title" id="pricing"><span class="p-top-service__sub-en" aria-hidden="true">Pricing</span><span class="p-top-service__sub-jp">料金の目安</span></h2>
+<!-- wp:heading {"anchor":"pricing","level":3,"className":"p-top-service__sub-title"} -->
+<h3 class="wp-block-heading p-top-service__sub-title" id="pricing"><span class="p-top-service__sub-en" aria-hidden="true">Pricing</span><span class="p-top-service__sub-jp">料金の目安</span></h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"p-top-service__sub-lead"} -->
@@ -90,7 +90,7 @@ $kanzaki_icons = esc_url( get_theme_file_uri( 'assets/images/icons.svg' ) );
 <!-- wp:html -->
 <ul class="p-top-service__plan-list">
 <li class="p-top-service__plan">
-<h3 class="p-top-service__plan-name">LP制作</h3>
+<h4 class="p-top-service__plan-name">LP制作</h4>
 <p class="p-top-service__plan-price">120,000<span class="p-top-service__plan-unit">円〜</span></p>
 <dl class="p-top-service__plan-specs">
 <div class="p-top-service__plan-row"><dt>ページ数</dt><dd>1ページ</dd></div>
@@ -101,7 +101,7 @@ $kanzaki_icons = esc_url( get_theme_file_uri( 'assets/images/icons.svg' ) );
 </dl>
 </li>
 <li class="p-top-service__plan">
-<h3 class="p-top-service__plan-name">コーポレートサイト制作</h3>
+<h4 class="p-top-service__plan-name">コーポレートサイト制作</h4>
 <p class="p-top-service__plan-price">250,000<span class="p-top-service__plan-unit">円〜</span></p>
 <dl class="p-top-service__plan-specs">
 <div class="p-top-service__plan-row"><dt>ページ数</dt><dd>〜5ページ</dd></div>
@@ -112,7 +112,7 @@ $kanzaki_icons = esc_url( get_theme_file_uri( 'assets/images/icons.svg' ) );
 </dl>
 </li>
 <li class="p-top-service__plan">
-<h3 class="p-top-service__plan-name">WordPress構築</h3>
+<h4 class="p-top-service__plan-name">WordPress構築</h4>
 <p class="p-top-service__plan-price">＋80,000<span class="p-top-service__plan-unit">円〜</span></p>
 <dl class="p-top-service__plan-specs">
 <div class="p-top-service__plan-row"><dt>テーマ</dt><dd>オリジナル</dd></div>
@@ -124,7 +124,7 @@ $kanzaki_icons = esc_url( get_theme_file_uri( 'assets/images/icons.svg' ) );
 </li>
 </ul>
 <p class="p-top-service__plan-note">※ WordPress構築は、LP・コーポレートサイト制作に追加するオプションです。</p>
-<h3 class="p-top-service__detail-title">全プラン共通</h3>
+<h4 class="p-top-service__detail-title">全プラン共通</h4>
 <ul class="p-top-service__include-list">
 <li>レスポンシブ対応</li>
 <li>基本SEO・OGP設定</li>
@@ -132,7 +132,7 @@ $kanzaki_icons = esc_url( get_theme_file_uri( 'assets/images/icons.svg' ) );
 <li>表示速度・アクセシビリティ配慮</li>
 <li>公開後2週間の不具合修正</li>
 </ul>
-<h3 class="p-top-service__detail-title">単品メニュー・追加費用</h3>
+<h4 class="p-top-service__detail-title">単品メニュー・追加費用</h4>
 <dl class="p-top-service__price-list">
 <div class="p-top-service__price-row">
 <dt class="p-top-service__price-name">バナー制作</dt>
@@ -158,8 +158,8 @@ $kanzaki_icons = esc_url( get_theme_file_uri( 'assets/images/icons.svg' ) );
 <p class="p-top-service__price-note">※ デザインのみ・実装のみなど部分的なご依頼もご相談いただけます。複数メニューの組み合わせは、セット料金でお見積りします。</p>
 <!-- /wp:html -->
 
-<!-- wp:heading {"anchor":"flow","className":"p-top-service__sub-title"} -->
-<h2 class="wp-block-heading p-top-service__sub-title" id="flow"><span class="p-top-service__sub-en" aria-hidden="true">Flow</span><span class="p-top-service__sub-jp">制作の流れ</span></h2>
+<!-- wp:heading {"anchor":"flow","level":3,"className":"p-top-service__sub-title"} -->
+<h3 class="wp-block-heading p-top-service__sub-title" id="flow"><span class="p-top-service__sub-en" aria-hidden="true">Flow</span><span class="p-top-service__sub-jp">制作の流れ</span></h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"p-top-service__sub-lead"} -->
@@ -170,35 +170,35 @@ $kanzaki_icons = esc_url( get_theme_file_uri( 'assets/images/icons.svg' ) );
 <ol class="p-top-service__flow">
 <li class="p-top-service__step">
 <span class="p-top-service__step-num" aria-hidden="true">01</span>
-<h3 class="p-top-service__step-name">ヒアリング</h3>
+<h4 class="p-top-service__step-name">ヒアリング</h4>
 <p class="p-top-service__step-meta">目安 2〜3日</p>
 <p class="p-top-service__step-text">目的・ターゲット・参考サイトを伺い、ゴールのすり合わせをします。</p>
 <p class="p-top-service__step-ask">お願い：参考サイト・資料のご共有</p>
 </li>
 <li class="p-top-service__step">
 <span class="p-top-service__step-num" aria-hidden="true">02</span>
-<h3 class="p-top-service__step-name">構成・ワイヤー</h3>
+<h4 class="p-top-service__step-name">構成・ワイヤー</h4>
 <p class="p-top-service__step-meta">目安 3〜5日</p>
 <p class="p-top-service__step-text">ページ構成と骨組みを先にご確認いただき、方向性を固めてから進めます。</p>
 <p class="p-top-service__step-ask">お願い：構成のご確認</p>
 </li>
 <li class="p-top-service__step">
 <span class="p-top-service__step-num" aria-hidden="true">03</span>
-<h3 class="p-top-service__step-name">デザイン</h3>
+<h4 class="p-top-service__step-name">デザイン</h4>
 <p class="p-top-service__step-meta">目安 1〜1.5週間</p>
 <p class="p-top-service__step-text">Figmaでデザインを作成し、確認と修正のやりとりを重ねて仕上げます。</p>
 <p class="p-top-service__step-ask">お願い：デザインのご確認・修正のご指示</p>
 </li>
 <li class="p-top-service__step">
 <span class="p-top-service__step-num" aria-hidden="true">04</span>
-<h3 class="p-top-service__step-name">実装</h3>
+<h4 class="p-top-service__step-name">実装</h4>
 <p class="p-top-service__step-meta">目安 1〜1.5週間</p>
 <p class="p-top-service__step-text">コーディング・WordPress構築。表示速度とアクセシビリティに配慮します。</p>
 <p class="p-top-service__step-ask">お願い：原稿・写真の最終確認</p>
 </li>
 <li class="p-top-service__step">
 <span class="p-top-service__step-num" aria-hidden="true">05</span>
-<h3 class="p-top-service__step-name">公開・運用</h3>
+<h4 class="p-top-service__step-name">公開・運用</h4>
 <p class="p-top-service__step-meta">目安 2〜3日</p>
 <p class="p-top-service__step-text">サーバーへの公開、GA4等の計測設定まで対応。公開後のご相談も承ります。</p>
 <p class="p-top-service__step-ask">お願い：サーバー情報のご提供</p>
@@ -206,14 +206,14 @@ $kanzaki_icons = esc_url( get_theme_file_uri( 'assets/images/icons.svg' ) );
 </ol>
 <!-- /wp:html -->
 
-<!-- wp:heading {"anchor":"faq","className":"p-top-service__sub-title"} -->
-<h2 class="wp-block-heading p-top-service__sub-title" id="faq"><span class="p-top-service__sub-en" aria-hidden="true">FAQ</span><span class="p-top-service__sub-jp">よくあるご質問</span></h2>
+<!-- wp:heading {"anchor":"faq","level":3,"className":"p-top-service__sub-title"} -->
+<h3 class="wp-block-heading p-top-service__sub-title" id="faq"><span class="p-top-service__sub-en" aria-hidden="true">FAQ</span><span class="p-top-service__sub-jp">よくあるご質問</span></h3>
 <!-- /wp:heading -->
 
 <!-- wp:html -->
 <div class="p-top-service__faq">
 <div class="p-top-service__faq-group">
-<h3 class="p-top-service__faq-label">ご依頼前</h3>
+<h4 class="p-top-service__faq-label">ご依頼前</h4>
 <div class="p-top-service__faq-list">
 <details class="c-accordion" name="faq">
 <summary class="c-accordion__summary"><span class="c-accordion__label">Q.</span>予算が限られているのですが、相談できますか？<span class="c-accordion__icon" aria-hidden="true"></span></summary>
@@ -234,7 +234,7 @@ $kanzaki_icons = esc_url( get_theme_file_uri( 'assets/images/icons.svg' ) );
 </div>
 </div>
 <div class="p-top-service__faq-group">
-<h3 class="p-top-service__faq-label">制作中</h3>
+<h4 class="p-top-service__faq-label">制作中</h4>
 <div class="p-top-service__faq-list">
 <details class="c-accordion" name="faq">
 <summary class="c-accordion__summary"><span class="c-accordion__label">Q.</span>制作期間はどれくらいかかりますか？<span class="c-accordion__icon" aria-hidden="true"></span></summary>
@@ -251,7 +251,7 @@ $kanzaki_icons = esc_url( get_theme_file_uri( 'assets/images/icons.svg' ) );
 </div>
 </div>
 <div class="p-top-service__faq-group">
-<h3 class="p-top-service__faq-label">公開後・費用</h3>
+<h4 class="p-top-service__faq-label">公開後・費用</h4>
 <div class="p-top-service__faq-list">
 <details class="c-accordion" name="faq">
 <summary class="c-accordion__summary"><span class="c-accordion__label">Q.</span>お支払いのタイミングを教えてください。<span class="c-accordion__icon" aria-hidden="true"></span></summary>

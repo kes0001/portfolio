@@ -52,6 +52,12 @@ font-family: Roboto, "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
 - SF Proは使えないため、欧文は **Roboto**（バリアブル wght 100-900・SIL OFL 1.1・セルフホスト、ライセンス全文は fonts/LICENSE-Roboto.txt）、和文はシステムフォント優先
 - ウェイトの梯子は **300 / 400 / 600 / 700**。**500は使わない**（原典のルールを踏襲）。見出しは600、本文は400
 
+### 見出しの階層と行長
+
+- トップの h2 はセクション見出し（`c-section-title`・40px）の6つだけ。Service 配下の Pricing / Flow / FAQ は **h3**（`p-top-service__sub-title`・28px）で、その中の見出しは h4。ヘッダーナビは h2 のセクションまで（Pricing はナビに出さない）
+- 読ませる本文の行長は **和文40字まで**：16px の段落は `max-width: rem(640)`、14px は `rem(560)`（profile / works lead / note / service sub-lead / contact で共通）
+- 見出しは本文16pxより小さくしない（ラベル的な h3 は 16px＋uppercase＋muted で佇まいを作る）
+
 ### スケール（rem() 関数で指定。clampでレスポンシブ）
 
 | トークン | サイズ | weight | line-height | letter-spacing | 用途 |

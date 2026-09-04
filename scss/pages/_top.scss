@@ -598,6 +598,7 @@
 }
 
 .p-top-service__sub-lead {
+  max-width: rem(560); // 560÷14px＝40字（contact__text と同じ値）
   margin-top: var(--space-16);
   font-size: var(--text-caption);
   color: var(--color-ink-muted);
@@ -901,6 +902,7 @@
 }
 
 .p-top-note__text {
+  max-width: rem(640); // 640÷16px＝40字。読ませる本文の行長上限（profile__text と同じ文法）
   text-align: justify;
 }
 
@@ -911,7 +913,7 @@
 // 使用技術スタック（本文の下）。面は敷かず余白で区切る
 // （canvas-alt 地のタグが沈まないようにするため）
 .p-top-note__stack-title {
-  font-size: var(--text-caption);
+  font-size: var(--text-body); // 見出しが本文より小さくならん下限（ラベルの佇まいは uppercase＋muted で保つ）
   font-weight: var(--font-weight-semibold);
   letter-spacing: 0.1em;
   text-transform: uppercase;
