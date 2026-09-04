@@ -43,9 +43,6 @@
 
 <!-- wp:group {"className":"c-card__media","layout":{"type":"default"}} -->
 <div class="wp-block-group c-card__media">
-<!-- wp:paragraph {"className":"c-card__badge","metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"kanzaki_badge"}}}}} -->
-<p class="c-card__badge"></p>
-<!-- /wp:paragraph -->
 <!-- wp:post-featured-image {"sizeSlug":"kanzaki-card"} /-->
 </div>
 <!-- /wp:group -->
@@ -53,20 +50,30 @@
 <!-- wp:group {"className":"c-card__body","layout":{"type":"default"}} -->
 <div class="wp-block-group c-card__body">
 
+<!-- wp:group {"className":"c-card__tags","layout":{"type":"default"}} -->
+<div class="wp-block-group c-card__tags">
+<!-- wp:paragraph {"className":"c-card__badge","metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"kanzaki_badge"}}}}} -->
+<p class="c-card__badge"></p>
+<!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"c-card__category","metadata":{"bindings":{"content":{"source":"kanzaki/terms","args":{"taxonomy":"category","separator":" / "}}}}} -->
 <p class="c-card__category"></p>
 <!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
 
 <!-- wp:post-title {"level":3,"className":"c-card__title"} /-->
 <!-- wp:paragraph {"className":"c-card__title-note","metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"kanzaki_subtitle"}}}}} -->
 <p class="c-card__title-note"></p>
 <!-- /wp:paragraph -->
 
+<!-- wp:group {"className":"c-card__meta","layout":{"type":"default"}} -->
+<div class="wp-block-group c-card__meta">
 <!-- wp:paragraph {"className":"c-card__roles","metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"kanzaki_role"}}}}} -->
 <p class="c-card__roles"></p>
 <!-- /wp:paragraph -->
-
 <!-- wp:read-more {"content":"詳細を見る","className":"c-card__action"} /-->
+</div>
+<!-- /wp:group -->
 
 </div>
 <!-- /wp:group -->

@@ -14,6 +14,7 @@ require_once get_theme_file_path( 'inc/enqueue.php' );
 require_once get_theme_file_path( 'inc/shortcode-support.php' );
 require_once get_theme_file_path( 'inc/cpt-works.php' );
 require_once get_theme_file_path( 'inc/block-bindings.php' );
+require_once get_theme_file_path( 'inc/card-tags.php' );
 require_once get_theme_file_path( 'inc/adjacent-works.php' );
 require_once get_theme_file_path( 'inc/acf-works.php' );
 require_once get_theme_file_path( 'inc/title-breaks.php' );

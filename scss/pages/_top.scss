@@ -507,12 +507,12 @@
 // サイズ差はサムネのパノラマ切り抜きを生み、作品が見えなくなるため廃止）
 
 // subgrid 整列の受け（詳細は components/_card.scss のsubgridセクション）
-// li が親グリッドの行6本を借り、c-card がさらにそれを継ぐ2段subgrid。
+// li が親グリッドの行5本を借り、c-card がさらにそれを継ぐ2段subgrid。
 @supports (grid-template-columns: subgrid) {
   .p-top-works__grid > li {
     display: grid;
     grid-template-rows: subgrid;
-    grid-row: span 6;
+    grid-row: span 5;
     row-gap: 0;
   }
 }

@@ -45,7 +45,7 @@
 .c-card .wp-block-read-more {
   display: inline-flex; // コアのread-moreスタイルに負けないよう明示
   align-items: center;
-  gap: var(--space-8);
+  gap: var(--space-4);
 
   &::before {
     content: "";
@@ -66,6 +66,8 @@
   height: 100%;
   object-fit: cover;
   object-position: top center;
+  border-radius: 0; // コアの角丸指定を打ち消し、角丸は .c-card__media 側に一本化
+  mask-image: linear-gradient(to bottom, #000 72%, transparent 99%); // 静的版 .c-card__thumbnail と同じ下端フェード
   transition: transform 0.5s var(--ease-standard);
 }
 
@@ -204,6 +206,7 @@ $icon-wordpress: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 $icon-palette: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M512 256c0 .9 0 1.8 0 2.7c-.4 36.5-33.6 61.3-70.1 61.3H344c-26.5 0-48 21.5-48 48c0 3.4 .4 6.7 1 9.9c2.1 10.2 6.5 20 10.8 29.9c6.1 13.8 12.1 27.5 12.1 42c0 31.8-21.6 60.7-53.4 62c-3.5 .1-7 .2-10.6 .2C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256zM128 288a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm0-96a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM288 96a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm96 96a32 32 0 1 0 0-64 32 32 0 1 0 0 64z'/%3E%3C/svg%3E");
 $icon-robot: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512'%3E%3Cpath d='M320 0c17.7 0 32 14.3 32 32V96H472c39.8 0 72 32.2 72 72V440c0 39.8-32.2 72-72 72H168c-39.8 0-72-32.2-72-72V168c0-39.8 32.2-72 72-72H288V32c0-17.7 14.3-32 32-32zM208 384c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16H208zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16H304zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16H400zM264 256a40 40 0 1 0 -80 0 40 40 0 1 0 80 0zm152 40a40 40 0 1 0 0-80 40 40 0 1 0 0 80zM48 224H64V416H48c-26.5 0-48-21.5-48-48V272c0-26.5 21.5-48 48-48zm544 0c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H576V224h16z'/%3E%3C/svg%3E");
 $icon-chart: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M32 32c17.7 0 32 14.3 32 32V400c0 8.8 7.2 16 16 16H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H80c-44.2 0-80-35.8-80-80V64C0 46.3 14.3 32 32 32zM160 224c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32s-32-14.3-32-32V256c0-17.7 14.3-32 32-32zm128-64V320c0 17.7-14.3 32-32 32s-32-14.3-32-32V160c0-17.7 14.3-32 32-32s32 14.3 32 32zm64 32c17.7 0 32 14.3 32 32V320c0 17.7-14.3 32-32 32s-32-14.3-32-32V224c0-17.7 14.3-32 32-32zM480 96V320c0 17.7-14.3 32-32 32s-32-14.3-32-32V96c0-17.7 14.3-32 32-32s32 14.3 32 32z'/%3E%3C/svg%3E");
+$icon-palette: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M512 256c0 .9 0 1.8 0 2.7c-.4 36.5-33.6 61.3-70.1 61.3H344c-26.5 0-48 21.5-48 48c0 3.4 .4 6.7 1 9.9c2.1 10.2 6.5 20 10.8 29.9c6.1 13.8 12.1 27.5 12.1 42c0 31.8-21.6 60.7-53.4 62c-3.5 .1-7 .2-10.6 .2C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256zM128 288a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm0-96a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM288 96a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm96 96a32 32 0 1 0 0-64 32 32 0 1 0 0 64z'/%3E%3C/svg%3E");
 $icon-envelope: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z'/%3E%3C/svg%3E");
 
 // スキルカードのアイコン（静的版 span.p-top-skills__icon 24px 相当）
@@ -243,6 +246,21 @@ $icon-envelope: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
 .p-top-service__item--wordpress::before { mask-image: $icon-wordpress; }
 .p-top-service__item--figma::before { mask-image: $icon-figma; }
 .p-top-service__item--chart::before { mask-image: $icon-chart; }
+// 担当範囲のパレットアイコン（静的版 svg.c-icon の代替＝mask）。
+// 段落ブロックには svg を置けんため ::before で描く。
+// このファイルは静的版のCSSにも入るため、WPの段落クラスで限定して二重描画を防ぐ
+.c-card__roles.wp-block-paragraph::before {
+  content: "";
+  flex-shrink: 0;
+  width: rem(16);
+  height: rem(16);
+  margin-top: rem(1);
+  background-color: var(--color-primary);
+  mask-image: $icon-palette;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+}
 
 // フッターのメールリンクアイコン（1em＝静的版svg.c-iconと同寸）
 .l-footer__item--envelope a::before {
