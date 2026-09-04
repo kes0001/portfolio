@@ -600,6 +600,7 @@
 .p-top-service__sub-lead {
   max-width: rem(560); // 560÷14px＝40字（contact__text と同じ値）
   margin-top: var(--space-16);
+  text-wrap: balance; // 2行になったとき末尾に数文字だけ残る孤立行を避け、行を均す
   font-size: var(--text-caption);
   color: var(--color-ink-muted);
 }
@@ -891,6 +892,8 @@
 // このサイトについて
 // タイトル→本文→Built With の縦積み（技術スタックは本文の補足なので
 // 読み順どおり本文の下に置く。2カラム時代は右カラムが疎らじゃった）
+// 本文は lg 以上で段組み2列（各列 ≒536px÷16px＝33字）。
+// 1列を640pxで止めると右半分が空く（本人指摘）ため、行長は段組みで作る。
 // ============================================================
 .p-top-note__inner {
   display: grid;
@@ -901,8 +904,15 @@
   }
 }
 
+.p-top-note__body {
+  @include mq("lg") {
+    columns: 2;
+    column-gap: var(--space-48);
+  }
+}
+
 .p-top-note__text {
-  max-width: rem(640); // 640÷16px＝40字。読ませる本文の行長上限（profile__text と同じ文法）
+  break-inside: avoid; // 段組みで段落が列をまたいで割れんように（文の途中で右列へ飛ぶのを防ぐ）
   text-align: justify;
 }
 

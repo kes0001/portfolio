@@ -32,8 +32,8 @@
 <!-- wp:group {"className":"p-top-section__body p-top-note__inner","layout":{"type":"default"}} -->
 <div class="wp-block-group p-top-section__body p-top-note__inner">
 
-<!-- wp:group {"layout":{"type":"default"}} -->
-<div class="wp-block-group">
+<!-- wp:group {"className":"p-top-note__body","layout":{"type":"default"}} -->
+<div class="wp-block-group p-top-note__body">
 <!-- wp:paragraph {"className":"p-top-note__text"} -->
 <p class="p-top-note__text">本サイトはテンプレートを使わず、自分で整備したコーディングルール（BEM設計・デザイントークン・SCSSのコンポーネント分割）に基づいて、設計から実装まで一貫して制作しました。デザインはFigmaで組み、フロントエンドはWordPressのオリジナルブロックテーマとして実装しています。</p>
 <!-- /wp:paragraph -->
