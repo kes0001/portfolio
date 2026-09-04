@@ -19,9 +19,6 @@
 
 <!-- wp:group {"className":"l-footer__links","layout":{"type":"default"}} -->
 <div class="wp-block-group l-footer__links">
-<!-- wp:paragraph {"className":"l-footer__item l-footer__item--github"} -->
-<p class="l-footer__item l-footer__item--github"><a href="https://github.com/kes0001" target="_blank" rel="noopener">GitHub</a></p>
-<!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"l-footer__item l-footer__item--envelope"} -->
 <p class="l-footer__item l-footer__item--envelope"><a href="mailto:kanmasa30@icloud.com">kanmasa30@icloud.com</a></p>
 <!-- /wp:paragraph -->
