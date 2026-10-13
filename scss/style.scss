@@ -33,6 +33,7 @@
 @layer pages {
   @include meta.load-css("pages/top");
   @include meta.load-css("pages/work-detail");
+  @include meta.load-css("pages/motion");
 }
 
 @layer utilities {

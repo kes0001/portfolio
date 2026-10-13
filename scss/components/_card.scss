@@ -80,7 +80,7 @@
   padding: var(--space-8) var(--space-12) var(--space-12);
 }
 
-// ピル行：分類（青ティント面）と実案件（アンバー面）。
+// ピル行：分類（青ティント面）と実案件（アンバー塗り）。
 // 色相は既存の青＋アンバーのまま、面の明度差だけで種類を分ける
 .c-card__tags {
   display: flex;
@@ -100,9 +100,10 @@
   border-radius: var(--radius-pill);
 }
 
+// 実案件は面を塗りつぶして分類ピルより一段強く（転職用：一番見てほしい情報）
 .c-card__tag--badge {
-  color: var(--color-accent);
-  background-color: var(--color-accent-mist);
+  color: var(--color-canvas);
+  background-color: var(--color-accent);
 }
 
 // 題：Skills・Service の h3 と同格（20px）に揃える

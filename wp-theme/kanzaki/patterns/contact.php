@@ -34,7 +34,7 @@ $kanzaki_icons = esc_url( get_theme_file_uri( 'assets/images/icons.svg' ) );
 <div class="wp-block-group p-top-section__body">
 
 <!-- wp:paragraph {"className":"p-top-contact__text"} -->
-<p class="p-top-contact__text">お仕事のご相談・ご質問など、お気軽にご連絡ください。下記フォームからお送りいただくか、メールでも承ります。</p>
+<p class="p-top-contact__text">採用やお仕事のご相談など、お気軽にご連絡ください。下記フォームからお送りいただくか、メールでも承ります。</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:group {"className":"p-top-contact__form p-form","layout":{"type":"default"}} -->

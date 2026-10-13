@@ -159,3 +159,33 @@ const yearElement = document.querySelector(".js-year");
 if (yearElement) {
   yearElement.textContent = new Date().getFullYear();
 }
+
+// ============================================================
+// ポインタ演出（マウス環境・動きを許可した環境のみ）
+// 作品カードの傾き＋光の位置。
+// 値を渡すだけで、見た目は CSS（pages/_motion.scss）が担当する
+// ============================================================
+const canUsePointerMotion =
+  !prefersReducedMotion && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+if (canUsePointerMotion) {
+  // 作品カード：中心からのずれで最大4度傾け、光をポインタ位置に置く
+  const maxTilt = 4;
+
+  document.querySelectorAll(".c-card").forEach((card) => {
+    card.addEventListener("pointermove", (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width;
+      const y = (event.clientY - rect.top) / rect.height;
+
+      card.style.setProperty("--card-rx", `${((0.5 - y) * maxTilt * 2).toFixed(2)}deg`);
+      card.style.setProperty("--card-ry", `${((x - 0.5) * maxTilt * 2).toFixed(2)}deg`);
+      card.style.setProperty("--card-mx", `${(x * 100).toFixed(1)}%`);
+      card.style.setProperty("--card-my", `${(y * 100).toFixed(1)}%`);
+    });
+
+    card.addEventListener("pointerleave", () => {
+      ["--card-rx", "--card-ry", "--card-mx", "--card-my"].forEach((name) => card.style.removeProperty(name));
+    });
+  });
+}

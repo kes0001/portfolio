@@ -1,0 +1,177 @@
+@use "sass:math";
+@use "../foundation" as *;
+
+// ============================================================
+// トップのスクロール演出・マイクロインタラクション
+// スクロール連動はすべて animation-timeline（スクロールイベントJSは使わない）。
+// 未対応ブラウザは @supports で静止表示のまま。
+// スクロール駆動は foundation の reduce リセット（duration）では止まらないため、
+// no-preference のときだけ付ける。
+// ============================================================
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    // ----------------------------------------------------------
+    // A. セクション見出し
+    // 欧文の透かしは左から滑り込み、画面中央で和文と左揃えに収まる。
+    // 和文はマスクで下から立ち上がる。はみ出しは左側だけなので横スクロールは出ない
+    // ----------------------------------------------------------
+    .c-section-title__en {
+      animation: title-en-drift linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 50%;
+    }
+
+    .c-section-title__jp {
+      animation: title-jp-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 100% cover 25%;
+    }
+
+    // ----------------------------------------------------------
+    // B. 作品カード：画像が幕を開けるように現れ、中の写真は引きで収まる。
+    // 写真は scale プロパティで動かし、ホバーの transform: scale() と合成させる
+    // ----------------------------------------------------------
+    .c-card__media {
+      animation: card-media-open linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+
+    .c-card__media img {
+      animation: card-media-settle linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
+    }
+
+    // ----------------------------------------------------------
+    // C. 制作の進め方：01→05 を結ぶ線が伸び、通過した番号から点灯する。
+    // 線は5列並びになる lg 以上だけ。番号の点灯は全幅で行う
+    // ----------------------------------------------------------
+    .p-top-service__flow {
+      position: relative;
+      view-timeline-name: --flow;
+
+      @include mq("lg") {
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          inset: calc(var(--space-16) * -1) 0 auto;
+          height: 2px;
+          border-radius: var(--radius-pill);
+        }
+
+        &::before {
+          background-color: var(--color-hairline);
+        }
+
+        &::after {
+          background-color: var(--color-accent);
+          transform-origin: left center;
+          animation: flow-line linear both;
+          animation-timeline: --flow;
+          animation-range: cover 15% cover 50%;
+        }
+      }
+    }
+
+    .p-top-service__step-num {
+      animation: flow-num linear both;
+      animation-timeline: --flow;
+    }
+
+    @for $i from 1 through 5 {
+      .p-top-service__step:nth-child(#{$i}) .p-top-service__step-num {
+        animation-range: cover math.percentage((15 + ($i - 1) * 7) / 100) cover math.percentage((20 + ($i - 1) * 7) / 100);
+      }
+    }
+  }
+}
+
+@keyframes title-en-drift {
+  from {
+    translate: rem(-64) 0;
+  }
+
+  to {
+    translate: 0 0;
+  }
+}
+
+@keyframes title-jp-rise {
+  from {
+    clip-path: inset(0 0 100% 0);
+    translate: 0 0.5em;
+  }
+
+  to {
+    clip-path: inset(0);
+    translate: 0 0;
+  }
+}
+
+@keyframes card-media-open {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+
+  to {
+    clip-path: inset(0);
+  }
+}
+
+@keyframes card-media-settle {
+  from {
+    scale: 1.15;
+  }
+
+  to {
+    scale: 1;
+  }
+}
+
+@keyframes flow-line {
+  from {
+    scale: 0 1;
+  }
+
+  to {
+    scale: 1 1;
+  }
+}
+
+@keyframes flow-num {
+  from {
+    color: color-mix(in oklab, var(--color-accent) 25%, var(--color-canvas-alt));
+  }
+
+  to {
+    color: var(--color-accent);
+  }
+}
+
+// ============================================================
+// B. 作品カードのホバー：ポインタ方向へわずかに傾き、画像に光が走る。
+// 傾き量と光の位置は main.js がCSS変数（--card-rx/ry/mx/my）で渡す。
+// マウス環境・動きを許可した環境だけ（タッチでは hover が張り付くため除外）
+// ============================================================
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .c-card:hover {
+    transform: perspective(rem(1000)) rotateX(var(--card-rx, 0deg)) rotateY(var(--card-ry, 0deg)) translateY(rem(-4));
+  }
+
+  .c-card__media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--card-mx, 50%) var(--card-my, 0%), oklch(100% 0 0 / 0.35), transparent 45%);
+    opacity: 0;
+    transition: opacity 0.3s var(--ease-standard);
+    pointer-events: none;
+  }
+
+  .c-card:hover .c-card__media::after {
+    opacity: 1;
+  }
+}
