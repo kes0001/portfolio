@@ -13,3 +13,6 @@ node_modules/
 
 # Deploy bundle (regenerable)
 dist/
+
+# Server backup (Xserver snapshot, not source)
+/kanzaki-web.com/
