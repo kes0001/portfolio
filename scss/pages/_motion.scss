@@ -1,4 +1,3 @@
-@use "sass:math";
 @use "../foundation" as *;
 
 // ============================================================
@@ -9,11 +8,51 @@
 // no-preference のときだけ付ける。
 // ============================================================
 
+@property --step-index {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 1;
+}
+
+@property --card-col {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+
+// ============================================================
+// ページ遷移：作品カードの画像 → 詳細ページのメイン画像がつながる（MPAのクロスドキュメント遷移）。
+// 名前（work-<作品>）は静的版はHTMLに直書き、WP版は inc/view-transition.php が付ける。
+// 未対応ブラウザ（Firefox等）は普通の遷移のまま
+// ============================================================
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-group(*) {
+    animation-duration: 0.45s;
+    animation-timing-function: var(--ease-standard);
+  }
+
+  ::view-transition-group(root) {
+    animation-duration: 0.25s;
+  }
+
+  // カード（16:10の切り抜き）と詳細（端末フレーム内）で縦横比が違うため、伸び縮みさせず切り抜いて合わせる
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    block-size: 100%;
+    object-fit: cover;
+  }
+}
+
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
     // ----------------------------------------------------------
     // A. セクション見出し
-    // 欧文の透かしは左から滑り込み、画面中央で和文と左揃えに収まる。
+    // 欧文の透かしは左から滑り込みつつ細字→太字へ（Roboto可変フォントの wght 軸）、
+    // 画面中央で和文と左揃えに収まる。和文はシステムフォント＝太さが段階的なので対象外。
     // 和文はマスクで下から立ち上がる。はみ出しは左側だけなので横スクロールは出ない
     // ----------------------------------------------------------
     .c-section-title__en {
@@ -36,6 +75,26 @@
       animation: card-media-open linear both;
       animation-timeline: view();
       animation-range: entry 0% cover 30%;
+    }
+
+    // 同じ行のカードは同時に画面へ入るので、列位置ぶん range を遅らせて左から順に開く。
+    // 列位置＝ sibling-index() を列数で割った余り（非対応ブラウザは一斉に開く）
+    @supports (order: sibling-index()) {
+      .p-top-works__grid > * {
+        --card-col: 0;
+
+        @include mq("sm") {
+          --card-col: mod(sibling-index() - 1, 2);
+        }
+
+        @include mq("lg") {
+          --card-col: mod(sibling-index() - 1, 3);
+        }
+      }
+
+      .p-top-works__grid .c-card__media {
+        animation-range: entry calc(var(--card-col) * 8%) cover calc(30% + var(--card-col) * 8%);
+      }
     }
 
     .c-card__media img {
@@ -81,20 +140,26 @@
       animation-timeline: --flow;
     }
 
-    @for $i from 1 through 5 {
-      .p-top-service__step:nth-child(#{$i}) .p-top-service__step-num {
-        animation-range: cover math.percentage((15 + ($i - 1) * 7) / 100) cover math.percentage((20 + ($i - 1) * 7) / 100);
-      }
+    // 番号は step の子なので、step 側で sibling-index() を整数として確定させて継承させる
+    // （未登録のカスタムプロパティだと番号側で評価され、常に 1 になる）
+    .p-top-service__step {
+      --step-index: sibling-index();
+    }
+
+    .p-top-service__step-num {
+      animation-range: cover calc(15% + (var(--step-index) - 1) * 7%) cover calc(20% + (var(--step-index) - 1) * 7%);
     }
   }
 }
 
 @keyframes title-en-drift {
   from {
+    font-weight: 200;
     translate: rem(-64) 0;
   }
 
   to {
+    font-weight: var(--font-weight-bold);
     translate: 0 0;
   }
 }
@@ -152,26 +217,12 @@
 }
 
 // ============================================================
-// B. 作品カードのホバー：ポインタ方向へわずかに傾き、画像に光が走る。
-// 傾き量と光の位置は main.js がCSS変数（--card-rx/ry/mx/my）で渡す。
+// B. 作品カードのホバー：ポインタ方向へわずかに傾く。
+// 傾き量は main.js がCSS変数（--card-rx/ry）で渡す。
 // マウス環境・動きを許可した環境だけ（タッチでは hover が張り付くため除外）
 // ============================================================
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   .c-card:hover {
     transform: perspective(rem(1000)) rotateX(var(--card-rx, 0deg)) rotateY(var(--card-ry, 0deg)) translateY(rem(-4));
-  }
-
-  .c-card__media::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at var(--card-mx, 50%) var(--card-my, 0%), oklch(100% 0 0 / 0.35), transparent 45%);
-    opacity: 0;
-    transition: opacity 0.3s var(--ease-standard);
-    pointer-events: none;
-  }
-
-  .c-card:hover .c-card__media::after {
-    opacity: 1;
   }
 }

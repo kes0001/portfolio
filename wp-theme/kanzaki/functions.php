@@ -22,3 +22,4 @@ require_once get_theme_file_path( 'inc/work-buttons.php' );
 require_once get_theme_file_path( 'inc/seo.php' );
 require_once get_theme_file_path( 'inc/analytics.php' );
 require_once get_theme_file_path( 'inc/cf7-tweaks.php' );
+require_once get_theme_file_path( 'inc/view-transition.php' );
