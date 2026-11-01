@@ -1,0 +1,26 @@
+# 津堅ハーリー — 配信最適化（さくらのレンタルサーバ / Apache）
+# gzip 圧縮: HTML 33KB→約9KB / CSS 35KB→約9KB
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript text/javascript image/svg+xml application/json application/ld+json text/xml application/xml
+</IfModule>
+
+# ブラウザキャッシュ:
+# - CSS/JS は ?v=YYYYMMDD のキャッシュバスター運用なので長期キャッシュで安全
+# - 画像は差し替え時にファイル名が変わる運用（og-image 等は再クロールで対応）
+# - HTML はお知らせ更新を即反映させるためキャッシュしない
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+# woff2 のMIME（自前配信フォント用）
+AddType font/woff2 .woff2

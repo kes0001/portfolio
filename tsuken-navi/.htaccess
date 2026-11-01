@@ -1,0 +1,53 @@
+# 津堅ハーリー — 配信設定（さくらのレンタルサーバ / Apache）
+# ※gzip の事前圧縮（.gz）は fonts.css のみ運用（下記）。他は圧縮なしの素配信。
+#   さくらは mod_deflate 非対応だが、有効になった場合に備えた保険（効かなくても無害）
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript text/javascript image/svg+xml application/json application/ld+json text/xml application/xml
+</IfModule>
+# fonts.css のみ .gz 事前圧縮配信（419KB→約122KB / 最大アセットのため例外的に復活）
+# fonts.css は書体変更時（fetch-fonts.mjs 実行時）しか変わらず、.gz は build-dist.sh が自動生成
+# ※Accept-Encoding での条件分岐は不可: さくらの前段 nginx が Accept-Encoding を
+#   Apache に渡さないことを診断済み（2026-07-13）。gzip 非対応ブラウザは実在しないため
+#   .gz が存在すれば常に gzip 版を返す（fonts.css を素で配信したいときは .gz を消す）
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  # fonts.css 限定にする（汎用 \.css$ だと旧運用時代にサーバーへ残った古い style.css.gz 等を拾う事故が起きる）
+  RewriteCond %{REQUEST_FILENAME}.gz -f
+  RewriteRule fonts\.css$ %{REQUEST_URI}.gz [L]
+</IfModule>
+AddEncoding gzip .gz
+<FilesMatch "fonts\.css\.gz$">
+  ForceType text/css
+</FilesMatch>
+<IfModule mod_headers.c>
+  <FilesMatch "fonts\.css(\.gz)?$">
+    Header append Vary Accept-Encoding
+  </FilesMatch>
+</IfModule>
+# ブラウザキャッシュ:
+# - CSS/JS は ?v=YYYYMMDD のキャッシュバスター運用なので長期キャッシュで安全
+# - 画像は差し替え時にファイル名が変わる運用（og-image 等は再クロールで対応）
+# - HTML はお知らせ更新を即反映させるためキャッシュしない
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+# woff2 のMIME（自前配信フォント用）
+AddType font/woff2 .woff2
+DirectoryIndex index.html index.htm index.shtml index.php index.cgi
+Options -Indexes
+AuthUserFile /home/coralpuppy52/www/.htpasswd
+AuthType Basic
+AuthName "Web access"
+Satisfy all
+Order deny,allow
