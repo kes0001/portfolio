@@ -80,39 +80,39 @@ $kanzaki_icons = esc_url( get_theme_file_uri( 'assets/images/icons.svg' ) );
 <!-- /wp:group -->
 
 <!-- wp:heading {"anchor":"flow","level":3,"className":"p-top-service__sub-title"} -->
-<h3 class="wp-block-heading p-top-service__sub-title" id="flow"><span class="p-top-service__sub-en" aria-hidden="true">Process</span><span class="p-top-service__sub-jp">制作の進め方</span></h3>
+<h3 class="wp-block-heading p-top-service__sub-title" id="flow"><span class="p-top-service__sub-en" aria-hidden="true">Process</span><span class="p-top-service__sub-jp">仕事の進め方</span></h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"p-top-service__sub-lead"} -->
-<p class="p-top-service__sub-lead">デザインと実装を一人で担当するからこそ、工程のあいだで意図が抜け落ちないように進めています。</p>
+<p class="p-top-service__sub-lead">デザインと実装の両方がわかる立場から、チームの中で意図が抜け落ちないように動きます。</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:html -->
 <ol class="p-top-service__flow">
 <li class="p-top-service__step">
 <span class="p-top-service__step-num" aria-hidden="true">01</span>
-<h4 class="p-top-service__step-name">ヒアリング</h4>
-<p class="p-top-service__step-text">目的・ターゲット・参考サイトを確認し、ゴールを言葉にしてから設計に入ります。</p>
+<h4 class="p-top-service__step-name">要件を言葉にする</h4>
+<p class="p-top-service__step-text">目的とターゲットを整理し、判断の基準を文章で共有してから設計に入ります。</p>
 </li>
 <li class="p-top-service__step">
 <span class="p-top-service__step-num" aria-hidden="true">02</span>
-<h4 class="p-top-service__step-name">構成・ワイヤー</h4>
-<p class="p-top-service__step-text">ページ構成と骨組みを先に固め、デザインに入ってからの大きな手戻りを防ぎます。</p>
+<h4 class="p-top-service__step-name">ルールを先に決める</h4>
+<p class="p-top-service__step-text">余白・文字サイズ・色をデザイントークンとして定義し、デザインと実装で同じ物差しを使います。</p>
 </li>
 <li class="p-top-service__step">
 <span class="p-top-service__step-num" aria-hidden="true">03</span>
-<h4 class="p-top-service__step-name">デザイン</h4>
-<p class="p-top-service__step-text">Figmaでデザインを作成。実装を見越して、余白や文字サイズのルールを揃えて組みます。</p>
+<h4 class="p-top-service__step-name">受け渡せるデザイン</h4>
+<p class="p-top-service__step-text">Figmaはコンポーネントと命名を整え、ほかのコーダーが開いても迷わないデータにします。</p>
 </li>
 <li class="p-top-service__step">
 <span class="p-top-service__step-num" aria-hidden="true">04</span>
-<h4 class="p-top-service__step-name">実装</h4>
-<p class="p-top-service__step-text">コーディング・WordPress構築。表示速度とアクセシビリティは実測で確かめます。</p>
+<h4 class="p-top-service__step-name">Gitで管理して実装</h4>
+<p class="p-top-service__step-text">コーディング規約を文書にし、変更はGitで履歴に残します。表示速度とアクセシビリティは実測で確かめます。</p>
 </li>
 <li class="p-top-service__step">
 <span class="p-top-service__step-num" aria-hidden="true">05</span>
-<h4 class="p-top-service__step-name">公開・運用</h4>
-<p class="p-top-service__step-text">サーバーへの公開とGA4等の計測設定まで担当。公開後の数字を見て改善につなげます。</p>
+<h4 class="p-top-service__step-name">計測して改善</h4>
+<p class="p-top-service__step-text">公開後はGA4・Search Consoleで数字を見て、次の改善につなげます。</p>
 </li>
 </ol>
 <!-- /wp:html -->

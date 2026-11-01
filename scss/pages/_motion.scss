@@ -47,6 +47,39 @@
   }
 }
 
+// ============================================================
+// 作品詳細：読み進めた量を画面上端の線で示す（長い制作プロセスの現在地）。
+// Motion Prompt #079 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#079
+// ページのスクロール進捗に線形で連動させる（イーズは掛けない＝進捗そのものを表す）。
+// ヘッダー（z-index: 100）より前面。色はサービスの流れ線と同じ暖色アクセント
+// ============================================================
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .p-work::before {
+      content: "";
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 101;
+      height: rem(3);
+      background-color: var(--color-accent);
+      transform-origin: left center;
+      pointer-events: none;
+      animation: work-read-progress linear both;
+      animation-timeline: scroll(root block);
+    }
+  }
+}
+
+@keyframes work-read-progress {
+  from {
+    scale: 0 1;
+  }
+
+  to {
+    scale: 1 1;
+  }
+}
+
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
     // ----------------------------------------------------------

@@ -85,15 +85,18 @@
 .c-card__tags {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start; // subgrid の行高に引き伸ばされると、ピルの下だけ余って字面が上に寄るため
   gap: var(--space-8);
 }
 
 .c-card__tag {
   display: inline-block;
-  padding: 0 var(--space-8);
+  // 和文グリフは行ボックス内で上に寄る（実測：上3.8px／下5.6px）。上に2px足して行の高さで相殺し、
+  // 高さは約20pxのまま字面を天地中央へ。右は字間の末尾ぶん（0.08em）を引いて左右も揃える
+  padding: rem(2) calc(var(--space-8) - 0.08em) 0 var(--space-8);
   font-size: rem(11);
   font-weight: var(--font-weight-bold);
-  line-height: 1.8;
+  line-height: rem(18);
   letter-spacing: 0.08em;
   color: var(--color-primary);
   background-color: var(--color-primary-tint);

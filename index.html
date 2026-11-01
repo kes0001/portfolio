@@ -65,9 +65,9 @@
         </button>
         <nav id="l-header-nav" class="l-header__nav" aria-label="メインナビゲーション">
           <ul class="l-header__nav-list">
+            <li><a class="l-header__nav-link" href="#works">Works</a></li>
             <li><a class="l-header__nav-link" href="#profile">Profile</a></li>
             <li><a class="l-header__nav-link" href="#skills">Skills</a></li>
-            <li><a class="l-header__nav-link" href="#works">Works</a></li>
             <li><a class="l-header__nav-link" href="#service">Service</a></li>
             <li><a class="l-header__nav-link" href="#contact">Contact</a></li>
           </ul>
@@ -113,129 +113,6 @@
             <span class="p-top-hero__vertical-col">正確なコーディングと</span>
             <span class="p-top-hero__vertical-col">共に。</span>
           </p>
-        </div>
-      </section>
-
-      <!-- ============================================================
-      プロフィール
-    ============================================================ -->
-      <section class="p-top-section p-top-section--alt js-reveal" id="profile">
-        <div class="l-container">
-          <h2 class="c-section-title">
-            <span class="c-section-title__en">Profile</span>
-            <span class="c-section-title__jp">プロフィール</span>
-          </h2>
-          <div class="p-top-section__body p-top-profile__inner">
-            <picture>
-              <source srcset="./images/prof-800.webp" type="image/webp" />
-              <img class="p-top-profile__photo" src="./images/prof.png" alt="神﨑勝弘のプロフィール写真" width="1086" height="1448" loading="lazy" decoding="async" />
-            </picture>
-            <div>
-              <p class="p-top-profile__name">神﨑 勝弘<span class="p-top-profile__name-kana">かんざき まさひろ</span></p>
-              <p class="p-top-profile__text">コーディングからキャリアを始め、現在はFigmaでのデザイン制作とフロントエンド実装の両方を担当しています。「見る人に伝わるデザイン」と「意図を正確に再現するコーディング」の両立を軸に、実務を想定した制作を重ねてきました。</p>
-              <p class="p-top-profile__text">特にこだわっているのは、ユーザー目線での導線設計と、ブランドらしさを活かすレイアウト設計。スマートフォンでも快適に閲覧できるレスポンシブ対応や、ライブラリを用いた動的な演出にも取り組んでいます。</p>
-              <p class="p-top-profile__text">デザインと実装のあいだで情報が迷子にならないものづくりを心がけ、企業やサービスの魅力をしっかり伝えるWebサイト制作に携わっていきたいと考えています。</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============================================================
-      スキル
-    ============================================================ -->
-      <section class="p-top-section js-reveal" id="skills">
-        <div class="l-container">
-          <h2 class="c-section-title">
-            <span class="c-section-title__en">Skills</span>
-            <span class="c-section-title__jp">スキル</span>
-          </h2>
-          <div class="p-top-section__body">
-            <ul class="p-top-skills__list">
-              <li class="p-top-skills__item">
-                <span class="p-top-skills__icon" aria-hidden="true"
-                  ><svg class="c-icon"><use href="./images/icons.svg#html5"></use></svg
-                ></span>
-                <h3 class="p-top-skills__name">HTML / CSS（SCSS）</h3>
-                <!-- TODO:要確認 経験年数・制作本数が確定したら「経験◯年 ／ 制作◯本」に差し替える -->
-                <p class="p-top-skills__meta p-top-skills__meta--solid">実務レベル</p>
-                <ul class="p-top-skills__points">
-                  <li>デザインカンプからのレスポンシブ実装（ピクセルパーフェクト）</li>
-                  <li>BEM設計・デザイントークン運用・コーディングルールの整備</li>
-                  <li>@layer / oklch() / カスケードレイヤー設計などモダンCSSの実践（本サイトで使用）</li>
-                </ul>
-              </li>
-              <li class="p-top-skills__item">
-                <span class="p-top-skills__icon" aria-hidden="true"
-                  ><svg class="c-icon"><use href="./images/icons.svg#figma"></use></svg
-                ></span>
-                <h3 class="p-top-skills__name">Figma / Adobe XD</h3>
-                <!-- TODO:要確認 経験年数・制作本数が確定したら「経験◯年 ／ 制作◯本」に差し替える -->
-                <p class="p-top-skills__meta p-top-skills__meta--solid">実務レベル</p>
-                <ul class="p-top-skills__points">
-                  <li>LP・コーポレートサイトのデザイン制作</li>
-                  <li>auto-layout・コンポーネントによる再利用性の高いデータ設計</li>
-                  <li>実装への受け渡し（ハンドオフ）を前提とした命名・余白の一貫性</li>
-                </ul>
-              </li>
-              <li class="p-top-skills__item">
-                <span class="p-top-skills__icon" aria-hidden="true"
-                  ><svg class="c-icon"><use href="./images/icons.svg#js"></use></svg
-                ></span>
-                <h3 class="p-top-skills__name">JavaScript</h3>
-                <p class="p-top-skills__meta">実装対応可</p>
-                <ul class="p-top-skills__points">
-                  <li>スライダー・アコーディオン・ドロワーなどのUI実装</li>
-                  <li>IntersectionObserverによるスクロール演出（本サイトで使用）</li>
-                  <li>prefers-reduced-motionに配慮したアニメーション設計</li>
-                </ul>
-              </li>
-              <li class="p-top-skills__item">
-                <span class="p-top-skills__icon" aria-hidden="true"
-                  ><svg class="c-icon"><use href="./images/icons.svg#wordpress"></use></svg
-                ></span>
-                <h3 class="p-top-skills__name">WordPress / PHP</h3>
-                <p class="p-top-skills__meta">カスタマイズ対応</p>
-                <ul class="p-top-skills__points">
-                  <li>既存テーマのカスタマイズ</li>
-                  <li>オリジナルテーマ化に向けて学習を継続中</li>
-                </ul>
-              </li>
-              <li class="p-top-skills__item">
-                <span class="p-top-skills__icon" aria-hidden="true"
-                  ><svg class="c-icon"><use href="./images/icons.svg#palette"></use></svg
-                ></span>
-                <h3 class="p-top-skills__name">Photoshop / Illustrator</h3>
-                <p class="p-top-skills__meta p-top-skills__meta--solid">実務レベル</p>
-                <ul class="p-top-skills__points">
-                  <li>バナー・ロゴ制作（ターゲット別の複数案提案）</li>
-                  <li>Web用画像の書き出し・軽量化（WebP対応）</li>
-                </ul>
-              </li>
-              <li class="p-top-skills__item">
-                <span class="p-top-skills__icon" aria-hidden="true"
-                  ><svg class="c-icon"><use href="./images/icons.svg#robot"></use></svg
-                ></span>
-                <h3 class="p-top-skills__name">AI活用（Claude Code）</h3>
-                <p class="p-top-skills__meta">検証・導入中</p>
-                <ul class="p-top-skills__points">
-                  <li>Figma連携によるデザイン→コードのワークフロー構築</li>
-                  <li>本サイトのリニューアル・ブラッシュアップにも活用</li>
-                </ul>
-              </li>
-              <li class="p-top-skills__item">
-                <span class="p-top-skills__icon" aria-hidden="true"
-                  ><svg class="c-icon"><use href="./images/icons.svg#chart"></use></svg
-                ></span>
-                <h3 class="p-top-skills__name">サイト公開・計測設定</h3>
-                <p class="p-top-skills__meta p-top-skills__meta--solid">本サイトで実践</p>
-                <ul class="p-top-skills__points">
-                  <li>レンタルサーバーへの公開（独自ドメイン・SSL・WordPress移行）</li>
-                  <li>GA4・Google Search Console の導入とサイトマップ送信</li>
-                  <li>PageSpeed Insights による表示速度改善（本サイトはデスクトップ全項目100点）</li>
-                </ul>
-              </li>
-            </ul>
-          </div>
         </div>
       </section>
 
@@ -324,7 +201,7 @@
                     <h3 class="c-card__title">株式会社<wbr>ライトディレクション</h3>
                     <p class="c-card__title-note">コーポレートサイト</p>
                     <div class="c-card__meta">
-                      <p class="c-card__roles"><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#palette"></use></svg>デザイン・コーディング・ディレクション・名刺デザイン</p>
+                      <p class="c-card__roles"><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#palette"></use></svg>デザイン・コーディング・ディレクション</p>
                       <span class="c-card__action">詳細を見る</span>
                     </div>
                   </div>
@@ -368,23 +245,13 @@
                 </a>
               </li>
 
-              <li>
-                <a class="c-card" href="./works/coding-practice.html">
-                  <div class="c-card__media">
-                    <img class="c-card__thumbnail" style="view-transition-name: work-coding-practice" src="./images/work-onomichi.webp" alt="デザインカンプからのコーディング練習5作品のサムネイル" width="1600" height="1000" loading="lazy" decoding="async" />
-                  </div>
-                  <div class="c-card__body">
-                    <div class="c-card__tags"><span class="c-card__tag">コーディング</span></div>
-                    <h3 class="c-card__title">カンプからサイト制作</h3>
-                    <p class="c-card__title-note">コーディング練習 5作品</p>
-                    <div class="c-card__meta">
-                      <p class="c-card__roles"><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#palette"></use></svg>コーディング</p>
-                      <span class="c-card__action">詳細を見る</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
 
+
+
+            </ul>
+            <h3 class="p-top-works__sub-title">その他の制作</h3>
+            <p class="p-top-works__sub-lead">練習作品や、バナー・ロゴなど小さな単位の制作物です。</p>
+            <ul class="p-top-works__grid p-top-works__grid--sub">
               <li>
                 <a class="c-card" href="./works/banner-fruit.html">
                   <div class="c-card__media">
@@ -395,7 +262,7 @@
                   </div>
                   <div class="c-card__body">
                     <div class="c-card__tags"><span class="c-card__tag c-card__tag--badge">実案件あり</span><span class="c-card__tag">デザイン</span></div>
-                    <h3 class="c-card__title">バナー制作</h3>
+                    <h4 class="c-card__title">バナー制作</h4>
                     <div class="c-card__meta">
                       <p class="c-card__roles"><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#palette"></use></svg>デザイン</p>
                       <span class="c-card__action">詳細を見る</span>
@@ -403,7 +270,22 @@
                   </div>
                 </a>
               </li>
-
+              <li>
+                <a class="c-card" href="./works/coding-practice.html">
+                  <div class="c-card__media">
+                    <img class="c-card__thumbnail" style="view-transition-name: work-coding-practice" src="./images/work-onomichi.webp" alt="デザインカンプからのコーディング練習5作品のサムネイル" width="1600" height="1000" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="c-card__body">
+                    <div class="c-card__tags"><span class="c-card__tag">コーディング</span></div>
+                    <h4 class="c-card__title">カンプからサイト制作</h4>
+                    <p class="c-card__title-note">コーディング練習 5作品</p>
+                    <div class="c-card__meta">
+                      <p class="c-card__roles"><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#palette"></use></svg>コーディング</p>
+                      <span class="c-card__action">詳細を見る</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
               <li>
                 <a class="c-card" href="./works/logo-kenchiku.html">
                   <div class="c-card__media">
@@ -411,7 +293,7 @@
                   </div>
                   <div class="c-card__body">
                     <div class="c-card__tags"><span class="c-card__tag">デザイン</span></div>
-                    <h3 class="c-card__title">架空の建設会社 ロゴ制作</h3>
+                    <h4 class="c-card__title">架空の建設会社 ロゴ制作</h4>
                     <div class="c-card__meta">
                       <p class="c-card__roles"><svg class="c-icon" aria-hidden="true"><use href="./images/icons.svg#palette"></use></svg>デザイン</p>
                       <span class="c-card__action">詳細を見る</span>
@@ -419,7 +301,129 @@
                   </div>
                 </a>
               </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
+      <!-- ============================================================
+      プロフィール
+    ============================================================ -->
+      <section class="p-top-section js-reveal" id="profile">
+        <div class="l-container">
+          <h2 class="c-section-title">
+            <span class="c-section-title__en">Profile</span>
+            <span class="c-section-title__jp">プロフィール</span>
+          </h2>
+          <div class="p-top-section__body p-top-profile__inner">
+            <picture>
+              <source srcset="./images/prof-800.webp" type="image/webp" />
+              <img class="p-top-profile__photo" src="./images/prof.png" alt="神﨑勝弘のプロフィール写真" width="1086" height="1448" loading="lazy" decoding="async" />
+            </picture>
+            <div>
+              <p class="p-top-profile__name">神﨑 勝弘<span class="p-top-profile__name-kana">かんざき まさひろ</span></p>
+              <p class="p-top-profile__text">コーディングからキャリアを始め、現在はFigmaでのデザイン制作とフロントエンド実装の両方を担当しています。「見る人に伝わるデザイン」と「意図を正確に再現するコーディング」の両立を軸に、実案件では、イベント公式サイトやコーポレートサイトなど4件を担当しました。</p>
+              <p class="p-top-profile__text">特にこだわっているのは、ユーザー目線での導線設計と、ブランドらしさを活かすレイアウト設計。スマートフォンでも快適に閲覧できるレスポンシブ対応や、ライブラリを用いた動的な演出にも取り組んでいます。</p>
+              <p class="p-top-profile__text">デザインと実装のあいだで情報が迷子にならないものづくりを心がけています。今後はWebデザイナー兼フロントエンドとして、デザインと実装の両方に関われるチームで、企業やサービスの魅力を伝えるWebサイト制作に携わりたいと考えています。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+      スキル
+    ============================================================ -->
+      <section class="p-top-section p-top-section--alt js-reveal" id="skills">
+        <div class="l-container">
+          <h2 class="c-section-title">
+            <span class="c-section-title__en">Skills</span>
+            <span class="c-section-title__jp">スキル</span>
+          </h2>
+          <div class="p-top-section__body">
+            <ul class="p-top-skills__list">
+              <li class="p-top-skills__item">
+                <span class="p-top-skills__icon" aria-hidden="true"
+                  ><svg class="c-icon"><use href="./images/icons.svg#html5"></use></svg
+                ></span>
+                <h3 class="p-top-skills__name">HTML / CSS（SCSS）</h3>
+                <!-- TODO:要確認 経験年数・制作本数が確定したら「経験◯年 ／ 制作◯本」に差し替える -->
+                <p class="p-top-skills__meta p-top-skills__meta--solid">実案件で使用</p>
+                <ul class="p-top-skills__points">
+                  <li>デザインカンプからのレスポンシブ実装（ピクセルパーフェクト）</li>
+                  <li>BEM設計・デザイントークン運用・コーディングルールの整備</li>
+                  <li>@layer / oklch() / カスケードレイヤー設計などモダンCSSの実践（本サイトで使用）</li>
+                </ul>
+              </li>
+              <li class="p-top-skills__item">
+                <span class="p-top-skills__icon" aria-hidden="true"
+                  ><svg class="c-icon"><use href="./images/icons.svg#figma"></use></svg
+                ></span>
+                <h3 class="p-top-skills__name">Figma</h3>
+                <!-- TODO:要確認 経験年数・制作本数が確定したら「経験◯年 ／ 制作◯本」に差し替える -->
+                <p class="p-top-skills__meta p-top-skills__meta--solid">実案件で使用</p>
+                <ul class="p-top-skills__points">
+                  <li>LP・コーポレートサイトのデザイン制作</li>
+                  <li>auto-layout・コンポーネントによる再利用性の高いデータ設計</li>
+                  <li>実装への受け渡し（ハンドオフ）を前提とした命名・余白の一貫性</li>
+                </ul>
+              </li>
+              <li class="p-top-skills__item">
+                <span class="p-top-skills__icon" aria-hidden="true"
+                  ><svg class="c-icon"><use href="./images/icons.svg#js"></use></svg
+                ></span>
+                <h3 class="p-top-skills__name">JavaScript</h3>
+                <p class="p-top-skills__meta p-top-skills__meta--solid">実案件で使用</p>
+                <ul class="p-top-skills__points">
+                  <li>スライダー・アコーディオン・ドロワーなどのUI実装</li>
+                  <li>View Transitions・スクロール駆動アニメーション（animation-timeline）による演出（本サイトで使用）</li>
+                  <li>prefers-reduced-motionに配慮したアニメーション設計</li>
+                </ul>
+              </li>
+              <li class="p-top-skills__item">
+                <span class="p-top-skills__icon" aria-hidden="true"
+                  ><svg class="c-icon"><use href="./images/icons.svg#wordpress"></use></svg
+                ></span>
+                <h3 class="p-top-skills__name">WordPress / PHP</h3>
+                <p class="p-top-skills__meta">本サイトで実践</p>
+                <ul class="p-top-skills__points">
+                  <li>既存テーマのカスタマイズ</li>
+                  <li>本サイトのブロックテーマ化（オリジナルテーマ）を実践</li>
+                </ul>
+              </li>
+              <li class="p-top-skills__item">
+                <span class="p-top-skills__icon" aria-hidden="true"
+                  ><svg class="c-icon"><use href="./images/icons.svg#palette"></use></svg
+                ></span>
+                <h3 class="p-top-skills__name">Photoshop / Illustrator</h3>
+                <p class="p-top-skills__meta p-top-skills__meta--solid">実案件で使用</p>
+                <ul class="p-top-skills__points">
+                  <li>バナー・ロゴ制作（ターゲット別の複数案提案）</li>
+                  <li>Web用画像の書き出し・軽量化（WebP対応）</li>
+                </ul>
+              </li>
+              <li class="p-top-skills__item">
+                <span class="p-top-skills__icon" aria-hidden="true"
+                  ><svg class="c-icon"><use href="./images/icons.svg#robot"></use></svg
+                ></span>
+                <h3 class="p-top-skills__name">AI活用（Claude Code）</h3>
+                <p class="p-top-skills__meta p-top-skills__meta--solid">実案件で使用</p>
+                <ul class="p-top-skills__points">
+                  <li>実案件（津堅ハーリー・ライトディレクション）で構成から実装まで活用</li>
+                  <li>本サイトのリニューアル・ブラッシュアップにも活用</li>
+                </ul>
+              </li>
+              <li class="p-top-skills__item">
+                <span class="p-top-skills__icon" aria-hidden="true"
+                  ><svg class="c-icon"><use href="./images/icons.svg#chart"></use></svg
+                ></span>
+                <h3 class="p-top-skills__name">サイト公開・計測設定</h3>
+                <p class="p-top-skills__meta p-top-skills__meta--solid">実案件で使用</p>
+                <ul class="p-top-skills__points">
+                  <li>レンタルサーバーへの公開（独自ドメイン・SSL・WordPress移行）</li>
+                  <li>GA4・Google Search Console の導入とサイトマップ送信</li>
+                  <li>PageSpeed Insights による表示速度改善（本サイトはデスクトップ全項目100点）</li>
+                </ul>
+              </li>
             </ul>
           </div>
         </div>
@@ -438,30 +442,18 @@
           <div class="p-top-section__body">
             <ul class="p-top-service__list">
               <li class="p-top-service__item">
-                <span class="p-top-service__icon" aria-hidden="true"
-                  ><svg class="c-icon"><use href="./images/icons.svg#html5"></use></svg
-                ></span>
                 <h3 class="p-top-service__name">LP・Webサイト制作</h3>
                 <p class="p-top-service__text">構成・ワイヤーフレームからデザイン・コーディング・公開まで一貫して対応します。1ページのランディングページから、中小規模のコーポレートサイトまでお受けできます。</p>
               </li>
               <li class="p-top-service__item">
-                <span class="p-top-service__icon" aria-hidden="true"
-                  ><svg class="c-icon"><use href="./images/icons.svg#wordpress"></use></svg
-                ></span>
                 <h3 class="p-top-service__name">WordPressサイト構築</h3>
                 <p class="p-top-service__text">オリジナルテーマでの構築に対応します。ブロックエディタで運用できる形で納品するため、公開後はお客様ご自身の手でお知らせやページの更新ができます。</p>
               </li>
               <li class="p-top-service__item">
-                <span class="p-top-service__icon" aria-hidden="true"
-                  ><svg class="c-icon"><use href="./images/icons.svg#figma"></use></svg
-                ></span>
                 <h3 class="p-top-service__name">デザイン・素材制作</h3>
                 <p class="p-top-service__text">Figmaでのデザイン単体のご依頼にも対応します。実装への受け渡しを前提としたデータ設計で納品するため、別のコーダーさんへもスムーズに引き継げます。バナー・ロゴの制作も可能です。</p>
               </li>
               <li class="p-top-service__item">
-                <span class="p-top-service__icon" aria-hidden="true"
-                  ><svg class="c-icon"><use href="./images/icons.svg#chart"></use></svg
-                ></span>
                 <h3 class="p-top-service__name">公開後の計測・改善</h3>
                 <p class="p-top-service__text">GA4・Googleサーチコンソールの導入と、アクセス状況のレポート作成に対応します。表示速度やアクセシビリティの改善もご相談いただけます。</p>
               </li>
@@ -540,43 +532,33 @@
             </dl>
             <p class="p-top-service__price-note">※ デザインのみ・実装のみなど部分的なご依頼もご相談いただけます。複数メニューの組み合わせは、セット料金でお見積りします。</p>
 
-            <h3 class="p-top-service__sub-title" id="flow"><span class="p-top-service__sub-en" aria-hidden="true">Flow</span><span class="p-top-service__sub-jp">制作の流れ</span></h3>
-            <p class="p-top-service__sub-lead">期間はLP制作（1ページ）の目安です。コーポレートサイト（〜5ページ）は全体で1〜2ヶ月ほどです。</p>
+            <h3 class="p-top-service__sub-title" id="flow"><span class="p-top-service__sub-en" aria-hidden="true">Process</span><span class="p-top-service__sub-jp">仕事の進め方</span></h3>
+            <p class="p-top-service__sub-lead">デザインと実装の両方がわかる立場から、チームの中で意図が抜け落ちないように動きます。</p>
             <ol class="p-top-service__flow">
               <li class="p-top-service__step">
                 <span class="p-top-service__step-num" aria-hidden="true">01</span>
-                <h4 class="p-top-service__step-name">ヒアリング</h4>
-                <p class="p-top-service__step-meta">目安 2〜3日</p>
-                <p class="p-top-service__step-text">目的・ターゲット・参考サイトを伺い、ゴールのすり合わせをします。</p>
-                <p class="p-top-service__step-ask">お願い：参考サイト・資料のご共有</p>
+                <h4 class="p-top-service__step-name">要件を言葉にする</h4>
+                <p class="p-top-service__step-text">目的とターゲットを整理し、判断の基準を文章で共有してから設計に入ります。</p>
               </li>
               <li class="p-top-service__step">
                 <span class="p-top-service__step-num" aria-hidden="true">02</span>
-                <h4 class="p-top-service__step-name">構成・ワイヤー</h4>
-                <p class="p-top-service__step-meta">目安 3〜5日</p>
-                <p class="p-top-service__step-text">ページ構成と骨組みを先にご確認いただき、方向性を固めてから進めます。</p>
-                <p class="p-top-service__step-ask">お願い：構成のご確認</p>
+                <h4 class="p-top-service__step-name">ルールを先に決める</h4>
+                <p class="p-top-service__step-text">余白・文字サイズ・色をデザイントークンとして定義し、デザインと実装で同じ物差しを使います。</p>
               </li>
               <li class="p-top-service__step">
                 <span class="p-top-service__step-num" aria-hidden="true">03</span>
-                <h4 class="p-top-service__step-name">デザイン</h4>
-                <p class="p-top-service__step-meta">目安 1〜1.5週間</p>
-                <p class="p-top-service__step-text">Figmaでデザインを作成し、確認と修正のやりとりを重ねて仕上げます。</p>
-                <p class="p-top-service__step-ask">お願い：デザインのご確認・修正のご指示</p>
+                <h4 class="p-top-service__step-name">受け渡せるデザイン</h4>
+                <p class="p-top-service__step-text">Figmaはコンポーネントと命名を整え、ほかのコーダーが開いても迷わないデータにします。</p>
               </li>
               <li class="p-top-service__step">
                 <span class="p-top-service__step-num" aria-hidden="true">04</span>
-                <h4 class="p-top-service__step-name">実装</h4>
-                <p class="p-top-service__step-meta">目安 1〜1.5週間</p>
-                <p class="p-top-service__step-text">コーディング・WordPress構築。表示速度とアクセシビリティに配慮します。</p>
-                <p class="p-top-service__step-ask">お願い：原稿・写真の最終確認</p>
+                <h4 class="p-top-service__step-name">Gitで管理して実装</h4>
+                <p class="p-top-service__step-text">コーディング規約を文書にし、変更はGitで履歴に残します。表示速度とアクセシビリティは実測で確かめます。</p>
               </li>
               <li class="p-top-service__step">
                 <span class="p-top-service__step-num" aria-hidden="true">05</span>
-                <h4 class="p-top-service__step-name">公開・運用</h4>
-                <p class="p-top-service__step-meta">目安 2〜3日</p>
-                <p class="p-top-service__step-text">サーバーへの公開、GA4等の計測設定まで対応。公開後のご相談も承ります。</p>
-                <p class="p-top-service__step-ask">お願い：サーバー情報のご提供</p>
+                <h4 class="p-top-service__step-name">計測して改善</h4>
+                <p class="p-top-service__step-text">公開後はGA4・Search Consoleで数字を見て、次の改善につなげます。</p>
               </li>
             </ol>
 

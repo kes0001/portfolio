@@ -63,11 +63,11 @@ EXISTING=$(wp post list --post_type=works --name=right-direction --format=ids)
 if [ -n "$EXISTING" ]; then wp post delete $EXISTING --force; fi
 ID=$(wp post create "$MIG_DIR/content-right-direction.html" --post_type=works --post_status=publish \
   --post_title='株式会社ライトディレクション' --post_name=right-direction --menu_order=4 \
-  --post_date='2026-01-04 10:00:00' --post_excerpt='東京・江東区のWeb制作・システム開発会社「株式会社ライトディレクション」のコーポレートサイト。「AIをどこまで実務の制作に使えるか」を検証する依頼案件として、構成からデザイン・実装・公開までを一貫して担当しました。名刺デザインもあわせて制作しています。' --porcelain)
+  --post_date='2026-01-04 10:00:00' --post_excerpt='東京・江東区のWeb制作・システム開発会社「株式会社ライトディレクション」のコーポレートサイト。「AIをどこまで実務の制作に使えるか」を検証する依頼案件として、構成からデザイン・実装・公開までを一貫して担当しました。' --porcelain)
 wp post meta update $ID kanzaki_subtitle 'コーポレートサイト'
 wp post meta update $ID kanzaki_eyebrow 'Works — Corporate Site（実案件）'
 wp post meta update $ID kanzaki_category 'DESIGN'
-wp post meta update $ID kanzaki_role 'デザイン・コーディング・ディレクション・名刺デザイン'
+wp post meta update $ID kanzaki_role 'デザイン・コーディング・ディレクション'
 wp post meta update $ID kanzaki_tools 'Claude Code / HTML / SCSS / JavaScript / Photoshop / Illustrator'
 wp post meta update $ID kanzaki_highlight '「AIをどこまで実務に使えるか」の検証案件。デザイン・実装・原稿の各工程でAIと協働し、少人数・短期間での公開を実現'
 wp post meta update $ID kanzaki_site_url 'https://r-d.jp/'
@@ -129,6 +129,7 @@ wp post meta update $ID kanzaki_highlight 'SCSS＋BEM設計と素のJSでのUI�
 wp post meta update $ID kanzaki_site_url ''
 wp post meta update $ID kanzaki_badge ''
 wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-onomichi.webp' --post_id=$ID --featured_image --title='カンプからサイト制作'
+wp post meta update $ID kanzaki_is_sub 1
 echo "imported: coding-practice (ID=$ID)"
 
 # ---- 08: バナー制作 ----
@@ -146,6 +147,7 @@ wp post meta update $ID kanzaki_highlight '電話占いサービスの実案件�
 wp post meta update $ID kanzaki_site_url ''
 wp post meta update $ID kanzaki_badge '実案件あり'
 wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-banner-sela-thumb.jpg' --post_id=$ID --featured_image --title='バナー制作'
+wp post meta update $ID kanzaki_is_sub 1
 echo "imported: banner-fruit (ID=$ID)"
 
 # ---- 09: 架空の建設会社 ロゴ制作 ----
@@ -163,5 +165,6 @@ wp post meta update $ID kanzaki_highlight 'コンセプトの異なる3案でブ
 wp post meta update $ID kanzaki_site_url ''
 wp post meta update $ID kanzaki_badge ''
 wp media import '/Users/kes/Desktop/職業訓練データ/portfolio/images/work-logo.webp' --post_id=$ID --featured_image --title='架空の建設会社 ロゴ制作'
+wp post meta update $ID kanzaki_is_sub 1
 echo "imported: logo-kenchiku (ID=$ID)"
 

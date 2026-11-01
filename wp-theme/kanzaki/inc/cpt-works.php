@@ -155,5 +155,21 @@ add_action(
 				},
 			)
 		);
+
+		register_post_meta(
+			'works',
+			'kanzaki_is_sub',
+			array(
+				'type'              => 'boolean',
+				'single'            => true,
+				'default'           => false,
+				'description'       => 'トップの「その他の制作」に回す（練習作品・小さな単位の制作物）',
+				'show_in_rest'      => true,
+				'sanitize_callback' => 'rest_sanitize_boolean',
+				'auth_callback'     => function () {
+					return current_user_can( 'edit_posts' );
+				},
+			)
+		);
 	}
 );

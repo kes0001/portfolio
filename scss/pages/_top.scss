@@ -480,7 +480,8 @@
   max-width: rem(640);
   font-size: var(--text-body);
   color: var(--color-ink-muted);
-  text-align: justify;
+  // 数行のリードは左揃え（hero__lead・sub-lead と同じ）。両端揃え＋語境界折返しだと短い行の字間が開くため
+  word-break: auto-phrase; // 「詳細ペー/ジ」と語中で折れるのを防ぐ（非対応ブラウザは従来どおり）
 }
 
 // ミニマル縦型カードのレスポンシブグリッド（SP:1列 / sm:2列 / lg:3列）
@@ -517,6 +518,32 @@
   }
 }
 
+// 「その他の制作」：練習作品・小さな単位の制作物。メインの下に従属させるため、
+// 小見出しは透かし英字を持たず、カードのタイトルも1段（lead→body）下げる
+.p-top-works__sub-title {
+  margin-top: var(--space-80);
+  font-size: var(--text-lead);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+}
+
+.p-top-works__sub-lead {
+  margin-top: var(--space-8);
+  font-size: var(--text-caption);
+  color: var(--color-ink-muted);
+}
+
+.p-top-works__grid--sub {
+  @include mq("lg") {
+    margin-top: var(--space-24);
+  }
+
+  .c-card__title {
+    font-size: var(--text-body);
+  }
+}
+
 // ============================================================
 // できること・制作の流れ（Service）
 // カードはスキルと同じ文法（canvas面にcanvas-altカード）。
@@ -526,37 +553,31 @@
   margin-top: var(--space-16);
   max-width: rem(640);
   color: var(--color-ink-muted);
-  text-align: justify;
+  word-break: auto-phrase; // 「Webサイ/ト」の語中折れ防止（works__lead と同じく左揃え）
 }
 
+// Skills（カード）と見た目で区別するため、Service はカードにせず罫線区切りの行リストにする。
+// 左に提供内容の名前、右に説明。アイコンも Skills と重複するため置かない
 .p-top-service__list {
-  display: grid;
-  gap: var(--space-16);
   list-style: none;
   padding-left: 0;
-
-  @include mq("md") {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  border-bottom: 1px solid var(--color-hairline);
 }
 
 .p-top-service__item {
-  padding: var(--space-24);
-  background-color: var(--color-canvas-alt);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
-}
+  padding-block: var(--space-24);
+  border-top: 1px solid var(--color-hairline);
 
-.p-top-service__icon {
-  display: flex;
-  align-items: center;
-  font-size: rem(24);
-  color: var(--color-ink);
+  @include mq("md") {
+    display: grid;
+    grid-template-columns: minmax(rem(220), 1fr) minmax(0, rem(560)); // 名前は最小220px（768pxで縦割れさせない）、説明は 560÷14px＝40字で止める
+    column-gap: var(--space-32);
+    align-items: baseline;
+  }
 }
 
 .p-top-service__name {
-  margin-top: var(--space-12);
-  font-size: var(--text-lead); // カード見出しは20pxで統一（スキルカードと同格）
+  font-size: var(--text-lead); // 見出しは20pxで統一（スキルカードと同格）
   font-weight: var(--font-weight-semibold);
   line-height: 1.4;
 }
@@ -567,6 +588,10 @@
   line-height: 1.7;
   color: var(--color-ink-muted);
   text-align: justify;
+
+  @include mq("md") {
+    margin-top: 0;
+  }
 }
 
 // 料金・流れ・FAQ 共通のサブタイトル。
@@ -601,6 +626,7 @@
   max-width: rem(560); // 560÷14px＝40字（contact__text と同じ値）
   margin-top: var(--space-16);
   text-wrap: balance; // 2行になったとき末尾に数文字だけ残る孤立行を避け、行を均す
+  word-break: auto-phrase; // balance が「チー/ム」と語中で割るのを防ぐ
   font-size: var(--text-caption);
   color: var(--color-ink-muted);
 }
@@ -875,7 +901,11 @@
   font-size: var(--text-caption);
   line-height: 1.7;
   color: var(--color-ink-muted);
-  text-align: justify;
+  // 1行13字前後の細い段で両端揃えにすると、欧文（Search Console 等）の行で字間が大きく空く。
+  // 細い段だけ左揃えにし、語中折れ（デ/ザイン）と末尾の「す。」だけが残る孤立行も避ける
+  text-align: start;
+  text-wrap: pretty;
+  word-break: auto-phrase;
 }
 
 // お願い事項はカード底に揃える（margin-top: auto）＋ヘアラインで区切る

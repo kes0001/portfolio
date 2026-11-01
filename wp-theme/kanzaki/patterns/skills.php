@@ -14,8 +14,8 @@
  */
 
 ?>
-<!-- wp:group {"tagName":"section","anchor":"skills","className":"p-top-section js-reveal","layout":{"type":"default"}} -->
-<section class="wp-block-group p-top-section js-reveal" id="skills">
+<!-- wp:group {"tagName":"section","anchor":"skills","className":"p-top-section p-top-section--alt js-reveal","layout":{"type":"default"}} -->
+<section class="wp-block-group p-top-section p-top-section--alt js-reveal" id="skills">
 <!-- wp:group {"className":"l-container","layout":{"type":"default"}} -->
 <div class="wp-block-group l-container">
 
@@ -42,7 +42,7 @@
 <h3 class="wp-block-heading p-top-skills__name">HTML / CSS（SCSS）</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"p-top-skills__meta p-top-skills__meta--solid"} -->
-<p class="p-top-skills__meta p-top-skills__meta--solid">実務レベル</p>
+<p class="p-top-skills__meta p-top-skills__meta--solid">実案件で使用</p>
 <!-- /wp:paragraph -->
 <!-- wp:list {"className":"p-top-skills__points"} -->
 <ul class="wp-block-list p-top-skills__points"><!-- wp:list-item -->
@@ -59,10 +59,10 @@
 <!-- wp:group {"className":"p-top-skills__item p-top-skills__item--figma","layout":{"type":"default"}} -->
 <div class="wp-block-group p-top-skills__item p-top-skills__item--figma">
 <!-- wp:heading {"level":3,"className":"p-top-skills__name"} -->
-<h3 class="wp-block-heading p-top-skills__name">Figma / Adobe XD</h3>
+<h3 class="wp-block-heading p-top-skills__name">Figma</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"p-top-skills__meta p-top-skills__meta--solid"} -->
-<p class="p-top-skills__meta p-top-skills__meta--solid">実務レベル</p>
+<p class="p-top-skills__meta p-top-skills__meta--solid">実案件で使用</p>
 <!-- /wp:paragraph -->
 <!-- wp:list {"className":"p-top-skills__points"} -->
 <ul class="wp-block-list p-top-skills__points"><!-- wp:list-item -->
@@ -81,14 +81,14 @@
 <!-- wp:heading {"level":3,"className":"p-top-skills__name"} -->
 <h3 class="wp-block-heading p-top-skills__name">JavaScript</h3>
 <!-- /wp:heading -->
-<!-- wp:paragraph {"className":"p-top-skills__meta"} -->
-<p class="p-top-skills__meta">実装対応可</p>
+<!-- wp:paragraph {"className":"p-top-skills__meta p-top-skills__meta--solid"} -->
+<p class="p-top-skills__meta p-top-skills__meta--solid">実案件で使用</p>
 <!-- /wp:paragraph -->
 <!-- wp:list {"className":"p-top-skills__points"} -->
 <ul class="wp-block-list p-top-skills__points"><!-- wp:list-item -->
 <li>スライダー・アコーディオン・ドロワーなどのUI実装</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
-<li>IntersectionObserverによるスクロール演出（本サイトで使用）</li>
+<li>View Transitions・スクロール駆動アニメーション（animation-timeline）による演出（本サイトで使用）</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
 <li>prefers-reduced-motionに配慮したアニメーション設計</li>
 <!-- /wp:list-item --></ul>
@@ -102,7 +102,7 @@
 <h3 class="wp-block-heading p-top-skills__name">WordPress / PHP</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"p-top-skills__meta"} -->
-<p class="p-top-skills__meta">カスタマイズ対応</p>
+<p class="p-top-skills__meta">本サイトで実践</p>
 <!-- /wp:paragraph -->
 <!-- wp:list {"className":"p-top-skills__points"} -->
 <ul class="wp-block-list p-top-skills__points"><!-- wp:list-item -->
@@ -120,7 +120,7 @@
 <h3 class="wp-block-heading p-top-skills__name">Photoshop / Illustrator</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"p-top-skills__meta p-top-skills__meta--solid"} -->
-<p class="p-top-skills__meta p-top-skills__meta--solid">実務レベル</p>
+<p class="p-top-skills__meta p-top-skills__meta--solid">実案件で使用</p>
 <!-- /wp:paragraph -->
 <!-- wp:list {"className":"p-top-skills__points"} -->
 <ul class="wp-block-list p-top-skills__points"><!-- wp:list-item -->
@@ -137,12 +137,12 @@
 <!-- wp:heading {"level":3,"className":"p-top-skills__name"} -->
 <h3 class="wp-block-heading p-top-skills__name">AI活用（Claude Code）</h3>
 <!-- /wp:heading -->
-<!-- wp:paragraph {"className":"p-top-skills__meta"} -->
-<p class="p-top-skills__meta">検証・導入中</p>
+<!-- wp:paragraph {"className":"p-top-skills__meta p-top-skills__meta--solid"} -->
+<p class="p-top-skills__meta p-top-skills__meta--solid">実案件で使用</p>
 <!-- /wp:paragraph -->
 <!-- wp:list {"className":"p-top-skills__points"} -->
 <ul class="wp-block-list p-top-skills__points"><!-- wp:list-item -->
-<li>Figma連携によるデザイン→コードのワークフロー構築</li>
+<li>実案件（津堅ハーリー・ライトディレクション）で構成から実装まで活用</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
 <li>本サイトのリニューアル・ブラッシュアップにも活用</li>
 <!-- /wp:list-item --></ul>
@@ -156,7 +156,7 @@
 <h3 class="wp-block-heading p-top-skills__name">サイト公開・計測設定</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"p-top-skills__meta p-top-skills__meta--solid"} -->
-<p class="p-top-skills__meta p-top-skills__meta--solid">本サイトで実践</p>
+<p class="p-top-skills__meta p-top-skills__meta--solid">実案件で使用</p>
 <!-- /wp:paragraph -->
 <!-- wp:list {"className":"p-top-skills__points"} -->
 <ul class="wp-block-list p-top-skills__points"><!-- wp:list-item -->

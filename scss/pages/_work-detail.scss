@@ -205,6 +205,31 @@
   margin-top: var(--space-16);
 }
 
+// 本文の主張を裏づける図版（公開サイトのスクショ）。見た目は制作物画像（variation-fig）と同じ文法
+.p-work__figure {
+  margin: var(--space-32) 0 0;
+}
+
+.p-work__figure + .p-work__figure {
+  margin-top: var(--space-24);
+}
+
+.p-work__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-media);
+  background-color: var(--color-canvas-alt);
+  box-shadow: var(--shadow-card);
+}
+
+.p-work__figure-cap {
+  margin-top: var(--space-8);
+  font-size: var(--text-fine);
+  letter-spacing: 0.04em;
+  color: var(--color-ink-muted);
+}
+
 // A / B / C 案（バナー・ロゴ）
 .p-work__cases {
   margin-top: var(--space-24);

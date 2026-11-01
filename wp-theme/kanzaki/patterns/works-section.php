@@ -6,6 +6,7 @@
  * Inserter: no
  *
  * works CPT を menu_order 順に一覧表示する。カード内のメタは Block Bindings。
+ * queryId 1＝メイン、queryId 2＝「その他の制作」（kanzaki_is_sub）。絞り込みは inc/works-query.php。
  *
  * @package kanzaki
  */
@@ -62,6 +63,65 @@
 <!-- /wp:group -->
 
 <!-- wp:post-title {"level":3,"className":"c-card__title"} /-->
+<!-- wp:paragraph {"className":"c-card__title-note","metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"kanzaki_subtitle"}}}}} -->
+<p class="c-card__title-note"></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:group {"className":"c-card__meta","layout":{"type":"default"}} -->
+<div class="wp-block-group c-card__meta">
+<!-- wp:paragraph {"className":"c-card__roles","metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"kanzaki_role"}}}}} -->
+<p class="c-card__roles"></p>
+<!-- /wp:paragraph -->
+<!-- wp:read-more {"content":"詳細を見る","className":"c-card__action"} /-->
+</div>
+<!-- /wp:group -->
+
+</div>
+<!-- /wp:group -->
+
+</div>
+<!-- /wp:group -->
+
+<!-- /wp:post-template -->
+</div>
+<!-- /wp:query -->
+
+<!-- wp:heading {"level":3,"className":"p-top-works__sub-title"} -->
+<h3 class="wp-block-heading p-top-works__sub-title">その他の制作</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"p-top-works__sub-lead"} -->
+<p class="p-top-works__sub-lead">練習作品や、バナー・ロゴなど小さな単位の制作物です。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:query {"queryId":2,"query":{"postType":"works","perPage":24,"pages":0,"offset":0,"order":"asc","orderBy":"menu_order","inherit":false}} -->
+<div class="wp-block-query">
+<!-- wp:post-template {"className":"p-top-works__grid p-top-works__grid--sub","layout":{"type":"default"}} -->
+
+<!-- wp:group {"className":"c-card","layout":{"type":"default"}} -->
+<div class="wp-block-group c-card">
+
+<!-- wp:group {"className":"c-card__media","layout":{"type":"default"}} -->
+<div class="wp-block-group c-card__media">
+<!-- wp:post-featured-image {"sizeSlug":"kanzaki-card"} /-->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"c-card__body","layout":{"type":"default"}} -->
+<div class="wp-block-group c-card__body">
+
+<!-- wp:group {"className":"c-card__tags","layout":{"type":"default"}} -->
+<div class="wp-block-group c-card__tags">
+<!-- wp:paragraph {"className":"c-card__badge","metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"kanzaki_badge"}}}}} -->
+<p class="c-card__badge"></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"c-card__category","metadata":{"bindings":{"content":{"source":"kanzaki/terms","args":{"taxonomy":"category","separator":" / "}}}}} -->
+<p class="c-card__category"></p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:post-title {"level":4,"className":"c-card__title"} /-->
 <!-- wp:paragraph {"className":"c-card__title-note","metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"kanzaki_subtitle"}}}}} -->
 <p class="c-card__title-note"></p>
 <!-- /wp:paragraph -->

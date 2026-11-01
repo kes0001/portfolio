@@ -132,6 +132,14 @@ add_action(
 						'instructions' => '通常は「公開サイト/デモURL」がある作品だけフレームに嵌まる。URLが空のサイト作品（カンプ集約ページ等）でフレームを出したいときだけON。',
 						'ui'           => 1,
 					),
+					array(
+						'key'          => 'field_kanzaki_is_sub',
+						'name'         => 'kanzaki_is_sub',
+						'type'         => 'true_false',
+						'label'        => '「その他の制作」に表示',
+						'instructions' => 'ONにするとトップのメイン一覧から外れ、下の「その他の制作」に並ぶ（練習作品・バナー・ロゴなど）。',
+						'ui'           => 1,
+					),
 
 					// ---- 共通の案内 ----
 					array(

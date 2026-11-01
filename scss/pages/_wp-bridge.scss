@@ -40,6 +40,16 @@
   word-break: keep-all;
 }
 
+// WPコアの無レイヤー .wp-block-post-template{margin-top:0} が「その他の制作」の
+// グリッド上余白（_top.scss の設計値）を潰し、リードとカードが密着しとったため取り戻す
+.p-top-works__grid--sub.wp-block-post-template {
+  margin-top: var(--space-32);
+
+  @include mq("lg") {
+    margin-top: var(--space-24);
+  }
+}
+
 // カード全面リンク：read-more（.c-card__action）をストレッチドリンク化
 // （group ブロックは a で包めないため。矢印は既存の ::after が担当）
 .c-card .wp-block-read-more {
@@ -230,22 +240,6 @@ $icon-envelope: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
 .p-top-skills__item--robot::before { mask-image: $icon-robot; }
 .p-top-skills__item--chart::before { mask-image: $icon-chart; }
 
-// Serviceカードのアイコン（静的版 span.p-top-service__icon 24px 相当）
-.p-top-service__item[class*="p-top-service__item--"]::before {
-  content: "";
-  display: block;
-  width: rem(24);
-  height: rem(24);
-  background-color: var(--color-ink);
-  mask-repeat: no-repeat;
-  mask-position: center;
-  mask-size: contain;
-}
-
-.p-top-service__item--html5::before { mask-image: $icon-html5; }
-.p-top-service__item--wordpress::before { mask-image: $icon-wordpress; }
-.p-top-service__item--figma::before { mask-image: $icon-figma; }
-.p-top-service__item--chart::before { mask-image: $icon-chart; }
 // 担当範囲のパレットアイコン（静的版 svg.c-icon の代替＝mask）。
 // 段落ブロックには svg を置けんため ::before で描く。
 // このファイルは静的版のCSSにも入るため、WPの段落クラスで限定して二重描画を防ぐ
@@ -329,4 +323,21 @@ $icon-envelope: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
 .wp-block-buttons.p-top-contact__actions {
   justify-content: center;
   gap: var(--space-16);
+}
+
+// 作品詳細の図版（画像ブロック）：コアの figure 余白（0 0 1em）と figcaption の既定を、
+// 静的版の .p-work__figure / .p-work__figure-cap に合わせて上書きする
+.p-work__figure.wp-block-image {
+  margin: var(--space-32) 0 0;
+}
+
+.p-work__figure.wp-block-image + .p-work__figure.wp-block-image {
+  margin-top: var(--space-24);
+}
+
+.p-work__figure .wp-element-caption {
+  margin: var(--space-8) 0 0;
+  font-size: var(--text-fine);
+  letter-spacing: 0.04em;
+  color: var(--color-ink-muted);
 }

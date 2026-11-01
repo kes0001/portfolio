@@ -171,7 +171,9 @@
     padding: 0;
     position: relative;
 
-    // 下線が左から伸びるホバー演出（PCナビのみ。色は文字色に追従＝青を装飾に使わない）
+    // 下線が左から伸び、離れると右へ抜けるホバー演出（PCナビのみ。色は文字色に追従＝青を装飾に使わない）
+    // Motion Prompt #086 · MIT License (c) 2026 Shohei Ohtaki · https://showheyohtaki.github.io/motion-prompt/#086
+    // 待機時は origin を右に置き、離れたときに右端へ縮んで抜けさせる（入りと出の向きをそろえて流れを作る）
     &::after {
       content: "";
       position: absolute;
@@ -181,13 +183,14 @@
       height: 1px;
       background-color: currentcolor;
       transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.25s var(--ease-standard);
+      transform-origin: right;
+      transition: transform 0.3s var(--ease-standard);
     }
 
     &:hover::after,
     &:focus-visible::after {
       transform: scaleX(1);
+      transform-origin: left;
     }
   }
 
