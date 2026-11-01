@@ -12,6 +12,7 @@
  * @package kanzaki
  */
 
+$kanzaki_icons = esc_url( get_theme_file_uri( 'assets/images/icons.svg' ) );
 ?>
 <!-- wp:group {"tagName":"section","className":"p-top-section p-top-section--alt js-reveal","layout":{"type":"default"}} -->
 <section class="wp-block-group p-top-section p-top-section--alt js-reveal">
@@ -97,6 +98,9 @@
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
+<!-- wp:html -->
+<p class="p-top-note__source"><a class="c-button c-button--secondary" href="https://github.com/kes0001/portfolio" target="_blank" rel="noopener"><svg class="c-icon" aria-hidden="true"><use href="<?php echo $kanzaki_icons; // phpcs:ignore ?>#arrow-up-right-from-square"></use></svg>ソースコードを見る（GitHub）</a></p>
+<!-- /wp:html -->
 </div>
 <!-- /wp:group -->
 
