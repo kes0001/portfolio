@@ -535,7 +535,14 @@
 }
 
 .p-top-works__grid--sub {
+  // 3件を2列に流すと最後の段が1枚だけ残るため、md から3列にする（sm〜md は幅が足りず2列のまま）
+  @include mq("md") {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-16);
+  }
+
   @include mq("lg") {
+    gap: var(--space-32);
     margin-top: var(--space-24);
   }
 

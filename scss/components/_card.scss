@@ -134,9 +134,10 @@
 // メタ行：罫線の下に担当範囲（左）と詳細リンク（右）。カード下端に固定
 .c-card__meta {
   display: flex;
+  flex-wrap: wrap; // 担当範囲が語の途中で折れるくらいなら、「詳細を見る」を次の行へ送る
   justify-content: space-between;
   align-items: baseline;
-  gap: var(--space-16);
+  gap: var(--space-8) var(--space-16);
   margin-top: auto;
   padding-top: var(--space-16);
   border-top: 1px solid var(--color-hairline);
@@ -146,10 +147,13 @@
   display: inline-flex;
   align-items: flex-start;
   gap: var(--space-4);
-  flex: 1 1 auto;
-  min-width: 0;
+  flex: 1 1 0; // 基準幅0＋最小幅＝最長の語。全文が入らんだけなら横で折り返し、1語も入らんときだけ meta ごと折り返す
   font-size: var(--text-fine);
   line-height: 1.6;
+  // 「コーディ/ング」のような語中折れを防ぐ。kiso.css の overflow-wrap: anywhere は最小幅を1文字にしてしまうため
+  // break-word に戻す（最小幅＝語の幅。入りきらん長さのときだけ最終手段として折る）
+  word-break: keep-all;
+  overflow-wrap: break-word;
   letter-spacing: 0.04em;
   color: var(--color-ink-muted);
 
@@ -167,6 +171,7 @@
   align-items: center;
   gap: var(--space-4);
   flex-shrink: 0;
+  margin-left: auto; // 次の行へ送られても右端に置く
   font-size: var(--text-fine);
   font-weight: var(--font-weight-semibold);
   letter-spacing: 0.04em;
