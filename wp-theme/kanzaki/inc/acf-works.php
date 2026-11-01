@@ -133,6 +133,14 @@ add_action(
 						'ui'           => 1,
 					),
 					array(
+						'key'          => 'field_kanzaki_no_device_frame',
+						'name'         => 'kanzaki_no_device_frame',
+						'type'         => 'true_false',
+						'label'        => 'MacBookフレームを外す',
+						'instructions' => 'URLがあってもフレームに嵌めず、画像をそのまま見せる（スマホ専用LPなど、PCの画面に合わん作品）。',
+						'ui'           => 1,
+					),
+					array(
 						'key'          => 'field_kanzaki_is_sub',
 						'name'         => 'kanzaki_is_sub',
 						'type'         => 'true_false',

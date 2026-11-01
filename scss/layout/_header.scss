@@ -45,7 +45,7 @@
 
 // ロゴマーク（#を象った site-logo。テキスト「KANZAKI」と横並び）
 .l-header__logo-mark {
-  inline-size: rem(24);
+  inline-size: rem(28); // サイト名の文字を外し、マーク単体でロゴを担うため24→28
   block-size: auto;
 }
 

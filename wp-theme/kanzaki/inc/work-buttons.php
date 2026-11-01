@@ -43,6 +43,7 @@ add_filter(
  * バナー・ロゴ等（site_url 空）はフレームを出さず、CSSの :has() が
  * 効かなくなることでサムネイルが素の表示に戻る。
  * URLを持たんサイト作品（カンプ集約ページ等）は kanzaki_device_frame で強制ON。
+ * URLがあってもPC画面に合わん作品（スマホ専用LP等）は kanzaki_no_device_frame で強制OFF（こちらが優先）。
  */
 add_filter(
 	'render_block_core/html',
@@ -52,6 +53,9 @@ add_filter(
 		}
 		$url   = get_post_meta( get_the_ID(), 'kanzaki_site_url', true );
 		$force = get_post_meta( get_the_ID(), 'kanzaki_device_frame', true );
+		if ( get_post_meta( get_the_ID(), 'kanzaki_no_device_frame', true ) ) {
+			return '';
+		}
 		if ( '' === trim( (string) $url ) && ! $force ) {
 			return '';
 		}

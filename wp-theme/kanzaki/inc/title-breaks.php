@@ -30,6 +30,7 @@ add_filter(
 			'Bootstrapを使用したサイト制作' => 'Bootstrapを' . $zwsp . '使用した' . $zwsp . 'サイト制作',
 			'笹塚スマイルクリニック'       => '笹塚' . $zwsp . 'スマイルクリニック',
 			'津堅島シークルーズ'           => '津堅島' . $zwsp . 'シークルーズ',
+			'津堅島まつり'                 => '津堅島' . $zwsp . 'まつり',
 		);
 		return strtr( $title, $breaks );
 	},

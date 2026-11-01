@@ -5,8 +5,8 @@
  * Categories: kanzaki
  * Inserter: no
  *
- * ロゴはマーク画像（site-logo.webp）＋サイト名（get_bloginfo で動的取得）。
- * 静的サイト版の l-header__logo と同一マークアップに揃える。
+ * ロゴはマーク画像（site-logo.webp）だけ。サイト名の文字は出さず、
+ * 画像の alt（get_bloginfo で動的取得）をリンクの名前にする。
  * スキップリンク・バーガーボタン・ナビは main.js の開閉機構と
  * aria 属性が必要なため HTML ブロックのまま維持する。
  *
@@ -25,7 +25,7 @@ $kanzaki_home = esc_url( home_url( '/' ) );
 <div class="wp-block-group l-container l-header__inner">
 
 <!-- wp:html -->
-<a class="l-header__logo" href="<?php echo $kanzaki_home; // phpcs:ignore ?>"><img class="l-header__logo-mark" src="<?php echo esc_url( get_theme_file_uri( 'assets/images/site-logo.webp' ) ); ?>" alt="" width="278" height="270" /><?php echo esc_html( get_bloginfo( 'name' ) ); ?></a>
+<a class="l-header__logo" href="<?php echo $kanzaki_home; // phpcs:ignore ?>"><img class="l-header__logo-mark" src="<?php echo esc_url( get_theme_file_uri( 'assets/images/site-logo.webp' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" width="278" height="270" /></a>
 <!-- /wp:html -->
 
 <!-- wp:html -->

@@ -158,6 +158,22 @@ add_action(
 
 		register_post_meta(
 			'works',
+			'kanzaki_no_device_frame',
+			array(
+				'type'              => 'boolean',
+				'single'            => true,
+				'default'           => false,
+				'description'       => 'サイトURLがあってもMacBookフレームに嵌めない（スマホ専用LP等）',
+				'show_in_rest'      => true,
+				'sanitize_callback' => 'rest_sanitize_boolean',
+				'auth_callback'     => function () {
+					return current_user_can( 'edit_posts' );
+				},
+			)
+		);
+
+		register_post_meta(
+			'works',
 			'kanzaki_is_sub',
 			array(
 				'type'              => 'boolean',
