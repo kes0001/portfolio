@@ -72,7 +72,7 @@ $kanzaki_icons = esc_url( get_theme_file_uri( 'assets/images/icons.svg' ) );
 <h3 class="wp-block-heading p-top-service__name">公開後の計測・改善</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"p-top-service__text"} -->
-<p class="p-top-service__text">GA4・Googleサーチコンソールの導入と、アクセス状況の分析に対応します。表示速度やアクセシビリティも、実測しながら改善します。</p>
+<p class="p-top-service__text">GA4・Google Search Console の導入と、アクセス状況の分析に対応します。表示速度やアクセシビリティも、実測しながら改善します。</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

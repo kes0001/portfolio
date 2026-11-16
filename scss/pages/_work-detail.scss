@@ -70,6 +70,7 @@
   font-size: var(--text-lead);
   font-weight: var(--font-weight-regular);
   color: var(--color-ink-muted);
+  word-break: auto-phrase; // 「2ブ/ランド」の語中折れ防止
 }
 
 .p-work__lead {
@@ -108,6 +109,7 @@
 
 .p-work__meta-value {
   font-weight: var(--font-weight-regular);
+  word-break: auto-phrase; // 「ディレク/ション」の語中折れ防止
 }
 
 .p-work__actions {
@@ -184,6 +186,7 @@
   font-weight: var(--font-weight-semibold);
   letter-spacing: 0.08em;
   line-height: 1.4;
+  word-break: auto-phrase; // 「フ/ルハビ」のような語中折れ防止
 }
 
 .p-work__section-title-en {

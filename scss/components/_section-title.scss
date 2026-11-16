@@ -37,4 +37,5 @@
   letter-spacing: 0.12em; // 和文見出しはトラッキングを取り、巨大な欧文と質感で対比させる
   line-height: 1.25;
   text-wrap: balance;
+  word-break: auto-phrase; // 320pxで「このサイ/トについて」と語中で折れるのを防ぐ
 }

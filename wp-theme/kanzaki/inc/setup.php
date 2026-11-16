@@ -30,3 +30,8 @@ add_action(
 		);
 	}
 );
+
+// スキップリンクはヘッダーパターンの「本文へスキップ」（.u-skip-link）を使う。
+// コアが自動で差し込む「内容をスキップ」と二重になるため、コア側を止める。
+remove_action( 'wp_enqueue_scripts', 'wp_enqueue_block_template_skip_link' );
+remove_action( 'wp_footer', 'the_block_template_skip_link' );

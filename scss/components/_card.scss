@@ -129,6 +129,7 @@
   font-size: var(--text-caption);
   line-height: 1.8;
   color: var(--color-ink);
+  word-break: auto-phrase; // 「2ブ/ランド」「サイ/ト」の語中折れ防止
 }
 
 // メタ行：罫線の下に担当範囲（左）と詳細リンク（右）。カード下端に固定
