@@ -1,0 +1,27 @@
+{
+    "slug": "banner-fruit",
+    "title": "バナー制作",
+    "status": "publish",
+    "menu_order": 8,
+    "date": "2026-01-08 10:00:00",
+    "excerpt": "電話占いサービス「Sela（セラ）」の実案件広告バナーを担当。あわせて、自主制作（架空案件）のフルーツサブスク「フルハビ」の提案バナーも掲載しています。",
+    "categories": [
+        "design"
+    ],
+    "featured_image": {
+        "file": "2026/01/work-banner-sela-thumb-3.jpg",
+        "title": "バナー制作",
+        "alt": "電話占いSelaの広告バナー（実案件）"
+    },
+    "content_images": [],
+    "meta": {
+        "kanzaki_badge": "実案件あり",
+        "kanzaki_category": "DESIGN",
+        "kanzaki_eyebrow": "Works — Banner（実案件あり）",
+        "kanzaki_highlight": "電話占いサービスの実案件バナー（A/Bテスト設計）ほか、ターゲット別に訴求を変えた複数案",
+        "kanzaki_is_sub": "1",
+        "kanzaki_role": "デザイン",
+        "kanzaki_tools": "Photoshop / Illustrator"
+    },
+    "local_id": 152
+}

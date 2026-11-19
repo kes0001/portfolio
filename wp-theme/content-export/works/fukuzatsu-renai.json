@@ -1,0 +1,41 @@
+{
+    "slug": "fukuzatsu-renai",
+    "title": "複雑恋愛LP",
+    "status": "publish",
+    "menu_order": 6,
+    "date": "2026-11-01 16:31:22",
+    "excerpt": "Webメディアの記事から誘導する、電話占いウィルの広告用LP。依頼元の構成案をもとにデザインとコーディングを担当し、画像・フォントの軽量化と、納品先の制約に合わせたビルドの仕組みまで手がけました。",
+    "categories": [
+        "design",
+        "coding"
+    ],
+    "featured_image": {
+        "file": "2026/11/work-fukuzatsu-renai.webp",
+        "title": "work-fukuzatsu-renai",
+        "alt": "複雑恋愛LPのスマートフォン表示を3画面並べたもの。ファーストビュー、鑑定師の一覧、特典の案内"
+    },
+    "content_images": [
+        {
+            "file": "2026/11/work-fukuzatsu-renai-fv.webp",
+            "title": "work-fukuzatsu-renai-fv",
+            "alt": "複雑恋愛LPのファーストビューと「こんなお悩みありませんか？」の節。スマートフォン表示を2画面並べたもの"
+        },
+        {
+            "file": "2026/11/work-fukuzatsu-renai-detail.webp",
+            "title": "work-fukuzatsu-renai-detail",
+            "alt": "鑑定師の紹介（鑑定タイプをスライダーで示す表）と、初回特典の節。スマートフォン表示を2画面並べたもの"
+        }
+    ],
+    "meta": {
+        "kanzaki_badge": "実案件",
+        "kanzaki_category": "DESIGN",
+        "kanzaki_eyebrow": "Works — Landing Page（実案件）",
+        "kanzaki_highlight": "依頼元の構成案から全12ブロックをデザイン・実装。素材9.4MB→1.4MB、フォントは使う622字だけに絞り、納品先が受け付けない形式をビルド時に自動変換",
+        "kanzaki_no_device_frame": "1",
+        "kanzaki_role": "デザイン・コーディング",
+        "kanzaki_site_url": "https://kanzaki-web.com/demo/fukuzatu/",
+        "kanzaki_subtitle": "広告用LP",
+        "kanzaki_tools": "Vite / HTML / SCSS / JavaScript"
+    },
+    "local_id": 228
+}

@@ -1,0 +1,39 @@
+{
+    "slug": "iyashi-flyer",
+    "title": "癒しフェア チラシ",
+    "status": "publish",
+    "menu_order": 7,
+    "date": "2026-11-01 16:31:26",
+    "excerpt": "イベント「癒しフェア」で配布した、電話占いリノアとセラ、2ブランドのB6両面チラシ。どちらも表は来場者への特典、裏は占い師の募集と、1枚で2種類の読み手に向けて構成し、入稿データまで作成しました。",
+    "categories": [
+        "design"
+    ],
+    "featured_image": {
+        "file": "2026/11/work-iyashi-flyer.webp",
+        "title": "work-iyashi-flyer",
+        "alt": "癒しフェアで配布した、電話占いリノアと電話占いセラのチラシの表面を並べたもの"
+    },
+    "content_images": [
+        {
+            "file": "2026/11/work-iyashi-flyer-linoa.webp",
+            "title": "work-iyashi-flyer-linoa",
+            "alt": "電話占いリノアのチラシの表面と裏面。表は「業界屈指の実力派占い師が勢揃い」と特典、裏は「看板占い師大募集」と報酬の条件"
+        },
+        {
+            "file": "2026/11/work-iyashi-flyer-sela.webp",
+            "title": "work-iyashi-flyer-sela",
+            "alt": "電話占いセラのチラシの表面と裏面。表は「あの人気鑑定師が、電話占いセラに。」と3人の鑑定師、裏は「占い師大募集」と分給の条件"
+        }
+    ],
+    "meta": {
+        "kanzaki_badge": "実案件",
+        "kanzaki_category": "DESIGN",
+        "kanzaki_eyebrow": "Works — Flyer（実案件）",
+        "kanzaki_highlight": "同じB6・同じ構成で、リノアは赤と金、セラは空と雲と、ブランドごとに印象を作り分け。表は特典、裏は占い師の募集。入稿データまで作成",
+        "kanzaki_is_sub": "1",
+        "kanzaki_role": "デザイン・入稿データ作成",
+        "kanzaki_subtitle": "イベント配布チラシ（B6両面・2ブランド）",
+        "kanzaki_tools": "Illustrator / Photoshop"
+    },
+    "local_id": 229
+}

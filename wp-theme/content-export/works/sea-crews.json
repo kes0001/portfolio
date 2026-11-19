@@ -1,0 +1,50 @@
+{
+    "slug": "sea-crews",
+    "title": "津堅島シークルーズ",
+    "status": "publish",
+    "menu_order": 5,
+    "date": "2026-01-02 10:00:00",
+    "excerpt": "沖縄・津堅島のマリンアクティビティ「津堅島シークルーズ」のランディングページ。デザインとディレクション、原稿・写真素材の用意までを担当し、実装はコーダーへ受け渡す体制で制作しました。",
+    "categories": [
+        "design"
+    ],
+    "featured_image": {
+        "file": "2026/01/work-sea-crews.webp",
+        "title": "津堅島シークルーズ サムネイル",
+        "alt": "津堅島シークルーズ ランディングページのファーストビュー"
+    },
+    "content_images": [
+        {
+            "file": "2026/01/work-sea-crews-figma-board.webp",
+            "title": "work-sea-crews-figma-board",
+            "alt": ""
+        },
+        {
+            "file": "2026/01/work-sea-crews-figma-qabox.webp",
+            "title": "work-sea-crews-figma-qabox",
+            "alt": ""
+        },
+        {
+            "file": "2026/01/work-sea-crews-devices.webp",
+            "title": "work-sea-crews-devices",
+            "alt": ""
+        },
+        {
+            "file": "2026/01/work-sea-crews-copy.webp",
+            "title": "work-sea-crews-copy",
+            "alt": ""
+        }
+    ],
+    "meta": {
+        "kanzaki_badge": "実案件",
+        "kanzaki_category": "DESIGN",
+        "kanzaki_eyebrow": "Works — LP Design（実案件）",
+        "kanzaki_figma_url": "https://www.figma.com/design/OuISLNKM6IzqywEWiy7vgQ/%E3%82%B7%E3%83%BC%E3%82%AF%E3%83%AB%E3%83%BC%E3%82%BALP--7-2%E4%BF%AE%E6%AD%A3-?node-id=1526-179",
+        "kanzaki_highlight": "海中写真を主役にした非日常感の演出と、顧客の悩み3つを裏返したコピー・予約導線の設計",
+        "kanzaki_role": "デザイン・ディレクション・原稿・写真素材",
+        "kanzaki_site_url": "https://sea-crews.com/lp2026/",
+        "kanzaki_subtitle": "マリンアクティビティLP",
+        "kanzaki_tools": "Figma / Photoshop / Illustrator"
+    },
+    "local_id": 142
+}

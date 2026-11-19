@@ -1,0 +1,30 @@
+{
+    "slug": "spark-links",
+    "title": "Spark Links",
+    "status": "publish",
+    "menu_order": 9,
+    "date": "2026-01-05 10:00:00",
+    "excerpt": "架空の飲料メーカー「Spark Links」のブランドサイト。ペルソナ設計からデザイン・実装まで一貫して担当しました。",
+    "categories": [
+        "design",
+        "coding"
+    ],
+    "featured_image": {
+        "file": "2026/01/work-sparklinks-6.webp",
+        "title": "Spark Links",
+        "alt": "Spark Links Webサイトのスクリーンショット"
+    },
+    "content_images": [],
+    "meta": {
+        "kanzaki_category": "DESIGN",
+        "kanzaki_eyebrow": "Works — Corporate Site",
+        "kanzaki_figma_url": "https://www.figma.com/design/uiIvSX4zkdf5aHMtXdhjFm/%E3%83%AF%E3%82%A4%E3%83%A4%E3%83%BC%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0?node-id=0-1",
+        "kanzaki_highlight": "健康志向層などターゲットペルソナを設計し、訴求に落とし込んだ情報設計",
+        "kanzaki_is_sub": "1",
+        "kanzaki_role": "デザイン・コーディング・ディレクション",
+        "kanzaki_site_url": "/demo/site02/index.html",
+        "kanzaki_subtitle": "架空の飲料メーカーサイト",
+        "kanzaki_tools": "Figma / Photoshop / Illustrator / HTML / SCSS / JavaScript"
+    },
+    "local_id": 146
+}

@@ -1,0 +1,28 @@
+{
+    "slug": "coding-practice",
+    "title": "カンプからサイト制作",
+    "status": "publish",
+    "menu_order": 11,
+    "date": "2026-01-07 10:00:00",
+    "excerpt": "オンラインスクールの課題や自主制作として取り組んだ、デザインカンプ（完成デザインデータ）からのコーディング練習5作品のまとめです。いずれもSass（SCSS）＋BEM設計と、素のJavaScriptでのUI実装を軸にしています。",
+    "categories": [
+        "coding"
+    ],
+    "featured_image": {
+        "file": "2026/01/work-onomichi-7.webp",
+        "title": "カンプからサイト制作",
+        "alt": "コーディング練習作品（ピクセルパーフェクト再現サイト）のスクリーンショット"
+    },
+    "content_images": [],
+    "meta": {
+        "kanzaki_category": "CODING",
+        "kanzaki_device_frame": "1",
+        "kanzaki_eyebrow": "Works — Coding",
+        "kanzaki_highlight": "SCSS＋BEM設計と素のJSでのUI実装。コーディング練習5作品を1ページに集約",
+        "kanzaki_is_sub": "1",
+        "kanzaki_role": "コーディング",
+        "kanzaki_subtitle": "コーディング練習 5作品",
+        "kanzaki_tools": "Figma / HTML / SCSS / JavaScript / Swiper / Bootstrap"
+    },
+    "local_id": 164
+}

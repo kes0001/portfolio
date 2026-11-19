@@ -1,0 +1,40 @@
+{
+    "slug": "right-direction",
+    "title": "株式会社ライトディレクション",
+    "status": "publish",
+    "menu_order": 4,
+    "date": "2026-01-04 10:00:00",
+    "excerpt": "東京・江東区のWeb制作・システム開発会社「株式会社ライトディレクション」のコーポレートサイト。「AIをどこまで実務の制作に使えるか」を検証する依頼案件として、構成からデザイン・実装・公開までを一貫して担当しました。",
+    "categories": [
+        "design",
+        "coding"
+    ],
+    "featured_image": {
+        "file": "2026/01/work-right-direction-1.webp",
+        "title": "株式会社ライトディレクション サムネイル",
+        "alt": "株式会社ライトディレクション コーポレートサイトのファーストビュー"
+    },
+    "content_images": [
+        {
+            "file": "2026/01/work-right-direction-strength.webp",
+            "title": "work-right-direction-strength",
+            "alt": ""
+        },
+        {
+            "file": "2026/01/work-right-direction-devices.webp",
+            "title": "work-right-direction-devices",
+            "alt": ""
+        }
+    ],
+    "meta": {
+        "kanzaki_badge": "実案件",
+        "kanzaki_category": "DESIGN",
+        "kanzaki_eyebrow": "Works — Corporate Site（実案件）",
+        "kanzaki_highlight": "「AIをどこまで実務に使えるか」の検証案件。デザイン・実装・原稿の各工程でAIと協働し、少人数・短期間での公開を実現",
+        "kanzaki_role": "デザイン・コーディング・ディレクション",
+        "kanzaki_site_url": "https://r-d.jp/",
+        "kanzaki_subtitle": "コーポレートサイト",
+        "kanzaki_tools": "Claude Code / HTML / SCSS / JavaScript / Photoshop / Illustrator"
+    },
+    "local_id": 144
+}

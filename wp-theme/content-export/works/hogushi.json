@@ -1,0 +1,50 @@
+{
+    "slug": "hogushi",
+    "title": "ほぐしの森",
+    "status": "publish",
+    "menu_order": 1,
+    "date": "2026-01-01 10:00:00",
+    "excerpt": "リラクゼーションサロン「ほぐしの森」のランディングページデザインを担当した実案件。デザイン（Figma）を担当し、コーダーへの実装受け渡しまで行いました。",
+    "categories": [
+        "design"
+    ],
+    "featured_image": {
+        "file": "2026/01/work-hogushi.webp",
+        "title": "ほぐしの森 サムネイル",
+        "alt": "ほぐしの森 ランディングページのファーストビュー"
+    },
+    "content_images": [
+        {
+            "file": "2026/01/work-hogushi-devices.webp",
+            "title": "work-hogushi-devices",
+            "alt": ""
+        },
+        {
+            "file": "2026/01/work-hogushi-menu.webp",
+            "title": "work-hogushi-menu",
+            "alt": ""
+        },
+        {
+            "file": "2026/01/work-hogushi-figma-stepcard.webp",
+            "title": "work-hogushi-figma-stepcard",
+            "alt": ""
+        },
+        {
+            "file": "2026/01/work-hogushi-figma-board.webp",
+            "title": "work-hogushi-figma-board",
+            "alt": ""
+        }
+    ],
+    "meta": {
+        "kanzaki_badge": "実案件",
+        "kanzaki_category": "DESIGN",
+        "kanzaki_eyebrow": "Works — LP Design（実案件）",
+        "kanzaki_figma_url": "https://www.figma.com/design/wQvNRqgrGunQmUG66Ilt6K/%E3%81%BB%E3%81%90%E3%81%97%E3%81%AE%E6%A3%AE%E6%9C%80%E6%96%B0?node-id=224-15748",
+        "kanzaki_highlight": "auto-layoutベースの、実装しやすいデザインデータ設計",
+        "kanzaki_role": "デザイン（Figma）",
+        "kanzaki_site_url": "https://hogushi.salon/",
+        "kanzaki_subtitle": "リラクゼーションサロンLP",
+        "kanzaki_tools": "Figma / Photoshop"
+    },
+    "local_id": 140
+}

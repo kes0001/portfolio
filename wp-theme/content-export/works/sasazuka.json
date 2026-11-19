@@ -1,0 +1,30 @@
+{
+    "slug": "sasazuka",
+    "title": "笹塚スマイルクリニック",
+    "status": "publish",
+    "menu_order": 10,
+    "date": "2026-01-06 10:00:00",
+    "excerpt": "架空の歯科医院のコーポレートサイト。安心感と、ユーザーが迷わず予約できる導線設計を重視して制作しました。",
+    "categories": [
+        "design",
+        "coding"
+    ],
+    "featured_image": {
+        "file": "2026/01/work-sasazuka-1.webp",
+        "title": "笹塚スマイルクリニック サムネイル",
+        "alt": "笹塚スマイルクリニック Webサイトのスクリーンショット"
+    },
+    "content_images": [],
+    "meta": {
+        "kanzaki_category": "DESIGN",
+        "kanzaki_eyebrow": "Works — Corporate Site",
+        "kanzaki_figma_url": "https://www.figma.com/design/tN4VaudCyjFHblHwcT2fyy/0513%E6%AD%AF%E7%A7%91%E5%8C%BB%E9%99%A2%E3%83%AF%E3%82%A4%E3%83%A4%E3%83%BC%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0?node-id=27-498",
+        "kanzaki_highlight": "駅近・夜間診療の強みを直感的に伝える情報整理と、迷わせない予約導線の設計",
+        "kanzaki_is_sub": "1",
+        "kanzaki_role": "デザイン・コーディング",
+        "kanzaki_site_url": "/demo/site01/index.html",
+        "kanzaki_subtitle": "架空の歯科医院サイト",
+        "kanzaki_tools": "HTML / SCSS / JavaScript"
+    },
+    "local_id": 148
+}

@@ -1,0 +1,40 @@
+{
+    "slug": "tsukenjima-matsuri",
+    "title": "津堅島まつり",
+    "status": "publish",
+    "menu_order": 2,
+    "date": "2026-11-01 16:09:58",
+    "excerpt": "沖縄県うるま市・津堅島で初めて開かれる花火のまつり「第1回つけん島まつり」の告知LP。津堅ハーリーと同じドメインを引き継ぎ、企画・デザイン・実装から計測設定まで一人で担当しました。",
+    "categories": [
+        "design",
+        "coding"
+    ],
+    "featured_image": {
+        "file": "2026/11/work-tsukenjima-matsuri.webp",
+        "title": "work-tsukenjima-matsuri",
+        "alt": "第1回つけん島まつりの告知LPのファーストビュー。夜の海を背景に「津堅島で、はじめての花火」のキャッチと開催日"
+    },
+    "content_images": [
+        {
+            "file": "2026/11/work-tsukenjima-matsuri-entry.webp",
+            "title": "work-tsukenjima-matsuri-entry",
+            "alt": "参加申し込みの節。申し込みが必要な理由を2点に絞って番号で示し、申し込みフォームへのボタンを置いたもの"
+        },
+        {
+            "file": "2026/11/work-tsukenjima-matsuri-access.webp",
+            "title": "work-tsukenjima-matsuri-access",
+            "alt": "アクセスの節。那覇方面から会場までの3ステップと、行き・帰りの船の時刻表。帰りの最終便17:30を赤で強調"
+        }
+    ],
+    "meta": {
+        "kanzaki_badge": "実案件",
+        "kanzaki_category": "DESIGN",
+        "kanzaki_eyebrow": "Works — Landing Page（実案件）",
+        "kanzaki_highlight": "類似イベント18件の分析から「津堅島で、はじめての花火」を言い切るキャッチと、船と宿の事情を正直に伝える事前申込の導線を設計",
+        "kanzaki_role": "企画・デザイン・実装・計測設定",
+        "kanzaki_site_url": "https://tsuken-navi.com/",
+        "kanzaki_subtitle": "イベント告知LP",
+        "kanzaki_tools": "Claude Code / Vite / HTML / SCSS / JavaScript"
+    },
+    "local_id": 220
+}

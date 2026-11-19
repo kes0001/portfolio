@@ -1,0 +1,50 @@
+{
+    "slug": "tsuken-haari",
+    "title": "津堅ハーリー",
+    "status": "publish",
+    "menu_order": 3,
+    "date": "2026-01-03 10:00:00",
+    "excerpt": "沖縄県うるま市・津堅島の伝統行事「津堅ハーリー」の公式サイト。独自の情報発信の場がなかった島の海神祭に、企画・デザイン・実装からアクセス計測までを一人で一貫して担当しました。",
+    "categories": [
+        "design",
+        "coding"
+    ],
+    "featured_image": {
+        "file": "2026/01/work-tsuken-haari.webp",
+        "title": "津堅ハーリー サムネイル",
+        "alt": "津堅ハーリー公式サイトのファーストビュー"
+    },
+    "content_images": [
+        {
+            "file": "2026/01/work-tsuken-haari-devices.webp",
+            "title": "work-tsuken-haari-devices",
+            "alt": ""
+        },
+        {
+            "file": "2026/01/work-tsuken-haari-access.webp",
+            "title": "work-tsuken-haari-access",
+            "alt": ""
+        },
+        {
+            "file": "2026/01/work-tsuken-haari-about.webp",
+            "title": "work-tsuken-haari-about",
+            "alt": ""
+        },
+        {
+            "file": "2026/01/work-tsuken-haari-gallery.webp",
+            "title": "work-tsuken-haari-gallery",
+            "alt": ""
+        }
+    ],
+    "meta": {
+        "kanzaki_badge": "実案件",
+        "kanzaki_category": "DESIGN",
+        "kanzaki_eyebrow": "Works — Event Site（実案件）",
+        "kanzaki_highlight": "実写のレース写真を主役にした波形リビール演出と、フォント自前配信によるパフォーマンス改善。AI協働で企画から公開・運用設計まで一人で完結",
+        "kanzaki_role": "企画・デザイン・実装・計測設定",
+        "kanzaki_site_url": "https://kanzaki-web.com/demo/tsuken-haari/",
+        "kanzaki_subtitle": "イベント公式サイト",
+        "kanzaki_tools": "Claude Code / HTML / SCSS / JavaScript"
+    },
+    "local_id": 167
+}
