@@ -44,13 +44,16 @@
 <p class="p-top-profile__name-kana">かんざき まさひろ</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"p-top-profile__text"} -->
-<p class="p-top-profile__text">コーディングからキャリアを始め、現在はFigmaでのデザイン制作とフロントエンド実装の両方を担当しています。「見る人に伝わるデザイン」と「意図を正確に再現するコーディング」の両立を軸に、実案件では、イベント公式サイトやコーポレートサイトなど6件を担当しました。</p>
+<p class="p-top-profile__text">コーディングからキャリアを始め、いまはデザインから実装、公開後の計測までを一人で通して担当しています。実案件は、イベント公式サイトやコーポレートサイトなど6件です。</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"p-top-profile__text"} -->
-<p class="p-top-profile__text">特にこだわっているのは、ユーザー目線での導線設計と、ブランドらしさを活かすレイアウト設計。スマートフォンでも快適に閲覧できるレスポンシブ対応や、ライブラリを用いた動的な演出にも取り組んでいます。</p>
+<p class="p-top-profile__text">強みは、作る前に調べて言葉にすること。「第1回つけん島まつり」のLPでは類似イベント18件を調べたうえで、キャッチコピーと事前申込の導線を設計しました。</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"p-top-profile__text"} -->
-<p class="p-top-profile__text">デザインと実装のあいだで情報が迷子にならないものづくりを心がけています。今後はWebデザイナー兼フロントエンドとして、デザインと実装の両方に関われるチームで、企業やサービスの魅力を伝えるWebサイト制作に携わりたいと考えています。</p>
+<p class="p-top-profile__text">デザインの意図が実装で崩れないよう、余白・文字サイズ・色を先にルールとして決め、Figmaとコードで同じ値を使います。</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"p-top-profile__text"} -->
+<p class="p-top-profile__text">Webデザイナー兼フロントエンドとして、デザインと実装の両方に関われるチームで働きたいと考えています。</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

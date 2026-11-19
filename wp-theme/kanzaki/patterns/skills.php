@@ -46,11 +46,11 @@
 <!-- /wp:paragraph -->
 <!-- wp:list {"className":"p-top-skills__points"} -->
 <ul class="wp-block-list p-top-skills__points"><!-- wp:list-item -->
-<li>デザインカンプからのレスポンシブ実装（ピクセルパーフェクト）</li>
+<li>デザインカンプを崩さず再現するレスポンシブ実装</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
-<li>BEM設計・デザイントークン運用・コーディングルールの整備</li>
+<li>BEMとデザイントークンで書き方をルール化</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
-<li>@layer / oklch() / カスケードレイヤー設計などモダンCSSの実践（本サイトで使用）</li>
+<li>@layer / oklch() などモダンCSS（本サイトで使用）</li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list -->
 </div>
@@ -66,11 +66,11 @@
 <!-- /wp:paragraph -->
 <!-- wp:list {"className":"p-top-skills__points"} -->
 <ul class="wp-block-list p-top-skills__points"><!-- wp:list-item -->
-<li>LP・コーポレートサイトのデザイン制作</li>
+<li>LP・コーポレートサイトのデザイン</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
-<li>auto-layout・コンポーネントによる再利用性の高いデータ設計</li>
+<li>auto-layoutとコンポーネントで組む、再利用できるデータ</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
-<li>実装への受け渡し（ハンドオフ）を前提とした命名・余白の一貫性</li>
+<li>コーダーが迷わない命名と余白で受け渡し</li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list -->
 </div>
@@ -86,11 +86,11 @@
 <!-- /wp:paragraph -->
 <!-- wp:list {"className":"p-top-skills__points"} -->
 <ul class="wp-block-list p-top-skills__points"><!-- wp:list-item -->
-<li>スライダー・アコーディオン・ドロワーなどのUI実装</li>
+<li>スライダー・アコーディオン・ドロワーのUI実装</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
-<li>View Transitions・スクロール駆動アニメーション（animation-timeline）による演出（本サイトで使用）</li>
+<li>スクロール連動・画面遷移の演出（本サイトで使用）</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
-<li>prefers-reduced-motionに配慮したアニメーション設計</li>
+<li>「動きを減らす」設定に合わせて演出を止める設計</li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list -->
 </div>
@@ -106,9 +106,9 @@
 <!-- /wp:paragraph -->
 <!-- wp:list {"className":"p-top-skills__points"} -->
 <ul class="wp-block-list p-top-skills__points"><!-- wp:list-item -->
-<li>既存テーマのカスタマイズ</li>
+<li>オリジナルのブロックテーマを自作（本サイト）</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
-<li>本サイトのブロックテーマ化（オリジナルテーマ）を実践</li>
+<li>既存テーマのカスタマイズ</li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list -->
 </div>
@@ -124,9 +124,9 @@
 <!-- /wp:paragraph -->
 <!-- wp:list {"className":"p-top-skills__points"} -->
 <ul class="wp-block-list p-top-skills__points"><!-- wp:list-item -->
-<li>バナー・ロゴ制作（ターゲット別の複数案提案）</li>
+<li>バナー・ロゴ制作（ターゲット別に複数案を提案）</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
-<li>Web用画像の書き出し・軽量化（WebP対応）</li>
+<li>チラシの入稿データ作成、Web用画像の書き出し・軽量化</li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list -->
 </div>
@@ -142,9 +142,9 @@
 <!-- /wp:paragraph -->
 <!-- wp:list {"className":"p-top-skills__points"} -->
 <ul class="wp-block-list p-top-skills__points"><!-- wp:list-item -->
-<li>実案件（津堅ハーリー・ライトディレクション）で構成から実装まで活用</li>
+<li>実案件で構成から実装まで活用（津堅ハーリーほか）</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
-<li>本サイトのリニューアル・ブラッシュアップにも活用</li>
+<li>設計の判断と品質の最終確認は自分で行う</li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list -->
 </div>
@@ -160,11 +160,11 @@
 <!-- /wp:paragraph -->
 <!-- wp:list {"className":"p-top-skills__points"} -->
 <ul class="wp-block-list p-top-skills__points"><!-- wp:list-item -->
-<li>レンタルサーバーへの公開（独自ドメイン・SSL・WordPress移行）</li>
+<li>サーバーへの公開（独自ドメイン・SSL・WordPress移行）</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
-<li>GA4・Google Search Console の導入とサイトマップ送信</li>
+<li>GA4・Google Search Console の導入</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
-<li>PageSpeed Insights による表示速度改善（本サイトはデスクトップ全項目100点）</li>
+<li>表示速度の改善（本サイトはデスクトップ全項目100点）</li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list -->
 </div>

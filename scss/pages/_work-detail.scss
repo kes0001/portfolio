@@ -154,6 +154,12 @@
   pointer-events: none;
 }
 
+// 実機フレーム付き（サイト作品）は lg 以上で読み幅（740px）より広げ、ページの主役として
+// 大きく見せる（上限 960px）。フレーム無し（バナー・ロゴ）は元画像が小さく、広げると粗れるので対象外
+.p-work__device:has(.p-work__device-frame) {
+  margin-inline: calc((100% - min(var(--work-wide), #{rem(960)})) / 2);
+}
+
 .p-work__device:has(.p-work__device-frame) .p-work__thumbnail {
   position: absolute;
   z-index: 0;
@@ -169,6 +175,18 @@
 
 .p-work__body {
   margin-top: var(--space-64);
+  // 図版を読み幅より広げる計算（下の --work-bleed）で、読み幅を 100cqi として参照する
+  container-type: inline-size;
+}
+
+// 図版の張り出し：本文は読みやすい幅（740px）のまま、作品の図版だけ左右へ広げて大きく見せる。
+// 幅は「画面幅−左右40pxずつ」と 1120px の小さい方。lg 未満は読み幅と同じ（張り出し 0）
+.p-work {
+  --work-wide: 100%;
+
+  @include mq("lg") {
+    --work-wide: min(100vw - #{rem(80)}, #{rem(1120)});
+  }
 }
 
 .p-work__section {
@@ -189,7 +207,11 @@
   word-break: auto-phrase; // 「フ/ルハビ」のような語中折れ防止
 }
 
+// 和文見出しの上の小さな英字ラベル（Purpose / Design など）は出さない。
+// 和文と同じ内容を英語で繰り返すだけの飾りで、テンプレートらしさが出るため。
+// 本文（投稿）側のマークアップは残してあるので、この1行を外せば戻る
 .p-work__section-title-en {
+  display: none;
   font-size: var(--text-fine);
   font-weight: var(--font-weight-semibold);
   letter-spacing: 0.24em;
@@ -215,6 +237,18 @@
 
 .p-work__figure + .p-work__figure {
   margin-top: var(--space-24);
+}
+
+// lg 以上で図版を張り出す。キャプションは本文の左端にそろえて戻す（読みの軸を1本に保つ）
+@include mq("lg") {
+  .p-work__figure {
+    margin-inline: calc((100cqi - var(--work-wide)) / 2);
+  }
+
+  .p-work__figure-cap,
+  .p-work__figure figcaption {
+    padding-inline: calc((var(--work-wide) - 100cqi) / 2);
+  }
 }
 
 .p-work__figure img {
@@ -336,6 +370,50 @@
     align-items: flex-end;
     text-align: right;
   }
+}
+
+// サムネイル付き（WP版は inc/pager-thumbs.php が差し込む）：次の作品を画像で予告する。
+// 画像は左、文字は右。NEXT 側は md 以上で左右を入れ替えて外側（右端）に画像を置く
+.p-work__pager-link:has(.p-work__pager-thumb) {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-16);
+  padding: var(--space-16);
+}
+
+.p-work__pager-link--next:has(.p-work__pager-thumb) {
+  @include mq("md") {
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+}
+
+.p-work__pager-thumb {
+  flex-shrink: 0;
+  width: rem(112);
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: var(--radius-media);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+}
+
+.p-work__pager-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.p-work__pager-note {
+  font-size: var(--text-fine);
+  line-height: 1.5;
+  color: var(--color-ink-muted);
 }
 
 .p-work__pager-label {

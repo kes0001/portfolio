@@ -6,11 +6,50 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
 // ============================================================
 // FV入場演出のトリガー
 // 「＋」モチーフの組み上がりと本文リビールはCSSアニメ/トランジションが担当。
-// JSはクラスを付けるだけ（タイトルはLCPを遅らせないため即時リビール）。
+// JSはタイトルの行を3枚に組み替えて、クラスを付けるだけ。
 // ============================================================
 const heroElement = document.querySelector(".js-hero");
 
+// タイトルの斜めワイプ用に、各行を「色違いの3枚（赤→青→墨紺）」に組み替える。
+// 動きそのものはCSS（_top.scss の hero-wipe）。上2枚は data-text を擬似要素で描くので、
+// 見出しの文字はDOM上1回だけ（読み上げ・検索に重複させない）。
+// 動きを減らす設定のときは組み替えず、素のテキストのまま表示する
+const buildHeroWipe = (titleElement) => {
+  const lineElements = titleElement.querySelectorAll(".p-top-hero__title-line");
+
+  lineElements.forEach((lineElement, lineIndex) => {
+    const text = lineElement.textContent.trim();
+    lineElement.textContent = "";
+    lineElement.style.setProperty("--wipe-line", lineIndex);
+
+    [1, 2, 3].forEach((layerNumber) => {
+      const layerElement = document.createElement("span");
+      const inkElement = document.createElement("span");
+      layerElement.className = `p-top-hero__wipe p-top-hero__wipe--${layerNumber}`;
+      inkElement.className = "p-top-hero__wipe-ink";
+
+      if (layerNumber === 3) {
+        inkElement.textContent = text;
+      } else {
+        layerElement.setAttribute("aria-hidden", "true");
+        inkElement.dataset.text = text;
+      }
+
+      layerElement.append(inkElement);
+      lineElement.append(layerElement);
+    });
+  });
+
+  titleElement.classList.add("has-wipe");
+};
+
 if (heroElement) {
+  const heroTitleElement = heroElement.querySelector(".p-top-hero__title");
+
+  if (heroTitleElement && !prefersReducedMotion) {
+    buildHeroWipe(heroTitleElement);
+  }
+
   if (prefersReducedMotion) {
     heroElement.classList.add("is-photo");
     heroElement.classList.add("is-start");

@@ -96,8 +96,9 @@
   margin: 0;
 }
 
+// 英ラベルは非表示（_work-detail.scss）。間隔のぶんを見出しに持たせると上が空くので 0 にする
 .p-work__section .p-work__section-title-en + .p-work__section-title {
-  margin-top: var(--space-12);
+  margin-top: 0;
 }
 
 // post-excerpt はdiv+pの2重構造になる（.p-work__lead は外側divに付く）
@@ -333,6 +334,14 @@ $icon-envelope: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
 
 .p-work__figure.wp-block-image + .p-work__figure.wp-block-image {
   margin-top: var(--space-24);
+}
+
+// 図版の張り出し（計算の正本は _work-detail.scss）。上の margin ショートハンドが
+// 無レイヤーで左右を 0 にするため、同じ無レイヤー側で宣言し直す
+@include mq("lg") {
+  .p-work__figure.wp-block-image {
+    margin-inline: calc((100cqi - var(--work-wide)) / 2);
+  }
 }
 
 .p-work__figure .wp-element-caption {

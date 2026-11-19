@@ -120,7 +120,11 @@
           --card-col: mod(sibling-index() - 1, 2);
         }
 
-        @include mq("lg") {
+      }
+
+      // その他の制作は md から3列（主作品は lg でも2列のまま）
+      .p-top-works__grid--sub > * {
+        @include mq("md") {
           --card-col: mod(sibling-index() - 1, 3);
         }
       }

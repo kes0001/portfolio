@@ -36,16 +36,16 @@ $kanzaki_icons = esc_url( get_theme_file_uri( 'assets/images/icons.svg' ) );
 <!-- wp:group {"className":"p-top-note__body","layout":{"type":"default"}} -->
 <div class="wp-block-group p-top-note__body">
 <!-- wp:paragraph {"className":"p-top-note__text"} -->
-<p class="p-top-note__text">本サイトはテンプレートを使わず、自分で整備したコーディングルール（BEM設計・デザイントークン・SCSSのコンポーネント分割）に基づいて、設計から実装まで一貫して制作しました。デザインはFigmaで組み、フロントエンドはWordPressのオリジナルブロックテーマとして実装しています。</p>
+<p class="p-top-note__text">本サイトはテンプレートを使わず、自分で決めたコーディングルール（BEM設計・デザイントークン・SCSSのコンポーネント分割）に沿って、設計から実装まで制作しました。デザインはFigmaで組み、WordPressのオリジナルブロックテーマとして実装しています。</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"p-top-note__text"} -->
-<p class="p-top-note__text">この制作では、AI（Claude Code）を実装のパートナーとして本格的に活用しました。コードの多くはAIとの協働から生まれたもので、その事実を隠すつもりはありません。</p>
+<p class="p-top-note__text">実装にはAI（Claude Code）を使っています。コードの多くはAIと一緒に書いたものです。</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"p-top-note__text"} -->
-<p class="p-top-note__text">一方で、何をどう作るかという設計判断と、品質の最終責任は自分が握り続けました。AIを「手を動かす道具」として使いこなし、@layer によるカスケード管理、oklch() によるカラートークン設計、WebPによる画像最適化といったモダンな手法を、迷いなくこのサイト自身で実践しています。AIを使いこなす力もまた、これからの制作者に必要なスキルだと考え、「どう作るか」という判断そのものを作品の一部としてご覧いただけるようにしました。</p>
+<p class="p-top-note__text">何をどう作るかの判断と、品質の最終確認は自分で行いました。@layer によるカスケード管理、oklch() のカラートークン、WebPでの画像最適化も、このサイトで実際に使っています。</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"p-top-note__text"} -->
-<p class="p-top-note__text">公開後の運用も自分の手で行っています。レンタルサーバーへの公開から、GA4・Google Search Console の導入とサイトマップ送信、PageSpeed Insights を用いたパフォーマンス改善（デスクトップ全項目100点）まで、「作って終わり」ではなく「届けて計測する」ところまでを本サイトで実践しています。</p>
+<p class="p-top-note__text">公開後の運用も自分で行っています。レンタルサーバーへの公開、GA4・Google Search Console の導入、PageSpeed Insights での表示速度改善（デスクトップ全項目100点）まで、このサイトで実践しました。</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
@@ -53,7 +53,7 @@ $kanzaki_icons = esc_url( get_theme_file_uri( 'assets/images/icons.svg' ) );
 <!-- wp:group {"className":"p-top-note__stack","layout":{"type":"default"}} -->
 <div class="wp-block-group p-top-note__stack">
 <!-- wp:heading {"level":3,"className":"p-top-note__stack-title"} -->
-<h3 class="wp-block-heading p-top-note__stack-title">Built With</h3>
+<h3 class="wp-block-heading p-top-note__stack-title">使用技術</h3>
 <!-- /wp:heading -->
 <!-- wp:group {"className":"p-top-note__stack-list","layout":{"type":"default"}} -->
 <div class="wp-block-group p-top-note__stack-list">

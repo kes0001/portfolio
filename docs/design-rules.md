@@ -92,7 +92,8 @@ font-family: Roboto, "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
 
 - セクションは **canvas ↔ canvas-alt の交互リズム**で区切る。`<hr>` や装飾ボーダーは使わない
 - コンテンツ最大幅：テキスト主体 `rem(720)`、カードグリッド `rem(1080)`（`l-container` で管理）
-- グリッドは `gap: var(--space-24)`〜`var(--space-32)`。works カードは 3列 → 2列（タブレット）→ 1列（モバイル）
+- グリッドは `gap: var(--space-24)`〜`var(--space-32)`。works カードは 主作品＝2列 → 1列（モバイル）、その他の制作＝3列 → 2列 → 1列。主作品を大きく見せ、練習作品との差をカードの大きさで示す（主作品の gap は lg で `var(--space-40)`）
+- 作品詳細は本文を読み幅（740px）に保ち、図版と実機モックだけ lg 以上で左右へ張り出す（図版は最大1120px、モックは最大960px）
 
 ---
 

@@ -23,7 +23,9 @@
   overflow: hidden;
   // フルビューポート級にはせず、1スクロール目で次のセクションの気配が見える高さ
   min-height: rem(500);
-  padding-block: var(--space-96) var(--space-80);
+  // スマホは上を詰めて本文を高めに置き、作品サムネまでを最初の1画面に収める
+  //（iPhone の表示領域は高さ660px前後。上を96pxのままだとサムネの下半分が画面の外に出る）
+  padding-block: var(--space-40) var(--space-80);
   background-color: var(--fv-bg);
 
   @include mq("md") {
@@ -156,29 +158,21 @@
   width: 100%;
 
   // md以上：本文列＋縦書き短冊列の2カラムグリッド。
-  // 短冊の天＝ラベルの天（ブロックに天ラインを1本通す）、
+  // 短冊の天＝タイトルの天（ブロックに天ラインを1本通す）、
   // 右端＝コンテナ右端（下層セクションと同じグリッド線に載せる）。
   // 末尾の1frは短冊が本文より背高のときの余りを吸収し、行間が開くのを防ぐ
   @include mq("md") {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-rows: auto auto auto auto 1fr;
+    grid-template-rows: auto auto auto 1fr;
     column-gap: var(--space-48);
   }
-}
-
-.p-top-hero__label {
-  font-size: var(--text-fine);
-  font-weight: var(--font-weight-semibold);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--color-primary);
 }
 
 .p-top-hero__title {
   display: flex;
   flex-direction: column;
-  margin-top: var(--space-16);
+  margin-block: 0; // リセットCSSが h1 に持たせる上下0.67em（60pxの字で40px）を切る。副題との間隔は副題側で決める
   font-size: clamp(#{rem(30)}, 0.7rem + 4.9vw, #{rem(60)});
   font-weight: var(--font-weight-bold);
   line-height: 1.28;
@@ -192,16 +186,80 @@
 
 .p-top-hero__lead {
   margin-top: var(--space-24);
-  max-width: rem(480);
+  // スマホは右に作品が見えるので、幅を200pxに詰める（1行12字ほど）
+  max-width: rem(200);
   font-size: var(--text-body);
-  color: var(--color-ink-muted);
+  // スマホは後ろに作品がごく薄く敷かれるので、補足色（グレー）ではなく本文色で読ませる
+  color: var(--color-ink);
+
+  // タブレット幅では右の作品の並びに近づくので、画面の半分までに抑える（960px以上は480pxのまま）
+  @include mq("md") {
+    max-width: min(#{rem(480)}, 50vw);
+    color: var(--color-ink-muted);
+  }
+}
+
+// 折り返しは語のかたまり（HTML の <wbr> の位置）だけにして、「コー／ディング」「一人／で担当」のような
+// 語中・文節中の折れを防ぐ。句読点が行頭に来ることもない（句読点は前の語と同じかたまりに入れてある）。
+// text-wrap: balance で各行の長さをならし、最後の行に2〜3字だけ残るのを防ぐ
+.p-top-hero__lead {
+  word-break: keep-all;
+  text-wrap: balance;
+}
+
+// 「コーディング・WordPress構築まで」は、タブレット以上では途中で折らない（中黒が行末に残るため。
+// 中黒の後ろは keep-all でも折れる位置なので、nowrap で止める）。スマホだけ中黒の位置（<wbr>）で折る
+.p-top-hero__lead-pair {
+  @include mq("md") {
+    white-space: nowrap;
+
+    // <wbr> は nowrap の中でも折れる位置を作るので、消しておく
+    wbr {
+      display: none;
+    }
+  }
+}
+
+// スマホは1文目だけ出す（幅が狭く、2文とも出すと7行になる）。
+// 「コーディング・WordPress」の中黒：スマホではここで行が折れるので出さない（行末に点だけ残るため）
+.p-top-hero__lead-dot,
+.p-top-hero__lead-more {
+  display: none;
+
+  @include mq("md") {
+    display: inline;
+  }
 }
 
 .p-top-hero__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-16);
-  margin-top: var(--space-40);
+  gap: var(--space-12);
+  margin-top: var(--space-32);
+
+  @include mq("sm") {
+    gap: var(--space-16);
+    margin-top: var(--space-40);
+  }
+
+  // スマホ（375px前後）で2つが横に並ぶよう、左右の余白だけ一段詰める
+  // （詰めないと合計が画面幅を数px超えて、幅の違うボタンが縦に積まれる）
+  .c-button {
+    padding-inline: var(--space-16);
+
+    @include mq("sm") {
+      padding-inline: var(--space-24);
+    }
+  }
+
+  // スマホは後ろに作品が敷かれるので、枠だけのボタンに地色を敷いて文字を読めるようにする
+  .c-button--secondary {
+    background-color: var(--fv-bg);
+
+    @include mq("md") {
+      background-color: transparent;
+    }
+  }
 }
 
 // 縦書きの添えコピー（本文グリッドの2列目・md以上のみ）
@@ -209,7 +267,7 @@
   display: none;
 
   @include mq("md") {
-    grid-column: 2;
+    grid-column: -2 / -1; // 常に最終列（常に右端）
     grid-row: 1 / -1;
     align-self: start;
     justify-self: end;
@@ -233,10 +291,314 @@
   }
 }
 
+// ------------------------------------------------------------
+// 作品のタイル並び：開いた瞬間に「何を作る人か」を絵で見せる。
+// トップ一覧と同じ作品サムネ（全部16:10・同じ大きさ）を2列に並べ、全体を傾けて、
+// 列ごとにごくゆっくり縦へ流す（左右は逆向き）。どの画面幅でも同じ形。
+//   md 以上：本文の右に置く。上下と右はヒーローの外
+//   md 未満：本文の後ろに敷く（押せない）。文字に重なる側だけごく薄くし、重ならない右側はそのまま見せる。
+//           リード文は1文目だけにして幅を詰め、その右に作品を広く見せる
+// 1列に作品の半数（6件）を入れてあり、見える範囲に同じ作品が2回出ない。
+// 切れ目なく繰り返す仕組み：各列は同じ並びを3回くり返して出してあり（inc/hero-works.php）、
+// 1回ぶん（＝列の高さの1/3）だけ送ったら最初へ戻す。戻った瞬間の絵は送る前と同じなので継ぎ目が見えない。
+// タイル同士のすき間は gap ではなく li の下 padding で持つ（gap だと「1/3」が1回ぶんとずれる）。
+// 触っているあいだは止める。「動きを減らす」設定では止まったまま出る（foundation の全体ルール）
+// ------------------------------------------------------------
+.p-top-hero__works {
+  // スマホ：画面より広い並びを右へ寄せて、本文の後ろに敷く（タイル幅は画面の約半分）
+  --hero-tiles: 112vw;
+  --hero-tile-gap: #{rem(10)};
+  --hero-tiles-shadow: 0px;
+  // タイトルの右端（375pxで270px）より少し右。境目の基準
+  --hero-text-edge: max(74vw, #{rem(278)});
+
+  position: absolute;
+  top: 50%;
+  right: calc(-36vw - #{rem(20)}); // 20px＝l-container の右余白。並びの中央が画面の80%の位置に来る
+  z-index: -1; // 本文の後ろ（.p-top-hero__content が重なりの基準）
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: var(--hero-tile-gap);
+  width: calc(var(--hero-tiles) + var(--hero-tiles-shadow));
+  height: rem(920); // 傾けてもヒーロー（最大約670px）の上下をはみ出す高さ
+  padding-left: var(--hero-tiles-shadow);
+  overflow: hidden;
+  pointer-events: none; // スマホでは背景の演出。文字やボタンの操作を邪魔しない
+  // 文字に重なる側だけごく薄く（濃さ14%）、重ならない右側は100%。
+  // 境目は斜め：上はタイトルの右端（幅が広い）、下へ行くほど左へ寄せて、リード文の横では作品を広く見せる。
+  //（タイトル下端で --hero-text-edge、そこから下へ行くほど左へ＝縦から24°。ボタンは地色があるので作品の上に載ってよい）
+  // 並びは -9deg 傾いているので、グラデーションの角度は 114 + 9 = 123deg。
+  // 50% の位置＝並びの中央＝画面の80%・ヒーローの中央（高さ500pxの250px）。
+  // 境目の位置 ＝ 50% + 0.9135×(文字の右端 − 80vw) + 0.4067×(タイトル下端117px − 250px)
+  mask-image: linear-gradient(
+    123deg,
+    rgb(0 0 0 / 0.14) calc(50% + 0.9135 * (var(--hero-text-edge) - 80vw) - #{rem(54)}),
+    #000 calc(50% + 0.9135 * (var(--hero-text-edge) - 80vw) - #{rem(28)})
+  );
+  // 天地中央に置いてから傾ける（入場アニメは translate プロパティを使うので、こちらは transform で持つ）
+  transform: translateY(-50%) rotate(-9deg);
+
+  @include mq("md") {
+    // 並びの幅：960px以下で384px、1264pxで627px、1375px以上で716px（傾けた角が本文から40px以上離れる幅）
+    --hero-tiles: clamp(#{rem(384)}, 80vw - #{rem(384)}, #{rem(716)});
+    --hero-tile-gap: clamp(#{rem(8)}, 1.1vw, #{rem(16)});
+    // 左へ落ちる影が overflow で切れないよう、左に余白を足す（そのぶん幅も広げ、タイルの大きさは変えない）
+    --hero-tiles-shadow: #{rem(40)};
+
+    // タブレット幅は本文との間が足りないので、並びを右へ大きくはみ出させる
+    //（768pxで152px、960pxで32px＝lg の位置へなめらかにつながる。見えるのは左の列＋右の列の左側）
+    right: calc(62.5vw - #{rem(632)});
+    z-index: auto;
+    pointer-events: auto;
+    mask-image: none;
+  }
+
+  @include mq("lg") {
+    // 右端は画面の右端から少しはみ出す位置。画面が広いときはコンテナから離れすぎないよう止める
+    right: max(calc((100% - 100vw) / 2 - #{rem(32)}), #{rem(-160)});
+  }
+}
+
+// 縦の列を上下へ流す（3回くり返しの1回ぶん＝長さの1/3）
+@keyframes hero-col-up {
+  to {
+    translate: 0 calc(-100% / 3);
+  }
+}
+
+@keyframes hero-col-down {
+  from {
+    translate: 0 calc(-100% / 3);
+  }
+}
+
+.p-top-hero__col {
+  padding-left: 0;
+  list-style: none;
+  animation: hero-col-up 80s linear infinite;
+
+  // 右の列は逆向き。周期も少しずらして、左右がそろって見えないようにする
+  &:nth-child(2) {
+    animation-name: hero-col-down;
+    animation-duration: 92s;
+  }
+
+  // 触っているあいだは止める（動く的を押させない）
+  .p-top-hero__works:hover &,
+  .p-top-hero__works:focus-within & {
+    animation-play-state: paused;
+  }
+}
+
+.p-top-hero__work {
+  padding-bottom: var(--hero-tile-gap);
+}
+
+.p-top-hero__work-link {
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: var(--color-canvas);
+  border-radius: var(--radius-media-lg); // タイルが大きい（幅260〜360px）ので、作品カードの画像と同じ12px
+  // 影は左下へ落とす（光は右上から）。3層に分けて、タイルの際は締まり、離れるほど淡く広がるようにする。
+  // 黒ではなくFVの墨紺を使い、生成りの地で濁らせない
+  // スマホはタイルが小さい（幅160px前後）ので、影も小さくする。PC と同じ大きさだと隣どうしの影がつながって
+  // 列の左に灰色の帯ができ、列の端（overflow）でまっすぐ切れて見える
+  box-shadow:
+    #{rem(-1)} #{rem(2)} #{rem(3)} color-mix(in srgb, var(--fv-ink) 12%, transparent),
+    #{rem(-4)} #{rem(6)} #{rem(12)} #{rem(-3)} color-mix(in srgb, var(--fv-ink) 20%, transparent),
+    #{rem(-8)} #{rem(12)} #{rem(22)} #{rem(-8)} color-mix(in srgb, var(--fv-ink) 24%, transparent);
+
+  @include mq("md") {
+    box-shadow:
+      #{rem(-1)} #{rem(2)} #{rem(3)} color-mix(in srgb, var(--fv-ink) 12%, transparent),
+      #{rem(-6)} #{rem(10)} #{rem(18)} #{rem(-4)} color-mix(in srgb, var(--fv-ink) 20%, transparent),
+      #{rem(-18)} #{rem(26)} #{rem(44)} #{rem(-14)} color-mix(in srgb, var(--fv-ink) 28%, transparent);
+  }
+  // ホバーで影は変えない（影まで動かすと騒がしい）。反応は「流れが止まる」＋「中の絵が少し寄る」
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary-focus);
+    outline-offset: -2px; // 帯の中で切られるので、内側に出す
+  }
+
+  // 枠の大きさは変えず、中の絵だけ寄せる（作品カード c-card のホバーと同じ動き・同じ値。
+  // タイル自体を大きくすると、すき間14px前後の隣のタイルに重なる）
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: scale 0.5s var(--ease-standard);
+  }
+
+  &:hover img,
+  &:focus-visible img {
+    scale: 1.05;
+  }
+}
+
+// 縦に流れるタイルの下端はぶつ切りにせず、ヒーローの地色へ溶かして次の節へつなぐ。
+// タイルのある右側だけに掛ける（左のボタンに被せないため）
+.p-top-hero::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 55%;
+  z-index: 3;
+  height: rem(64);
+  pointer-events: none;
+  background: linear-gradient(to top, var(--fv-bg), transparent);
+  // 左の縁も溶かす（縦にまっすぐな境目が、方眼の上で帯のように見えるため）
+  mask-image: linear-gradient(to right, transparent, #000 #{rem(48)});
+
+  @include mq("md") {
+    height: rem(88);
+  }
+}
+
+// md 未満：ボタンの下の余白
+.p-top-hero {
+  padding-bottom: var(--space-56);
+
+  @include mq("md") {
+    padding-bottom: rem(96);
+  }
+}
+
+// 作品のタイル並びが主役。縦書きの短冊は横書きの1行（.p-top-hero__sub）に替え、「＋」は出さない。
+// （短冊と「＋」のマークアップ・スタイルは残してある。FV の方向が固まったら片づける）
+// 副題はタイトルの続き（「…デザインを。正確なコーディングと共に。」）なので、タイトルに寄せてリードから離す。
+.p-top-hero__sub {
+  margin-top: var(--space-12);
+  font-size: var(--text-body);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.12em;
+  color: var(--fv-ink);
+
+  @include mq("md") {
+    margin-top: var(--space-16);
+    font-size: var(--text-lead);
+  }
+}
+
+.p-top-hero__sub + .p-top-hero__lead {
+  margin-top: var(--space-24);
+
+  @include mq("md") {
+    margin-top: var(--space-32);
+  }
+}
+
+.p-top-hero__vertical,
+.p-top-hero__plus-field {
+  display: none !important; // 短冊側の md 用 display 指定（後ろに書いてある）に負けないため
+}
+
+// 短冊の列が要らないので、本文は素の縦積みにする（2列グリッドのままだと本文が右の列へ流れる）
+.p-top-hero__content {
+  display: block !important;
+}
+
+// ------------------------------------------------------------
+// タイトルの斜めワイプ（JSが行を3枚に組み替えたときだけ＝.has-wipe）
+// 行の右の外から斜め（22.5°）の境界線が左へ走り、通過した所だけ文字を見せる。
+// 同じワイプを0.1秒ずつずらして3枚重ねるので、文字の中がロゴの赤→青→墨紺と塗り替わる。
+// 同時に文字そのものも200px右から左へ滑り込む（境界線は動かない）。行ごとに0.15秒遅らせる。
+// 原案: fv-animation-prototype/15_slant-wipe-text.html（GSAP版）をCSSだけに置き換えたもの
+// ------------------------------------------------------------
+.p-top-hero__title-line {
+  --wipe-line: 0;
+  // 境界線の傾きぶん（行の高さ1.48em × tan22.5°）と、行の外へ逃がす余白
+  --wipe-slant: 0.62em;
+  --wipe-out: #{rem(40)};
+  --wipe-right: calc(100% + var(--wipe-slant) + var(--wipe-out));
+}
+
+.has-wipe .p-top-hero__title-line {
+  position: relative;
+  width: fit-content;
+}
+
+.p-top-hero__wipe {
+  --wipe-layer: 0;
+
+  display: block;
+  // 動き出す前は全部隠す（境界線が行の右の外にある状態）
+  clip-path: polygon(
+    calc(100% + var(--wipe-out)) -0.1em,
+    var(--wipe-right) -0.1em,
+    var(--wipe-right) calc(100% + 0.1em),
+    var(--wipe-right) calc(100% + 0.1em)
+  );
+}
+
+// 上2枚は3枚目（実テキスト）に重ねる
+.p-top-hero__wipe--1,
+.p-top-hero__wipe--2 {
+  position: absolute;
+  inset: 0;
+}
+
+.p-top-hero__wipe--1 {
+  color: var(--color-logo-accent);
+}
+
+.p-top-hero__wipe--2 {
+  --wipe-layer: 1;
+
+  color: var(--color-logo);
+}
+
+.p-top-hero__wipe--3 {
+  --wipe-layer: 2;
+
+  position: relative;
+}
+
+.p-top-hero__wipe-ink {
+  display: block;
+
+  &[data-text]::before {
+    content: attr(data-text);
+  }
+}
+
+@keyframes hero-wipe {
+  to {
+    clip-path: polygon(
+      calc((var(--wipe-out) + var(--wipe-slant)) * -1) -0.1em,
+      var(--wipe-right) -0.1em,
+      var(--wipe-right) calc(100% + 0.1em),
+      calc(var(--wipe-out) * -1) calc(100% + 0.1em)
+    );
+  }
+}
+
+@keyframes hero-wipe-ink {
+  from {
+    translate: #{rem(200)} 0;
+  }
+}
+
+.p-top-hero.is-start .p-top-hero__wipe {
+  animation: hero-wipe 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+  animation-delay: calc(0.3s + var(--wipe-line) * 0.15s + var(--wipe-layer) * 0.1s);
+}
+
+.p-top-hero.is-start .p-top-hero__wipe-ink {
+  animation: hero-wipe-ink 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+  animation-delay: calc(0.3s + var(--wipe-line) * 0.15s);
+}
+
 // JSあり時：ストローク描画の60%地点（is-start）から時間差で立ち上がる
-.js .p-top-hero__label,
 .js .p-top-hero__lead,
 .js .p-top-hero__actions,
+.js .p-top-hero__sub,
+.js .p-top-hero__works,
 .js .p-top-hero__vertical {
   opacity: 0;
   translate: 0 rem(20);
@@ -263,9 +625,17 @@
   translate: 0 0;
 }
 
-.js .p-top-hero.is-start .p-top-hero__label,
+// ワイプで現れるので、タイトル自体のフェードは切る（重なると塗り替わりが見えない）
+.js .p-top-hero__title.has-wipe {
+  opacity: 1;
+  translate: 0 0;
+  transition: none;
+}
+
 .js .p-top-hero.is-start .p-top-hero__lead,
 .js .p-top-hero.is-start .p-top-hero__actions,
+.js .p-top-hero.is-start .p-top-hero__sub,
+.js .p-top-hero.is-start .p-top-hero__works,
 .js .p-top-hero.is-start .p-top-hero__vertical {
   opacity: 1;
   translate: 0 0;
@@ -274,6 +644,8 @@
 .js .p-top-hero.is-start .p-top-hero__lead     { transition-delay: 0.4s; }
 .js .p-top-hero.is-start .p-top-hero__actions  { transition-delay: 0.55s; }
 .js .p-top-hero.is-start .p-top-hero__vertical { transition-delay: 0.5s; }
+.js .p-top-hero.is-start .p-top-hero__sub      { transition-delay: 0.3s; }
+.js .p-top-hero.is-start .p-top-hero__works    { transition-delay: 0.6s; }
 
 // ============================================================
 // セクション共通
@@ -396,12 +768,18 @@
   }
 }
 
-// canvas 面上のカード。浮きは面の色差＋ごく淡い落ち影で表現する
+// カードの浮きは面の色差＋ごく淡い落ち影で表現する（canvas 面上では canvas-alt）
 .p-top-skills__item {
   padding: var(--space-24);
   background-color: var(--color-canvas-alt);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
+}
+
+// 節が canvas-alt のときはカードを白にする（同色だと面の差が消え、影だけになって沈む。
+// 作品カードと同じ「グレー面に白カード」の文法）
+.p-top-section--alt .p-top-skills__item {
+  background-color: var(--color-canvas);
 }
 
 // アイコンはチップに載せず素のまま置く（青は押せるもの専用）
@@ -484,7 +862,9 @@
   word-break: auto-phrase; // 「詳細ペー/ジ」と語中で折れるのを防ぐ（非対応ブラウザは従来どおり）
 }
 
-// ミニマル縦型カードのレスポンシブグリッド（SP:1列 / sm:2列 / lg:3列）
+// 作品カードのレスポンシブグリッド。
+// 主作品＝SP:1列 / sm〜:2列（lg でも2列のまま＝サムネを大きく見せる）
+// その他の制作（--sub）＝md〜:3列。主作品と練習作品の差を「カードの大きさ」で示す
 .p-top-works__grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -498,14 +878,21 @@
   }
 
   @include mq("lg") {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-32);
+    gap: var(--space-40);
     margin-top: var(--space-40);
   }
 }
 
-// カードは全て同サイズ（強弱は先頭配置＋実案件バッジで担保する。
-// サイズ差はサムネのパノラマ切り抜きを生み、作品が見えなくなるため廃止）
+// 同じグリッド内のカードは全て同サイズ・同比率（16:10）。
+// 1枚だけ span で広げるとサムネがパノラマ切り抜きになり作品が見えなくなるため、
+// 強弱はグリッド単位（主作品2列／その他3列）で付ける
+
+// 主作品はカードが大きくなるぶん、題も一段上げる（20px → 24px）
+.p-top-works__grid:not(.p-top-works__grid--sub) .c-card__title {
+  @include mq("lg") {
+    font-size: var(--text-title);
+  }
+}
 
 // subgrid 整列の受け（詳細は components/_card.scss のsubgridセクション）
 // li が親グリッドの行5本を借り、c-card がさらにそれを継ぐ2段subgrid。

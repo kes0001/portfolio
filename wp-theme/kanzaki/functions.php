@@ -16,6 +16,8 @@ require_once get_theme_file_path( 'inc/cpt-works.php' );
 require_once get_theme_file_path( 'inc/block-bindings.php' );
 require_once get_theme_file_path( 'inc/card-tags.php' );
 require_once get_theme_file_path( 'inc/adjacent-works.php' );
+require_once get_theme_file_path( 'inc/pager-thumbs.php' );
+require_once get_theme_file_path( 'inc/hero-works.php' );
 require_once get_theme_file_path( 'inc/acf-works.php' );
 require_once get_theme_file_path( 'inc/title-breaks.php' );
 require_once get_theme_file_path( 'inc/work-buttons.php' );
