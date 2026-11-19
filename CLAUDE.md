@@ -16,13 +16,14 @@
 - 現行のBootstrapテンプレート版をフルスクラッチでリニューアルする
 - テンプレート不使用・自前のコーディングルールに基づく実装そのものを「作品」として見せる
 - 作品カードは「担当範囲」1行まで（ラベルなし・ミュート小文字）。「工夫」は詳細ページが語る——一覧の仕事は見つけて選ばせること（制作期間は記載しない方針）
-- 詳細な制作プロセスは各作品の詳細ページ（`works/*.html`）へリンク（サマリーはカード側に書く）
+- 詳細な制作プロセスは各作品の詳細ページ（WPのカスタム投稿 works）へリンク（サマリーはカード側に書く）
+- 静的HTML版（`index.html`・`works/*.html`・`css/style.css`）は 2026-11 に削除済み。サイトの実体は WPテーマ（`wp-theme/kanzaki/`）だけ。最後の状態は git タグ `static-final` にある
 
 ## 技術スタック
 
 | 項目           | 内容                  |
 | -------------- | --------------------- |
-| フレームワーク | HTML+CSS（静的）      |
+| フレームワーク | WordPressブロックテーマ（`wp-theme/kanzaki/`） |
 | スタイリング   | SCSS                  |
 | リセットCSS    | kiso.css（tak-dcxi）  |
 
@@ -33,9 +34,9 @@
 ```
 portfolio/
 ├── CLAUDE.md
-├── index.html
-├── favicon.svg           ← 手書きSVGファビコン
-├── works/                ← 作品詳細ページ（*.html）と実物サイト一式
+├── wp-theme/kanzaki/     ← WPブロックテーマ（サイトの実体。Localへはシンボリックリンク）
+├── favicon.svg           ← 手書きSVGファビコン（テーマへコピーする元）
+├── works/                ← 作品の実物サイト一式（本番 /demo/ の元。詳細ページはWP側）
 ├── docs/
 │   └── coding-rules.md   ← コーディングルール（ほぐしの森から流用）
 ├── scss/
@@ -46,10 +47,11 @@ portfolio/
 │   ├── utilities/        ← u-sr-only 等（@layer 最終層）
 │   └── style.scss        ← @layer 宣言と各層への読み込み（meta.load-css）
 ├── css/
-│   └── reset.css         ← kiso.css（style.css に @layer reset として内包される）
-├── images/               ← WebP最適化済み画像・ogp.png・apple-touch-icon.png
+│   └── reset.css         ← kiso.css（テーマの style.css に @layer reset として内包される）
+├── images/               ← WebP最適化済み画像・ogp.png・apple-touch-icon.png（テーマ・WPメディアの元）
+├── fonts/                ← Roboto可変フォント（テーマへコピーする元）
 └── js/
-    └── main.js
+    └── main.js           ← テーマへコピーする元
 ```
 
 ## 実装済みの技術要素（ルールと実装を一致させること）
@@ -58,15 +60,16 @@ portfolio/
 - カラートークンは `oklch()`（ライトテーマ固定。ダークモードは過剰と判断し廃止済み）
 - 画像は WebP（`<picture>`）。OGP・favicon・canonical・JSON-LD 整備済み
 - WordPressブロックテーマ版が `wp-theme/kanzaki/`（Localの portfolio-site で稼働。作品はCPT「works」）
-- タイトルの折り返しは `word-break: keep-all`＋語境界ヒント方式（静的= `<wbr>`、WP= `inc/title-breaks.php` の the_title フィルタが表示時にゼロ幅スペースを挿入。DBは素のまま）。新作品でタイトルが語中で折れたら辞書に追記する
+- タイトルの折り返しは `word-break: keep-all`＋語境界ヒント方式（`inc/title-breaks.php` の the_title フィルタが表示時にゼロ幅スペースを挿入。DBは素のまま）。新作品でタイトルが語中で折れたら辞書に追記する
 
 ---
 
 ## よく使うコマンド
 
 ```bash
-npm run sass        # SCSSを監視コンパイル
-npm run sass:build  # SCSSを1回コンパイル（圧縮）
+npm run wp:css:watch  # SCSSを監視コンパイル（テーマの assets/css/style.css へ）
+npm run wp:css        # SCSSを1回コンパイル（圧縮）
+npm run wp:build      # CSS＋JS・画像・フォントをテーマへ書き出し
 ```
 
 ---

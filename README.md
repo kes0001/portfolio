@@ -24,15 +24,14 @@ Webデザイナー・コーダー 神﨑勝弘のポートフォリオサイト�
 
 ## 静的版について
 
-`index.html` と `works/*.html` は、WordPress化する前に作った静的HTML版です。コードの見本として残しており、**2026年11月で更新を止めました**。最新の内容は WordPress テーマ（`wp-theme/kanzaki/`）にあります。
+WordPress化する前に作った静的HTML版（`index.html` と `works/*.html`）は、2026年11月に更新を止め、リポジトリから削除しました。最後の状態は git タグ `static-final` で見られます。公開中のサイトは WordPress テーマ（`wp-theme/kanzaki/`）です。
 
 ## ディレクトリ
 
 ```
 wp-theme/kanzaki/           WordPressブロックテーマ（公開中のサイト）
-index.html / works/*.html   静的HTML版（更新停止。works/ の下に各作品の実物サイト）
-scss/                       foundation / layout / components / pages / utilities
-css/style.css               静的版のコンパイル済みCSS
+scss/                       foundation / layout / components / pages / utilities（テーマのCSSの元）
+works/                      各作品の実物サイト
 docs/                       コーディングルール・デザインルール
 ```
 
